@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="sixeightforms">
+		<field name="fID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="dateCreated" type="C" size="255" />
+		<field name="name" type="C" size="255" />
+		<field name="handle" type="C" size="255" />
+		<field name="sendMail" type="I" />
+		<field name="sendData" type="I" />
+		<field name="mailFrom" type="C" size="255" />
+		<field name="mailFromAddress" type="C" size="255" />
+		<field name="mailTo" type="C" size="255" />
+		<field name="mailCc" type="C" size="255" />
+		<field name="mailBcc" type="C" size="255" />
+		<field name="mailSubject" type="C" size="255" />
+		<field name="afterSubmit" type="C" size="255" />
+		<field name="thankyouCID" type="I" />
+		<field name="thankyouMsg" type="X2" />
+		<field name="thankyouURL" type="X" />
+		<field name="submitLabel" type="C" size="255" />
+		<field name="maxSubmissions" type="I" />
+		<field name="fieldLabelLocation" type="C" size="255" />
+		<field name="confirmationField" type="I" />
+		<field name="confirmationFrom" type="C" size="255" />
+		<field name="confirmationFromAddress" type="C" size="255" />
+		<field name="confirmationSubject" type="C" size="255" />
+		<field name="confirmationEmail" type="X2" />
+		<field name="gateway" type="C" size="255" />
+		<field name="currencySymbol" type="C" size="10" />
+		<field name="ecommerceConfirmation" type="X2" />
+		<field name="captcha" type="I" />
+		<field name="isDeleted" type="I">
+			<default value="0" />
+		</field>
+		<field name="requiredIndicator" type="C" size="255" />
+		<field name="requiredColor" type="C" size="6" />
+		<field name="defaultAnswerSetStatus" type="I">
+			<default value="0" />
+		</field>
+		<field name="autoCreatePage" type="I">
+			<default value="0" />
+		</field>
+		<field name="detailTemplateID" type="I" />
+		<field name="parentCID" type="I" />
+		<field name="ctID" type="C" size="255" />
+		<field name="cName" type="I" />
+		<field name="cHandle" type="I" />
+		<field name="cDescription" type="I" />
+		<field name="meta_title" type="I" />
+		<field name="meta_description" type="I" />
+		<field name="meta_keywords" type="I" />
+		<field name="exclude_nav" type="I">
+			<default value="0" />
+		</field>
+		<field name="disableCache" type="I">
+			<default value="0" />
+		</field>
+		<field name="maximumPrice" type="N" size="14.2"/>
+		<field name="sendApprovalNotification" type="I">
+			<default value="0" />
+		</field>
+		<field name="ownerCanEdit" type="I">
+			<default value="0" />
+		</field>
+		<field name="ownerCanDelete" type="I">
+			<default value="0" />
+		</field>
+		<field name="oneRecordPerUser" type="I">
+			<default value="0" />
+		</field>
+		<field name="autoIndex" type="I">
+			<default value="0" />
+		</field>
+		<field name="useHTML5" type="I">
+			<default value="0" />
+		</field>
+		<field name="indexTimestamp" type="C" size="255" />
+		<field name="exportTimestamp" type="C" size="255" />
+		<field name="passRecordID" type="I">
+			<default value="0" />
+		</field>
+		<field name="recordIDParameter" type="C" size="255" />
+		<field name="autoExpire" type="I">
+			<default value="0" />
+		</field>
+	</table>
+	
+	<table name="sixeightformsPermissions">
+		<field name="fpID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="gID" type="I" />
+		<field name="addRecords" type="I" />
+		<field name="editRecords" type="I" />
+		<field name="deleteRecords" type="I" />
+		<field name="approveRecords" type="I" />
+	</table>
+	
+	<table name="sixeightformsFields">
+		<field name="ffID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="label" type="C" size="255" />
+		<field name="handle" type="C" size="255" />
+		<field name="text" type="X2" />
+		<field name="type" type="C" size="255" />
+		<field name="defaultValue" type="X2" />
+		<field name="width" type="C" size="255" />
+		<field name="height" type="C" size="255" />
+		<field name="maxLength" type="C" size="255" />
+		<field name="layout" type="C" size="255" />
+		<field name="format" type="C" size="255" />
+		<field name="toolbar" type="I" />
+		<field name="groupWithPrevious" type="I" />
+		<field name="required" type="I" />
+		<field name="sortPriority" type="I"/>	
+		<field name="price" type="N" size="14.2"/>
+		<field name="qtyStart" type="I" />	
+		<field name="qtyEnd" type="I" />	
+		<field name="qtyIncrement" type="I" />
+		<field name="eCommerceName" type="C" size="255" />
+		<field name="isExpirationField" type="I">
+			<default value="0" />
+		</field>
+		<field name="dateFormat" type="C" size="255" />
+		<field name="isDeleted" type="I">
+			<default value="0" />
+		</field>
+		<field name="indexable" type="I" />
+		<field name="requireUnique" type="I" />
+		<field name="fsID" type="I" />
+		<field name="urlParameter" type="C" size="255" />
+		<field name="populateWith" type="C" size="255" />
+		<field name="cssClass" type="C" size="255" />
+		<field name="containerCssClass" type="C" size="255" />
+		<field name="timeInterval" type="I" />
+		<field name="autoPopulateFieldID" type="I" />
+		<field name="excludeFromEmail" type="I">
+			<default value="0" />
+		</field>
+		<field name="minYear" type="C" size="255" />
+		<field name="maxYear" type="C" size="255" />
+		<field name="validateSection" type="I" />
+	</table>
+	<table name="sixeightformsOptions">
+		<field name="oID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="ffID" type="I" />
+		<field name="value" type="C" size="255" />
+	</table>
+	<table name="sixeightformsAlternateOptionGroups">
+		<field name="ogID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="ffID" type="I" />
+		<field name="name" type="C" size="255" />
+	</table>
+	<table name="sixeightformsAlternateOptions">
+		<field name="oID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="ogID" type="I" />
+		<field name="ffID" type="I" />
+		<field name="value" type="C" size="255" />
+	</table>
+	<table name="sixeightformsFieldsets">
+		<field name="fsID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="name" type="C" size="255" />
+	</table>
+	<table name="sixeightformsAnswerSets">
+		<field name="asID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="recordID" type="I" />
+		<field name="fID" type="I" />
+		<field name="dateSubmitted" type="C" size="255" />
+		<field name="dateUpdated" type="C" size="255" />
+		<field name="ipAddress" type="C" size="255" />
+		<field name="creator" type="I">
+			<default value="0" />
+		</field>
+		<field name="editCode" type="C" size="255" />
+		<field name="amountCharged" type="N" size="10.2">
+			<default value="0.00" />
+		</field>
+		<field name="amountPaid" type="N" size="10.2">
+			<default value="0.00" />
+		</field>
+		<field name="isApproved" type="I">
+			<default value="0" />
+		</field>
+		<field name="isDeleted" type="I">
+			<default value="0" />
+		</field>
+		<field name="expiration" type="C" size="255" />
+		<field name="cID" type="I" />
+		<field name="searchIndex" type="X2" />
+		<field name="matchingFilters" type="C" size="255" />
+		<field name="gatewayResponse" type="X2" />
+		<field name="newASID" type="I" />
+	</table>
+	<table name="sixeightformsAnswers">
+		<field name="aID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="asID" type="I" />
+		<field name="ffID" type="I" />
+		<field name="value" type="X2" />
+	</table>
+	<table name="sixeightformsFilters">
+		<field name="filterID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="ffID" type="I" />
+		<field name="value" type="X2" />
+	</table>
+	<table name="sixeightformsAnswerSetCache">
+		<field name="ascID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="pageNum" type="I" />
+		<field name="pageSize" type="I" />
+		<field name="startDate" type="C" size="255" />
+		<field name="endDate" type="C" size="255" />
+		<field name="filters" type="C" size="255" />
+		<field name="searchQuery" type="C" size="255" />
+		<field name="sortOrder" type="C" size="255" />
+		<field name="sortField" type="I" />
+		<field name="requireOwnership" type="I" />
+		<field name="requireApproval" type="I" />
+		<field name="includeExpired" type="I" />
+	</table>
+	<table name="sixeightformsNotifications">
+		<field name="nID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="ffID" type="I" />
+		<field name="conditionType" type="C" size="255" />
+		<field name="value" type="C" size="255" />
+		<field name="sendData" type="I" />
+		<field name="email" type="X" />
+	</table>
+	<table name="sixeightformsStyles">
+		<field name="sID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="name" type="C" size="255" />
+		<field name="description" type="X" />
+	</table>
+	<table name="sixeightformsStylesSelectors">
+		<field name="ssID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="sID" type="I" />
+		<field name="name" type="C" size="255" />
+		<field name="css" type="X" />
+		<field name="description" type="X" />
+		<field name="required" type="I" />
+	</table>
+	<table name="sixeightformsRules">
+		<field name="rID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="ffID" type="I" />
+		<field name="comparison" type="C" size="255" />
+		<field name="value" type="C" size="255" />
+		<field name="action" type="C" size="255" />
+		<field name="actionField" type="I" />
+		<field name="ogID" type="I" />
+	</table>
+</schema>

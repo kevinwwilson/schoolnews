@@ -1,0 +1,103 @@
+Data driven snippets:
+
+Home page article 
+<!-- slide-block -->
+	<div class="slide-block-noborder">
+		<ul class="slideshow">
+			<li>
+				<img src="<?php print $this->getThemePath(); ?>/images/img4.jpg" alt="image description" >
+				<strong class="title">PHOTO CAPTION HERE</strong>
+			</li>
+		</ul>
+	</div>
+	<!-- post -->
+	<article class="post">
+		<h1>LOREM IPSUM DOLOR SIT AMET DOLOR AMET SIT LOREM</h1>
+		<strong class="date">Feb. 15 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+		<a href="#" class="more">READ FULL STORY &raquo;</a>
+		<a href="#" class="comments">86</a>
+	</article>
+					
+					
+Home page featurettes
+	<div class="box">
+			<strong class="title">Kentwood Welcomes Rhodes Scholar</strong>
+			<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">more &raquo;</a></p>
+			<a href="#" class="comments">35</a>
+	</div>
+	<div class="box">
+		<strong class="title">Byron Center First Graders Break Record</strong>
+		<strong class="date">Jan. 13 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. <a href="#" class="more">more &raquo;</a></p>
+		<a href="#" class="comments">20</a>
+	</div>
+	<div class="box">
+		<strong class="title">Rockford CHAMBER’S “SHADOW DAY” CONNECTS WITH 100+ STUDENTS</strong>
+		<strong class="date">Dec. 20 2012 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">more &raquo;</a></p>
+		<a href="#" class="comments">13</a>
+	</div>
+	
+Regional Photos - home page:
+<img src="<?php print $this->getThemePath(); ?>/images/img5.jpg" alt="image description">
+6, 7, 8 - placeholder photos
+
+Regional Headlines - home page:
+	<li><a href="#">Lorem ipsum dolor</a></li>
+	<li><a href="#">Dolor sit amet lorem</a></li>
+	<li><a href="#">Amet dolor</a></li>
+	<li class="active"><a href="#">Ipsum dolor sit amet</a></li>
+	<li><a href="#">Lorem ipsum dolor</a></li>
+
+	
+News by Region - Regional Headline - 16, 17, 18 19 - images
+<div class="text-holder">
+	<a href="#"><img src="images/img16.jpg" alt="image description"></a>
+	<h3><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h3>
+	<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">More &raquo;</a></p>
+	</div>
+	
+News by Region - Regional List
+	<li>
+		<h3><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h3>
+		<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">More &raquo;</a></p>
+	</li>
+	<li>
+		<h3><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h3>
+		<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">More &raquo;</a></p>
+	</li>
+	<li>
+		<h3><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h3>
+		<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">More &raquo;</a></p>
+	</li>
+	<li>
+		<h3><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h3>
+		<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. <a href="#" class="more">More &raquo;</a></p>
+	</li>
+
+	
+News List
+	<li>
+		<h2><a href="#">LOREM IPSUM DOLOR SIT AMET DOLOR SIT</a></h2>
+		<strong class="date">Feb. 01 2013 by firstname lastname</strong>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus.</p>
+		<a href="#" class="more">More &raquo;</a>
+	</li>
+	
+	
+News List Paging
+	<nav>
+		<ul class="paging">
+			<li><a href="#">&lt;</a></li>
+			<li class="active"><span>1</span></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">&gt;</a></li>
+		</ul>
+	</nav>

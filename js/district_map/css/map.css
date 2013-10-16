@@ -1,0 +1,88 @@
+/* ------ map
+-----------------------------------------------*/
+#map-container {
+ position:relative;
+width: 260px;
+height:380px;
+background: url(../images/bg.png)  no-repeat;
+float: left;
+}
+
+.mapWrapper {
+margin:0 auto;
+position:relative;
+}
+
+#map {
+ position:absolute;
+float:left;
+margin-top:0px;
+margin-left:-20px;
+clear:both;
+z-index:  100;
+}
+
+
+.point {
+position:fixed;
+display:none;
+padding:5px 10px;
+background:#fff;
+font-size:14px;
+border:1px solid #909090;
+z-index:  150;
+}
+
+#text {
+ position:absolute;
+ left:0px;
+ top:0px;
+ color:#444444;
+overflow:hidden;
+ width:260px;
+ height:370px;
+ overflow: auto;
+ background-color: white;
+   z-index:300;
+  font-size:11px;
+}
+.close{
+  position: absolute;
+  right:20px;
+  top:10px;
+  z-index:800;
+  background: transparent url(../images/close_btn.png) no-repeat;
+  width:22px;
+  height:22px;
+  cursor:pointer;
+  display:none;
+}
+.close:hover{
+  background-position: 0 -21px;
+}
+
+#text h1{
+   font-size:14px;
+   font-weight:bold;
+   color:#444444;
+   margin-bottom:-15px;
+   margin-top:-10px;
+}
+
+#text a{
+  text-decoration: underline; color:#006FFF; font-size:11px; cursor:pointer;
+}
+
+
+
+.mapWrapper img {
+float: left;
+padding-right: 5px;
+padding-top: 2px;
+}
+
+.mapWrapper ul{
+margin-left: 30px;
+}
+
+

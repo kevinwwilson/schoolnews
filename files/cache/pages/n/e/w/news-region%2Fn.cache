@@ -1,0 +1,293 @@
+O:15:"PageCacheRecord":4:{s:7:"expires";i:1381845168;s:14:"cacheRecordKey";s:15:"news-region%2Fn";s:7:"headers";a:4:{i:0;s:14:"Pragma: public";i:1;s:27:"Cache-Control: s-maxage=900";i:2;s:26:"Cache-Control: max-age=900";i:3;s:36:"Expires: Tue, 15 Oct 2013 13:52: GMT";}s:7:"content";s:14034:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width" />
+	
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>School News Network :: North</title>
+<meta name="description" content="" />
+<meta name="generator" content="concrete5 - 5.6.1.2" />
+<script type="text/javascript">
+var CCM_DISPATCHER_FILENAME = '/index.php';var CCM_CID = 146;var CCM_EDIT_MODE = false;var CCM_ARRANGE_MODE = false;var CCM_IMAGE_PATH = "/concrete/images";
+var CCM_TOOLS_PATH = "/index.php/tools/required";
+var CCM_BASE_URL = "http://snn.foxbrightdemo.com";
+var CCM_REL = "";
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="/concrete/css/ccm.base.css?v=d17b6cb864188072eb116c1f2286f088" />
+<script type="text/javascript" src="/concrete/js/jquery.js?v=d17b6cb864188072eb116c1f2286f088"></script>
+<script type="text/javascript" src="/concrete/js/ccm.base.js?v=d17b6cb864188072eb116c1f2286f088"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
+	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+	<style type="text/css">@import "/concrete/css/ccm.app.css";</style>
+	<link media="all" rel="stylesheet" type="text/css" href="/themes/kent-news/css/all.css" />
+	<link rel="stylesheet" type="text/css" href="/files/cache/css/kent-news/css/typography.css" />
+	<link rel="stylesheet" type="text/css" href="/files/cache/css/kent-news/css/forms.css" />
+	<script type="text/javascript" src="/themes/kent-news/js/jquery.main.js"></script>
+	<script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
+	<script type="text/javascript" src="/themes/kent-news/js/respond.min.js"></script>
+	<script type="text/javascript" src="/themes/kent-news/js/ie.js"></script>
+	<style type="text/css">@import "/concrete/css/ccm.app.css";</style>
+	
+	<script>
+	$(document).ready(function(){
+				$('.slideshow').hoverIntent({
+					 over: startHover,
+					 out: endHover,
+					 timeout: 1500
+				});
+
+				//Then define the functions to handle over and out
+
+				 function startHover(e){
+					$('.slideshow .caption').slideDown(300);
+				 }
+
+				 function endHover(){
+					 $('.slideshow .caption').fadeOut(1500);
+				 }
+				 
+
+				jQuery('.approve-answer-link').each(function(i) {
+					if (jQuery (this).text() == 'Unapprove') {
+						jQuery(this).parent().addClass('Approved-Article');
+					}
+				});
+				 
+		});			
+	</script>
+	
+</head>
+<body>
+	<!-- Facebook  Include the JavaScript SDK on your page once, ideally right after the opening <body> tag.-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=378843365553326";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- wrapper -->
+	<div id="wrapper">
+		<div class="wrapper-holder">
+			<!-- header -->
+			<header id="header">
+			
+			
+				<!-- header-holder - ARD banner -->
+				<div class="header-holder">
+				
+				
+					
+<div id="HTMLBlock15" class="HTMLBlock">
+<script type='text/javascript' id='UNITEBanner'
+src='http://www.UNITESchools.com/UNITEBanner/UNITE-Banner.js'></script>
+
+<script type='text/javascript'> UNITEBannerStep1('USMIKENTISD'); </script>
+
+<script type='text/javascript'> UNITEBannerStep2(); </script>
+
+<script type='text/javascript'> UNITEBannerStep3(); </script>
+
+<script type='text/javascript'> UNITEBannerStep4(); </script></div>					
+					
+				</div>
+				
+				
+				
+				<div class="header-frame">
+					<!-- logo -->
+					<strong class="logo"><a href="/">school news network</a></strong>
+					<!-- navigation -->
+					<nav>
+						<!-- Main Nav -->
+							<div id="nav" class=" ccm-block-styles" >
+<ul class="nav"><li class="nav-path-selected"><a href="/index.php/news-region/" target="_self" class="nav-path-selected">News By Region</a></li><li class=""><a href="/index.php/about/" target="_self" class="">About</a></li><li class=""><a href="/index.php/districts/" target="_self" class="">Districts</a></li><li class=""><a href="/index.php/news/" target="_self" class="">News</a></li></ul></div>					</nav>
+				</div>
+			</header>			<!-- main -->
+			<div id="main">
+				<!-- content -->
+				<section id="content">
+					<!-- news-block -->
+					<div class="news-block">
+						<!-- heading -->
+						<header class="heading heading-box">
+							<h1><span>North</span></h1>
+						</header>
+						<!-- news-list-block -->
+						<aside class="news-list-block">
+							<ul class="news-list">
+											<li>
+	<h2 class="ccm-page-list-title"><a href="/index.php/news/feeding-hungry-students/">FEEDING HUNGRY STUDENTS</a></h2>    
+    <strong class="date">by As a school secretary</strong>    
+	<p>
+    <span class="dateline">Kent City Community Schools — </span>
+		As a school secretary, Robin DeLine notices the needs of students who walk into her office -- especially the hungry ones. One day she began wondering how she could help those hungry children        <br/>
+       <a href="/index.php/news/feeding-hungry-students/">More »</a> 
+	</p>
+	</li>
+	<li>
+	<h2 class="ccm-page-list-title"><a href="/index.php/news/katelyn-bowman-college-glass-slipper/">For Katelyn Bowman, College is a Glass Slipper</a></h2>    
+    <strong class="date">by Charles Honey</strong>    
+	<p>
+    <span class="dateline">Kent City Community Schools — </span>
+		Katelyn Bowman loved Cinderella. As a child she watched the movie over and over, and wore her Cinderella costume every Halloween.
+
+It’s no mystery why Katelyn identified with hard work. “She was like the house maid,” says the Kenowa Hills High School senior. “She was taking care of stuff and that’s how I am now        <br/>
+       <a href="/index.php/news/katelyn-bowman-college-glass-slipper/">More »</a> 
+	</p>
+	</li>
+
+			<div class="backlink" style="float: right; font-size: 9px;">
+				built with <a href="http://codestrat.com" alt="CodeStrat concrete5 addon addons packages blocks" title="CodeStrat.com Concrete5 Addons">CodeStrat.com</a> products.			</div>
+			<div class="rssIcon">
+				Get this feed &nbsp;<a href="/index.php/tools/blocks/pronews_list/rss?bID=767&cID=146&arHandle=News List" target="_blank"><img src="http://snn.foxbrightdemo.com/blocks/pronews_list/rss.png" alt="codestrat concrete5 addon development" title="CodeStrat Concrete5 Addon Development" width="14" height="14" /></a>
+			</div>
+			<link href="/index.php/tools/blocks/pronews_list/rss?bID=767&cID=146&arHandle=News List" rel="alternate" type="application/rss+xml" title="North Regional News" />
+									</ul>
+						</aside>
+					</div>
+				</section>
+				<!-- sidebar -->
+				<aside id="sidebar">
+					<span id="today"> October 15, 2013 </span>
+				
+					<!-- links-box -->
+						<section class="links-box">	<div id="blockStyle23Main11" class="hidden ccm-block-styles" >
+<h2>Quick Links</h2></div>	<div id="blockStyle105Main12" class="hidden ccm-block-styles" >
+
+<ul class="ccm-manual-nav">
+	
+	<li class="">
+		<a href="/index.php/about/" class="">
+			About		</a>
+	</li>
+
+	
+	<li class="nav-path-selected">
+		<a href="/index.php/news-region/" class="nav-path-selected">
+			News By Region		</a>
+	</li>
+
+</ul>
+</div></section>						
+						
+						
+					<!-- info-box -->
+						
+					<!-- sponsors -->
+					<p><img src="/files/cache/3d48ca75971ad30baac9b83d1a1aff47_f198.gif" alt="Rademacher-w-background.gif" width="160" height="184" /></p>
+<h4>See Tom Rademacher's first SNN column on <a href="http://snn.foxbrightdemo.com/news/?rID=799">Bill Fetterhoff, Godwin Heights chief</a> who journeyed from school custodian to superintendent...<br /><br /></h4><h2>Survey Results...</h2>
+<h4><strong><span style="color: #888888;">Which school experience was your favorite?</span></strong></h4>
+<h4><strong><span style="color: #888888;">Elementary 25%</span></strong></h4>
+<h4><strong><span style="color: #888888;">Middle School 12.5%</span></strong></h4>
+<h4><strong><span style="color: #888888;">High School 62.5%</span></strong></h4>
+<h3> </h3>	<div id="blockStyle432Main13" class="text box ccm-block-styles" >
+<h2><br />Kids Answer...</h2>
+<h3><em><strong>What does a Superintendent do? </strong></em></h3>
+<p>"They are the big boss."</p>
+<p>"They make sure we are safe and don't skip school." </p></div>	<div id="blockStyle305Main8" class="text-box ccm-block-styles" >
+
+<div id="HTMLBlock305" class="HTMLBlock">
+<h2>Weather</h2>				
+<link rel="stylesheet" type="text/css" media="screen" href="http://img.weather.weatherbug.com/Style/stickers/v2/Stickers_180x150.css" /> 
+<style>
+.wXlinks .footer {
+    margin-top: 5px;
+}
+</style>
+<div class="wXbody">
+<iframe id="WeatherBugSticker_180x150_v2" src="http://weather.weatherbug.com/desktop-weather/web-widgets/getSticker.html?ZipCode=49503&ZCode=z5545&Size=180x150&StationID=KGRR&units=0&Version=2&lang_id=en-us" width="174" height="96" frameborder="0" scrolling="no" allowtransparency="yes"></iframe>
+<div class="wXlinks">
+<span class="link"><a href="http://weather.weatherbug.com/weather-forecast.html" target="_blank" onclick="Javascript:this.href='http://weather.weatherbug.com/MI/Grand Rapids-weather/local-forecast/7-day-forecast.html?zcode=z5545&units=0'">Forecast</a></span>
+<span class="link"><a href="http://weather.weatherbug.com/doppler-radar.html" target="_blank" onclick="Javascript:this.href='http://weather.weatherbug.com/MI/Grand Rapids-weather/local-radar/doppler-radar.html?zcode=z5545&units=0'">Radar</a></span>
+<span class="link"><a href="http://weather.weatherbug.com/weather-cams.html" target="_blank" onclick="Javascript:this.href='http://weather.weatherbug.com/MI/Grand Rapids-weather/weather-cams/local-cams.html?zcode=z5545&units=0'">Cameras</a></span>
+<span class="link"><a href="http://weather.weatherbug.com/weather-photos/photo-gallery.html" target="_blank" onclick="Javascript:this.href='http://weather.weatherbug.com/weather-photos/photo-gallery.html?zcode=z5545&units=0&zip=49503'">Photos</a></span>
+<div class="footer">
+<a href="http://weather.weatherbug.com/default.html" target="_blank" onclick="Javascript:this.href='http://weather.weatherbug.com/MI/Grand Rapids-weather.html?zcode=z5545&units=0'"><img src="http://img.weather.weatherbug.com/images/stickers/v2/180x150/wxbug-logo.jpg"  border="0" alt="WeatherBug" /></a></div>
+</div>
+</div>
+					   
+							</div></div><h2><em> It's Out There...</em></h2>
+<h3><img src="/files/cache/4d2c9ee8c6523030c05bff3fce32672a_f34.jpg" alt="Koehler_headshot_2.jpg" width="101" height="146" /></h3>
+<h3>by Ron Koehler</h3>
+<p><a title="Ron's Column" href="/index.php/about/rons-column/"><strong>Can Common Sense Save the Common Core?</strong></a><br />"There you go again!" This phrase, made famous by Republican Candidate Ronald Reagan in his 1980 debate with incumbent President Jimmy Carter, leapt to mind this week when the Legislature passed a budget barring the Department of Education from implementing the Common Core State Standards... <strong></strong></p>					
+					<!-- any additional per-page content -->
+										
+					
+				</aside>			</div> <!-- end main -->
+			<!-- footer -->
+			<footer id="footer">
+			
+				<div class="footer-holder">
+					<!-- search-form -->
+					<form action="/index.php/search" method="get" class="search-form">
+						<fieldset>
+							<input type="text" name="q" />
+							<input type="submit" value="Submit" />
+						</fieldset>
+					</form>
+					<!-- social-networks -->
+					<ul class="social-networks">
+						
+<div id="HTMLBlock485" class="HTMLBlock">
+<li><a class="twitter" href="https://twitter.com/SNNKent" target="_blank">twitter</a></li>
+<li><a class="facebook" href="https://www.facebook.com/SchoolNewsNetwork"  target="_blank">facebook</a></li>
+<li><a class="rss" href="/rss">rss</a></li>
+<li><a class="contact" href="mailto:snn@kentisd.org"></a></li>
+<li><a class="newsletter" href="/newsletter" target="_blank">Weekly Headlines</a></li>
+</div>					</ul>
+				</div> <!-- end footer-holder -->
+				
+				
+				
+				<div class="footer-frame">
+					<!-- footer-nav -->
+					<nav>
+						<div id="blockStyle59Main6" class="footer-nav ccm-block-styles" >
+<ul class="nav"></ul></div>						<ul class="login footer-nav">
+							<li>
+																<a href="/index.php/login/">:&nbsp;:</a>
+															</li>
+						</ul>
+					</nav>
+				</div> <!-- end footer-frame-->
+				<div class="footer-text">
+					<div class="address">
+							<p><a href="http://www.kentisd.org/" target="_blank">Kent ISD</a> | 2930 Knapp NE | Grand Rapids MI 49525 | <a href="mailto:snn@kentisd.org" target="_blank">snn@kentisd.org </a></p>					</div>
+					<div class="notice">
+						<p>School News Network is funded exclusively with advertising dollars and developed in collaboration with Kent ISD and our districts.</p>
+					</div>
+				</div>
+				
+				
+			</footer>
+			
+			
+			
+		</div> <!-- end wrapper-holder -->
+	</div> <!-- end wrapper -->
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40614927-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>	<script>
+		FB.Event.subscribe('edge.create', function(href, widget) {
+			_gaq.push(['_trackSocial', 'facebook', 'like']);
+		});
+	</script>
+</body>
+</html>";}

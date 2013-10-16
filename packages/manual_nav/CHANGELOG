@@ -1,0 +1,5 @@
+1.3 - Cleaned up view.php by moving current-page calculations into controller; link collection object now sent to view so additional attributes can be retrieved in the loop; fixed bug when displaying link to home page.
+1.2 - Concrete5.5 compatibility, edit pane style tweaks
+1.1 - Added css classes to denote active items
+1.0.1 - Fixed conflict with page_redirect addon
+1.0 - Initial Release

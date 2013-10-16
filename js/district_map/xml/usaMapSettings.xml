@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+
+<mapSettings
+
+
+
+offColor = "383838"
+strokeColor = "383838"
+
+useSideText = "true"
+textAreaWidth = "260" 
+textAreaPadding = "20"
+
+/>
+
+<defaultSideText>
+ <![CDATA[]]>
+</defaultSideText>
+
+<stateData stateName="Sparta" url = "http://www.remc1.org" stateMode = "ON" initialStateColor= "64328D" stateOverColor = "64328D" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Sparta</h1><br />
+Website: <a href="http://www.spartaschools.org/" target="_blank">http://www.spartaschools.org/</a>
+<br><br>]]>
+</stateData>
+
+<stateData stateName="Kent City" url = "http://www.charemisd.org" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Kent City</h1><br/>
+Website: <a href="http://www.kentcityschools.org/" target="_blank">http://www.kentcityschools.org/</a>
+<br/><br/>]]>
+</stateData>
+
+<stateData stateName="Thornapple Kellogg" url = "http://www.tbaisd.k12.mi.usb" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Thornapple Kellogg</h1><br/>
+Website: <a href="http://www.tkschools.org/Pages/districthome.aspx" target="_blank">http://www.tkschools.org/Pages/districthome.aspx</a>
+<br/><br/>]]>
+</stateData>
+
+<stateData stateName="Kentwood" url = "http://www.wmisd.org" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Kentwood</h1><br />
+Website:  <a href="http://www.kentwoodps.org/" target="_blank">http://www.kentwoodps.org/</a>
+<br/><br/>]]>
+</stateData>
+
+<stateData stateName="Cedar Springs" url = "http://www.remc3-9.org" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Cedar Springs</h1><br>
+Website: <a href="http://www.csredhawks.org/" target="_blank">http://www.csredhawks.org/</a>
+<br/><br/>]]>
+</stateData>
+
+<stateData stateName="East Grand Rapids" url = "http://www.muskegonisd.org" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>East Grand Rapids</h1><br />
+Website: <a href="http://www.egrps.org/"  target="_blank">http://www.egrps.org/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Forest Hills" url = "http://www.remc5.net" stateMode = "ON" initialStateColor= "64328D" stateOverColor = "64328D" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Forest Hills</h1><br />
+Website: <a href="http://www.fhps.net/"  target="_blank">http://www.fhps.net/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Grandville" url = "http://www.baisd.net" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Grandville</h1><br />
+Website: <a href="http://www.grandville.k12.mi.us/" target="_blank">http://www.grandville.k12.mi.us/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Wyoming" url = "http://www.remc7.org" stateMode = "ON" initialStateColor= "64328D" stateOverColor = "64328D" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Wyoming</h1><br />
+Website: <a href="http://www.wyoming.k12.mi.us/" target="_blank">http://www.wyoming.k12.mi.us/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="XXXX" url = "http://www.kentisd.org" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[ ]]>
+</stateData>
+
+<stateData stateName="Kelloggsville" url = "http://www.remc3-9.org" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Kelloggsville</h1><br />
+Website: <a href="http://www.kvilleps.org/cms/One.aspx" target="_blank">http://www.kvilleps.org/cms/One.aspx</a>
+<br />]]>
+</stateData>
+
+<stateData stateName="Godwin Heights" url = "http://www.remc10.org/" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Godwin Heights</h1><br />
+Website: <a href="http://godwin.mi.schoolwebpages.com/education/components/layout/default.php?sectiondetailid=1688&" target="_blank">http://godwin.mi.schoolwebpages.com/education/components/layout/default.php?sectiondetailid=1688&</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Grand Rapids" url = "http://www.berrienresa.org" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Grand Rapids</h1><br />
+Website: <a href="http://www.grps.k12.mi.us/" target="_blank">http://www.grps.k12.mi.us/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Northview" url = "http://kresa.schoolwires.com/105710619131639327/site/default.asp" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Northview</h1><br />
+Website: <a href="http://www.nvps.net/">http://www.nvps.net/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Kenowa Hills" url = "http://calhounisd.org/" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Kenowa Hills</h1><br />
+Website: <a href="http://khps.org/" target="_blank">http://khps.org/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Lowell" url = "http://remc13.org" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Lowell</h1><br />
+Website: <a href="http://www.lowell.k12.mi.us/education/components/scrapbook/default.php?sectionid=1" target="_blank">http://www.lowell.k12.mi.us/education/components/scrapbook/default.php?sectionid=1</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Caledonia" url = "http://www.sresd.org" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Caledonia</h1><br />
+Website: <a href="http://www.caledonia.k12.mi.us/" target="_blank">http://www.caledonia.k12.mi.us/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Godfrey Lee" url = "http://www.geneseeisd.org" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Godfrey Lee</h1><br />
+Website: <a href="http://www.godfrey-lee.org/pages/Godfrey-LeePS" target="_blank">http://www.godfrey-lee.org/pages/Godfrey-LeePS</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Rockford" url = "http://jcisd.org" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Rockford</h1><br />
+Website: <a href="http://www.rockfordschools.org/" target="_blank">http://www.rockfordschools.org/</a>
+<br /><br />]]>
+</stateData>
+
+<stateData stateName="Comstock Park" url = "http://wash.k12.mi.us" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Comstock Park</h1><br />
+Website: <a href="http://www.cppschools.com/" target="_blank">http://www.cppschools.com/</a>
+<br /> <br />]]>
+</stateData>
+
+<stateData stateName="Byron Center" url = "http://www.oakland.k12.mi.us" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7">
+<![CDATA[<h1>Byron Center</h1><br />
+Website: <a href="http://www.bcpsk12.net/" target="_blank">http://www.bcpsk12.net/</a>
+<br /> <br />]]>
+</stateData>
+
+ 
+
+
+</data>

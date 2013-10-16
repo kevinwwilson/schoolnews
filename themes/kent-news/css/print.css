@@ -1,0 +1,19 @@
+@media print {
+   #UNITEAdContainer,
+   #sidebar,
+   #footer,
+   #nav,
+   #print-button,
+   .comments-block {
+       display: none;
+    }
+    
+    
+    #content {
+        width: auto;
+        padding: 0;
+    }
+    
+    
+}
+

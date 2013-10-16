@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width" />
+	<title>SchoolNewsNetwork</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<link media="all" rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/all.css'); ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/typography.css')?>" />
+	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
+	<!--[if lt IE 9]><script type="text/javascript" src="js/respond.min.js"></script><![endif]-->
+	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+	
+	<?php Loader::element('header_required'); ?>
+</head>
+<body>
+	<!-- wrapper -->
+	<div id="wrapper">
+		<div class="wrapper-holder">
+			<!-- header -->
+			<header id="header">
+				<!-- header-holder -->
+				<div class="header-holder">
+					<a href="#"><img class="ad" src="<?php print $this->getThemePath(); ?>/images/img1.png" alt="image description"></a>
+					<div class="holder">
+						<a href="#"><img class="ad" src="<?php print $this->getThemePath(); ?>/images/img2.png" alt="image description"></a>
+						<a href="#"><img class="ad" src="<?php print $this->getThemePath(); ?>/images/img3.png" alt="image description"></a>
+					</div>
+				</div>
+				<div class="header-frame">
+					<!-- logo -->
+					<strong class="logo"><a href="#">school news network</a></strong>
+					<!-- navigation -->
+					<nav>
+						<ul id="nav">							<li><a href="#">district news</a></li>							<li><a href="#">about</a></li>							<li><a href="#">sports</a></li>						</ul>
+					</nav>
+				</div>
+			</header>
+			<!-- main -->
+			<div id="main">
+				<!-- content -->
+				<section id="content">
+					<!-- news-block -->
+					<div class="news-block">
+						<!-- heading -->
+						<header class="heading">
+							<h1><span>KENTWOOD PUBLIC SCHOOLS</span></h1>
+							<div class="search-box">
+								<label for="select1">DISTRICT:</label>
+								<select id="select1">
+									<option>SELECT</option>
+									<option>SELECT2</option>
+									<option>SELECT3</option>
+									<option>SELECT4</option>
+									<option>SELECT5</option>
+								</select>
+							</div>
+						</header>
+						<!-- article -->
+						<div class="article">
+							<div class="image-holder">
+								<img src="<?php print $this->getThemePath(); ?>/images/img20.jpg" alt="image description">
+								<strong class="title">CAPTION HERE</strong>
+							</div>
+							<h2>LOREM IPSUM DOLOR  SIT AMET DOLOR SIT AMET LOREM</h2>
+							<strong class="date">Feb. 15 2013 by firstname lastname</strong>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<div class="holder">
+								<h3>LOREM IPSUM</h3>
+								<div class="image-holder alignright">
+									<img src="<?php print $this->getThemePath(); ?>/images/img21.jpg" alt="image description">
+									<strong class="description">CAPTION HERE</strong>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							</div>
+						</div>
+						<!-- comments-block -->
+						<aside class="comments-block">
+							<nav class="info-bar">
+								<strong class="title">1-4 of 7 COMMENTS</strong>
+								<ul class="paging">									<li><a href="#">&lt;</a></li>									<li class="active"><span>1</span></li>									<li><a href="#">2</a></li>									<li><a href="#">&gt;</a></li>								</ul>
+							</nav>
+							<!-- comments-list -->
+							<ul class="comments-list">								<li>
+									<strong class="info">FEB 25, 2013 BY ANONYMOUS</strong>
+									<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus.”</p>
+								</li>								<li>
+									<strong class="info">FEB 24, 2013 BY ANONYMOUS</strong>
+									<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus.”</p>
+								</li>								<li>
+									<strong class="info">FEB 20, 2013 BY ANONYMOUS</strong>
+									<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus.”</p>
+								</li>								<li>
+									<strong class="info">FEB 19, 2013 BY ANONYMOUS</strong>
+									<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipiscing ut venenatis sit amet, bibendum non ante. Sed id rutrum metus.”</p>
+								</li>							</ul>
+							<nav class="info-bar">
+								<ul class="paging">
+									<li><a href="#">&lt;</a></li>
+									<li class="active"><span>1</span></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">&gt;</a></li>
+								</ul>
+							</nav>
+						</aside>
+						<!-- comments-form -->
+						<form action="#" class="comments-form">							<fieldset>								<h2>LEAVE COMMENT</h2>
+								<div class="holder">
+									<img src="<?php print $this->getThemePath(); ?>/images/form.png" alt="image description">
+								</div>
+							</fieldset>						</form>
+					</div>
+				</section>
+				<!-- sidebar -->
+				<aside id="sidebar">
+					<!-- links-box -->
+					<section class="links-box">
+						<h2>Quick Links</h2>
+						<ul>							<li><a href="#">Lorem ipsum dolor</a></li>							<li><a href="#">Dolor sit amet lorem</a></li>							<li><a href="#">Amet dolor</a></li>							<li class="active"><a href="#">Ipsum dolor sit amet</a></li>							<li><a href="#">Lorem ipsum dolor</a></li>						</ul>
+					</section>
+					<!-- info-box -->
+					<section class="info-box">
+						<h2>UPDATE</h2>
+						<img src="<?php print $this->getThemePath(); ?>/images/img9.jpg" alt="image description">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, ading ut venenatis sit amet.</p>
+						<a href="#" class="more">MORE &raquo;</a>
+					</section>
+					<!-- weather-box -->
+					<section class="weather-box">
+						<h2>WEATHER</h2>
+						<div class="holder">
+							<img src="<?php print $this->getThemePath(); ?>/images/img10.jpg" alt="image description">
+						</div>
+						<a class="more" href="#">DETAILED FORECAST &raquo;</a>
+						<a class="logo-box" href="#">LOGO</a>
+					</section>
+					<!-- text-box -->
+					<section class="text-box">
+						<h2>HEALTH & FITNESS</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipisct venenatis sit amet, ante. Sed id rutrum metus.</p>
+						<a class="more" href="#">More &raquo;</a>
+						<a class="logo-box" href="#">LOGO</a>
+					</section>
+					<!-- text-box -->
+					<section class="text-box">
+						<h2>FINANCES</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipisct venenatis sit amet, ante. Sed id rutrum metus.</p>
+						<a class="more" href="#">More &raquo;</a>
+						<a class="logo-box" href="#">LOGO</a>
+					</section>
+					<!-- text-box -->
+					<section class="text-box">
+						<h2>NUTRITION</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus massa, adipisct venenatis sit amet, ante. Sed id rutrum metus.</p>
+						<a class="more" href="#">More &raquo;</a>
+						<a class="logo-box" href="#">LOGO</a>
+					</section>
+				</aside>
+			</div>
+			<!-- footer -->
+			<footer id="footer">
+				<div class="footer-holder">
+					<!-- search-form -->
+					<form action="#" class="search-form">						<fieldset>							<input type="text" value="" />
+							<input type="submit" value="Submit" />
+						</fieldset>					</form>
+					<!-- social-networks -->
+					<ul class="social-networks">						<li><a class="twitter" href="#">twitter</a></li>						<li><a class="facebook" href="#">facebook</a></li>						<li><a class="rss" href="#">rss</a></li>					</ul>
+				</div>
+				<div class="footer-frame">
+					<!-- footer-nav -->
+					<nav>
+						<ul class="footer-nav">							<li><a href="#">ADVERTISE</a></li>							<li><a href="#">RSS</a></li>							<li><a href="#">CONTACT</a></li>						</ul>
+					</nav>
+					<p>School News Network is funded exclusively with advertising dollars<br> and developed in collaboration with Kent ISD and our districts.</p>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<?php Loader::element('footer_required'); ?>
+</body>
+</html>

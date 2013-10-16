@@ -1,0 +1,71 @@
+2.5.2 - Posted 9-8-2012
+Feature - Cool new icon!
+Bug fix - Non-admin users can now edit from front-end (http://www.concrete5.org/index.php?cID=361082)
+
+2.5.1 - Posted 3-1-2012
+Feature - Record owner data now works with the {{placeholder}} variable
+
+2.5 - Posted 2-6-2012
+Updated for compatibility with Concrete 5.5!
+
+2.4.0.1 - Posted 1-23-12
+Bug fix - SQL query interpreting string as int (can't replicate!)
+
+2.4 - Posted 1-19-12
+Updated for compatibility with Advanced Forms 1.6
+
+2.3.2.2 - Posted 10-11-11
+Bug fix - More custom view template stuff
+
+2.3.2.1 - Posted 10-3-11
+Bug fix - Modifications to allow for custom view templates
+
+2.3.2 - Posted 9-29-11
+Bug fix - Modifications to allow for custom view templates
+
+2.3.1 - Posted 7-6-11
+Bug fix - Problem with form not showing expired records even when set to do so
+
+2.3 - Posted 6-8-11
+Feature - Ability to customize search box placeholder, search button label, sort form intro text, and sort button label
+Feature - Button added to reset search results
+Bug fix - Wording tweaks on block edit interfaces
+Bug fix - Fix label on Owner ID in template editor (formerly was labeled Owner Email by mistake)
+
+2.2.9 - Posted 5-25-11
+Bug fix - IE Javascript bugs...
+
+2.2.8 - Posted 5-12-11
+Feature - Ability to specify record display on Detail block via custom attribute
+
+2.2.7 - Posted 5-12-11
+Bug fix - Problem editing form data on front-end with multiple blocks on a page
+Feature - Additional template placeholders added to dropdown list when editing template
+
+2.2.5 - Posted 4-14-11
+Bug fix - Error handling for displaying user data in templates (if user has since been deleted)
+Bug fix - Remove "Text (no user input)" fields from template placeholder list.
+
+2.2.4 - Posted 3-28-11
+Bug fix - Bug with paging links not respecting sort order
+Bug fix - Problem with field names too long in template
+
+2.2.3 - Posted 3-28-11
+Feature - Added RSS custom template
+
+2.2.2 - Posted 3-8-11
+Feature - Ability to display owner attributes
+Feature - Ability to limit results to only records owner by the current user
+
+2.2.1 - Posted 2-10-11
+Feature - New attribute value for <field /> element (format="time")
+
+2.2.0.3 - Posted 2-3-11
+Bug fix - Fixed bug related to searching and sorting at the same time
+Feature - Gave HTML classes to search and sort form elements
+Feature - New template placeholder for <if status="approved">, <if status="not approved">, and <approve /> (allows for in-context approval/unapproval)
+
+2.2.0.2 - Posted 2-1-11
+Bug fix - Fixed bug that prevented user sorting
+
+2.2 - Initial Release

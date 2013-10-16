@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btSixeightforms">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="fID" type="I" />
+		<field name="postMethod" type="C" size="255" />
+		<field name="sID" type="C" size="255" />
+		<field name="requireSSL" type="I" />
+	</table>
+</schema>

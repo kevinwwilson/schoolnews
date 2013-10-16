@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="sixeightdatadisplayTemplates">
+		<field name="tID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement />
+		</field>
+		<field name="fID" type="I" />
+		<field name="templateName" type="C" size="255"></field>
+		<field name="templateType" type="C" size="255"></field>
+		<field name="templateHeader" type="X2"/>
+		<field name="templateContent" type="X2"/>
+		<field name="templateAlternateContent" type="X2"/>
+		<field name="templateFooter" type="X2"/>
+		<field name="templateEmpty" type="X2"/>	
+	</table>
+</schema>

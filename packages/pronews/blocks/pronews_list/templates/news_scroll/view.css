@@ -1,0 +1,36 @@
+#scrollnews {
+	float: left; 
+	clear: left; 
+	padding-bottom: 25px;
+}
+
+#scrollnews #headtitle{
+	float: left;
+	clear:left;
+	width: 100%;
+}
+
+
+#scrollnews #title {
+	float: left;
+	clear:left;
+	width: 100%;
+}
+
+#scrollnews #date {
+	float: left;
+	clear:left;
+}
+
+#scrollnews #scrollup {
+  position: relative;
+  overflow: hidden;
+}
+
+#scrollnews .headline {
+  position: absolute;
+  left: 5px;
+}
+
+  
+#scrollnews .clear { clear: both; } 

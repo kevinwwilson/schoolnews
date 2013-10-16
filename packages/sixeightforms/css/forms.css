@@ -1,0 +1,206 @@
+.sem-note {
+	font-size:11px;
+	color:#999;
+	padding-left:5px;
+}
+
+#sem-form-list .sem-form-list-item {
+	width:250px;
+	float:left;
+	border:solid 1px #ddd;
+	border-radius:5px;
+	margin:5px;
+	padding:5px 15px;
+	position:relative;
+}
+
+#sem-form-list .sem-form-list-item:hover {
+	box-shadow:0 0 5px #ddd;
+	border:solid 1px #ccc;
+}
+
+.sem-form-list-item h4 {
+	width:180px;
+	border:dashed 1px #fff;
+	font-size:14px;
+	padding:4px !important;
+	border-radius:5px;
+	height:16px;
+	overflow:hidden;
+	margin-top:5px;
+	line-height:18px;
+}
+
+.sem-form-list-item h4:hover {
+	border:dashed 1px #ddd;
+}
+
+input.sem-form-name-input {
+	width:180px;
+	border:solid 1px #ccc;
+	font-size:14px;
+	padding:3px !important;
+	border-radius:5px;
+	height:auto;
+	margin-top:5px;
+	line-height:18px;
+	font-weight:bold;
+}
+
+.sem-form-name-form {
+	display:block;
+	margin:0;
+	padding:0;
+	border:solid 5px #000;
+}
+
+.sem-form-list-buttons .btn {
+	width:70px !important;
+	height:60px !important;
+	margin:5px !important;
+	padding:0;
+	display:block !important;
+	overflow:hidden;
+	float:left;
+}
+
+.sem-form-list-buttons .btn span {
+	display:inline-block;
+	margin:17px 0 0 0;
+	width:70px;
+	height:10px;
+	padding:25px 0 0 0;
+	text-align:center;
+	background-position:top center;
+	background-repeat:no-repeat;
+	color:#555;
+	font-size:11px;
+}
+
+#sem-form-list .sem-form-list-item .sem-form-list-buttons .btn.error span, #sem-form-list .sem-form-list-item .sem-form-list-buttons .btn.primary span {
+	color:#fff;
+}
+
+#sem-form-btn-settings {
+	background-image:url('../images/cog.png');
+}
+
+#sem-form-btn-records {
+	background-image:url('../images/report.png');
+}
+
+#sem-form-btn-fields {
+	background-image:url('../images/table.png');
+}
+
+#sem-form-btn-notifications {
+	background-image:url('../images/email.png');
+}
+
+#sem-form-btn-permissions {
+	background-image:url('../images/lock.png');
+}
+
+#sem-form-btn-rules {
+	background-image:url('../images/rules.png');
+}
+
+#sem-form-btn-export {
+	background-image:url('../images/btn-export.png');
+}
+
+#sem-form-btn-delete {
+	display:block;
+	position:absolute;
+	top:5px;
+	right:5px;
+	font-weight:bold;
+	color:#ccc;
+	font-size:18px;
+}
+
+#sem-form-btn-delete:hover {
+	text-decoration:none;
+	color:#999;
+}
+
+.new-field-header {
+	font-size:14px;
+	font-weight:bold;
+	border-top:solid 1px #eee;
+	padding:15px 0 0 0;
+	margin:10px 0;
+	color:#555;
+}
+
+.new-field-link a {
+	display:block;
+	font-size:12px;
+	padding:6px;
+	border:solid 1px #fff;
+	border-radius:4px;
+	color:#777;
+}
+
+.new-field-link a .sem-quick-add {
+	display:none;
+	background-color:#43a7cc;
+	border-radius:3px;
+	padding:2px 4px;
+	color:#fff;
+	font-size:10px;
+	border:solid 1px #3190b4;
+	box-shadow:inset 1px 1px 0 #93c3dd;
+	font-weight:bold;
+}
+
+.new-field-link a:hover {
+	background-color:#f3f3f3;
+	border:solid 1px #ddd;
+	text-decoration:none;
+	color:#777;
+}
+
+.new-field-link a:hover .sem-quick-add {
+	display:block;
+	float:right;
+	display:none !important;
+}
+
+.new-field-link a:hover .sem-quick-add:hover {
+	box-shadow:inset 1px 1px 0 #43a7cc;
+	display:block;
+	float:right;
+	background-color:#3190b4;
+}
+
+.sem-field-name-container {
+	padding:2px 4px;
+	border-radius:5px;
+}
+
+.sem-field-name-container:hover {
+	padding:1px 3px;
+	border:dashed 1px #ccc;
+}
+
+.sem-field-name-input {
+	font-size:11px !important;
+	padding:2px !important;
+	width:100% !important;
+}
+
+.sem-field-name-form {
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+.sem-approval-options {
+	position:absolute;
+	border:solid 1px #000;
+	background-color:#fff;
+	border-radius:5px;
+	padding:10px;
+	box-shadow:0 0 5px #000;
+}

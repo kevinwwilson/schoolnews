@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btSixeightdatadisplay">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="fID" type="I" />
+		<field name="listTemplateID" type="I"></field>
+		<field name="detailTemplateID" type="I"></field>
+		<field name="itemsPerPage" type="I"/>
+		<field name="displayPaginator" type="I1"/>
+		<field name="showExpiredRecords" type="I1"/>
+		<field name="showOwnedRecords" type="I1" />
+		<field name="approvedOnly" type="I1"/>
+		<field name="detailsInline" type="I1"/>
+		<field name="detailPage" type="I"/>
+		<field name="enableSearch" type="I1"/>
+		<field name="searchButtonText" type="C" size="255"/>
+		<field name="searchPlaceholder" type="C" size="255"/>
+		<field name="enableSearchReset" type="I1"/>
+		<field name="searchableFields" type="C" size="255"/>
+		<field name="sortBy" type="I"/>
+		<field name="sortOrder" type="C" size="4"/>
+		<field name="enableUserSort" type="I1"/>
+		<field name="sortLabel" type="C" size="255"/>
+		<field name="sortButtonLabel" type="C" size="255"/>
+		<field name="sortableFields" type="C" size="255"/>
+		<field name="defaultFilterField" type="C" size="255" />
+		<field name="defaultFilterValue" type="C" size="255" />
+	</table>
+</schema>

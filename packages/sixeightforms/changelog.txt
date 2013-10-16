@@ -1,0 +1,264 @@
+ROAD MAP
+Custom data reports and statistics
+"Page" field type (for selecting a page from the sitemap)
+HTML option for user notification emails
+New field type: multi-file upload
+Conditional notifications to specific groups
+"Field Explanation" (?) icon behind or in front a field which can be used as a rollover with an explanation of the field
+Condition-based redirection after form submission
+Ability to transfer forms from one C5 install to another using XML import/export
+Option to display Time field as 15 minute intervals (rather than 1 minute intervals)
+Keep automatically generated page synced when editing or deleting a record.
+Include user data in notification email
+Option to include form data in user confirmation email
+Ability to populate custom attributes when using advanced forms to create pages
+Min/max for number field.
+Customizable auto-populate
+Schedule export, post to FTP
+Ability to use record ID as page alias, instead of field value
+Automated Import
+Search by date range on front-end
+Phone Number field type
+Customize CAPTCHA field description
+Include field data in user confirmation email/Option to use Data Display template as confirmation email
+Ability to import HTML form
+Set field to "disabled".
+
+PRIORITY ROADMAP
+Resizable modal window. (http://www.concrete5.org/index.php?cID=267786)
+
+KNOWN ISSUES
+Can't search from file manager popup on front-end
+This - http://www.concrete5.org/marketplace/addons/advanced-forms/support/file-uploads-not-working-and-date-field-question/#381248
+True/False field always shows up as false when editing
+
+COMPLETED ROAD MAP ITEMS
+Option to specify a fileset for the File Upload field - 1.5.1
+Dynamic Reply To - 1.5.1
+True/False field type - 1.7
+HTML5 field types - 1.7
+Ability to split form into steps - 1.8
+Populate a dropdown list of records from another form to enable linking one form record to another record from a different form - 1.7.2
+Next and previous buttons on answer details pop-up in Dashboard - 1.9.1
+"Unique" field values - 1.9.2
+
+VERSION HISTORY
+
+1.9.2.2 - Posted 2-1-2013
+Bug fix - One more little issue with the pre-populate issue...
+
+1.9.2.1 - Posted 2-28-2013
+Bug fix - Minor bug with populate field with user attribute data added in 1.9.2...whoops.
+
+1.9.2 - Posted 2-27-2013
+Bug fix - http://www.concrete5.org/marketplace/addons/advanced-forms/support/when-adding-a-form-field-can-not-edit./
+Bug fix - http://www.concrete5.org/marketplace/addons/advanced-forms/support/checkbox-with-rules-doesnt-hide-a-shown-field-when-unchecked/
+Feature - Set max submissions allowed - https://twitter.com/txparentingpg/status/306029854980198400
+Feature - "Unique" field entries
+Feature - Ability for logged in user to edit an answer set they own.
+Feature - Populate form with user attribute data (http://www.concrete5.org/marketplace/addons/advanced-forms/questions-and-discussion/need-to-put-the-logged-in-users-email-as-default-value-in-the-em/#discussionpost)
+
+1.9.1 - Posted 1-4-2013
+Bug fix - "Save Rules" button doesn't do anything!
+Bug fix - http://www.concrete5.org/marketplace/addons/advanced-forms/support/permission-problem/#425584
+Bug fix - http://www.concrete5.org/marketplace/addons/advanced-forms/questions-and-discussion/import-csv-does-not-create-pages/#431240 AND http://www.concrete5.org/marketplace/addons/advanced-forms/questions-and-discussion/automatic-page-creation-once-the-records-are-created/
+Feature - Added "maximum selectable options" value to checkboxes and multi-select fields.
+Feature - Next/Previous buttons on answer set detail modal window.
+Feature - Add 'field_handle' and 'form_handle' and methods
+
+1.9 - Posted 12-13-2012
+Feature - Code changes in order to work properly with date-based search option on Data Display 2.5.3
+Feature - More options on export page (export by date range, include only certain fields)
+Feature - UI fixes
+Bug fix - http://www.concrete5.org/marketplace/addons/advanced-forms/support/drop-down-limit-of-10-records/#discussionpost
+
+
+1.8.2 - Posted 9-8-2012
+Feature - cool new icon!
+
+1.8.1 - Posted 9-7-2012
+Bug fix - Notifications emails are properly interpreting whether or not to include specific fields in the email (http://www.concrete5.org/index.php?cID=368395)
+Bug fix - Check required fields before clicking next/previous button (http://www.concrete5.org/index.php?cID=366510)
+Bug fix - Record no longer changes ownership when submitted (http://www.concrete5.org/index.php?cID=373470)
+
+1.8 - Posted 7-25-2012
+Feature - New "rules" feature that lets you change fields and field options based on values of other fields
+Feature - Abilty to break form into sections
+Feature - Year range for date field
+Feature - Modifications to "Fields" list UI in backend
+Feature - Ability to make "From Name" dynamic
+Feature - Ability to pass currency and item description to Paypal
+Feature - Option to not include fields in email
+Bug fix - "Page not found" when exporting records
+Bug fix - Problem with old answer set ID's no longer working when record is updated
+
+
+1.7.4 - Posted 4-24-2012
+Bug fix - Ampersands and question marks not working when changing the form name via AJAX
+Feature - UI changes
+Feature - Added "sem-form-response" to <div> that displays the response after submission.
+Feature - Changed ereg to preg_match in process_form.php for email address validation.
+Feature - Ability to change field name via ajax
+
+1.7.3 - Posted 3-20-2012
+Bug fix - Problem with approval notification emails not being sent
+Bug fix - Time not properly populated when editing
+Bug fix - Problems with file uploader when not logged in
+
+1.7.2 - Posted 3-1-2012
+Bug fix - File upload issues with 5.5
+Feature - Auto-populate option-based fields with data from another form
+
+1.7.1.1 - Posted 2-6-2012
+Feature - Approval status now defaults to "Pending" with option to toggle between "Approved" and "Rejected"
+Bug fix - form options not saving
+
+1.7 - Posted 2-3-2012
+Now compatibile with 5.5!
+Lots of UI changes
+
+1.6.1 - Posted 1-23-2012
+Bug fix - Pagination issue
+Bug fix - Time not showing up right in emails
+Bug fix - Got rid of answer cache table and queries (no longer used)
+
+1.6 - Posted 1-19-2012
+Added new "answer set list" model that makes retrieving lists of answer sets faster and easier (programatically)
+
+1.5.2.6 - Posted 10-19-2011
+Bug fix - Changed legend elements to div's, as legends were being displayed differently on different browsers and causing lots of issues.  The div still has the "sem-legend" class.
+
+1.5.2.5 - Posted 9-21-2011
+Bug fix - Issue with include function on add.php and edit.php
+
+1.5.2.4 - Posted 9-12-2011
+Bug fix - More changes to loading of Javascript files
+
+1.5.2.3 - Posted 9-9-2011
+Bug fix - Moving loading of tablednd Javascript file to controller rather than view
+
+1.5.2.2 - Posted 9-6-2011
+Bug fix - When editing in context, old answer set ID could not properly pull up new record.
+Bug fix - Confirmation email was using dynamic from address specified in notification settings, which should not be possible
+
+1.5.2.1 - Posted 8-31-2011
+Bug fix - Changed // comments to /* comments in Javascript to help with the way some server were rendering line breaks
+
+1.5.2 - Posted 8-27-2011
+Bug fix - Wrapped contents of <legend> element (used to field name on checkboxes and radio buttons) in <span> to fix wrapping issue in IE
+Bug fix - Deleted items were still accessible on the detail page even after they were deleted
+Bug fix - Confirmation message was being sent to user even on edit
+Bug fix - Confirmation message not being sent from the specified name
+
+1.5.1.1 - Posted 8-13-2011
+Feature - Increased max price from 999.99 to 99,999,999.99
+
+1.5.1 - Posted 7-22-2011
+Feature - Add files to file sets on upload
+Feature - Dynamic from address on email notifications
+Bug fix - Record ID not properly set on answer ID class
+
+1.5 - Posted 6-8-2011
+Major Change - Record ID/Answer Set ID Changes
+Answer Set ID is the actual primary key in the database. It changes each time a record is updated (because the old record is deleted and a new one is created).
+Record ID is essentially the original Answer Set ID will remain the same even after a record is edited.  It can be used to retrieve the data of a record.
+Feature - Ability to specify custom currency symbol on sellable item
+Feature - Form scrolls back to top when there are validation errors with the submission
+Feature - CSS class for errors is applied to the field container now, rather than to the field itself
+Feature - Option to send notification email only on initial submission (not on edit)
+
+1.4.4.3 - Posted 5-25-2011
+Bug fix - These stupid MySQL for Windows bugs...
+
+1.4.4.2 - Posted 5-24-2011
+Bug fix - Error when only allowing one submission per user that caused no submissions to be allowed
+Bug fix - Error calculating number of records for a user
+
+1.4.4.1 - Posted 5-23-2011
+Bug fix - Problem inserting integer values into MySQL on Windows/IIS
+
+1.4.4 - Posted 5-18-2011
+Bug fix - Error trying to insert null values into DB
+Bug fix - Cache not cleared when record was deleted
+Feature - Ability to clear file field
+
+1.4.3.1 - Posted 5-12-2011
+Bug fix - Exception occurred when no "to" email address was specified.
+
+1.4.3 - Posted 5-10-2011
+Bug fix - Include the required JS/CSS files for File Manager/TinyMCE (thanks to hursey013 for assistance with this!)
+
+1.4.2 - Posted 4-28-2011
+Feature - Data Display elements can now be used in Confirmation Email!
+Bug fix - Show field label and line breaks when display file in email
+Bug fix - Typo on edit form dialog
+
+1.4.1 - Posted 4-14-2011
+Feature - Percentages column added to summary export
+Bug fix - Minutes not properly selected when editing records with a Time field
+
+1.4 - Posted 4-12-2011
+Feature - Change searchable status of fields via AJAX on fields listing
+Feature - Option to reset search results on records page
+Feature - Show date of last search index update on records page
+Feature - Show fields that were indexed after running "Update Search Index"
+Feature - If CAPTCHA is enabled, it is no longer shown when editing records
+Feature - Ability to set from email address
+Feature - Option to automatically index records when the form is submitted
+Bug fix - Link to settings not showing if no form name was specified
+Bug fix - Dropdown box now shows blank option first when set to required.
+
+1.3.4 - Posted 4-4-11
+Bug fix - Permissions box didn't show full listing of groups
+Bug fix - Detail page showing old data after record was edited
+Bug fix - Required indicator not showing on radio button and checkbox fields.
+Bug fix - AJAX changing of required status doesn't work when field is already required
+Feature - If number or email field is not required, still allow it to be submitted even if no value is specified
+Bug fix - Error with maxlength on textareas
+
+1.3.3 - Posted 3-28-11
+Feature - Added color picker when selecting required indicator color
+
+1.3.2.2 - Posted 3-10-11
+Bug fix - Display filename on answer details for file fields, rather than file ID
+
+1.3.2.1 - Posted 3-10-11
+Bug fix - Bug that caused scheduled jobs to never complete
+
+1.3.2 - Posted 3-8-11
+Bug fix - Changing "Results per page" on Records page resulted in zero results
+Bug fix - Minor filter cache issue
+Feature - Ability to change associated page on backend (for use with Data Display integration)
+Feature - Changes to form model to allow limiting answer sets to those owned by current user
+
+1.3.1.4 - Posted 3-3-11
+Bug fix - Issues with conditional notifications on fields that are processed as arrays (primarily checkboxes)
+
+1.3.1.3 - Posted 2-28-11
+Bug fix - Issue with conditional notifications
+Bug fix - Advanced Form block always redirected to SSL, even if not enabled.
+
+1.3.1.1 - Posted 2-17-11
+SSL redirect is now disabled if the user can edit page (in case there are problems with the SSL cert)
+Added option to base new styles of off the main default style
+Ability to resend email notification from dashboard
+Added this new changelog.txt file as part of the package!
+
+1.3.1 - Posted 2-10-11
+Added the ability to change the record owner 
+Tweaked the form converter that converts standard forms to advanced forms 
+Fixed duplicate form bug 
+
+1.3.0.4 - Posted 2-3-11
+Fixed by that caused zero results to be returned when searching and sorting at the same time 
+
+1.3.0.3 - Posted 1-31-11
+Fixed bug that caused deletion of fields when attempting to duplicate 
+Fixed fatal error when editing record 
+Fixed bug that caused field sort order to not be saved 
+
+1.3.0.2 - Posted 1-28-11
+Fixed bug when including a sellable item but not selecting a payment gateway (Paypal is selected by default) 
+Fixed bug that caused custom styles to not be rendered. 
+
+1.3.0.1 - Initial Release

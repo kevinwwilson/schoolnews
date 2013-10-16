@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btSixeightdatadisplaydetail">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="fID" type="I" />
+		<field name="detailTemplateID" type="I" />
+		<field name="method" type="C" size="255" />
+		<field name="parameterName" type="C" size="255" />
+		<field name="pageAttributeHandle" type="C" size="255" />
+		<field name="ffID" type="C" size="255" />
+	</table>
+</schema>

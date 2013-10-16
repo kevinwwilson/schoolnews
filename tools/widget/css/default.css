@@ -1,0 +1,42 @@
+/* 
+    Document   : default
+    Created on : Jun 19, 2013, 4:38:50 PM
+    Author     : kwilson
+    Description:
+        default layout for widget contents
+*/
+
+.FB_news_feed .even {  
+
+}
+
+.FB_news_feed .odd {  
+
+}
+
+.FB_article {
+	margin-bottom: 30px;
+}
+
+.FB_news_feed img {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+    height: auto;
+}
+
+.FB_news_feed {
+    margin-bottom: 12px;
+}
+
+
+.FB_news_feed h3 {
+    padding-bottom: 3px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.FB_news_feed p {
+    margin-top: 0px;
+    margin-bottom: 6px;
+}
