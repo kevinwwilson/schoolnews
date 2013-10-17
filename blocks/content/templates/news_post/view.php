@@ -23,11 +23,12 @@
 	?>
 <root>
 <header class="heading">
+    <div class="p-news">
     <h1><span><?php foreach($district as $districts){
 	echo $districts->value,'<br/>';	
 	}
 	
-	?></span></h1>
+	?></span></h1></div>
 
                                                <span id="print-button">
                                                 <a title="Print this Article" href="" onclick="window.print()">
@@ -46,22 +47,12 @@
        <?php if($slideimage == ''){ ?>
         <div class="image-holder">
        <?php $CatImage = $c->getAttribute('main_photo');
+	               $ih= Loader::helper('image');
 	               $image_arr['realimg'] = $CatImage->getRelativePath();
-	               list($width, $height, $type, $attr) = getimagesize(BASE_URL.$image_arr['realimg']);
-				   if($width > $height){					
-			        $image = '';
-			        if(is_object($CatImage)){
-				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'">';					
-			        }  
+	               $thumb = $ih->getThumbnail($CatImage, 400, 283);                                
+				    $image = '';			       
+				    $image = '<img alt="" src="'.$thumb->src.'">';	
 					echo $image;
-				    } else{
-						
-						 $image = '';
-			        if(is_object($CatImage)){
-				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'" height="274">';					
-			        }  
-					echo $image;
-					}
 					?>
        <strong class="title"><?php echo $photo_caption ?></strong>
        </div>
@@ -78,7 +69,7 @@
 				   $f = File::getByID($sliders[0]);
 				   $ih= Loader::helper('image');	
 				   $image_arr['realimg'] = $f->getRelativePath();
-				   $thumb = $ih->getThumbnail($f, 400, 266, true);                                
+				   $thumb = $ih->getThumbnail($f, 400, 283);                                
 				    $image = '';			       
 				    $image = '<img alt="" src="'.$thumb->src.'">';	
 					echo $image;						
@@ -105,7 +96,7 @@
     <strong class="date">by <?php echo $author ?></strong>
     <div id="article_content">
  <?php 
-	echo '<span class="dateline">'.$dateline.'- </span>';
+	echo '<span class="dateline">'.$dateline.', MI — &nbsp</span>';
 	$content = $controller->getContent();
 	print $content;	
 	
@@ -146,24 +137,16 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
 
-<style type="text/css">
-.switcher{float: right;
-position: relative;
-right: 1px;
-z-index: 10;}
-.dateline{float:left;} 
-.img-caption{float: right;
-margin: 230px -152px 6px 17px;
-width: 224px;}
 
-
-</style>
 
 <script type="text/javascript">
 $(document).ready(function(){
-var title = $('#article_content img' ).attr('alt');
-$( '#article_content img' ).after('<div class="img-caption"><span class="cap"></span></div></div>');
-$('#article_content span.cap').text( title );	
+	$('#article_content img').each(function(){
+	var imgatt = $(this).attr('alt');	
+	var imgsrc = $(this).attr('src');
+	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
+	$(this).remove();	
+	});	
 })
 
 </script>

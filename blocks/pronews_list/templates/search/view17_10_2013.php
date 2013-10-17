@@ -5,7 +5,7 @@
 	// we'll include this block type's class, and pass the block to it, and get
 	// the content
 	$snumber=0;
-	global $c;
+	
 if (count($cArray) > 0) { ?>
 
 	<?php  
@@ -15,19 +15,16 @@ if (count($cArray) > 0) { ?>
 		$title = $cobj->getCollectionName();
 		$author = $cobj->getAttribute('author');
 		$dateline = $cobj->getAttribute('dateline');
-		$district = $cobj->getAttribute('district');				
+		$district = $cobj->getAttribute('district');
+		$district = $cobj->getAttribute('district');		
 		$dateline = $cobj->getAttribute('dateline');
 		
-		$c = $cobj;
 		ob_start();
-		$a = new Area('Main');
+		$a= new Area('Main');
         $a->display($c);
 		$con = ob_get_contents();
         ob_end_clean();
 		$lowcon = strtolower($con);
-		
-		
-		
 		$lowauthor = strtolower($author);
 		$lowtitle = strtolower($title);
 		$lowsearch = strtolower($_GET['q']);
@@ -43,7 +40,7 @@ if (count($cArray) > 0) { ?>
 			 }
 			}			
 			
-		if (strpos($lowtitle, $lowsearch) !== false || strpos($lowauthor, $lowsearch) !== false || strpos($lowcon, $lowsearch) || $lowdistrict !='') {
+		if (strpos($lowtitle, $lowsearch) !== false || strpos($lowauthor, $lowsearch) !== false || strpos($lowcon, $lowsearch) !== false || $lowdistrict !='') {
   
         	
 		?>

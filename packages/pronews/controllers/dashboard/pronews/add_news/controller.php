@@ -195,6 +195,27 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('files',$this->post('files'));		
 		$bt = BlockType::getByHandle('content');
 		
+		$main_image=$p->getAttribute('main_photo');
+				
+		$fv = $main_image->getApprovedVersion();		
+		$dtag = $p->getAttribute('dateline');
+		$ddisc = $p->getAttribute('story_slug');
+		
+		
+		foreach($dtag as $tags){
+		$fv->updateTags($tags->value);
+		}
+		$fv->updateDescription($ddisc);
+		
+		  $f_id = $main_image->fID;
+		  if (is_object($f_id)) {
+          $f_id = $f_id->getFileID();
+          }   
+          $file_set_file = FileSetFile::createAndGetFile($f_id,'9');
+          
+		
+		
+		
 		$data = array('content' => $this->post('newsBody'));			
 					
 		$b = $p->addBlock($bt, 'Main', $data);

@@ -264,6 +264,16 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 .post p{margin:0 0 8px;}
 .post .more{font-weight:bold;}
+
+
+.switcher{float: right;
+position: relative;
+right: 1px;
+z-index: 10;}
+.dateline{float:left;} 
+.img-caption.right{float:right;}
+
+
 /* comments */
 .comments{
 	position:absolute;
