@@ -63,4 +63,17 @@
 			<default value="0"/>
 		</field>
 	</table>
+	<table name="btselectProNewsList">
+	<field name="ID" type="I">
+			<key />
+			<unsigned />
+			<autoincrement/>
+		</field>
+	   <field name="atID" type="X2">					
+		</field>
+		<field name="time" type="T">
+		</field>
+		<field name="active" type="L">
+		</field>	
+	</table>
 </schema>

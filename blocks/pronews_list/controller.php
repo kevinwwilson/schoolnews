@@ -131,11 +131,62 @@
 			$b = Block::getByID($this->bID);
             $template = strtolower($b->getBlockFilename());
 			
-			if($template=='home_images'){				
+			if($template=='home_images'){
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }				
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
-			if($template=='left_side'){				
+			if($template=='left_side'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }			
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
+			}
+			if($template=='full_list'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }		
+			}
+			if($template=='home_main'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }	
+					
+			}
+			if($template=='home_right'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }	
+					
+			}
+			if($template=='home_title'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }	
+					
+			}
+			
+			if($template=='pronews_list'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }	
+					
+			}
+			
+            if($template=='search'){	
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filterByAttribute('approve',"1");               
+            }	
+					
 			}
 			
 			

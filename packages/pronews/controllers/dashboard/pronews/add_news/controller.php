@@ -6,6 +6,12 @@ class DashboardPronewsAddNewsController extends Controller {
 	public $helpers = array('html','form');
 	
 	public function on_start() {
+	   
+	   Loader::model('config');
+	    $this->token = Loader::helper('validation/token');
+	    $this->set('page_type_id',Config::get('PAGE_TYPE_ID'));
+	    $this->set('sections_id',Config::get('SECTIONS_ID'));
+		
 		Loader::model('page_list');
 		$this->error = Loader::helper('validation/error');
 	}
@@ -23,6 +29,8 @@ class DashboardPronewsAddNewsController extends Controller {
 			$keys[] = -1;
 			$newsList->filterByParentID($keys);
 		}
+		
+		
 	}
 	
 

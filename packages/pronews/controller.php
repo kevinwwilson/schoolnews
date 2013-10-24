@@ -37,6 +37,16 @@ class PronewsPackage extends Package {
       $pnl = SinglePage::add('/dashboard/pronews/list/', $pkg);
       $pnl->setAttribute($iak,'icon-list-alt');
       
+      $pns = SinglePage::add('/dashboard/pronews/settings/', $pkg);
+      $pns->setAttribute($iak,'icon-wrench');
+      
+      $png = SinglePage::add('/dashboard/pronews/shedule_news_group/', $pkg);
+      $png->setAttribute($iak,'icon-clock');
+      
+      $pnag = SinglePage::add('/dashboard/pronews/shedule_news_group/add_group', $pkg);
+      $pnag->setAttribute($iak,'icon-clock');
+
+      
       $an = SinglePage::add('/dashboard/pronews/add_news', $pkg);
       $an->update(array('cName'=>t('Add/Edit')));
       $an->setAttribute($iak,'icon-edit');
@@ -44,6 +54,9 @@ class PronewsPackage extends Package {
 	
 	public function update(){
 		$iak = CollectionAttributeKey::getByHandle('icon_dashboard');
+		
+		$pns = Page::getByPath('/dashboard/pronews/list');
+		$pns->setAttribute($iak,'icon-wrench');
 		
 		$pnl = Page::getByPath('/dashboard/pronews/list');
 		$pnl->setAttribute($iak,'icon-list-alt');
@@ -73,6 +86,28 @@ class PronewsPackage extends Package {
      	CollectionAttributeKey::add($checkn, 
      	array('akHandle' => 'news_section', 
      	'akName' => t('News Section'),
+     	'akIsSearchable' => '1', 
+     	'akIsSearchableIndexed' => '1'
+     	),$pkg)->setAttributeSet($newsset); 
+  	}
+  	
+  	$checkn = AttributeType::getByHandle('boolean'); 
+  	$approve=CollectionAttributeKey::getByHandle('approve'); 
+	if( !is_object($approve) ) {
+     	CollectionAttributeKey::add($checkn, 
+     	array('akHandle' => 'approve', 
+     	'akName' => t('Approve'),
+     	'akIsSearchable' => '1', 
+     	'akIsSearchableIndexed' => '1'
+     	),$pkg)->setAttributeSet($newsset); 
+  	}
+  	
+  	$dt = AttributeType::getByHandle('date_time'); 
+  	$group_date=CollectionAttributeKey::getByHandle('group_date'); 
+	if( !is_object($group_date) ) {
+     	CollectionAttributeKey::add($dt, 
+     	array('akHandle' => 'group_date', 
+     	'akName' => t('Group Date'),
      	'akIsSearchable' => '1', 
      	'akIsSearchableIndexed' => '1'
      	),$pkg)->setAttributeSet($newsset); 

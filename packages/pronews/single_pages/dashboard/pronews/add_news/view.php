@@ -236,7 +236,12 @@ if (is_object($news)) {
 						<?php  if (count($sections) == 0) { ?>
 							<div><?php  echo t('No sections defined. Please create a page with the attribute "news_section" set to true.')?></div>
 						<?php  } else { ?>
+						      <?php if($page_type_id != ''){
+						            $cParentID = $sections_id;
+						
+					          } ?>
 							<div><?php  echo $form->select('cParentID', $sections, $cParentID)?></div>
+							
 						<?php  } ?>
 					</div>
 				</div>
@@ -299,8 +304,14 @@ if (is_object($news)) {
                 
 				<div class="clearfix">
 					<?php  echo $form->label('ctID', t('Page Type'))?> *
+					<?php 
+					 if($page_type_id != ''){
+						$ctID = $page_type_id;
+						
+					} ?>
+					
 					<div class="input">
-						<?php  echo $form->select('ctID', $pageTypes, $ctID)?>
+						<?php  echo $form->select('ctID', $pageTypes, $ctID)?>						
 					</div>
 				</div>
 				

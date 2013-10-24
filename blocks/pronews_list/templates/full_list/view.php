@@ -12,6 +12,7 @@
 		$title = $cobj->getCollectionName();
 		$author = $cobj->getAttribute('author');
 		$dateline = $cobj->getAttribute('dateline');
+		
 		?>
 	<li>
 	<h2 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h2>    

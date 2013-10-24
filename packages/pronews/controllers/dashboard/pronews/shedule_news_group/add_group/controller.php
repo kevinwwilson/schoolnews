@@ -1,6 +1,6 @@
 <?php  
 defined('C5_EXECUTE') or die(_("Access Denied.")); 
-class DashboardpronewslistController extends Controller {
+class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	
 	public $num = 15;
 	
@@ -78,7 +78,11 @@ class DashboardpronewslistController extends Controller {
 		$this->set('tag_values', $this->getNewsTags());
 		$this->set('dist_values', $this->getDistict());
 		
+		
+		
 	}
+	
+	
 
 	protected function loadnewsSections() {
 		$newsSectionList = new PageList();
@@ -91,37 +95,7 @@ class DashboardpronewslistController extends Controller {
 			$sections[$_c->getCollectionID()] = $_c->getCollectionName();
 		}
 		$this->set('sections', $sections);
-	}
-	
-	public function approvethis($cIDd,$name) {
-		$p = Page::getByID($cIDd);
-		$p->setAttribute('approve','1');;
-		$this->set('message', t('"'.$name.'" has been approved and is now public')); 
-		$this->view();
-	}
-	
-	public function unapprovethis($cIDd,$name) {
-		$p = Page::getByID($cIDd);
-		$p->setAttribute('approve','0');;
-		$this->set('message', t('"'.$name.'" has been approved and is now public')); 
-		$this->view();
-	}
-	
-	public function delete_check($cIDd,$name) {
-		$this->set('remove_name',$name);
-		$this->set('remove_cid',$cIDd);
-		$this->view();
-	}
-	
-	public function deletethis($cIDd,$name) {
-		$c= Page::getByID($cIDd);
-		$c->delete();
-		$this->set('message', t('"'.$name.'" has been deleted')); 
-		$this->set('remove_name','');
-		$this->set('remove_cid','');
-		$this->view();
-	}
-	
+	}	
 	public function clear_warning(){
 		$this->set('remove_name','');
 		$this->set('remove_cid','');
@@ -178,6 +152,41 @@ class DashboardpronewslistController extends Controller {
 		return $values;
 	}
 	
+	public function edit() {		
+		
+	}
+	
+	public function save_group(){
+	   $db = Loader::db();
+	   $artclid = $this->post();
+	   
+	   $attime = $artclid['akID']['98'];
+	   $atdate = $attime['value_dt'];
+	   $athour = $attime['value_h'];
+	   $atmin = $attime['value_m'];
+	   $atam = $attime['value_a'];
+	   $atexdate = explode('/',$atdate);
+	   $atyear = $atexdate[1];
+	   $atmonth = $atexdate[0];
+	   $atday = $atexdate[2];
+	   $time_in_24_hour_format  = date("H:i", strtotime("'$athour':'$atmin' '$atam'"));
+	   
+	  
+	   	   
+	   
+	   
+	   $artid = $artclid['articlesar'];
+	   
+	   $artid=implode("||",$artid);	   
+	   
+	   $sql = $db->query("INSERT INTO btselectProNewsList (ID,atID,time,active) VALUES ('', '$artid','$atday-$atmonth-$atyear $time_in_24_hour_format:00','')");
+	   $db->Execute($sql);
+		$this->view();
+	
+		
+		
+		
+	}	
 	
 	public function news_added() {
 		$this->set('message', t('News added.'));
@@ -191,4 +200,5 @@ class DashboardpronewslistController extends Controller {
 	
 	
 	
-}
+}?>
+

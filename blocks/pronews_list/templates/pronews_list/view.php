@@ -13,10 +13,13 @@
 		$author = $cobj->getAttribute('author');
 		$dateline = $cobj->getAttribute('dateline');
 		$feature = $cobj->getAttribute('regional_feature');
-		if($feature){	
+		
+		if($feature != ''){			
 		foreach($feature as $feat)
-		{				
+		{  		   
+					
 			if($feat->value != $category){?>	
+			
                 
                 <li>
 	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
@@ -50,6 +53,8 @@
 		}
 		}
 		else{
+		
+		
 		?>
 	<li>
 	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
