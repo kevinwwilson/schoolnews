@@ -14,7 +14,23 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	public function view() {
 		$this->loadnewsSections();
 		$newsList = new PageList();
+		
+		$seleart = $this->get('selart');
+		
+		if($seleart>0){
+		   foreach($seleart as $sectarticles){
+		   $sectarticlesid = explode("||",$sectarticles['atID']);
+		   
+		   foreach($sectarticlesid as $displayid){
+		    $newsList->filter(false, '( cv.cID not in('.$displayid.') )');
+		    
+		    }	   		   
+		   
+		   }
+		}
+		
 		$newsList->sortBy('cDateAdded', 'desc');
+		$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
 			if(isset($_GET['cParentID']) && $_GET['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
 			}
@@ -26,50 +42,28 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 			}
 			if(!empty($_GET['like'])){
 			$newsList->filterByName($_GET['like']);
-			}           
+			}
+			
+			if(!empty($_GET['cat'])){
+		    $cat = $_GET['cat'];
+		    $newsList->filter(false,"ak_news_category like '%$cat%'");
+		    } 
+		    
+		    if(!empty($_GET['tag'])){
+		    $tag = $_GET['tag'];
+		    $newsList->filter(false,"ak_news_tag like '%$tag%'");
+		    }
+		    
+		    if(!empty($_GET['dist'])){
+		    $dist = $_GET['dist'];
+		    $newsList->filter(false,"ak_district like '%$dist%'");
+		    }            
             
 			$newsList->setItemsPerPage($this->num);
 		    
 		$newsResults=$newsList->getPage();
 		
-			if(!empty($_GET['cat'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				    $filter_catpage = $page->getCollectionAttributeValue('news_category');
-				    foreach($filter_catpage as $catpage){
-  	 				if($catpage->value == $_GET['cat']) {
-      					array_push($newsResults, $page);   
-   					}
-   					}
-				}
-				
-			}
-			if(!empty($_GET['tag'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				$filter_tagpage = $page->getCollectionAttributeValue('news_tag');
-				foreach($filter_tagpage as $tagpage)
-  	 				if($tagpage->value == $_GET['tag']) {
-      					array_push($newsResults, $page);   
-   					}
-				}
-				
-			}
-				if(!empty($_GET['dist'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				    $filter_dispage = $page->getCollectionAttributeValue('district');
-				    foreach($filter_dispage as $dispage){				
-  	 				if($dispage->value == $_GET['dist']) {
-      					array_push($newsResults, $page);   
-   					}
-   					}
-				}
-				
-			}
+			
 			
 			
 		$this->set('newsResults', $newsResults);
@@ -100,6 +94,15 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 		$this->set('remove_name','');
 		$this->set('remove_cid','');
 		$this->view();
+	}
+	
+	public function delete_group($cIDd){
+	$db = Loader::db();
+	$sql = $db->query("DELETE FROM btselectProNewsList WHERE ID='$cIDd'");
+	
+	$db->Execute($sql);	
+	$this->view();	
+		
 	}
 	
 	
@@ -152,27 +155,60 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 		return $values;
 	}
 	
-	public function edit() {		
+	public function edit_group($cID) {
+	
+	$db = Loader::db();		 
+    $row = $db->GetArray("SELECT * FROM btselectProNewsList WHERE ID = $cID");
+    $this->set('selart', $row);
+    $this->set('remove_cid',$cID);
+	$this->view();
+		
+	}
+	
+	public function edit_groups($cID){
+		
+		$db = Loader::db();
+	   $artclid = $this->post();
+	   $atdate = $artclid['date_field_dt'];
+	   $athour = $artclid['date_field_h'];
+	   $atmin = $artclid['date_field_m'];
+	   $atam = $artclid['date_field_a'];
+	   $atexdate = explode('/',$atdate);
+	   $atyear = $atexdate[1];
+	   $atmonth = $atexdate[0];
+	   $atday = $atexdate[2];
+	   $ttime = ("$athour:$atmin $atam");
+	   
+	   $time_in_24_hour_format  = date("H:i", strtotime("$athour:$atmin $atam"));
+	   
+	   
+	   $artid = $artclid['articlesar'];
+	   
+	   $artid=implode("||",$artid);	 
+	   
+	   
+	   $sql = $db->query("UPDATE btselectProNewsList SET atID='$artid', time='$atday-$atmonth-$atyear $time_in_24_hour_format:00', active='' WHERE ID='$cID'");
+	   
+	   $db->Execute($sql);
+		$this->redirect('/dashboard/pronews/shedule_news_group/','group_edited');	
+		
 		
 	}
 	
 	public function save_group(){
 	   $db = Loader::db();
-	   $artclid = $this->post();
-	   
-	   $attime = $artclid['akID']['98'];
-	   $atdate = $attime['value_dt'];
-	   $athour = $attime['value_h'];
-	   $atmin = $attime['value_m'];
-	   $atam = $attime['value_a'];
+	   $artclid = $this->post();	      
+	   $atdate = $artclid['date_field_dt'];
+	   $athour = $artclid['date_field_h'];
+	   $atmin = $artclid['date_field_m'];
+	   $atam = $artclid['date_field_a'];
 	   $atexdate = explode('/',$atdate);
 	   $atyear = $atexdate[1];
 	   $atmonth = $atexdate[0];
 	   $atday = $atexdate[2];
-	   $time_in_24_hour_format  = date("H:i", strtotime("'$athour':'$atmin' '$atam'"));
+	   $ttime = ("$athour:$atmin $atam");
 	   
-	  
-	   	   
+	   $time_in_24_hour_format  = date("H:i", strtotime("$athour:$atmin $atam"));
 	   
 	   
 	   $artid = $artclid['articlesar'];
@@ -181,23 +217,10 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	   
 	   $sql = $db->query("INSERT INTO btselectProNewsList (ID,atID,time,active) VALUES ('', '$artid','$atday-$atmonth-$atyear $time_in_24_hour_format:00','')");
 	   $db->Execute($sql);
-		$this->view();
-	
-		
-		
-		
+		$this->redirect('/dashboard/pronews/shedule_news_group/','group_added');		
 	}	
 	
-	public function news_added() {
-		$this->set('message', t('News added.'));
-		$this->view();
-	}
-	
-	public function news_updated() {
-		$this->set('message', t('News updated.'));
-		$this->view();
-	}
-	
+		
 	
 	
 }?>

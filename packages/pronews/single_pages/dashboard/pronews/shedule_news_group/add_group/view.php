@@ -24,11 +24,11 @@ if (is_object($news)) {
 			$newsBody = $b->getInstance()->getContent();
 		}
 	}
-	$task = 'edit';
+	$task = 'edit_group';
 	$buttonText = t('Update News Item');
 	$title = 'Update';
 } else {
-	$task = 'add';
+	$task = 'add_group';
 	$buttonText = t('Add News Item');
 	$title= 'Add';
 }
@@ -54,14 +54,26 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .edit {background-position: -22px -2225px;margin-right: 6px!important;}
 .copy {background-position: -22px -439px;margin-right: 6px!important;}
 .delete {background-position: -22px -635px;}
+.group-article{height: 200px; overflow: scroll; border: 1px solid #666; width: 700px}
+.group-article .article{margin-left: 10px; padding-bottom: 10px; margin-right: 10px; border-bottom: 1px solid #ccc; padding-top: 10px;}
+.next-result{position: relative;}
+.next-result .img-loader{position: absolute; width: 100%; height: 100%; text-align: center; opacity: 0.5; background: #000;}
+.next-result .img-loader img{position: absolute; top:50%; left: 50%; opacity: 1;}
+.group-article .det_link{float: right; padding-right: 30px}
+.ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
+.ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
 </style>
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add News Group'), false, false, false);?>
 
 
-<?php  if ($this->controller->getTask() == 'edit') { ?>
-		<form method="post" action="<?php    echo $this->action('edit_group')?>" id="news-form">
-		<?php  echo $form->hidden('newsID', $news->getCollectionID())?>
-	<?php  }else{ ?>
+<?php  if ($this->controller->getTask() == 'edit_group') { 
+        if($selart>0){
+        foreach($selart as $sectarticles){
+	        $sel_id = $sectarticles['ID'];
+        
+        ?>
+		<form method="post" action="<?php    echo $this->action('edit_groups/'.$sel_id.'')?>" id="news-form">		
+	<?php } } }else{ ?>
 		<form method="post" action="<?php    echo $this->action('save_group')?>" id="news-form">
 	<?php  } ?>
 
@@ -73,14 +85,18 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
      <div class="clearfix">
 					<?php  echo $form->label('groupDate', t('Group Date'))?>
 					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('group_date');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
+						<?php 
+						if($selart>0){
+						foreach($selart as $sectarticles){
+						$date_field = $sectarticles['time'];					
+						echo Loader::helper('form/date_time')->datetime('date_field', $date_field);
+						} 
+						}else{
+						echo Loader::helper('form/date_time')->datetime('date_field', $date_field);							
 						}
+						
 						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
+						
 					</div>
 	 </div>
 	 
@@ -89,6 +105,32 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 	 <div class="clearfix">
 					<?php  echo t('Selected Article'); ?>
 					<div class="input group-article">
+					
+					<?php 
+					if($selart>0){
+						foreach($selart as $sectarticles){
+							$sectarticlesid = explode("||",$sectarticles['atID']);							
+							  foreach($sectarticlesid as $displayid){
+							  
+								 Loader::model('page_list');
+	                             $pl = new PageList();	                                 
+	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
+	                             $pages = $pl->getPage();
+	                             foreach($pages as $cpage){ 
+	                             $nh = Loader::helper('navigation');
+	                             $url = $nh->getLinkToCollection($cpage);
+	                             $cpages = $cpage->getCollectionName();
+	                             $id = $cpage->cID;
+	                             
+		                             echo '<div class="article"><a href="'.$url.'">'.$cpages.'</a><input type="hidden" name="articlesar[]"   value="'.$id.'"><a class="det_link" href="javascript:void(0)" onclick="removepage(this)">Remove</a></div>';
+		                             
+		                             
+	                              }
+	                             								  
+							  }
+						}
+					}
+					?>
 						
 					</div>
 	 </div>
@@ -117,6 +159,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 		</ul>
 		-->
 		<form method="get" action="<?php  echo $this->action('view')?>">
+		<div class="hidden-result"></div>
 		<?php  
 		$sections[0] = '** All';
 		asort($sections);
@@ -130,7 +173,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				<th></th>
 			</tr>
 			<tr>
-				<td><select name="dist" style="width: 130px!important;">
+				<td><select name="dist" style="width: 130px!important;" id="searchdist">
 					<option value=''>--</option>
 				<?php 
 				foreach($dist_values as $dist){
@@ -141,7 +184,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				</select></td>
 				<td><?php  echo $form->text('like', $like)?></td>
 				<td>
-				<select name="cat" style="width: 110px!important;">
+				<select name="cat" style="width: 110px!important;" id="searchcat">
 					<option value=''>--</option>
 				<?php 
 				foreach($cat_values as $cat){
@@ -152,7 +195,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				</select>
 				</td>
 				<td>
-				<select name="tag" style="width: 110px!important;">
+				<select name="tag" style="width: 110px!important;" id="searchtag">
 					<option value=''>--</option>
 				<?php 
 				foreach($tag_values as $tag){
@@ -161,9 +204,9 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				}	
 				?>
 				</select>
-				</td>
-				<td>
-				<?php  echo $form->submit('submit', 'Search')?>
+				</td>				
+				<td>				
+				<a href="javascript://"  class="search-article btn">Search</a>	
 				</td>
 			</tr>
 		</table>
@@ -175,8 +218,11 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 		if ($newsList->getTotal() > 0) { 
 			$newsList->displaySummary();
 			?>
-			
-		<table border="0" class="ccm-results-list" cellspacing="0" cellpadding="0">
+		<div class="next-result">
+		<div class="img-loader" style="display:none;">
+				<img class="loader" width="50" height="50" src="<?php echo BASE_URL.DIR_REL ?>/themes/kent-news/images/loader2.gif" />
+				</div>	
+		<table border="0" class="ccm-results-list search-result" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>&nbsp;</th>
 				<th class="<?php  echo $newsList->getSearchResultsClass('cvName')?>"><a href="<?php  echo $newsList->getSortByURL('cvName', 'asc')?>"><?php  echo t('Name')?></a></th>
@@ -189,6 +235,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			$pkt = Loader::helper('concrete/urls');
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
+			
 			
 				Loader::model('attribute/categories/collection');
 						
@@ -231,9 +278,13 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			<?php  } ?>
 			</table>
 			<br/>
+			<div class="ajax-page">
 			<?php  
 			$newsList->displayPaging();
-			
+			?>
+			</div>
+		</div>
+			<?php
 		} else {
 			print t('No news entries found.');
 		}
@@ -241,15 +292,245 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 	</div>
     <div class="ccm-pane-footer">
     	<?php  $ih = Loader::helper('concrete/interface'); ?>
-        <?php  print $ih->submit(t($title.' Group'), 'news-form', 'right', 'primary'); ?>
+    	<?php  if ($this->controller->getTask() == 'edit_group') { ?>
+    	 <?php  print $ih->submit(t('Edit Group'), 'news-form', 'right', 'primary'); ?>
+    	<?php } else { ?>
+        <?php  print $ih->submit(t('Add Group'), 'news-form', 'right', 'primary'); ?>
+        <?php } ?>
         <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/shedule_news_group/'), 'right'); ?>
+        <?php  if ($this->controller->getTask() == 'edit_group') { ?>
+        <?php  print $ih->button(t('Delete Group'), $this->url('/dashboard/pronews/shedule_news_group/add_group/delete_group/'.$remove_cid.''), 'left'); }?>
     </div>
 	</form>
+	<?php echo Loader::helper('form')->hidden('currentpage',1); ?>
 	
 <script type="text/javascript">
+
 function addtoselectedarticle(id, name, url) {
-  $('.group-article').append('<div class="article"><a href="<?php echo BASE_URL.DIR_REL?>'+url+'">'+name+'</a><input type="hidden" name="articlesar[]"   value="'+id+'"><a href="javascript:void(0)" onclick="$(this).parent().remove()">Remove</a></div>');
+  $('.group-article').append('<div class="article"><a href="<?php echo BASE_URL.DIR_REL?>'+url+'">'+name+'</a><input type="hidden" name="articlesar[]"   value="'+id+'"><a class="det_link" href="javascript:void(0)" onclick="removepage(this)">Remove</a></div>'); 
+   var disver =$('#currentpage').val();
+   displaypagenext(disver); 
+   function displaypagenext(displaypage){
+   $('.img-loader').hide().ajaxStart( function() {   
+   $(this).show();   
+   } ).ajaxStop ( function(){ 
+   $(this).hide();
   
-  }
+  });
   
+	$.ajax({
+       type: "POST",
+       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('get_nextpage');  ?>",
+   	   data: $('#news-form').serialize()+"&displaypage="+displaypage,
+       
+       success: function(msg){    
+       $('.next-result').html(msg);
+       
+       $('.ajax-page a').each(function(){
+		$(this).attr('href','javascript::void(0)');
+		var pagelink=$(this).html();
+		$(this).attr('displaypage',pagelink);
+		$(this).addClass('getajaxpage');
+	
+		});
+		$('.getajaxpage').click(function(){
+			var disppage=$(this).attr('displaypage');
+	
+	    var currentpage = $('#currentpage').val();
+		if(disppage=='Next »'){
+			disppage=parseInt(currentpage)+1;
+		}
+		if(disppage=='« Previous'){
+			disppage=parseInt(currentpage)-1;
+		}		
+			$('#currentpage').val(disppage);				
+				displaypagenext(disppage);
+			});	
+ 
+       }       
+     });      
+       
+       
+   }   
+  } 
+  
+   
  </script>
+ 
+ <script type="text/javascript">
+ function removepage(tthis){
+ var disver =$('#currentpage').val();
+	 $(tthis).parent().remove(); 
+	 displaypagenext(disver);
+	 
+	 function displaypagenext(displaypage){
+   $('.img-loader').hide().ajaxStart( function() {   
+   $(this).show();   
+   } ).ajaxStop ( function(){ 
+   $(this).hide();
+  
+  });
+  
+	$.ajax({
+       type: "POST",
+       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('get_nextpage');  ?>",
+   	   data: $('#news-form').serialize()+"&displaypage="+displaypage,
+       
+       success: function(msg){    
+       $('.next-result').html(msg);
+       
+       $('.ajax-page a').each(function(){
+		$(this).attr('href','javascript::void(0)');
+		var pagelink=$(this).html();
+		$(this).attr('displaypage',pagelink);
+		$(this).addClass('getajaxpage');
+	
+		});
+		$('.getajaxpage').click(function(){
+			var disppage=$(this).attr('displaypage');
+	
+	    var currentpage = $('#currentpage').val();
+		if(disppage=='Next »'){
+			disppage=parseInt(currentpage)+1;
+		}
+		if(disppage=='« Previous'){
+			disppage=parseInt(currentpage)-1;
+		}		
+			$('#currentpage').val(disppage);				
+				displaypagenext(disppage);
+			});	
+ 
+       }       
+     });      
+       
+       
+   }  
+ }
+$(document).ready(function(){
+
+     
+   
+
+	$('.ajax-page a').each(function(){
+		$(this).attr('href','javascript::void(0)');
+		var pagelink=$(this).html();
+		$(this).attr('displaypage',pagelink);
+		$(this).addClass('getajaxpage');
+		
+	});
+	
+	$('.getajaxpage').click(function(){
+		    var disppage=$(this).attr('displaypage');
+		
+		    var currentpage = $('#currentpage').val();
+			if(disppage=='Next »'){
+				disppage=parseInt(currentpage)+1;
+			}
+			if(disppage=='« Previous'){
+				disppage=parseInt(currentpage)-1;
+			}		
+	       $('#currentpage').val(disppage);	
+		   displaypagenext(disppage);
+	});
+
+
+ $('.search-article').click(function(){    
+   $('.img-loader').hide().ajaxStart( function() {
+   $(this).show();  
+  } ).ajaxStop ( function(){  
+  $(this).hide();  
+  }); 
+  
+  
+  $.ajax({
+       type: "POST",
+       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('article_search');  ?>",
+       data : $('#news-form').serialize(), 
+       
+       success: function(msg){    
+       $('.next-result').html(msg);
+       
+       $('.ajax-page a').each(function(){
+		$(this).attr('href','javascript::void(0)');
+		var pagelink=$(this).html();
+		$(this).attr('displaypage',pagelink);
+		$(this).addClass('getajaxpage');
+	
+		});
+		$('.getajaxpage').click(function(){
+			var disppage=$(this).attr('displaypage');
+	
+	    var currentpage = $('#currentpage').val();
+		if(disppage=='Next »'){
+			disppage=parseInt(currentpage)+1;
+		}
+		if(disppage=='« Previous'){
+			disppage=parseInt(currentpage)-1;
+		}		
+		$('#currentpage').val(disppage);				
+		displaypagenext(disppage);
+		});			
+		var searchcat = $('#searchcat').val();
+			var searchtag = $('#searchtag').val();
+			var searchdist = $('#searchdist').val();
+			var searchname = $('#like').val();
+			
+		$('.hidden-result').append('<input type="hidden" name="search-cat" value="'+searchcat+'"><input type="hidden" name="search-tag" value="'+searchtag+'"><input type="hidden" name="search-dist" value="'+searchdist+'"><input type="hidden" name="search-name" value="'+searchname+'">'); 
+       }       
+     }); 
+  });
+  
+  
+   function displaypagenext(displaypage){
+   $('.img-loader').hide().ajaxStart( function() {   
+   $(this).show();   
+   } ).ajaxStop ( function(){ 
+   $(this).hide();
+  
+  });
+  
+	$.ajax({
+       type: "POST",
+       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('get_nextpage');  ?>",
+   	   data: $('#news-form').serialize()+"&displaypage="+displaypage,
+       
+       success: function(msg){    
+       $('.next-result').html(msg);
+       
+       $('.ajax-page a').each(function(){
+		$(this).attr('href','javascript::void(0)');
+		var pagelink=$(this).html();
+		$(this).attr('displaypage',pagelink);
+		$(this).addClass('getajaxpage');
+	
+		});
+		$('.getajaxpage').click(function(){
+			var disppage=$(this).attr('displaypage');
+	
+	    var currentpage = $('#currentpage').val();
+		if(disppage=='Next »'){
+			disppage=parseInt(currentpage)+1;
+		}
+		if(disppage=='« Previous'){
+			disppage=parseInt(currentpage)-1;
+		}		
+			$('#currentpage').val(disppage);				
+				displaypagenext(disppage);
+			});	
+ 
+       }       
+     });      
+       
+       
+   }  
+ });      
+</script> 
+
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 

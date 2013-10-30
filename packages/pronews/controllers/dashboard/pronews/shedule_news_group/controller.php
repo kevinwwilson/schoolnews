@@ -10,58 +10,36 @@ class DashboardPronewsSheduleNewsGroupController extends Controller {
 	}
 	
 	public function view() {
-	
-	$this->loadPageTypes();
-	$this->loadnewsSections();
+	$group=$this->group_list();
+	$this->set('group', $group);
 	$this->addHeaderItem(Loader::helper('html')->javascript('tiny_mce/tiny_mce.js'));
 	
 	}
 	
-	protected function loadPageTypes() {
-		Loader::model("collection_types");
-		$ctArray = CollectionType::getList('');		
-		$pageTypes = array();
-		foreach($ctArray as $ct) {
-			$pageTypes[$ct->getCollectionTypeID()] = $ct->getCollectionTypeName();		
-		}
-		$this->set('pageTypes', $pageTypes);
-		
-		Loader::model('config');
-	    $this->token = Loader::helper('validation/token');
-	    $this->set('page_type_id',Config::get('PAGE_TYPE_ID'));
+	
+	
+	public function group_list() {
+	
+		 $db = Loader::db();		 
+		 $row = $db->GetArray('SELECT * FROM btselectProNewsList');		 
+		 return $row;
+		 		 
 	}
 	
-	protected function loadnewsSections() {
-		$newsSectionList = new PageList();
-		$newsSectionList->filterByNewsSection(1);
-		$newsSectionList->sortBy('cvName', 'asc');
-		$tmpSections = $newsSectionList->get();
-		$sections = array();
-		foreach($tmpSections as $_c) {
-			$sections[$_c->getCollectionID()] = $_c->getCollectionName();
-		}
-		$this->set('sections', $sections);
-		
-		Loader::model('config');
-	    $this->token = Loader::helper('validation/token');
-	    $this->set('sections_id',Config::get('SECTIONS_ID'));
-	}
 	
-	public function save_settings() {
-	
-	Loader::model('config');
-		$this->token = Loader::helper('validation/token');		
-		$co = new Config();
-		$pkg = Package::getByHandle("pronews");
-		$co->setPackageObject($pkg);
-		if(isset($_POST['PAGE_TYPE_ID'])){
-		$co->save('PAGE_TYPE_ID',$_POST['PAGE_TYPE_ID']);
-		}		
-		if(isset($_POST['PAGE_TYPE_ID'])){
-		$co->save('SECTIONS_ID',$_POST['SECTIONS_ID']);
-		}
-		$this->set('message', t('Settings has been saved.'));
-		$this->view();
+		 
+		 public function group_added() {
+		 
+		 $this->set('message', t('Group added.'));
+		 $this->view();
+		 
+		 }
+		 
+		 public function group_edited() {
+		 
+		 $this->set('message', t('Group updated.'));
+		 $this->view();
+		 
 		 }
 	
 	

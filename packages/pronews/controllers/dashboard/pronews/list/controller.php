@@ -26,50 +26,31 @@ class DashboardpronewslistController extends Controller {
 			}
 			if(!empty($_GET['like'])){
 			$newsList->filterByName($_GET['like']);
-			}           
+			} 
+			
+			            if(!empty($_GET['like'])){
+						$newsList->filterByName($_GET['like']);
+						}
+						if(!empty($_GET['cat'])){
+					    $cat = $_GET['cat'];
+					    $newsList->filter(false,"ak_news_category like '%$cat%'");
+					    } 
+					    
+					    if(!empty($_GET['tag'])){
+					    $tag = $_GET['tag'];
+					    $newsList->filter(false,"ak_news_tag like '%$tag%'");
+					    }
+					    
+					    if(!empty($_GET['dist'])){
+					    $dist = $_GET['dist'];
+					    $newsList->filter(false,"ak_district like '%$dist%'");
+					    }           
             
 			$newsList->setItemsPerPage($this->num);
 		    
 		$newsResults=$newsList->getPage();
 		
-			if(!empty($_GET['cat'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				    $filter_catpage = $page->getCollectionAttributeValue('news_category');
-				    foreach($filter_catpage as $catpage){
-  	 				if($catpage->value == $_GET['cat']) {
-      					array_push($newsResults, $page);   
-   					}
-   					}
-				}
-				
-			}
-			if(!empty($_GET['tag'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				$filter_tagpage = $page->getCollectionAttributeValue('news_tag');
-				foreach($filter_tagpage as $tagpage)
-  	 				if($tagpage->value == $_GET['tag']) {
-      					array_push($newsResults, $page);   
-   					}
-				}
-				
-			}
-				if(!empty($_GET['dist'])){
-				$pageList = $newsResults;
-				$newsResults = array();
-				foreach($pageList as $page){
-				    $filter_dispage = $page->getCollectionAttributeValue('district');
-				    foreach($filter_dispage as $dispage){				
-  	 				if($dispage->value == $_GET['dist']) {
-      					array_push($newsResults, $page);   
-   					}
-   					}
-				}
-				
-			}
+			
 			
 			
 		$this->set('newsResults', $newsResults);

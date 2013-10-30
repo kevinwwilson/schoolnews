@@ -15,6 +15,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .edit {background-position: -22px -2225px;margin-right: 6px!important;}
 .copy {background-position: -22px -439px;margin-right: 6px!important;}
 .delete {background-position: -22px -635px;}
+.gro-select select{width: 110px !important}
 </style>
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('View/Search News'), false, false, false);?>
 	<div class="ccm-pane-body">
@@ -107,6 +108,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				<th><?php  echo t('District')?></th>
 				<th class="<?php  echo $newsList->getSearchResultsClass('news_category')?>"><a href="<?php  echo $newsList->getSortByURL('news_category', 'asc')?>"><?php  echo t('Region')?></a></th>
 				<th><?php  echo t('Display')?></th>
+				<th><?php  echo t('Group Status')?></th>
 			</tr>
 			<?php  
 			$pkt = Loader::helper('concrete/urls');
@@ -163,6 +165,19 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				}
 				?>
 				</td>
+				<td class="gro-select">
+				<form >
+				<?php echo Loader::helper('form')->hidden('news_id',$cobj->cID); ?>
+				<?php  
+						Loader::model("attribute/categories/collection");
+						$akct = CollectionAttributeKey::getByHandle('group_status');
+						if (is_object($cobj)) {
+							$tcvalue = $cobj->getAttributeValueObject($akct);
+						}
+						?>
+						<?php  echo $akct->render('form', $tcvalue, true);?>
+				</form>
+						</td>
 			</tr>
 			<?php  } ?>
 			</table>
@@ -179,3 +194,25 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 
     </div>
     </form>
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+    $(".gro-select select option[value='']").remove();
+    
+	$('.gro-select select').change(function(){		
+		var data=$(this).parent().serialize();
+	 $.ajax({
+				   type: "POST",
+			   	   url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('change_status');  ?>",
+					data: data,
+				  		 success: function(data) {							 
+							 
+							 }
+			    });
+		});
+	
+	
+	});
+    
+    
+   </script>   

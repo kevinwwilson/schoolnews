@@ -125,6 +125,19 @@ class PronewsPackage extends Package {
 		'akSelectAllowMultipleValues' => true,  
      	),$pkg)->setAttributeSet($newsset); 
   	}
+  	
+  	$pulln = AttributeType::getByHandle('select'); 
+  	$newscat=CollectionAttributeKey::getByHandle('group_status'); 
+	if( !is_object($newscat) ) {
+     	CollectionAttributeKey::add($pulln, 
+     	array('akHandle' => 'group_status', 
+     	'akName' => t('Group Status'), 
+     	'akIsSearchable' => '1', 
+     	'akIsSearchableIndexed' => '1', 
+		/*'akSelectAllowOtherValues' => true,*/
+		//'akSelectAllowMultipleValues' => true,  
+     	),$pkg)->setAttributeSet($newsset); 
+  	}
   	$newstag=CollectionAttributeKey::getByHandle('news_tag'); 
 	if( !is_object($newstag) ) {
      	CollectionAttributeKey::add($pulln, 

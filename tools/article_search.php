@@ -1,6 +1,10 @@
 <script type="text/javascript" src="/concrete/js/jquery.js?v=d5e31ee523921b0586bfb6dec5757fdc"></script>
 <?php   
 defined('C5_EXECUTE') or die(_("Access Denied."));
+
+
+
+
 $articlesar = $_REQUEST['articlesar'];
 
 $newsSectionList = new PageList();
@@ -12,22 +16,25 @@ $newsSectionList = new PageList();
 		foreach($tmpSections as $_c) {
 			$sections[$_c->getCollectionID()] = $_c->getCollectionName();
 		}
+
+
 $newsList = new PageList();
 		$newsList->sortBy('cDateAdded', 'desc');
 		
 		                if($articlesar > 0){			               
 			            foreach($articlesar as $displayid){
-					    $newsList->filter(false, '( cv.cID not in('.$displayid.') )');					    
+					   $newsList->filter(false, '( cv.cID not in('.$displayid.') )');					    
 					    }  
 		                }
 		
-		$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
+		//$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
 		
 			if(isset($_REQUEST['cParentID']) && $_REQUEST['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
 			}
 			if(empty($_REQUEST['cParentID'])){
 			//$sections = $this->get('sections');
+			
 			$keys = array_keys($sections);
 			$keys[] = -1;
 			$newsList->filterByParentID($keys);
@@ -36,31 +43,31 @@ $newsList = new PageList();
 			
 			            if(!empty($_REQUEST['like'])){
 						$newsList->filterByName($_REQUEST['like']);
-						echo $_REQUEST['like'];
+						
 						}
 						if(!empty($_REQUEST['cat'])){
 					    $cat = $_REQUEST['cat'];
 					    $newsList->filter(false,"ak_news_category like '%$cat%'");
-					    echo $cat;
+					    
 					    } 
 					    
 					    if(!empty($_REQUEST['tag'])){
 					    $tag = $_REQUEST['tag'];
 					    $newsList->filter(false,"ak_news_tag like '%$tag%'");
-					    echo $tag;
+					   
 					    }
 					    
 					    if(!empty($_REQUEST['dist'])){
 					    $dist = $_REQUEST['dist'];
 					    $newsList->filter(false,"ak_district like '%$dist%'");
 					    
-					    echo $dist;
+					    
 					    
 					    }        
             
 			$newsList->setItemsPerPage(15);
-		
-		    $newsResults=$newsList->getPage();		
+			$newsResults=$newsList->getPage();	
+				
 		?>
 		
 <div class="next-result">
@@ -129,90 +136,6 @@ $newsList = new PageList();
 			?>
 			</div>
 </div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-
-      $('.add-link').click(function(){	
-      
-      alert('sdfds');
-      
-	  $('.img-loader').hide().ajaxStart( function() {
-	  $(this).show();	  
-	  } ).ajaxStop ( function(){	  
-	  $(this).hide();	  
-	  });
-	  
-	  $.ajax({
-       type: "POST",
-       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('add_group');  ?>",
-       data : $('#news-form').serialize(),       
-       success: function(msg){    
-       $('.next-result').html(msg);
-              
-       		
-		
-		$('.getajaxpage').click(function(){
-			var disppage=$(this).attr('displaypage');
-	
-	    var currentpage = $('#currentpage').val();
-		if(disppage=='Next »'){
-			disppage=parseInt(currentpage)+1;
-		}
-		if(disppage=='« Previous'){
-			disppage=parseInt(currentpage)-1;
-		}		
-		$('#currentpage').val(disppage);				
-		displaypagenext(disppage);
-		});
- 
-       } 
-             
-      }); 
-   });
-   
-   $('.det_link').click(function(){	
-      
-      alert('sdfds');
-      
-	  $('.img-loader').hide().ajaxStart( function() {
-	  $(this).show();	  
-	  } ).ajaxStop ( function(){	  
-	  $(this).hide();	  
-	  });
-	  
-	  $.ajax({
-       type: "POST",
-       url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('add_group');  ?>",
-       data : $('#news-form').serialize(),       
-       success: function(msg){    
-       $('.next-result').html(msg);
-              
-       		
-		
-		$('.getajaxpage').click(function(){
-			var disppage=$(this).attr('displaypage');
-	
-	    var currentpage = $('#currentpage').val();
-		if(disppage=='Next »'){
-			disppage=parseInt(currentpage)+1;
-		}
-		if(disppage=='« Previous'){
-			disppage=parseInt(currentpage)-1;
-		}		
-		$('#currentpage').val(disppage);				
-		displaypagenext(disppage);
-		});
- 
-       } 
-             
-      }); 
-   });
-   
-   
-   });
-   
-</script>   
 			
 
 
