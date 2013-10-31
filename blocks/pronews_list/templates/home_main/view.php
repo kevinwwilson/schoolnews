@@ -5,25 +5,73 @@
 	// we'll include this block type's class, and pass the block to it, and get
 	// the content
 	
-	if (count($cArray) > 0) { ?>
-	<?php  
-	for ($i = 0; $i < count($cArray); $i++ ) {
-		$cobj = $cArray[$i]; 
-		$title = $cobj->getCollectionName();
-		$author = $cobj->getAttribute('author');
-		$photo_caption = $cobj->getAttribute('photo_caption');
-		$secondary_headline = $cobj->getAttribute('secondary_headline');
-		$dateline = $cobj->getAttribute('dateline');
+	$db = Loader::db();		 
+	$row = $db->GetArray('SELECT * FROM btselectProNewsList');
+	foreach($row as $data){
+		if($data['active'] == 1){			
+			$active_artid = $data['atID'];
+		}
 		
-		
-		$CatImage = $cobj->getAttribute('main_photo');					
+	}
+	
+	
+	                             
+	
+	$articleids = explode('||',$active_artid);
+	$atids = array();
+	     foreach($articleids as $displayid){
+	                             Loader::model('page_list');
+	                             $pl = new PageList();	                             	                                 
+	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
+	                             $pl->filter(false,"ak_group_status like '%Active%'");	                             
+	                             $pages = $pl->getPage(); 	                                                       
+	                             foreach($pages as $cpage){ 
+	                             
+	                             $atids[] = $cpage->cID;
+	                             
+	                             }
+	                             }
+	
+	
+	$random_id = $atids[array_rand($atids)];
+	
+	
+	foreach($articleids as $displayid){
+							  
+								 Loader::model('page_list');
+	                             $pl = new PageList();	                             	                                 
+	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
+	                             $pl->filter(false,"ak_group_status like '%Active%'");
+	                                global $u;
+						            if (!$u -> isLoggedIn ()) {
+						            $pl->filterByAttribute('approve',"1"); 
+						            }	                             
+	                             $pages = $pl->getPage();	                          
+	                             foreach($pages as $cpage){ 
+	                             $nh = Loader::helper('navigation');
+	                             $url = $nh->getLinkToCollection($cpage);
+	                             	                             
+	                             $title = $cpage->getCollectionName();
+									$author = $cpage->getAttribute('author');
+									$photo_caption = $cpage->getAttribute('photo_caption');
+									$secondary_headline = $cpage->getAttribute('secondary_headline');
+									$dateline = $cpage->getAttribute('dateline');
+									
+									
+									$CatImage = $cpage->getAttribute('main_photo');					
 			        $image = '';
 			        if(is_object($CatImage)){
 				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'" height="331">';					
-			        }  ?> 
-		
-    
-    <div class="slide-block-noborder gallery-js-ready autorotation-active">
+			        }  
+	                             
+	                             $id = $cpage->cID; 
+	                             
+	                             
+	                             if($cpage->cID == $random_id){
+	                             
+	                              ?> 
+	                             
+	                             <div class="slide-block-noborder gallery-js-ready autorotation-active">
         <ul class="slideshow" style="height: 331px;">
             <li class="active" style="display: block;">
                 <?php echo $image; ?>
@@ -43,14 +91,14 @@
         <span class="dateline"><?php echo $dateline?> — </span>
 		<?php  
 		if($use_content > 0){
-			$block = $cobj->getBlocks('Main');
+			$block = $cpage->getBlocks('Main');
 			foreach($block as $bi) {
 				if($bi->getBlockTypeHandle()=='content'){
 					$content = $bi->getInstance()->getContent();
 				}
 			}
 		}else{
-			$content = $cobj->getCollectionDescription();
+			$content = $cpage->getCollectionDescription();
 		}
 		if(!$controller->truncateSummaries){
 			echo $content;
@@ -60,10 +108,10 @@
 		?>
         <br/>
         </p>
-         <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>
+         <a href="<?php  echo $nh->getLinkToCollection($cpage)?>">READ FULL STORY »</a>
     </article>
     
-<?php  }
+<?php 
 if(!$previewMode && $controller->rss) { 
 			$bt = BlockType::getByHandle('pronews_list');
 			$uh = Loader::helper('concrete/urls');
@@ -74,13 +122,12 @@ if(!$previewMode && $controller->rss) {
 				<?php  echo t('Subscribe ')?> &nbsp;<a href="<?php   echo $rssUrl?>" target="_blank"><img src="<?php echo BASE_URL.DIR_REL ?>/blocks/pronews_list/rss.png" alt="codestrat concrete5 addon development" title="CodeStrat Concrete5 Addon Development" width="14" height="14" /></a>
 			</div>
 			<link href="<?php  echo $rssUrl?>" rel="alternate" type="application/rss+xml" title="<?php  echo $controller->rssTitle?>" />
-		<?php  
-	} 
-
- ?>
+		<?php  	} 
+	     }
+	   }                            
 	
-
-<?php  } 
+	}
+	
 	
 	if ($paginate && $num > 0 && is_object($pl)) {
 		$pl->displayPaging();

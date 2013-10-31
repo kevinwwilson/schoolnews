@@ -158,13 +158,7 @@
             }	
 					
 			}
-			if($template=='home_right'){	
-			global $u;
-            if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
-            }	
-					
-			}
+			
 			if($template=='home_title'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {

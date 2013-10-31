@@ -63,7 +63,8 @@ $newsList = new PageList();
 					    
 					    
 					    
-					    }        
+					    } 
+					          
             
 			$newsList->setItemsPerPage(15);
 			$newsResults=$newsList->getPage();	
@@ -88,6 +89,8 @@ $newsList = new PageList();
 			$pkt = Loader::helper('concrete/urls');
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
+			
+			if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Active'){
 			
 				Loader::model('attribute/categories/collection');
 						
@@ -127,7 +130,7 @@ $newsList = new PageList();
 				<td><?php  echo $news_category;?></td>
 				
 			</tr>
-			<?php  } ?>
+			<?php } } ?>
 			</table>
 			<br/>
 			<div class="ajax-page">

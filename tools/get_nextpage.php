@@ -24,7 +24,7 @@ $newsSectionList = new PageList();
 			               
 		               }
 		               
-		               $newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
+		               //$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
 		               if(isset($_REQUEST['cParentID']) && $_REQUEST['cParentID'] > 0){
 						$newsList->filterByParentID($_GET['cParentID']);
 						}
@@ -80,7 +80,7 @@ $newsSectionList = new PageList();
 			$pkt = Loader::helper('concrete/urls');
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
-			
+			   if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Active'){
 				Loader::model('attribute/categories/collection');
 						
 				$akct = CollectionAttributeKey::getByHandle('news_category');
@@ -119,7 +119,7 @@ $newsSectionList = new PageList();
 				<td><?php  echo $news_category;?></td>
 				
 			</tr>
-			<?php  } ?>
+			<?php } } ?>
 			</table>
 			<br/>
 			<div class="ajax-page">

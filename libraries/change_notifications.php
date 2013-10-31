@@ -1,29 +1,21 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
+
 $db = Loader::db();		 
 $row = $db->GetArray("SELECT * FROM btselectProNewsList");
-
-$today = getdate();
-$year = $today['year'];
-$month = $today['mon'];
-$day = $today['mday'];
-$hour = $today['hours'];
-$min = $today['minutes'];
-$current_time = $year.'-'.$month.'-'.$day.' '.$hour.':'.$min.':00';
-
+$current_time = date("Y-m-d H:i:s"); 
+$lesstime = array();
 foreach($row as $data){
  $curid = $data['ID']; 
  $ctime = $data['time']; 
- 
-        $lesstime = array();
-		if($current_time > $ctime){		
-		$lesstime[] = $ctime;
+        
+		if($current_time > $ctime){
 			
-		}
-		
+		array_push($lesstime, $ctime);				
 }
-
+}
 $largevalue = max($lesstime);
-
-
-	   $sql = $db->query("UPDATE btselectProNewsList SET active='1' WHERE time='$largevalue'");
+$sqlz = $db->query("UPDATE btselectProNewsList SET active='0'");
+$db->Execute($sqlz);
+$sql = $db->query("UPDATE btselectProNewsList SET active='1' WHERE time='$largevalue'");
+$db->Execute($sql);
 ?>
