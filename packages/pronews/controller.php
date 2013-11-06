@@ -37,8 +37,10 @@ class PronewsPackage extends Package {
       $pnl = SinglePage::add('/dashboard/pronews/list/', $pkg);
       $pnl->setAttribute($iak,'icon-list-alt');
       
-      $pns = SinglePage::add('/dashboard/pronews/settings/', $pkg);
-      $pns->setAttribute($iak,'icon-wrench');
+      
+      $an = SinglePage::add('/dashboard/pronews/add_news', $pkg);
+      $an->update(array('cName'=>t('Add/Edit')));
+      $an->setAttribute($iak,'icon-edit');
       
       $png = SinglePage::add('/dashboard/pronews/shedule_news_group/', $pkg);
       $png->setAttribute($iak,'icon-clock');
@@ -47,9 +49,10 @@ class PronewsPackage extends Package {
       $pnag->setAttribute($iak,'icon-clock');
 
       
-      $an = SinglePage::add('/dashboard/pronews/add_news', $pkg);
-      $an->update(array('cName'=>t('Add/Edit')));
-      $an->setAttribute($iak,'icon-edit');
+     
+      
+      $pns = SinglePage::add('/dashboard/pronews/settings/', $pkg);
+      $pns->setAttribute($iak,'icon-wrench');
 	}
 	
 	public function update(){

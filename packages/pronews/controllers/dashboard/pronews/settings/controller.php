@@ -11,6 +11,8 @@ class DashboardPronewsSettingsController extends Controller {
 	
 	public function view() {
 	
+	
+	
 	$this->loadPageTypes();
 	$this->loadnewsSections();
 	$this->addHeaderItem(Loader::helper('html')->javascript('tiny_mce/tiny_mce.js'));
@@ -18,12 +20,17 @@ class DashboardPronewsSettingsController extends Controller {
 	}
 	
 	protected function loadPageTypes() {
+	
+	
+	
 		Loader::model("collection_types");
 		$ctArray = CollectionType::getList('');		
 		$pageTypes = array();
 		foreach($ctArray as $ct) {
 			$pageTypes[$ct->getCollectionTypeID()] = $ct->getCollectionTypeName();		
 		}
+		
+		
 		$this->set('pageTypes', $pageTypes);
 		
 		Loader::model('config');
@@ -40,6 +47,7 @@ class DashboardPronewsSettingsController extends Controller {
 		foreach($tmpSections as $_c) {
 			$sections[$_c->getCollectionID()] = $_c->getCollectionName();
 		}
+		
 		$this->set('sections', $sections);
 		
 		Loader::model('config');
@@ -63,8 +71,240 @@ class DashboardPronewsSettingsController extends Controller {
 		$this->set('message', t('Settings has been saved.'));
 		$this->view();
 		 }
+		 
+	public function import_news() {
+	
+	$file = $_FILES['cvFile'];
 	
 	
 	
+	if($file['name'] != '' && $file['type'] == 'text/csv'){	 	
+		move_uploaded_file($_FILES["cvFile"]["tmp_name"], DIR_BASE."/packages/pronews/files/news.csv");
+		 $this->newsAdded();
+	     $this->set('message','CSV Uploaded'); 
+	     
+	     
+	     
+	     
+	     
+	   		    
+	   }
+	 else{
+		 $this->set('message','Please Upload CSV File'); 
+	 }
+	
+	    $this->view();
+	
+	}
+	
+	public function newsAdded() {
+	
+	Loader::library("file/importer");
+Loader::model('collection_attributes');
+
+$docRoot = $_SERVER['DOCUMENT_ROOT'];
+function cleanValues( $s ) {
+	$replaces = array();
+	$replaces["E'"] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(203).chr(134); 
+	$replaces['"'] = chr(195).chr(131).chr(194).chr(162).chr(195).chr(130).chr(226).chr(130).chr(172).chr(195).chr(130).chr(197).chr(147);
+	$replaces["'"] = chr(195).chr(131).chr(194).chr(162).chr(195).chr(130).chr(226).chr(130).chr(172).chr(195).chr(130).chr(226).chr(132).chr(162);
+	$replaces[141] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(172);
+	$replaces[133] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(160);
+	$replaces[151] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(185);
+	$replaces[138] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(168);
+	$replaces[149] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(178);
+	$replaces[176] = chr(195).chr(131).chr(226).chr(128).chr(154).chr(195).chr(130).chr(194).chr(176);
+	$out[141] = "ì";
+	$out[133] = "à";
+	$out[151] = "ù";
+	$out[138] = "è";
+	$out[149] = "ò";
+	$out[176] = "°";
+	
+	foreach( $replaces as $k => $v ){
+      if( is_numeric( $k ) ){
+        $s = str_replace( $v, chr( $k ), $s );
+      } else {
+        $s = str_replace( $v, $k, $s );
+      }
+    }
+	
+	$s = str_replace( chr(195).chr(131).chr(194).chr(162).chr(195).chr(130).chr(226).chr(130).chr(172).chr(195).chr(130).chr(194).chr(157), '"', $s );
+    $s = str_replace( chr(195).chr(131).chr(194).chr(162).chr(195).chr(130).chr(226).chr(130).chr(172).chr(195).chr(130).chr(203).chr(156), "'", $s );
+    $s = str_replace( chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(169), chr(138), $s );
+    $s = str_replace( chr(195).chr(131).chr(194).chr(162).chr(195).chr(130).chr(226).chr(130).chr(172).chr(195).chr(130).chr(194).chr(166), "", $s );
+    
+    
+    $s1 = "";
+    for($i=0; $i < strlen( $s ); $i++ ){
+        $car = substr( $s, $i, 1 );
+        $ord = ord( $car );
+        if( $ord > 127 && ( $replaces[$ord] == "" ) ){
+          
+          $s1 .= $car;
+        } else {
+          
+          if( $out[$ord] ){
+            $s1 .= $out[$ord];  
+          } else {
+            $s1 .= $car;
+          }
+        }
+    }
+    
+    
+    
+    return $s1;
+    
+}
+
+function readCsv($csvFile)
+{
+	$row = 1;
+	$csvData = array();
+	if (($handle = fopen($csvFile, "r")) !== FALSE) {
+	    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+	        $num = count($data);
+	       // echo "<p> $num fields in line $row: <br /></p>\n";
+	        $row++;
+	        array_push($csvData, $data);
+	      /*  for ($c=0; $c < $num; $c++) {
+	            echo $data[$c] . "<br />\n";
+	        }*/
+	    }
+	    fclose($handle);
+	}	
+	
+	return $csvData;
+}
+
+
+function addPage($data, $cHandle, $parent=125 /* Fito1 */, $attributes, $mainAreaContent){
+
+	//check the page Exists or not
+	
+	$cuur_page_path = strtolower( str_replace( '/', '-', $data['name'] ) );
+	$cuur_page = Page::getByPath($cuur_page_path);
+	 
+		 
+	 if($cuur_page->cID){
+	 	return $cuur_page;
+	 }
+
+	$parent = Page::getByID( $parent );
+	
+	
+	
+	
+	$pt = CollectionType::getByHandle($cHandle);
+	$article = $parent->add( $pt, $data );
+	foreach($attributes as $k=>$v){
+		$article->setAttribute( $k,  $v);		
+	}
+	if($mainAreaContent !=''){
+    	$bt = BlockType::getByHandle('content');
+    	$article->addBlock( $bt, 'Main', array( 'content' =>$mainAreaContent ) );
+	}
+	return $article;
+}
+
+function cleanValuesInArray($contents){
+
+	$data = array();
+	foreach($contents as $k){
+		array_push($data, cleanValues( $k));
+	}
+	return $data;
+}
+
+function getFormattedDate($date){
+	return date("m/d/Y", strtotime($date));
+}
+
+function importImages($images, $Names){
+	
+	$img = explode(',', $images);
+	$nam = explode(',', $Names);
+	$docRoot = $_SERVER['DOCUMENT_ROOT'];
+	$fIDs = array();
+	$incr = 0;
+	$imageID = 0;
+	foreach($img as $f){
+		$fls = explode('/', $f);
+		
+		$file = basename($f);
+		
+		if($file !=''){
+			$fileLoc = $docRoot."/tools/attachments/".$file;	
+			
+			if(file_exists($fileLoc)){
+			   $file_name = $file;
+			   if(isset($nam[$incr])){
+				   $file_name = $nam[$incr];
+			   }
+			   
+			   			   
+			   $fi = new FileImporter();
+			   $fileObject = $fi->import( $fileLoc);	
+				   if(is_object($fileObject)){
+						$fid = $fileObject->getFileID();
+						array_push($fIDs, $fid);
+						if(!preg_match('/pdf/', $file)){
+							$imageID = $fid;
+						}
+					}
+			  
+			  
+			}	
+			
+			$incr++;	
+		}
+	}
+	
+	return array('img_ID'=>$imageID, 'fIDs'=>$fIDs);
 	
 }
+
+function getOrCreatePage(){
+	
+}
+
+//End of Functions
+
+/*$db=Loader::db();
+$addeIDs=$db->getRow("select distinct ak_old_event_id from CollectionSearchIndexAttributes where ak_old_event_id>0");
+foreach($addeIDs as $addeID){
+	$addedeventIDs[]=$addeID['ak_old_event_id'];
+}
+print_r($addedeventIDs);*/
+//die;
+
+$csvData = readCsv($docRoot."/packages/pronews/files/news.csv");
+
+$fields = $csvData[0];
+unset($csvData[0]);
+$addedParents = array();
+$addednewsIDs=array();
+   foreach($csvData as $k){
+     $timestamps=array();
+     $EVT_ID=$k[0];
+	 $EVT_TITLE=$k[2];
+	 echo $EVT_ID;
+	 echo $EVT_TITLE;
+	 die;
+   
+   }
+	
+}
+	
+	
+		
+	
+}
+
+	
+	
+
+
+
+
