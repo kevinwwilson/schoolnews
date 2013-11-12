@@ -14,6 +14,8 @@
 		$dateline = $cobj->getAttribute('dateline');
 		$feature = $cobj->getAttribute('regional_feature');
 		
+		$status = $cobj->getAttribute('group_status');
+		
 		if($feature != ''){			
 		foreach($feature as $feat)
 		{  		   

@@ -94,17 +94,7 @@ class PronewsPackage extends Package {
      	),$pkg)->setAttributeSet($newsset); 
   	}
   	
-  	$checkn = AttributeType::getByHandle('boolean'); 
-  	$approve=CollectionAttributeKey::getByHandle('approve'); 
-	if( !is_object($approve) ) {
-     	CollectionAttributeKey::add($checkn, 
-     	array('akHandle' => 'approve', 
-     	'akName' => t('Approve'),
-     	'akIsSearchable' => '1', 
-     	'akIsSearchableIndexed' => '1'
-     	),$pkg)->setAttributeSet($newsset); 
-  	}
-  	
+  	  	
   	$dt = AttributeType::getByHandle('date_time'); 
   	$group_date=CollectionAttributeKey::getByHandle('group_date'); 
 	if( !is_object($group_date) ) {

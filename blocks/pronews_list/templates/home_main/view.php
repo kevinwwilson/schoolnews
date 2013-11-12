@@ -23,7 +23,9 @@
 	                             Loader::model('page_list');
 	                             $pl = new PageList();	                             	                                 
 	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
-	                             $pl->filter(false,"ak_group_status like '%Active%'");	                             
+	                             //$pl->setAttribute('group_status','Active');	  
+	                             //$pl->filter(false,"ak_group_status like '%Active%'");                             
+	                                                       
 	                             $pages = $pl->getPage(); 	                                                       
 	                             foreach($pages as $cpage){ 
 	                             
@@ -41,13 +43,14 @@
 								 Loader::model('page_list');
 	                             $pl = new PageList();	                             	                                 
 	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
-	                             $pl->filter(false,"ak_group_status like '%Active%'");
-	                                global $u;
-						            if (!$u -> isLoggedIn ()) {
-						            $pl->filterByAttribute('approve',"1"); 
-						            }	                             
+	                             //$pl->setAttribute('group_status','Active');
+	                             //$pl->filter(false,"ak_group_status like '%Active%'");                             
+	                             
+	                                	                             
 	                             $pages = $pl->getPage();	                          
 	                             foreach($pages as $cpage){ 
+	                             
+	                             $cpage->setAttribute('group_status','Active');
 	                             $nh = Loader::helper('navigation');
 	                             $url = $nh->getLinkToCollection($cpage);
 	                             	                             
@@ -55,9 +58,7 @@
 									$author = $cpage->getAttribute('author');
 									$photo_caption = $cpage->getAttribute('photo_caption');
 									$secondary_headline = $cpage->getAttribute('secondary_headline');
-									$dateline = $cpage->getAttribute('dateline');
-									
-									
+									$dateline = $cpage->getAttribute('dateline');									
 									$CatImage = $cpage->getAttribute('main_photo');					
 			        $image = '';
 			        if(is_object($CatImage)){

@@ -200,6 +200,9 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('regional_feature',$this->post('regionalFeature'));
 		$p->setAttribute('long_summary',$this->post('longSummary'));
 		$p->setAttribute('news_tag',$this->post('newsTag'));
+		
+		
+		
 		$p->setAttribute('files',$this->post('files'));		
 		$bt = BlockType::getByHandle('content');
 		

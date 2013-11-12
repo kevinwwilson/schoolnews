@@ -9,6 +9,8 @@
 	<?php  
 	for ($i = 0; $i < count($cArray); $i++ ) {
 		$cobj = $cArray[$i]; 
+		
+		$status = $cobj->getAttribute('group_status');
 		$title = $cobj->getCollectionName();
 		$author = $cobj->getAttribute('author');
 		$dateline = $cobj->getAttribute('dateline');

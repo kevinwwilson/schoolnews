@@ -47,12 +47,14 @@
        <?php if($slideimage == ''){ ?>
         <div class="image-holder">
        <?php $CatImage = $c->getAttribute('main_photo');
+                   if($CatImage){
 	               $ih= Loader::helper('image');
 	               $image_arr['realimg'] = $CatImage->getRelativePath();
 	               $thumb = $ih->getThumbnail($CatImage, 400, 283);                                
 				    $image = '';			       
 				    $image = '<img alt="" src="'.$thumb->src.'">';	
 					echo $image;
+					}
 					?>
        <strong class="title"><?php echo $photo_caption ?></strong>
        </div>

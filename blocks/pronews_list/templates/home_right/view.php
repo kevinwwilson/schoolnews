@@ -37,10 +37,7 @@
 	Loader::model('page_list');
 	$plz = new PageList(); 
 	$plz->filter(false,"ak_group_status like '%Active%'"); 
-	global $u;
-	if (!$u -> isLoggedIn ()) {
-	$plz->filterByAttribute('approve',"1"); 
-	}         
+	        
 	$pages = $plz->get(); 
 	         
     foreach($pages as $cobj){ 

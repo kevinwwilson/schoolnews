@@ -107,7 +107,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				<th class="<?php  echo $newsList->getSearchResultsClass('cvDatePublic')?>"><a href="<?php  echo $newsList->getSortByURL('cvDatePublic', 'asc')?>"><?php  echo t('Date')?></a></th>
 				<th><?php  echo t('District')?></th>
 				<th class="<?php  echo $newsList->getSearchResultsClass('news_category')?>"><a href="<?php  echo $newsList->getSortByURL('news_category', 'asc')?>"><?php  echo t('Region')?></a></th>
-				<th><?php  echo t('Display')?></th>
+				
 				<th><?php  echo t('Group Status')?></th>
 			</tr>
 			<?php  
@@ -153,18 +153,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 					
 				</td>
 				<td><?php  echo $news_category;?></td>
-				<td>
-				<?php
-				   
-				if($cobj->getCollectionAttributeValue('approve') != '1'){
-				echo '<a href="'.$this->url('/dashboard/pronews/list', 'approvethis', $cobj->getCollectionID(),$cobj->getCollectionName()).'">Approve</a>';
-				}else{
-					echo '<a href="'.$this->url('/dashboard/pronews/list', 'unapprovethis', $cobj->getCollectionID(),$cobj->getCollectionName()).'">Hide</a>';
-
-					
-				}
-				?>
-				</td>
+				
 				<td class="gro-select">
 				<form >
 				<?php echo Loader::helper('form')->hidden('news_id',$cobj->cID); ?>

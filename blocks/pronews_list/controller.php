@@ -134,27 +134,31 @@
 			if($template=='home_images'){
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');               
             }				
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
 			if($template=='left_side'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');               
             }			
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
 			if($template=='full_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+             
+            $pl->filterByAttribute('group_status',"%Active%",'like');              
             }		
 			}
 			if($template=='home_main'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');              
             }	
 					
 			}
@@ -162,7 +166,8 @@
 			if($template=='home_title'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');              
             }	
 					
 			}
@@ -170,7 +175,9 @@
 			if($template=='pronews_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');
+                         
             }	
 					
 			}
@@ -178,7 +185,8 @@
             if($template=='search'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filterByAttribute('approve',"1");               
+            
+            $pl->filterByAttribute('group_status',"%Active%",'like');              
             }	
 					
 			}

@@ -2,7 +2,8 @@
 
 $db = Loader::db();		 
 $row = $db->GetArray("SELECT * FROM btselectProNewsList");
-$current_time = date("Y-m-d H:i:s"); 
+$current_time = date("Y-m-d H:i:s");
+
 $lesstime = array();
 foreach($row as $data){
  $curid = $data['ID']; 

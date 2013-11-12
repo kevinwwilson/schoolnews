@@ -81,7 +81,7 @@ class DashboardPronewsSettingsController extends Controller {
 	if($file['name'] != '' && $file['type'] == 'text/csv'){	 	
 		move_uploaded_file($_FILES["cvFile"]["tmp_name"], DIR_BASE."/packages/pronews/files/news.csv");
 		 $this->newsAdded();
-	     $this->set('message','CSV Uploaded'); 
+	     $this->set('message','News Added'); 
 	     
 	     
 	     
@@ -281,17 +281,132 @@ print_r($addedeventIDs);*/
 
 $csvData = readCsv($docRoot."/packages/pronews/files/news.csv");
 
+
+
 $fields = $csvData[0];
 unset($csvData[0]);
 $addedParents = array();
 $addednewsIDs=array();
    foreach($csvData as $k){
      $timestamps=array();
-     $EVT_ID=$k[0];
-	 $EVT_TITLE=$k[2];
-	 echo $EVT_ID;
-	 echo $EVT_TITLE;
-	 die;
+     
+     $NW_STORY_SLUG = $k[0];
+	 $NW_REPORTERNAME = $k[1];
+	 $NW_DATE = $k[2];
+	 $NW_PRIMARY_HEADLINE = $k[3];
+	 $NW_SECONDARY_HEADLINE = $k[4];
+	 $NW_DATELINE = $k[5];
+	 $NW_ARTICLE = $k[6];
+	 $NW_SUMMARY = $k[7];
+	 $NW_LONG_SUMMARY = $k[8];
+	 $NW_DISTRICT = $k[9];
+	 $NW_REGIONS = $k[10];
+	 $NW_PROMOTION = $k[11];
+	 $NW_REGIONAL_FEATURE=$k[12];
+	 $NW_TAGS=$k[13];
+	 $NW_MEDIA=$k[14];
+	 $NW_PHOTO1=$k[15];
+	 $NW_CAPTION1=$k[16];
+	 $NW_PHOTO2=$k[17];
+	 $NW_CAPTION2=$k[18];
+	 $NW_PHOTO3=$k[19];
+	 $NW_CAPTION3=$k[20];
+	 $NW_PHOTO4=$k[21];
+	 $NW_CAPTION4=$k[22];
+	 $NW_PHOTO5=$k[23];
+	 $NW_CAPTION5=$k[24];
+	
+	 
+	 $carticle = str_replace(',', '', $NW_ARTICLE);
+	 $cdiscription = strip_tags($NW_SUMMARY);
+	 $clongsummary = strip_tags($NW_LONG_SUMMARY);
+	 
+	 
+	 $cdistrict = explode(',',$NW_DISTRICT);
+	 $ctag = explode(',',$NW_TAGS);
+	 $cregion = explode(',',$NW_REGIONS);
+	 
+	 
+	 
+	 
+	 $parent = Page::getByID(Config::get('SECTIONS_ID'));
+		$ct = CollectionType::getByID(Config::get('PAGE_TYPE_ID'));
+		sort($timestamps,SORT_NUMERIC);	
+		
+		$start_date = date("Y-m-d", strtotime($NW_DATE));
+		
+		
+		$data = array('cName' => $NW_PRIMARY_HEADLINE, 'cDescription' => $cdiscription, 'cDatePublic' => $start_date);
+		$p = $parent->add($ct, $data);
+		$timings=array();
+				
+		$blocks = $p->getBlocks('Main');
+		foreach($blocks as $b) {
+			if($b->getBlockTypeHandle()=='content'){
+				$b->deleteBlock();
+			}
+		}
+		$bt = BlockType::getByHandle('content');
+		$data = array('content' => $carticle);			
+		$block=$p->addBlock($bt, 'Main', $data);
+		$b=Block::getByID($block->bID);
+		$b->setCustomTemplate('news_post');
+		$p->reindex();
+		
+		if($NW_STORY_SLUG!=''){
+		$p->setAttribute('story_slug',$NW_STORY_SLUG);
+		}
+		if($NW_REPORTERNAME!=''){
+		$p->setAttribute('author',$NW_REPORTERNAME);
+		}		
+		if($NW_SECONDARY_HEADLINE!=''){
+		$p->setAttribute('secondary_headline',$NW_SECONDARY_HEADLINE);
+		}
+		if($NW_DATELINE!=''){
+		$p->setAttribute('dateline',$NW_DATELINE);
+		}
+		if($NW_LONG_SUMMARY!=''){
+		$p->setAttribute('long_summary',$clongsummary);
+		}
+		if($NW_DISTRICT!=''){
+		$p->setAttribute('district',$cdistrict);
+		}
+		if($NW_REGIONS!=''){
+		$p->setAttribute('news_category',$cregion);
+		}
+		if($NW_TAGS!=''){
+		$p->setAttribute('news_tag',$ctag);
+		}
+		if($NW_REGIONAL_FEATURE!='' && $NW_REGIONAL_FEATURE!= 'Not Regional Feature'){
+		$p->setAttribute('regional_feature',1);
+		}
+		if($NW_MEDIA!='' && $NW_MEDIA == 'Single Photo'){		
+		$file = File::getByID($NW_PHOTO1);		
+		$p->setAttribute('main_photo',$file);
+		
+		if($NW_CAPTION1!=''){
+		$p->setAttribute('photo_caption',$NW_CAPTION1);
+		}
+		
+		}
+		
+		if($NW_MEDIA!='' && $NW_MEDIA == 'Multiple Photos'){
+		
+		
+		
+$sliderimages=$NW_PHOTO1.','.$NW_PHOTO2.','.$NW_PHOTO3.','.$NW_PHOTO4.','.$NW_PHOTO5.'||'.$NW_CAPTION1.','.$NW_CAPTION2.','.$NW_CAPTION3.','.$NW_CAPTION4.','.$NW_CAPTION5;
+        
+	
+		$p->setAttribute('files',$sliderimages);
+		
+	
+		
+		
+		}
+		
+		
+			       
+	 
    
    }
 	
