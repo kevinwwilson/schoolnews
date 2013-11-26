@@ -35,7 +35,7 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
 	// run when we call setAttribute(), instead of saving through the UI
 	public function saveValue( $fIDs=array() , $fName = array()) {
 		$db = Loader::db();
-		if(!is_array($fIDs)){			
+		if(!is_array($fIDs) && $fIDs != 0){			
 			$cfid = explode('||',$fIDs);
 			$fIDs = explode(',',$cfid[0]);
 			$fName = explode(',',$cfid[1]);

@@ -33,8 +33,35 @@ if (is_object($news)) {
 	$title= 'Add';
 }
 ?>
+<style>
+.ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
+.ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
+
+</style>
+
+
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t($title.' News').'<span class="label" style="position:relative;top:-3px;left:12px;">'.t('* required field').'</span>', false, false, false);?>
 	<div class="ccm-pane-body">
+	
+	
+	
+	<?php 
+		if($remove_name){
+		?>
+		<div class="alert-message block-message error">
+		  <a class="close" href="<?php  echo $this->action('clear_warning');?>">×</a>
+		  <p><strong><?php  echo t('Holy guacamole! This is a warning!');?></strong></p><br/>
+		  <p><?php  echo t('Are you sure you want to delete '.$remove_name.'?');?></p>
+		  <p><?php  echo t('This action may not be undone!');?></p>
+		  <div class="alert-actions">
+		    <a class="btn small" href="<?php  echo $this->action('delete_news', $remove_cid)?>"><?php  echo t('Yes Remove This');?></a> <a class="btn small" href="<?php  echo $this->action('clear_warning');?>"><?php  echo t('Cancel');?></a>
+		  </div>
+		</div>
+		<?php 
+		}
+		?>
+	
+	
 		<!--
 		<ul class="breadcrumb">
 		  <li><a href="/index.php/dashboard/pronews/list/">List</a> <span class="divider">|</span></li>
@@ -135,6 +162,8 @@ if (is_object($news)) {
 					<?php  echo $form->label('newsDescription', t('Summary'))?>
 					<div class="input">
 						<div><?php  echo $form->textarea('newsDescription', $newsDescription, array('style' => 'width: 98%; height: 90px; font-family: sans-serif;'))?></div>
+						
+						<div id="count"></div>
 					</div>
 				</div>
                 
@@ -372,11 +401,17 @@ if (is_object($news)) {
 	<div class="ccm-pane-footer">
     	<?php  $ih = Loader::helper('concrete/interface'); ?>
         <?php  print $ih->submit(t($title.' News Item'), 'news-form', 'right', 'primary'); ?>
-        <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/list/'), 'left'); ?>
+        
+        <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/list/'), 'dleft'); ?>
+        
+        <?php  if ($this->controller->getTask() == 'edit') { ?>
+        <?php  print $ih->button(t('Delete News'), $this->url('/dashboard/pronews/add_news/delete_check/'.$news->getCollectionID().''), 'left'); }?>
+        
     </div>
 	</form>
     <style type="text/css">
 	.lsummary textarea{width: 747px; height: 300px;}
+	#count{text-align: right; margin-top: 20px; margin-right: 10px;}
 	</style>
 <script>
 $("input:radio[name=image]").click(function() {
@@ -392,5 +427,14 @@ $("input:radio[name=image]").click(function() {
 		$('#photoCaption').hide();
 	}
 	
+});
+
+$("#newsDescription").keyup(function(){
+  var count = 280 - parseInt($(this).val().length);
+ 
+  if(count > -1){
+  $("#count").text("Characters left: " + (280 - $(this).val().length));
+  }
+ 
 });
 </script>

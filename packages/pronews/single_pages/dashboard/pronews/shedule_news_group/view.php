@@ -24,6 +24,9 @@ table td{padding: 12px!important;}
 	<br/><br/>
 	<div class="group-list">
 	
+	
+	
+	
 	<table class="ccm-results-list">
 	    <tr>
 				<th><strong><?php  echo t('Sheduled Date')?></strong></th>
@@ -33,7 +36,7 @@ table td{padding: 12px!important;}
 		<?php foreach($group as $listgroup){ 
 		         $atids = explode("||",$listgroup[atID]);
 		         $resultcount = count($atids);		         
-		         $time = date("d/m/Y g:i a", strtotime($listgroup['time']));
+		         $time = date("m/d/Y g:i a", strtotime($listgroup['time']));
 		         		         ?>
 		        
 		<tr>

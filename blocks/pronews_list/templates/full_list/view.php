@@ -39,7 +39,7 @@
 		}
 		?>
         <br/>
-       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
+       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
 	</p>
 	</li>
 <?php  } 

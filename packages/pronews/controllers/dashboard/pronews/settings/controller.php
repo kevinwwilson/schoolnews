@@ -76,9 +76,9 @@ class DashboardPronewsSettingsController extends Controller {
 	
 	$file = $_FILES['cvFile'];
 	
+
 	
-	
-	if($file['name'] != '' && $file['type'] == 'text/csv'){	 	
+	if($file['name'] != '' && ($file['type'] == 'text/csv' || $file['type'] == 'application/vnd.ms-excel')){	 	
 		move_uploaded_file($_FILES["cvFile"]["tmp_name"], DIR_BASE."/packages/pronews/files/news.csv");
 		 $this->newsAdded();
 	     $this->set('message','News Added'); 
@@ -160,6 +160,10 @@ function cleanValues( $s ) {
 
 function readCsv($csvFile)
 {
+
+
+
+
 	$row = 1;
 	$csvData = array();
 	if (($handle = fopen($csvFile, "r")) !== FALSE) {

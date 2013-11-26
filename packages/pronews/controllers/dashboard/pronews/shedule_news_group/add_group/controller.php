@@ -101,7 +101,7 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	$sql = $db->query("DELETE FROM btselectProNewsList WHERE ID='$cIDd'");
 	
 	$db->Execute($sql);	
-	$this->view();	
+	$this->redirect('/dashboard/pronews/shedule_news_group/','group_deleted');
 		
 	}
 	

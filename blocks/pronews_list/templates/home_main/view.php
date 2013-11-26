@@ -62,7 +62,11 @@
 									$CatImage = $cpage->getAttribute('main_photo');					
 			        $image = '';
 			        if(is_object($CatImage)){
-				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'" height="331">';					
+			         $ih= Loader::helper('image');
+	                $image_arr['realimg'] = $CatImage->getRelativePath();
+	                $thumb = $ih->getThumbnail($CatImage, 469, 331);
+			        
+				    $image = '<img alt="" src="'.$thumb->src.'">';					
 			        }  
 	                             
 	                             $id = $cpage->cID; 
@@ -109,7 +113,7 @@
 		?>
         <br/>
         </p>
-         <a href="<?php  echo $nh->getLinkToCollection($cpage)?>">READ FULL STORY »</a>
+         <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cpage->cID?>">READ FULL STORY »</a>
     </article>
     
 <?php 

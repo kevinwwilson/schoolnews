@@ -63,7 +63,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
 .ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
 </style>
-<?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('Add News Group'), false, false, false);?>
+<?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper1(t('Add News Group'), false, false, false);?>
 
 
 <?php  if ($this->controller->getTask() == 'edit_group') { 
@@ -236,7 +236,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
 			
-			
+			    if($cobj->getCollectionAttributeValue('group_status') == 'Active')
 				Loader::model('attribute/categories/collection');
 						
 				$akct = CollectionAttributeKey::getByHandle('news_category');

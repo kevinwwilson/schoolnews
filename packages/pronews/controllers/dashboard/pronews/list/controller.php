@@ -170,6 +170,11 @@ class DashboardpronewslistController extends Controller {
 		$this->view();
 	}
 	
+	public function news_deleted() {
+		$this->set('message', t('News Deleted.'));
+		$this->view();
+	}
+	
 	
 	
 }

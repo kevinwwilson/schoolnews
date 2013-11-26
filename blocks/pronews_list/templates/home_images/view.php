@@ -16,7 +16,10 @@
 		$dateline = $cobj->getAttribute('dateline');					
 			        $image = '';
 			        if(is_object($CatImage)){
-				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'" height="117" width="167">';					
+			        $ih= Loader::helper('image');
+	                $image_arr['realimg'] = $CatImage->getRelativePath();
+	                $thumb = $ih->getThumbnail($CatImage, 167, 117);
+				    $image = '<img alt="" src="'.$thumb->src.'">';					
 			        }
 					?>
 					<?php echo $image; ?>

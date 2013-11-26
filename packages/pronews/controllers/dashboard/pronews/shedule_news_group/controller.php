@@ -21,7 +21,7 @@ class DashboardPronewsSheduleNewsGroupController extends Controller {
 	public function group_list() {
 	
 		 $db = Loader::db();		 
-		 $row = $db->GetArray('SELECT * FROM btselectProNewsList');		 
+		 $row = $db->GetArray('SELECT * FROM btselectProNewsList ORDER BY time DESC');		 
 		 return $row;
 		 		 
 	}
@@ -38,6 +38,13 @@ class DashboardPronewsSheduleNewsGroupController extends Controller {
 		 public function group_edited() {
 		 
 		 $this->set('message', t('Group updated.'));
+		 $this->view();
+		 
+		 }
+		 
+		  public function group_deleted() {
+		 
+		 $this->set('message', t('Group deleted.'));
 		 $this->view();
 		 
 		 }

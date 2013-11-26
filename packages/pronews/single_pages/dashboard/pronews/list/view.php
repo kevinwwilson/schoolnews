@@ -16,7 +16,12 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .copy {background-position: -22px -439px;margin-right: 6px!important;}
 .delete {background-position: -22px -635px;}
 .gro-select select{width: 110px !important}
+.gro-select .greensel{background:#0ff707;}
+.gro-select .whitesel{background:#fff;}
+.gro-select .redesel{background:#fc0404;}
+
 </style>
+
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('View/Search News'), false, false, false);?>
 	<div class="ccm-pane-body">
 		<?php 
@@ -123,8 +128,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			?>
 			<tr>
 				<td width="60px">
-				<a href="<?php  echo $this->url('/dashboard/pronews/add_news', 'edit', $cobj->getCollectionID())?>" class="icon edit"></a> &nbsp;
-				<a href="<?php  echo $this->url('/dashboard/pronews/list', 'delete_check', $cobj->getCollectionID(),$cobj->getCollectionName())?>" class="icon delete"></a>
+				<a href="<?php  echo $this->url('/dashboard/pronews/add_news', 'edit', $cobj->getCollectionID())?>" class="icon edit"></a>				
 				</td>
 				<td><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $cobj->getCollectionName()?></a></td>
 				<td>
@@ -154,7 +158,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				</td>
 				<td><?php  echo $news_category;?></td>
 				
-				<td class="gro-select">
+				<td class="gro-select" id = "<?php echo 'cat'.$cobj->cID ?>">
 				<form >
 				<?php echo Loader::helper('form')->hidden('news_id',$cobj->cID); ?>
 				<?php  
@@ -166,8 +170,32 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 						?>
 						<?php  echo $akct->render('form', $tcvalue, true);?>
 				</form>
+				
+				<script type="text/javascript">
+				 var id = '<?php echo "cat".$cobj->cID ?>';
+				 
+				 
+				 if($("#"+id+" .ccm-input-select").val() == '93'){
+				 
+				 $('#'+id+' .ccm-input-select').addClass('greensel');
+				 
+				 }else if($("#"+id+" .ccm-input-select").val() == '92'){
+					 
+				$('#'+id+' .ccm-input-select').addClass('whitesel');	 
+				 }else{
+				$('#'+id+' .ccm-input-select').addClass('redesel');
+					 
+				 }
+				 
+				 </script>
+				
+				 
+				
 						</td>
 			</tr>
+			
+			
+			
 			<?php  } ?>
 			</table>
 			<br/>
@@ -183,18 +211,47 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 
     </div>
     </form>
+    
     <script type="text/javascript">
     
     $(document).ready(function(){
-    $(".gro-select select option[value='']").remove();
     
-	$('.gro-select select').change(function(){		
+    $(".gro-select select option[value='']").remove();
+       
+    
+	$('.gro-select select').change(function(){	
+	    var crid = $(this).parent().parent().attr('id');
+	    
 		var data=$(this).parent().serialize();
 	 $.ajax({
 				   type: "POST",
 			   	   url: "<?php echo Loader::helper('concrete/urls')->getToolsURL('change_status');  ?>",
-					data: data,
-				  		 success: function(data) {							 
+				   data: data,
+				  		 success: function(data) {
+				  		 
+				  		 //alert(data);
+					  		if($.trim(data) == 'whitesel'){
+					  		
+					  		$("#"+crid+" .ccm-input-select").removeClass('redesel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('greensel');
+					  		$("#"+crid+" .ccm-input-select").addClass('whitesel');
+					  		  
+					  		}else if($.trim(data) == 'greensel'){
+					  		
+						  	$("#"+crid+" .ccm-input-select").removeClass('redesel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('whitesel');
+					  		$("#"+crid+" .ccm-input-select").addClass('greensel');	
+						  		
+					  		}else if($.trim(data) == 'redsel'){
+						  		
+						  	$("#"+crid+" .ccm-input-select").removeClass('greensel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('whitesel');
+					  		$("#"+crid+" .ccm-input-select").addClass('redesel');
+						  		
+					  		}
+					  		 
+				  		 
+				  		 						 
 							 
 							 }
 			    });

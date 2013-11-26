@@ -18,12 +18,16 @@
 		$dateline = $cobj->getAttribute('dateline');					
 			        $image = '';
 			        if(is_object($CatImage)){
-				    $image = '<img alt="" src="'.$CatImage->getRelativePath().'" height="138" width="196">';					
+			        $ih= Loader::helper('image');
+	                $image_arr['realimg'] = $CatImage->getRelativePath();
+	                $thumb = $ih->getThumbnail($CatImage, 196, 138); 
+			        
+				    $image = '<img alt="" src="'.$thumb->src.'">';					
 			        }  
 					
 					?>
-					<a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php echo $image; ?></a>
-	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
+					<a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php echo $image; ?></a>
+	<h3 class="ccm-page-list-title"><a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php  echo $title?></a></h3>    
     <strong class="date">by <?php echo $author ?></strong>    
 	<p>
     <span class="dateline"><?php echo $dateline ?> — </span>
@@ -45,7 +49,7 @@
 		}
 		?>
         <br/>
-       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
+       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
 	</p>
 
 <?php  } 

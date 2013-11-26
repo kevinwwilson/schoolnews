@@ -28,34 +28,116 @@
 	                             }
 	                             }	
 	                                                          
-	shuffle($atids);	      
+	shuffle($atids); 
 	$m=0;
-		foreach($atids as $displayid){	
-	
-	
+	foreach($atids as $displayid){	
 	
 	Loader::model('page_list');
 	$plz = new PageList(); 
 	$plz->filter(false,"ak_group_status like '%Active%'"); 
 	        
 	$pages = $plz->get(); 
-	         
-    foreach($pages as $cobj){ 
+	
+	foreach($pages as $cobj){ 
     
-     if($cobj->cID == $displayid && $m < 3){
-     
-    
-	 $title = $cobj->getCollectionName();
-     $author = $cobj->getAttribute('author');
-     $dateline = $cobj->getAttribute('dateline'); ?>                            
-	                             
-	 <div class="box">
-	 
-	<strong class="title"><?php  echo $title?></strong>    
-    <strong class="date">by <?php echo $author ?></strong>    
-	<p>
-    <span class="dateline"><?php echo $dateline ?> — </span>
-		<?php  
+	     if($cobj->cID == $displayid && $m < 4){
+	     
+		    
+			 $title = $cobj->getCollectionName();
+		     $author = $cobj->getAttribute('author');
+		     $dateline = $cobj->getAttribute('dateline'); 
+	     
+		     $cpage->setAttribute('group_status','Active');
+		     $nh = Loader::helper('navigation');
+		     $url = $nh->getLinkToCollection($cpage);	                             	                             
+		     $photo_caption = $cobj->getAttribute('photo_caption');
+			 $secondary_headline = $cobj->getAttribute('secondary_headline');
+			 $dateline = $cobj->getAttribute('dateline');									
+			 $CatImage = $cobj->getAttribute('main_photo');
+			 $image = '';
+			        if(is_object($CatImage)){
+			         $ih= Loader::helper('image');
+	                $image_arr['realimg'] = $CatImage->getRelativePath();
+	                $thumb = $ih->getThumbnail($CatImage, 469, 331);
+			        
+				    $image = '<img alt="" src="'.$thumb->src.'">';
+				    }
+			 
+			 if($m == 0){
+	
+	     ?>
+
+
+
+				<div class="content-block-holder">
+				
+					<!--ASC:-->	
+	
+<!--?xml version="1.0"?-->
+
+
+
+    <div class="slide-block-noborder gallery-js-ready autorotation-active">
+        <ul class="slideshow" style="height: 331px; ">
+            <li style="display: block; " class="active">
+                <?php echo $image; ?>
+                <strong class="caption" style="display: none; "><?php echo $photo_caption ?></strong>
+            </li>
+        </ul>
+    </div>
+
+
+    <article class="post">
+        <h1><?php  echo $title?></h1>
+        <h2><?php echo $secondary_headline ?></h2>
+        
+        <strong class="date">by <?php echo $author ?></strong>
+        <p><span class="dateline"><?php echo $dateline?> — </span>
+<?php  
+		if($use_content > 0){
+			$block = $cpage->getBlocks('Main');
+			foreach($block as $bi) {
+				if($bi->getBlockTypeHandle()=='content'){
+					$content = $bi->getInstance()->getContent();
+				}
+			}
+		}else{
+			$content = $cpage->getCollectionDescription();
+		}
+		if(!$controller->truncateSummaries){
+			echo $content;
+		}else{
+			echo $textHelper->shorten($content,$controller->truncateChars);
+		}
+		?>
+        <br/>
+        </p>
+         <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">READ FULL STORY »</a>
+    </article>
+
+
+									
+				</div>
+				
+				<div class="slide-col">
+					<div class="mask">
+						<div class="carousel">
+							<div class="slide">
+				<?php } else { ?>
+				<!-- slide-col -->
+				
+								<!--ASC:-->	
+	
+<!--ASC:-->	
+	
+<!--?xml version="1.0"?-->
+
+
+<div class="box">
+            <strong class="title"><?php  echo $title?></strong>
+            <strong class="date">by <?php echo $author ?></strong>
+    <p><span class="dateline"><?php echo $dateline ?> — </span>
+<?php  
 		if($use_content > 0){
 			$block = $cobj->getBlocks('Main');
 			foreach($block as $bi) {
@@ -74,27 +156,19 @@
 		?>
         <br/>
         </p>
-       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
-	
-	</div> 
-	<?php if(!$previewMode && $controller->rss) { 
-			$bt = BlockType::getByHandle('pronews_list');
-			$uh = Loader::helper('concrete/urls');
-			$rssUrl = $controller->getRssUrl($b);
-			?>
-			
-			<div class="rssIcon" style="margin-top:10px;">
-				<?php  echo t('Subscribe')?> &nbsp;<a href="<?php   echo $rssUrl?>" target="_blank"><img src="<?php echo BASE_URL.DIR_REL ?>/blocks/pronews_list/rss.png" alt="codestrat concrete5 addon development" title="CodeStrat Concrete5 Addon Development" width="14" height="14" /></a>
-			</div>
-			<link href="<?php  echo $rssUrl?>" rel="alternate" type="application/rss+xml" title="<?php  echo $controller->rssTitle?>" />
-		
-                           
-	                             
-	                             
-<?php } $m++; } }  } 
+       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
+           
+    </div>
+<!--?xml version="1.0"?-->
 
-if ($paginate && $num > 0 && is_object($pl)) {
-		$pl->displayPaging();
-	} ?>
-	
-	
+
+							
+				
+				
+<?php } } } $m++; }?>
+
+                             </div>
+						</div>
+					</div>
+
+				</div> 

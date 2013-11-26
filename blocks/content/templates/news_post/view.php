@@ -44,6 +44,8 @@
 <div class="article">
 
 
+
+
        <?php if($slideimage == ''){ ?>
         <div class="image-holder">
        <?php $CatImage = $c->getAttribute('main_photo');

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/concrete/js/jquery.js?v=d5e31ee523921b0586bfb6dec5757fdc"></script>
+
 
 <?php 
 defined('C5_EXECUTE') or die(_("Access Denied."));
@@ -14,6 +14,15 @@ $spages = $newsSectionList->getPage();
 
 foreach($spages as $scpage){
 $scpage->setAttribute('group_status',$option);
+if($option == 'Active'){
+	echo 'greensel';	
+}elseif($option == 'Ready'){
+    echo 'whitesel';	
+}else{
+	echo 'redsel';
+	
+}
+die;
 
 }
 
