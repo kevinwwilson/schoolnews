@@ -177,12 +177,21 @@ class PronewsPackage extends Package {
 			),$pkg)->setAttributeSet($newsset); 
 		}
 	
-     $textn = AttributeType::getByHandle('text'); 
+    $textn = AttributeType::getByHandle('text'); 
   	$newsurl=CollectionAttributeKey::getByHandle('news_url'); 
 	if( !is_object($newsurl) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'news_url', 
      	'akName' => t('News URL'), 
+     	),$pkg)->setAttributeSet($newsset); 
+  	}
+  	
+  	$textn = AttributeType::getByHandle('text'); 
+  	$singlemultiple=CollectionAttributeKey::getByHandle('single_multiple_photo_status'); 
+	if( !is_object($singlemultiple) ) {
+     	CollectionAttributeKey::add($textn, 
+     	array('akHandle' => 'single_multiple_photo_status', 
+     	'akName' => t('Single/Multiple Photo Status'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	

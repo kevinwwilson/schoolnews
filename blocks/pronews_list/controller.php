@@ -134,61 +134,80 @@
 			if($template=='home_images'){
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            
-            $pl->filterByAttribute('group_status',"%Active%",'like');               
-            }				
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }					
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
+			
+			
 			if($template=='left_side'){	
 			global $u;
-            if (!$u -> isLoggedIn ()) {
-            
-            $pl->filterByAttribute('group_status',"%Active%",'like');               
-            }			
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
+			
+			
+			
 			if($template=='full_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-             
-            $pl->filterByAttribute('group_status',"%Active%",'like');              
-            }		
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }		
 			}
+			
+			
 			if($template=='home_main'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            
-            $pl->filterByAttribute('group_status',"%Active%",'like');              
-            }	
-					
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }					
 			}
 			
 			if($template=='home_title'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            
-            $pl->filterByAttribute('group_status',"%Active%",'like');              
-            }	
-					
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }					
 			}
 			
 			if($template=='pronews_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+            //$pl->filterByAttribute('group_status',"%Active%",'like');                         
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }
             
-            $pl->filterByAttribute('group_status',"%Active%",'like');
-                         
-            }	
-					
+            //$pl->filter(false,"ak_regional_feature not like '%$this->category%'");
+            $pl->filterByAttribute('regional_feature',"$this->category",'not like');					
 			}
 			
             if($template=='search'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            
-            $pl->filterByAttribute('group_status',"%Active%",'like');              
-            }	
-					
+            $pl->filter(false,"ak_group_status like '%Active%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+	        }						
 			}
 			
 			

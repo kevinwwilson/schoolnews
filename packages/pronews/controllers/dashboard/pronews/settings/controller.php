@@ -73,21 +73,14 @@ class DashboardPronewsSettingsController extends Controller {
 		 }
 		 
 	public function import_news() {
+	ini_set('auto_detect_line_endings',TRUE);
+	$file = $_FILES['cvFile'];	
+	if($file['name'] != '' && ($file['type'] == 'text/csv' || $file['type'] == 'text/comma-seperated-values' || $file['type'] == 'application/vnd.ms-excel')){
 	
-	$file = $_FILES['cvFile'];
-	
-
-	
-	if($file['name'] != '' && ($file['type'] == 'text/csv' || $file['type'] == 'application/vnd.ms-excel')){	 	
+		 	
 		move_uploaded_file($_FILES["cvFile"]["tmp_name"], DIR_BASE."/packages/pronews/files/news.csv");
 		 $this->newsAdded();
-	     $this->set('message','News Added'); 
-	     
-	     
-	     
-	     
-	     
-	   		    
+	     $this->set('message','News Added'); 	   		    
 	   }
 	 else{
 		 $this->set('message','Please Upload CSV File'); 
@@ -282,7 +275,7 @@ foreach($addeIDs as $addeID){
 }
 print_r($addedeventIDs);*/
 //die;
-
+ini_set('auto_detect_line_endings',TRUE);
 $csvData = readCsv($docRoot."/packages/pronews/files/news.csv");
 
 

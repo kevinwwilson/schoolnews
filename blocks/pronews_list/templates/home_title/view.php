@@ -14,7 +14,7 @@
 		$dateline = $cobj->getAttribute('dateline');
 		$feature = $cobj->getAttribute('regional_feature');?>		
 	<li>
-	<a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php  echo $title?></a>    
+	<a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a>    
 	</li>
 <?php  } }?>
 <?php 

@@ -12,6 +12,7 @@ if (is_object($news)) {
 	$news_tag = $news->getCollectionAttributeValue('news_tag');	
 	$long_summary = $news->getCollectionAttributeValue('long_summary');	
 	$files = $news->getCollectionAttributeValue('files');
+	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
 	$newsTitle = $news->getCollectionName();
 	$newsDescription = $news->getCollectionDescription();
 	$newsDate = $news->getCollectionDatePublic();
@@ -36,6 +37,8 @@ if (is_object($news)) {
 <style>
 .ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
 .ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
+.statushidden{display: none;}
+
 
 </style>
 
@@ -192,14 +195,43 @@ if (is_object($news)) {
 					</div>
 				</div>
                  <div class="clearfix">
-                	 <?php  echo  t('Single Image/Slide Show')?>
+                	 <?php  echo  t('Single Image/Slide Show');
+	                	 
+	                 if($singlemultiple == 2){ ?>
+		              <div class="input" >
+                     <?php
+                      	//echo $from->radio('image',1,1); echo $from->radio('image',0,1);?>
+                        <input type="radio" name="image" value="1"/><?php  echo  t('Single Image')?>
+                        <input type="radio" name="image" value="2"  checked="checked" /><?php  echo  t('Slide Show')?>
+                    </div>   
+		                 
+	                <?php }	else { ?>
+                	                 	 
                      <div class="input" >
                      <?php
                       	//echo $from->radio('image',1,1); echo $from->radio('image',0,1);?>
                         <input type="radio" name="image" value="1" checked="checked" /><?php  echo  t('Single Image')?>
                         <input type="radio" name="image" value="2"/><?php  echo  t('Slide Show')?>
                     </div>
+                    <?php } ?>
                  </div>
+                 
+                 
+                 <div class="clearfix statushidden">
+					<?php  echo $form->label('singlemultiple', t('Single/Multiple Photo Status'))?>
+					<div class="input lsummary">
+						<?php  
+						Loader::model("attribute/categories/collection");
+						$akct = CollectionAttributeKey::getByHandle('single_multiple_photo_status');
+						if (is_object($news)) {
+							$tcvalue = $news->getAttributeValueObject($akct);
+						}
+						?>
+						<?php  echo $akct->render('form', $tcvalue, true);?>
+					</div>
+				</div>
+                 
+                 
                 
                 <div class="clearfix" id="single_image">
 					<?php  echo $form->label('mainPhoto', t('Main Photo'))?>
@@ -414,14 +446,26 @@ if (is_object($news)) {
 	#count{text-align: right; margin-top: 20px; margin-right: 10px;}
 	</style>
 <script>
+if($('.statushidden input:text').val() == ''){
+$('.statushidden input:text').val(1);	
+}
+
+if($('.statushidden input:text').val() == '2'){
+        $('#slideshow').show();
+		$('#single_image').hide();
+		$('#photoCaption').hide();
+}
+
 $("input:radio[name=image]").click(function() {
     var value = $(this).val();
 	if(value==1){
+	    $('.statushidden input:text').val(1);
 		$('#slideshow').hide();
 		$('#single_image').show();
 		$('#photoCaption').show();
 	}
 	else if(value==2){
+	    $('.statushidden input:text').val(2);
 		$('#slideshow').show();
 		$('#single_image').hide();
 		$('#photoCaption').hide();
@@ -435,6 +479,22 @@ $("#newsDescription").keyup(function(){
   if(count > -1){
   $("#count").text("Characters left: " + (280 - $(this).val().length));
   }
+  
+  else{	  
+  $("#count").text("Maximum allowded charecter completed");  
+  } 
+});
+
+$("#newsDescription").mouseup(function(){
+
+  var count = 280 - parseInt($(this).val().length);
  
+  if(count > -1){
+  $("#count").text("Characters left: " + (280 - $(this).val().length));
+  }
+  
+  else{	  
+  $("#count").text("Maximum allowded charecter completed");  
+  } 
 });
 </script>

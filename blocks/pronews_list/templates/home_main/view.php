@@ -113,7 +113,7 @@
 		?>
         <br/>
         </p>
-         <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cpage->cID?>">READ FULL STORY »</a>
+         <a href="<?php  echo $nh->getLinkToCollection($cpage)?>">READ FULL STORY »</a>
     </article>
     
 <?php 

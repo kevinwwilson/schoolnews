@@ -112,7 +112,7 @@
 		?>
         <br/>
         </p>
-         <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">READ FULL STORY »</a>
+         <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>
     </article>
 
 
@@ -156,7 +156,7 @@
 		?>
         <br/>
         </p>
-       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
+       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
            
     </div>
 <!--?xml version="1.0"?-->

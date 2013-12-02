@@ -26,8 +26,8 @@
 			        }  
 					
 					?>
-					<a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php echo $image; ?></a>
-	<h3 class="ccm-page-list-title"><a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php  echo $title?></a></h3>    
+					<a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php echo $image; ?></a>
+	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
     <strong class="date">by <?php echo $author ?></strong>    
 	<p>
     <span class="dateline"><?php echo $dateline ?> — </span>
@@ -49,7 +49,7 @@
 		}
 		?>
         <br/>
-       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
+       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
 	</p>
 
 <?php  } 

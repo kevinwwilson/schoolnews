@@ -48,7 +48,7 @@ if (count($cArray) > 0) { ?>
         	
 		?>
 	<li>
-	<h2 class="ccm-page-list-title"><a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php  echo $title?></a></h2>    
+	<h2 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h2>    
     <strong class="date">by <?php echo $author ?></strong>    
 	<p>
     <span class="dateline"><?php echo $dateline ?> — </span>
@@ -70,12 +70,12 @@ if (count($cArray) > 0) { ?>
 		}
 		?>
         <br/>
-       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
+       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
 	</p>
 	</li>
     <?php }	} else{ ?>
 		<li>
-	<h2 class="ccm-page-list-title"><a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>"><?php  echo $title?></a></h2>    
+	<h2 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h2>    
     <strong class="date">by <?php echo $author ?></strong>    
 	<p>
     <span class="dateline"><?php echo $dateline ?> — </span>
@@ -97,7 +97,7 @@ if (count($cArray) > 0) { ?>
 		}
 		?>
         <br/>
-       <a href="<?php  echo BASE_URL.DIR_REL;?>/index.php?cID=<?php echo $cobj->cID?>">More »</a> 
+       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
 	</p>
 	</li>
 		
