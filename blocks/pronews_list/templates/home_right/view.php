@@ -19,7 +19,7 @@
 	                             Loader::model('page_list');
 	                             $pl = new PageList();	                             	                                 
 	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
-	                             $pl->filter(false,"ak_group_status like '%Active%'");	                             
+	                             $pl->filter(false,"ak_group_status like '%Published%'");	                             
 	                             $pages = $pl->getPage(); 	                                                       
 	                             foreach($pages as $cpage){ 
 	                             
@@ -34,7 +34,7 @@
 	
 	Loader::model('page_list');
 	$plz = new PageList(); 
-	$plz->filter(false,"ak_group_status like '%Active%'"); 
+	$plz->filter(false,"ak_group_status like '%Published%'"); 
 	        
 	$pages = $plz->get(); 
 	
@@ -47,7 +47,7 @@
 		     $author = $cobj->getAttribute('author');
 		     $dateline = $cobj->getAttribute('dateline'); 
 	     
-		     $cpage->setAttribute('group_status','Active');
+		     $cpage->setAttribute('group_status','Published');
 		     $nh = Loader::helper('navigation');
 		     $url = $nh->getLinkToCollection($cpage);	                             	                             
 		     $photo_caption = $cobj->getAttribute('photo_caption');

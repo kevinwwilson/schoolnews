@@ -136,11 +136,48 @@ class DashboardPronewsAddNewsController extends Controller {
 	}
 	
 	public function delete_news($cIDd) {
+	    $db = Loader::db();
+	    $akID = $db->query("SELECT * FROM btselectProNewsList");
+	    $row=$akID->getarray();
+	    
+	    $groupids = array();
+	    foreach($row as $data){
+	    
+	    
+	      $cId = $data['ID'];
+		  $groupid = $data['atID'];
+		  
+		 
+		  $groupids = explode("||", $groupid);
+		  
+		   
+		  
+		  $i = 0;
+		   foreach($groupids as $gid){
+			   if($cIDd == $gid)
+			   {
+				unset($groupids[$i]);
+				$upgroupid = implode("||", $groupids);
+							
+				$sql = $db->query("UPDATE btselectProNewsList SET atID='$upgroupid' WHERE ID='$cId'");	   
+	   $db->Execute($sql);   
+				   
+			   }
+			   
+			  $i++; 
+		   }	    
+		    
+		    
+	    }
 	
 	    $c= Page::getByID($cIDd);
 		$c->delete();
 		$this->set('message', t('News has been deleted'));
 	    $this->redirect('/dashboard/pronews/list/','news_deleted');
+	    
+	    $db = Loader::db();
+	    
+	    
 	
 	
 	}

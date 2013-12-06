@@ -90,7 +90,7 @@ $newsList = new PageList();
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
 			
-			if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Active'){
+			if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Published'){
 			
 				Loader::model('attribute/categories/collection');
 						

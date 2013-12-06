@@ -36,7 +36,7 @@ foreach($rows as $actdata){
     $spages = $newsSectionList->get(1000);
     foreach($spages as $scpage){    
     if($scpage->cID == $atids){    
-    $scpage->setAttribute('group_status','Active');
+    $scpage->setAttribute('group_status','Published');
     }   
     
     }

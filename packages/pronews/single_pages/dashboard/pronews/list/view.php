@@ -19,6 +19,9 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .gro-select .greensel{background:#0ff707;}
 .gro-select .whitesel{background:#fff;}
 .gro-select .redesel{background:#fc0404;}
+.gro-select .yellowesel{background:#fdfd00;}
+
+
 
 </style>
 
@@ -182,9 +185,12 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				 }else if($("#"+id+" .ccm-input-select").val() == '92'){
 					 
 				$('#'+id+' .ccm-input-select').addClass('whitesel');	 
-				 }else{
-				$('#'+id+' .ccm-input-select').addClass('redesel');
+				 }else if($("#"+id+" .ccm-input-select").val() == '94'){
+				 
+				$('#'+id+' .ccm-input-select').addClass('yellowesel');
 					 
+				 }else{
+					$('#'+id+' .ccm-input-select').addClass('redesel'); 
 				 }
 				 
 				 </script>
@@ -234,19 +240,31 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 					  		
 					  		$("#"+crid+" .ccm-input-select").removeClass('redesel');
 					  		$("#"+crid+" .ccm-input-select").removeClass('greensel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('yellowesel');
 					  		$("#"+crid+" .ccm-input-select").addClass('whitesel');
 					  		  
 					  		}else if($.trim(data) == 'greensel'){
 					  		
 						  	$("#"+crid+" .ccm-input-select").removeClass('redesel');
 					  		$("#"+crid+" .ccm-input-select").removeClass('whitesel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('yellowesel');
 					  		$("#"+crid+" .ccm-input-select").addClass('greensel');	
 						  		
-					  		}else if($.trim(data) == 'redsel'){
+					  		}else if($.trim(data) == 'redesel'){
 						  		
 						  	$("#"+crid+" .ccm-input-select").removeClass('greensel');
 					  		$("#"+crid+" .ccm-input-select").removeClass('whitesel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('yellowesel');
 					  		$("#"+crid+" .ccm-input-select").addClass('redesel');
+						  		
+					  		}
+					  		
+					  		else if($.trim(data) == 'yellowesel'){
+						  		
+						  	$("#"+crid+" .ccm-input-select").removeClass('greensel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('whitesel');
+					  		$("#"+crid+" .ccm-input-select").removeClass('redesel');
+					  		$("#"+crid+" .ccm-input-select").addClass('yellowesel');
 						  		
 					  		}
 					  		 

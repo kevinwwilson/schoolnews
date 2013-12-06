@@ -30,7 +30,7 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 		}
 		
 		$newsList->sortBy('cDateAdded', 'desc');
-		$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
+		$newsList->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");
 			if(isset($_GET['cParentID']) && $_GET['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
 			}

@@ -236,7 +236,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
 			
-			    if($cobj->getCollectionAttributeValue('group_status') == 'Active')
+			    if($cobj->getCollectionAttributeValue('group_status') == 'Published')
 				Loader::model('attribute/categories/collection');
 						
 				$akct = CollectionAttributeKey::getByHandle('news_category');

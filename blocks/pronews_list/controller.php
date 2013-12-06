@@ -131,15 +131,7 @@
 			$b = Block::getByID($this->bID);
             $template = strtolower($b->getBlockFilename());
 			
-			if($template=='home_images'){
-			global $u;
-            if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
-                                    
-            }
-            else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
-	        }					
+			if($template=='home_images'){								
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
 			
@@ -154,11 +146,11 @@
 			if($template=='full_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
+            $pl->filter(false,"ak_group_status like '%Published%'");            
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }		
 			}
 			
@@ -166,33 +158,33 @@
 			if($template=='home_main'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
+            $pl->filter(false,"ak_group_status like '%Published%'");            
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }					
 			}
 			
 			if($template=='home_title'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
+            $pl->filter(false,"ak_group_status like '%Published%'");            
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }					
 			}
 			
 			if($template=='pronews_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
+            $pl->filter(false,"ak_group_status like '%Published%'");            
             //$pl->filterByAttribute('group_status',"%Active%",'like');                         
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }
             
             //$pl->filter(false,"ak_regional_feature not like '%$this->category%'");
@@ -202,11 +194,11 @@
             if($template=='search'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Active%'");            
+            $pl->filter(false,"ak_group_status like '%Published%'");            
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }						
 			}
 			

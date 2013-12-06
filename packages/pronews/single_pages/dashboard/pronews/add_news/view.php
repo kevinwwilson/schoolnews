@@ -181,6 +181,7 @@ if (is_object($news)) {
 						}
 						?>
 						<?php  echo $akct->render('form', $tcvalue, true);?>
+						<div id="count"></div>
 					</div>
 				</div>
 				
@@ -485,7 +486,7 @@ $("#newsDescription").keyup(function(){
   } 
 });
 
-$("#newsDescription").mouseup(function(){
+$("#newsDescription").click(function(){
 
   var count = 280 - parseInt($(this).val().length);
  
@@ -495,6 +496,33 @@ $("#newsDescription").mouseup(function(){
   
   else{	  
   $("#count").text("Maximum allowded charecter completed");  
+  } 
+});
+
+$(".lsummary textarea").keyup(function(){
+
+  
+  var count = 780 - parseInt($(this).val().length);
+ 
+  if(count > -1){
+  $(".lsummary #count").text("Characters left: " + (780 - $(this).val().length));
+  }
+  
+  else{	  
+  $(".lsummary #count").text("Maximum allowded charecter completed");  
+  } 
+});
+
+$(".lsummary textarea").click(function(){
+
+  var count = 780 - parseInt($(this).val().length);
+ 
+  if(count > -1){
+  $(".lsummary #count").text("Characters left: " + (780 - $(this).val().length));
+  }
+  
+  else{	  
+  $(".lsummary #count").text("Maximum allowded charecter completed");  
   } 
 });
 </script>

@@ -80,7 +80,7 @@ $newsSectionList = new PageList();
 			$pkt = Loader::helper('concrete/urls');
 			$pkg= Package::getByHandle('pronews');
 			foreach($newsResults as $cobj) { 
-			   if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Active'){
+			   if($cobj->getCollectionAttributeValue('group_status') == 'Ready' || $cobj->getCollectionAttributeValue('group_status') == 'Published'){
 				Loader::model('attribute/categories/collection');
 						
 				$akct = CollectionAttributeKey::getByHandle('news_category');

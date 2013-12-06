@@ -21,7 +21,7 @@ $newsList = new PageList();
 					    }  
 		                }
 		
-		$newsList->filter(false,"ak_group_status like '%Active%' or ak_group_status like '%Ready%'");
+		$newsList->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");
 		
 			if(isset($_REQUEST['cParentID']) && $_REQUEST['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
