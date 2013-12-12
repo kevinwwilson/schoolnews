@@ -76,8 +76,10 @@ class DashboardPronewsSettingsController extends Controller {
 	ini_set('auto_detect_line_endings',TRUE);
 	$file = $_FILES['cvFile'];
 	
-		
-	if($file['name'] != '' && ($file['type'] == 'text/csv' || $file['type'] == 'application/vnd.ms-excel')){		 	
+	echo $file['type'];
+	die;
+	
+	if($file['name'] != '' && ($file['type'] == 'text/csv' || $file['type'] == 'application/vnd.ms-excel' || $file['type'] == 'application/octet-stream')){		 	
 		move_uploaded_file($_FILES["cvFile"]["tmp_name"], DIR_BASE."/files/news/news.csv");
 		 $this->newsAdded();
 	     $this->set('message','News Added'); 	   		    
@@ -278,6 +280,10 @@ print_r($addedeventIDs);*/
 ini_set('auto_detect_line_endings',TRUE);
 $csvData = readCsv($docRoot."/files/news/news.csv");
 
+    echo '<pre>';
+    print_r($csvData);
+	die;
+		
 
 $fields = $csvData[0];
 unset($csvData[0]);

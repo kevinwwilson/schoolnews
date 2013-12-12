@@ -34,8 +34,19 @@ table td{padding: 12px!important;}
 				<th></th>
 		</tr>
 		<?php foreach($group as $listgroup){ 
+		
+		         
+		         
 		         $atids = explode("||",$listgroup[atID]);
-		         $resultcount = count($atids);		         
+		         foreach($atids as $resid){
+		        
+		         if($resid != ''){
+		         $resultcount = count($atids);
+		         }else{
+		         $resultcount = 0;
+		         }
+		         }
+		        		         
 		         $time = date("m/d/Y g:i a", strtotime($listgroup['time']));
 		         		         ?>
 		        

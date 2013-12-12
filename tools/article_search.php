@@ -66,7 +66,7 @@ $newsList = new PageList();
 					    } 
 					          
             
-			$newsList->setItemsPerPage(15);
+			$newsList->setItemsPerPage(30);
 			$newsResults=$newsList->getPage();	
 				
 		?>

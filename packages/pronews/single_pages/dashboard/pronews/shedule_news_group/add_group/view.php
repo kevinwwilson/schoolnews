@@ -107,14 +107,22 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 					<div class="input group-article">
 					
 					<?php 
+					
+					
 					if($selart>0){
 						foreach($selart as $sectarticles){
-							$sectarticlesid = explode("||",$sectarticles['atID']);							
+							$sectarticlesid = explode("||",$sectarticles['atID']);
+							
+														
 							  foreach($sectarticlesid as $displayid){
 							  
+							 
+							  
+							  if($displayid != ''){
 								 Loader::model('page_list');
 	                             $pl = new PageList();	                                 
 	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
+	                              
 	                             $pages = $pl->getPage();
 	                             foreach($pages as $cpage){ 
 	                             $nh = Loader::helper('navigation');
@@ -126,6 +134,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 		                             
 		                             
 	                              }
+	                            }
 	                             								  
 							  }
 						}

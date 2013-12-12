@@ -22,15 +22,21 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 		   $sectarticlesid = explode("||",$sectarticles['atID']);
 		   
 		   foreach($sectarticlesid as $displayid){
+		   
+		   if($displayid != ''){
 		    $newsList->filter(false, '( cv.cID not in('.$displayid.') )');
+		    }
 		    
 		    }	   		   
 		   
 		   }
 		}
 		
+		
+		
 		$newsList->sortBy('cDateAdded', 'desc');
 		$newsList->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");
+		
 			if(isset($_GET['cParentID']) && $_GET['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
 			}
@@ -57,9 +63,13 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 		    if(!empty($_GET['dist'])){
 		    $dist = $_GET['dist'];
 		    $newsList->filter(false,"ak_district like '%$dist%'");
-		    }            
+		    } 
+		    
+		              
             
 			$newsList->setItemsPerPage($this->num);
+			
+			
 		    
 		$newsResults=$newsList->getPage();
 		
