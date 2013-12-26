@@ -13,7 +13,7 @@ $newsSectionList = new PageList();
 			$sections[$_c->getCollectionID()] = $_c->getCollectionName();
 		}
 $newsList = new PageList();
-		$newsList->sortBy('cDateAdded', 'desc');
+		$newsList->sortBy('cvDatePublic', 'desc');
 		
 		                if($articlesar > 0){			               
 			            foreach($articlesar as $displayid){

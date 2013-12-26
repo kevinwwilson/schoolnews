@@ -166,17 +166,6 @@ class PronewsPackage extends Package {
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	
-	$textarea = AttributeType::getByHandle('textarea');
-	$long_summary=CollectionAttributeKey::getByHandle('long_summary'); 
-		if( !is_object($long_summary) ) {
-			CollectionAttributeKey::add($textarea, 
-			array('akHandle' => 'long_summary', 
-			'akName' => t('Long Summary'), 
-			'akIsSearchable' => '1',
-			'akIsSearchableIndexed' => '1',
-			),$pkg)->setAttributeSet($newsset); 
-		}
-	
     $textn = AttributeType::getByHandle('text'); 
   	$newsurl=CollectionAttributeKey::getByHandle('news_url'); 
 	if( !is_object($newsurl) ) {

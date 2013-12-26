@@ -9,8 +9,7 @@ if (is_object($news)) {
 	$dateline = $news->getCollectionAttributeValue('dateline');
 	$district = $news->getCollectionAttributeValue('district');
 	$regional_feature = $news->getCollectionAttributeValue('regional_feature');	
-	$news_tag = $news->getCollectionAttributeValue('news_tag');	
-	$long_summary = $news->getCollectionAttributeValue('long_summary');	
+	$news_tag = $news->getCollectionAttributeValue('news_tag');		
 	$files = $news->getCollectionAttributeValue('files');
 	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
 	$newsTitle = $news->getCollectionName();
@@ -80,9 +79,7 @@ if (is_object($news)) {
 	
 			<ul class="tabs">
 				<li class="active"><a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.post').show();"><?php echo t('Post')?></a>
-				</li>
-				<li><a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.options').show();"><?php echo t('Options')?></a>
-				</li>
+				</li>				
 				<li><a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.meta').show();"><?php echo t('Meta')?></a>
 				</li>
 			</ul>
@@ -168,23 +165,7 @@ if (is_object($news)) {
 						
 						<div id="count"></div>
 					</div>
-				</div>
-                
-                <div class="clearfix">
-					<?php  echo $form->label('longSummary', t('Long Summary'))?>
-					<div class="input lsummary">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('long_summary');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-						<div id="count"></div>
-					</div>
-				</div>
-				
+				</div>				
 				<div class="clearfix">
 					<?php  echo $form->label('newsBody', t('Article'))?>
 					<div class="input">
@@ -202,19 +183,35 @@ if (is_object($news)) {
 		              <div class="input" >
                      <?php
                       	//echo $from->radio('image',1,1); echo $from->radio('image',0,1);?>
+                      	<input type="radio" name="image" value="3"/><?php  echo  t('No Photo')?>
                         <input type="radio" name="image" value="1"/><?php  echo  t('Single Image')?>
-                        <input type="radio" name="image" value="2"  checked="checked" /><?php  echo  t('Slide Show')?>
+                        <input type="radio" name="image" value="2"  checked="checked" /><?php  echo  t('Slide Show')?>           
+                       
                     </div>   
 		                 
-	                <?php }	else { ?>
+	                <?php }	elseif($singlemultiple == 1) { ?>
                 	                 	 
                      <div class="input" >
                      <?php
                       	//echo $from->radio('image',1,1); echo $from->radio('image',0,1);?>
+                      	<input type="radio" name="image" value="3"/><?php  echo  t('No Photo')?>
                         <input type="radio" name="image" value="1" checked="checked" /><?php  echo  t('Single Image')?>
                         <input type="radio" name="image" value="2"/><?php  echo  t('Slide Show')?>
+                        
                     </div>
-                    <?php } ?>
+                    <?php } else{ ?>
+	                    
+	                    <div class="input" >
+                     <?php
+                      	//echo $from->radio('image',1,1); echo $from->radio('image',0,1);?>
+                      	<input type="radio" name="image" value="3"  checked="checked" /><?php  echo  t('No Photo')?>
+                        <input type="radio" name="image" value="1"/><?php  echo  t('Single Image')?>
+                        <input type="radio" name="image" value="2"/><?php  echo  t('Slide Show')?>
+                        
+                    </div>
+	                    
+	                    
+                    <?php }?>
                  </div>
                  
                  
@@ -289,8 +286,7 @@ if (is_object($news)) {
 				</div>
                 
                 
-			</div>
-			<div class="pane options" style="display: none;">
+			
 			
 				<div class="clearfix">
 					<?php  echo $form->label('cParentID', t('Section'))?> *
@@ -448,13 +444,23 @@ if (is_object($news)) {
 	</style>
 <script>
 if($('.statushidden input:text').val() == ''){
-$('.statushidden input:text').val(1);	
+$('.statushidden input:text').val(3);	
 }
 
 if($('.statushidden input:text').val() == '2'){
         $('#slideshow').show();
 		$('#single_image').hide();
 		$('#photoCaption').hide();
+}else if($('.statushidden input:text').val() == '1'){
+	    $('#slideshow').hide();
+		$('#single_image').show();
+		$('#photoCaption').hide();
+	
+}else{
+	    $('#slideshow').hide();
+		$('#single_image').hide();
+		$('#photoCaption').hide();
+	
 }
 
 $("input:radio[name=image]").click(function() {
@@ -470,6 +476,12 @@ $("input:radio[name=image]").click(function() {
 		$('#slideshow').show();
 		$('#single_image').hide();
 		$('#photoCaption').hide();
+	}else{
+	$('.statushidden input:text').val(3);
+		$('#slideshow').hide();
+		$('#single_image').hide();
+		$('#photoCaption').hide();	
+		
 	}
 	
 });
@@ -499,30 +511,4 @@ $("#newsDescription").click(function(){
   } 
 });
 
-$(".lsummary textarea").keyup(function(){
-
-  
-  var count = 780 - parseInt($(this).val().length);
- 
-  if(count > -1){
-  $(".lsummary #count").text("Characters left: " + (780 - $(this).val().length));
-  }
-  
-  else{	  
-  $(".lsummary #count").text("Maximum allowded charecter completed");  
-  } 
-});
-
-$(".lsummary textarea").click(function(){
-
-  var count = 780 - parseInt($(this).val().length);
- 
-  if(count > -1){
-  $(".lsummary #count").text("Characters left: " + (780 - $(this).val().length));
-  }
-  
-  else{	  
-  $(".lsummary #count").text("Maximum allowded charecter completed");  
-  } 
-});
 </script>

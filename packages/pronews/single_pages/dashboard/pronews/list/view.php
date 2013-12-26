@@ -57,6 +57,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			<tr>
 				<th><strong><?php  echo $form->label('cParentID', t('District'))?></strong></th>
 				<th><strong><?php  echo t('by Name')?></strong></th>
+				<th><strong><?php  echo t('by Author')?></strong></th>
 				<th><strong><?php  echo t('by Region')?></strong></th>
 				<th><strong><?php  echo t('by Tag')?></strong></th>
 				<th></th>
@@ -72,6 +73,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 				?>
 				</select></td>
 				<td><?php  echo $form->text('like', $like)?></td>
+				<td><?php  echo $form->text('author', $author)?></td>
 				<td>
 				<select name="cat" style="width: 110px!important;">
 					<option value=''>--</option>

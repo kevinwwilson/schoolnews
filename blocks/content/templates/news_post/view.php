@@ -46,7 +46,7 @@
 
 
 
-       <?php if($slideimage == ''){ ?>
+       <?php if($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1){ ?>
         <div class="image-holder">
        <?php $CatImage = $c->getAttribute('main_photo');
                    if($CatImage){
@@ -60,7 +60,7 @@
 					?>
        <strong class="title"><?php echo $photo_caption ?></strong>
        </div>
-       <?php } else {?>
+       <?php } elseif($slideimage != '' && $c->getAttribute('single_multiple_photo_status') == 2) {?>
     
     <div class="slideshow-holder">
         <ul class="news-slideshow">
@@ -145,10 +145,16 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+
 	$('#article_content img').each(function(){
-	var imgatt = $(this).attr('alt');	
+	var imgatt = $(this).attr('alt');
+	var imgstl = $(this).attr('style');
+	var imgwidth = $(this).attr('width');
+	var imgheight = $(this).attr('height');
+	
+		
 	var imgsrc = $(this).attr('src');
-	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
+	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" style="'+imgstl+'" width="'+imgwidth+'" height="'+imgheight+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
 	$(this).remove();	
 	});	
 })

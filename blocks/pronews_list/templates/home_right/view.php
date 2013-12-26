@@ -93,23 +93,7 @@
         
         <strong class="date">by <?php echo $author ?></strong>
         <p><span class="dateline"><?php echo $dateline?> — </span>
-<?php  
-		if($use_content > 0){
-			$block = $cpage->getBlocks('Main');
-			foreach($block as $bi) {
-				if($bi->getBlockTypeHandle()=='content'){
-					$content = $bi->getInstance()->getContent();
-				}
-			}
-		}else{
-			$content = $cpage->getCollectionDescription();
-		}
-		if(!$controller->truncateSummaries){
-			echo $content;
-		}else{
-			echo $textHelper->shorten($content,$controller->truncateChars);
-		}
-		?>
+<?php echo $cobj->getCollectionDescription(); ?>
         <br/>
         </p>
          <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>

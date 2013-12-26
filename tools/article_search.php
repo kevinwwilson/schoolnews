@@ -19,7 +19,7 @@ $newsSectionList = new PageList();
 
 
 $newsList = new PageList();
-		$newsList->sortBy('cDateAdded', 'desc');
+		$newsList->sortBy('cvDatePublic', 'desc');
 		
 		                if($articlesar > 0){			               
 			            foreach($articlesar as $displayid){

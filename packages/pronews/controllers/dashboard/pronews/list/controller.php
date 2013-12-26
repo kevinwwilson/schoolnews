@@ -14,7 +14,7 @@ class DashboardpronewslistController extends Controller {
 	public function view() {
 		$this->loadnewsSections();
 		$newsList = new PageList();
-		$newsList->sortBy('cDateAdded', 'desc');
+		$newsList->sortBy('cvDatePublic', 'desc');
 			if(isset($_GET['cParentID']) && $_GET['cParentID'] > 0){
 			$newsList->filterByParentID($_GET['cParentID']);
 			}
@@ -31,6 +31,10 @@ class DashboardpronewslistController extends Controller {
 			            if(!empty($_GET['like'])){
 						$newsList->filterByName($_GET['like']);
 						}
+						if(!empty($_GET['author'])){
+						$aut = $_GET['author'];
+						$newsList->filter(false,"ak_author like '%$aut%'");
+						}
 						if(!empty($_GET['cat'])){
 					    $cat = $_GET['cat'];
 					    $newsList->filter(false,"ak_news_category like '%$cat%'");
@@ -46,9 +50,8 @@ class DashboardpronewslistController extends Controller {
 					    $newsList->filter(false,"ak_district like '%$dist%'");
 					    }           
             
-			$newsList->setItemsPerPage($this->num);
-		    
-		$newsResults=$newsList->getPage();
+			$newsList->setItemsPerPage($this->num);		    
+		    $newsResults=$newsList->getPage();
 		
 			
 			

@@ -276,8 +276,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('dateline',$this->post('dateline'));
 		$p->setAttribute('district',$this->post('district'));
 		$p->setAttribute('story_slug',$this->post('storySlug'));
-		$p->setAttribute('regional_feature',$this->post('regionalFeature'));
-		$p->setAttribute('long_summary',$this->post('longSummary'));
+		$p->setAttribute('regional_feature',$this->post('regionalFeature'));		
 		$p->setAttribute('news_tag',$this->post('newsTag'));
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
 		
