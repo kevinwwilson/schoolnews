@@ -106,6 +106,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	text-transform:uppercase;
 	border-bottom:1px solid #e2e1e1;
 	box-shadow:0 1px 4px #ccc;
+        height: 100px;
 }
 /* logo */
 .logo{
@@ -116,10 +117,16 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	color:#928EC2;
 	letter-spacing: 1px;
 }
+
+
 .logo a:hover{text-decoration:none;}
+
+/* animated logo */
+.edgeLoad-EDGE-307356695 { visibility:hidden; }
+
 /* navigation */
 #nav{
-	padding:4px 0 0;
+	padding:25px 0 0;
 	float:right;
 	font:300 17px/20px 'Oswald', Arial, Helvetica, sans-serif;
 	letter-spacing:1px;
@@ -127,6 +134,11 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 #nav li{
 	float:left;
 	margin:0 43px 0 23px;
+        text-align:center;
+}
+
+#nav span {
+    font-size: 14px;
 }
 #nav li:first-child{margin-left:0;}
 /* main */

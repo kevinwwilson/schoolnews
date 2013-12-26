@@ -16,10 +16,11 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .copy {background-position: -22px -439px;margin-right: 6px!important;}
 .delete {background-position: -22px -635px;}
 .gro-select select{width: 110px !important}
-.gro-select .greensel{background:#0ff707;}
+.gro-select .greensel{background:#51A351; color: white;}
 .gro-select .whitesel{background:#fff;}
 .gro-select .redesel{background:#fc0404;}
 .gro-select .yellowesel{background:#fdfd00;}
+.ccm-ui div.ccm-pagination span {margin-right:4px;}
 
 
 
@@ -56,7 +57,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 		<table class="ccm-results-list">
 			<tr>
 				<th><strong><?php  echo $form->label('cParentID', t('District'))?></strong></th>
-				<th><strong><?php  echo t('by Name')?></strong></th>
+				<th><strong><?php  echo t('by Headline')?></strong></th>
 				<th><strong><?php  echo t('by Author')?></strong></th>
 				<th><strong><?php  echo t('by Region')?></strong></th>
 				<th><strong><?php  echo t('by Tag')?></strong></th>
@@ -112,7 +113,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 			
 		<table border="0" class="ccm-results-list" cellspacing="0" cellpadding="0">
 			<tr>
-				<th>&nbsp;</th>
+				<th>Preview</th>
 				<th class="<?php  echo $newsList->getSearchResultsClass('cvName')?>"><a href="<?php  echo $newsList->getSortByURL('cvName', 'asc')?>"><?php  echo t('Name')?></a></th>
 				<th class="<?php  echo $newsList->getSearchResultsClass('cvDatePublic')?>"><a href="<?php  echo $newsList->getSortByURL('cvDatePublic', 'asc')?>"><?php  echo t('Date')?></a></th>
 				<th><?php  echo t('District')?></th>

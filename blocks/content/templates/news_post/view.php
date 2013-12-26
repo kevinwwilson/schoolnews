@@ -144,20 +144,20 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-
-	$('#article_content img').each(function(){
-	var imgatt = $(this).attr('alt');
-	var imgstl = $(this).attr('style');
-	var imgwidth = $(this).attr('width');
-	var imgheight = $(this).attr('height');
-	
-		
-	var imgsrc = $(this).attr('src');
-	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" style="'+imgstl+'" width="'+imgwidth+'" height="'+imgheight+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
-	$(this).remove();	
-	});	
-})
+//$(document).ready(function(){
+//
+//	$('#article_content img').each(function(){
+//	var imgatt = $(this).attr('alt');
+//	var imgstl = $(this).attr('style');
+//	var imgwidth = $(this).attr('width');
+//	var imgheight = $(this).attr('height');
+//	
+//		
+//	var imgsrc = $(this).attr('src');
+//	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" style="'+imgstl+'" width="'+imgwidth+'" height="'+imgheight+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
+//	$(this).remove();	
+//	});	
+//})
 
 </script>
 

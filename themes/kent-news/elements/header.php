@@ -14,6 +14,10 @@
 	<script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/ie.js"></script>
+	
+	<script type="text/javascript" charset="utf-8" src="/logo/SNN_AnimatedLogo_PNG_edgePreload.js"></script>
+	
+        <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/article.js"></script>
 	<style type="text/css">@import "/concrete/css/ccm.app.css";</style>
 	
 	<script>
@@ -79,7 +83,23 @@
 				
 				<div class="header-frame">
 					<!-- logo -->
-					<strong class="logo"><a href="/">school news network</a></strong>
+					<strong class="logo">
+						<a href="/">
+							<div id="Stage" class="EDGE-307356695">
+								<div id="Stage_Rectangle" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_rss_curve_32" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_rss_curve_22" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_rss_curve_12" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_rss_circle2" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_tagline_text3" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_newsnetwork_text4" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_school_text3" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_bottomrightsquare2" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_bottomleftsquare2" class="edgeLoad-EDGE-307356695"></div>
+								<div id="Stage_SNN_upperleftsquare2" class="edgeLoad-EDGE-307356695"></div>
+							</div>
+						</a>
+					</strong>
 					<!-- navigation -->
 					<nav>
 						<!-- Main Nav -->

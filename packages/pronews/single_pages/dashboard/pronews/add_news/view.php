@@ -25,12 +25,12 @@ if (is_object($news)) {
 		}
 	}
 	$task = 'edit';
-	$buttonText = t('Update News Item');
-	$title = 'Update';
+	$buttonText = t('Save');
+
 } else {
 	$task = 'add';
 	$buttonText = t('Add News Item');
-	$title= 'Add';
+
 }
 ?>
 <style>
@@ -51,7 +51,7 @@ if (is_object($news)) {
 		if($remove_name){
 		?>
 		<div class="alert-message block-message error">
-		  <a class="close" href="<?php  echo $this->action('clear_warning');?>">×</a>
+		  <a class="close" href="<?php  echo $this->action('clear_warning');?>">ï¿½</a>
 		  <p><strong><?php  echo t('Holy guacamole! This is a warning!');?></strong></p><br/>
 		  <p><?php  echo t('Are you sure you want to delete '.$remove_name.'?');?></p>
 		  <p><?php  echo t('This action may not be undone!');?></p>
@@ -305,7 +305,7 @@ if (is_object($news)) {
 				</div>
                 
                 <div class="clearfix">
-					<?php  echo $form->label('district', t('District'))?>
+					<?php  echo $form->label('district', t('Primary and Other Districts'))?>
 					<div class="input">
 						<?php  
 						Loader::model("attribute/categories/collection");
@@ -429,7 +429,7 @@ if (is_object($news)) {
 	</div>
 	<div class="ccm-pane-footer">
     	<?php  $ih = Loader::helper('concrete/interface'); ?>
-        <?php  print $ih->submit(t($title.' News Item'), 'news-form', 'right', 'primary'); ?>
+        <?php  print $ih->submit(t($buttonText), 'news-form', 'right', 'primary'); ?>
         
         <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/list/'), 'dleft'); ?>
         
