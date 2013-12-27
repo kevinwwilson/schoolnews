@@ -84,7 +84,7 @@ class GetNewsInfoHelper {
                     RIGHT OUTER JOIN (
                     SELECT * FROM sixeightformsAnswerSets
                         WHERE asID IN (SELECT MAX(asID) FROM sixeightformsAnswerSets GROUP BY recordID) 
-                        AND isApproved =1
+                        AND isApproved =0
                         AND isDeleted=0
                         AND fID in (Select fID FROM sixeightforms WHERE handle = ?)
                     ) ss

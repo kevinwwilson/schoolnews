@@ -108,12 +108,12 @@ function cleanValues( $s ) {
 	$replaces[138] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(168);
 	$replaces[149] = chr(195).chr(131).chr(198).chr(146).chr(195).chr(130).chr(194).chr(178);
 	$replaces[176] = chr(195).chr(131).chr(226).chr(128).chr(154).chr(195).chr(130).chr(194).chr(176);
-	$out[141] = "ì";
-	$out[133] = "à";
-	$out[151] = "ù";
-	$out[138] = "è";
-	$out[149] = "ò";
-	$out[176] = "°";
+	$out[141] = "ï¿½";
+	$out[133] = "ï¿½";
+	$out[151] = "ï¿½";
+	$out[138] = "ï¿½";
+	$out[149] = "ï¿½";
+	$out[176] = "ï¿½";
 	
 	foreach( $replaces as $k => $v ){
       if( is_numeric( $k ) ){

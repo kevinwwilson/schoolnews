@@ -1,9 +1,17 @@
 <?php  
 defined('C5_EXECUTE') or die(_("Access Denied."));
-
+use \FeedWriter\ATOM;
 //Permissions Check
-//if($_GET['bID']) {
-	$c = Page::getByID($_GET['cID']);
+if($_GET['bID']) {
+    
+        Loader::helper('get_news_info');
+        Loader::library('FeedWriter/Item');
+        Loader::library('FeedWriter/Feed');
+        Loader::library('FeedWriter/ATOM');
+       
+        $nh = Loader::helper('navigation');
+        
+        $c = Page::getByID($_GET['cID']);
 	$a = Area::get($c, $_GET['arHandle']);
 		
 	//edit survey mode
@@ -11,53 +19,52 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 	
 	$controller = new PronewsListBlockController($b);
 	$rssUrl = $controller->getRssUrl($b);
-	
-	//$bp = new Permissions($b);
-	//if( $bp->canRead() && $controller->rss) {
+        
+        $cArray = $controller->getPages();
+        
+        date_default_timezone_set('UTC');
 
-		$cArray = $controller->getPages();
-		$nh = Loader::helper('navigation');
+        //Creating an instance of RSS1 class.
+        $Feed = new ATOM;
 
-		header('Content-type: text/xml');
-		echo "<" . "?" . "xml version=\"1.0\"?>\n";
+        //Setting the channel elements
+        //Use wrapper functions for common elements
+        //For other optional channel elements, use setChannelElement() function
+        $Feed->setTitle($controller->rssTitle);
+        $Feed->setLink($rssUrl);
+        $Feed->setDate(new DateTime());
+        
+        //It's important for RSS 1.0 
+        $Feed->setChannelAbout(BASE_URL . '/about');
 
-?>
-		<rss version="2.0">
-		  <channel>
-			<title><?php  echo $controller->rssTitle?></title>
-			<link><?php  echo BASE_URL.DIR_REL.htmlspecialchars($rssUrl)?></link>
-			<description><?php  echo $controller->rssDescription?></description> 
-<?php  
-		for ($i = 0; $i < count($cArray); $i++ ) {
-			$cobj = $cArray[$i]; 
-			$title = $cobj->getCollectionName(); ?>
-			<item>
-			  <title><?php  echo htmlspecialchars($title);?></title>
-			  <link>
-				<?php  echo  BASE_URL.$nh->getLinkToCollection($cobj) ?>		  
-			  </link>
-			  <description><?php  echo htmlspecialchars(strip_tags($cobj->getCollectionDescription()))."....";?></description>
-			  <?php  /* <pubDate><?php  echo $cobj->getCollectionDatePublic()?></pubDate>
-			  Wed, 23 Feb 2005 16:12:56 GMT  */ ?>
-			  <pubDate><?php  echo date( 'D, d M Y H:i:s T',strtotime($cobj->getCollectionDatePublic())) ?></pubDate>
-			</item>
-<?php  } ?>
-     		 </channel>
-		</rss>
-		
-<?php  	//} else {  	
-		//$v = View::getInstance();
-		//$v->renderError('Permission Denied',"You don't have permission to access this RSS feed");
-		//exit;
-	//}
-			
-//} else {
-//	echo "You don't have permission to access this RSS feed";
-//}
-exit;
-
-
-
-
-
-
+        //Adding a feed. Generally this portion will be in a loop and add all feeds.
+	for ($i = 0; $i < count($cArray); $i++ ) {
+            $cobj = $cArray[$i]; 
+                    
+            $newItem = $Feed->createNewItem();
+            $article_path = BASE_URL.$nh->getLinkToCollection($cobj);
+            
+            //Add elements to the feed item
+            //Use wrapper functions to add common feed elements
+            $newItem->setTitle($cobj->getCollectionName());
+            $newItem->setLink($article_path);            
+            $newItem->setDate(date( 'D, d M Y H:i:s T',strtotime($cobj->getCollectionDatePublic())));
+            $newItem->setAuthor($cobj->getAttribute('author'));
+            
+            $desc = "<em>" . $cobj->getAttribute('dateline') . ", MI &#151; </em>";
+            $desc .= strip_tags($cobj->getCollectionDescription(), "<br>,<em>,<strong>");
+            
+            $newItem->setDescription($desc);
+            
+            //Now add the feed item
+            $Feed->addItem($newItem);
+      
+                    
+ } 
+                //output final feed
+                $Feed->printFeed();
+ } else {  	
+		$v = View::getInstance();
+		$v->renderError('Permission Denied',"You don't have permission to access this RSS feed");
+		exit;
+	}

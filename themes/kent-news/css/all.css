@@ -879,6 +879,48 @@ float: right;
 	display:block;
 	content:'';
 }
+
+/* Guest Column */
+
+
+.guest .news-block {
+	border-top:1px solid #CFD0D1; 
+	clear: both;
+}
+
+#guest-list .news-item:first-child{
+	display: none;
+}
+
+.guest .news-list {
+	border-top:1px solid #CFD0D1; 
+}
+
+.guest .heading.news-block {
+	border-top: none;
+}
+
+.article.guest {
+	height: 600px;
+}
+
+.article-fade {
+	background:url("/themes/kent-news/images/end-article.png") repeat-x;
+	height: 60px;
+	width: 100%;
+	display: block;
+	position: relative;
+	margin-top: -60px;
+}
+
+.more-guest {
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+}
+
+
+
 /* info-bar */
 .info-bar{
 	overflow:hidden;

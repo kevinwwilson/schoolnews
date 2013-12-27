@@ -123,13 +123,20 @@
 				//echo $this->category;
 				//print_r($pl->getAttributeValue('news_category'));
 				//print_r($category);
-				$pl->filterByAttribute('news_category', "%$category%", 'LIKE');
-				//$pl->filterByAttribute('news_category',"%\n$category\n%",'like');
+				//$pl->filterByAttribute('news_category', "%$category%", 'LIKE');
+				$pl->filterByNewsCategory($category,'LIKE');
+                                //$pl->filterByAttribute('news_category',"%\n$category\n%",'like');
 				//$pl->filterByNewsCategory($category,'LIKE');
 			}
+                        
+                        global $u;
+                        if (!$u -> isLoggedIn ()) {
+                            $pl->filter(false,"ak_group_status like '%Published%'");  
+                        }
+                        
 			
 			$b = Block::getByID($this->bID);
-            $template = strtolower($b->getBlockFilename());
+                        $template = strtolower($b->getBlockFilename());
 			
 			if($template=='home_images'){								
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
@@ -142,7 +149,7 @@
 			}
 			
 			
-			
+			/*
 			if($template=='full_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
@@ -176,7 +183,7 @@
 		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }					
 			}
-			
+	*/		
 			if($template=='pronews_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
