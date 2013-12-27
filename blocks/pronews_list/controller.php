@@ -128,6 +128,10 @@
                                 //$pl->filterByAttribute('news_category',"%\n$category\n%",'like');
 				//$pl->filterByNewsCategory($category,'LIKE');
 			}
+                        else {
+                            $pl->filter(false,"ak_group_status like '%Published%'");
+                            
+                        }
                         
                         global $u;
                         if (!$u -> isLoggedIn ()) {
@@ -191,11 +195,11 @@
             //$pl->filterByAttribute('group_status',"%Active%",'like');                         
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    //$pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
 	        }
             
             //$pl->filter(false,"ak_regional_feature not like '%$this->category%'");
-            $pl->filterByAttribute('regional_feature',"$this->category",'not like');					
+            $pl->filterByAttribute('regional_feature',Null,'LIKE');					
 			}
 			
             if($template=='search'){	

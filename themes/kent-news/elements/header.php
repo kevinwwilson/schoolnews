@@ -13,6 +13,8 @@
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
 	<script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>
+	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/moment/moment.js"></script>
+	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jcaption/jcaption.min.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/ie.js"></script>
 	
 	<script type="text/javascript" charset="utf-8" src="/logo/SNN_AnimatedLogo_PNG_edgePreload.js"></script>

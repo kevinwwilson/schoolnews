@@ -1,8 +1,0 @@
-<?php
-
-
-$feed->printFeed();
-
-
-?>
-
