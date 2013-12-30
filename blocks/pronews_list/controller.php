@@ -191,7 +191,8 @@
             $pl->filterByAttribute('regional_feature',"$this->category",'not like');					
 			}
 			
-            if($template=='search'){	
+            if($template=='search'){        
+            		
 			global $u;
             if (!$u -> isLoggedIn ()) {
             $pl->filter(false,"ak_group_status like '%Published%'");            
@@ -199,7 +200,7 @@
             }
             else{
 		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
-	        }						
+	        }	        					
 			}
 			
 			
@@ -221,6 +222,10 @@
 				$pages = $pl->getPage();
 			} else {
 				$pages = $pl->get();
+			}
+			
+			if($template=='search' && $_GET['q'] != ''){ 
+			$pages = $pl->get();
 			}
 			$this->set('pl', $pl);
 			return $pages;
