@@ -17,7 +17,13 @@
 		$dateline = $cobj->getAttribute('dateline');
 		$feature = $cobj->getAttribute('regional_feature');		
 		$status = $cobj->getAttribute('group_status');	
+		$cat = $controller->category;
+		$features = strip_tags($feature);
 		
+		$repfet = str_replace(array('amp;', '&','&amp;'),"",$features);
+		$repcat = str_replace(array('&', 'amp;','&amp;'),"",$cat);
+		
+		if(trim($repcat) != trim($repfet)){
 		?>
 	<li>
 	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
@@ -45,7 +51,7 @@
        <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
 	</p>
 	</li>
-<?php     } }
+<?php   }  } }
 if(!$previewMode && $controller->rss) { 
 			$bt = BlockType::getByHandle('pronews_list');
 			$uh = Loader::helper('concrete/urls');
