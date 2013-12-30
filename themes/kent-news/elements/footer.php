@@ -5,7 +5,7 @@
 					<!-- search-form -->
 					<form action="/index.php/search" method="get" class="search-form">
 						<fieldset>
-							<input type="text" name="q" />
+							<input type="text" name="query" />
 							<input type="submit" value="Submit" />
 						</fieldset>
 					</form>
