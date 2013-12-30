@@ -147,8 +147,7 @@ class PronewsPackage extends Package {
 	if( !is_object($newsthum) ) {
      	CollectionAttributeKey::add($imagen, 
      	array('akHandle' => 'thumbnail', 
-     	'akName' => t('Thumbnail Image'),
-     	 
+     	'akName' => t('Thumbnail Image'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	
@@ -172,9 +171,7 @@ class PronewsPackage extends Package {
 	if( !is_object($newsurl) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'news_url', 
-     	'akName' => t('News URL'),
-     	'akIsSearchable' => '1', 
-		'akIsSearchableIndexed' => '1', 
+     	'akName' => t('News URL'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
   	
@@ -192,9 +189,7 @@ class PronewsPackage extends Package {
 	if( !is_object($story_slug) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'story_slug', 
-     	'akName' => t('Story Slug'),
-     	'akIsSearchable' => '1', 
-		'akIsSearchableIndexed' => '1', 
+     	'akName' => t('Story Slug'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	
@@ -203,9 +198,7 @@ class PronewsPackage extends Package {
 	if( !is_object($secondaryheadline) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'secondary_headline', 
-     	'akName' => t('Secondary Headline'),
-     	'akIsSearchable' => '1', 
-		'akIsSearchableIndexed' => '1', 
+     	'akName' => t('Secondary Headline'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	
@@ -214,9 +207,7 @@ class PronewsPackage extends Package {
 	if( !is_object($author) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'author', 
-     	'akName' => t('Author'),
-     	'akIsSearchable' => '1', 
-		'akIsSearchableIndexed' => '1',
+     	'akName' => t('Author'), 
      	),$pkg)->setAttributeSet($newsset);  
   	}
 	
@@ -225,9 +216,7 @@ class PronewsPackage extends Package {
 	if( !is_object($mainphoto) ) {
      	CollectionAttributeKey::add($imagen, 
      	array('akHandle' => 'main_photo', 
-     	'akName' => t('Main Photo'),
-     	'akIsSearchable' => '1', 
-		'akIsSearchableIndexed' => '1', 
+     	'akName' => t('Main Photo'), 
      	),$pkg)->setAttributeSet($newsset); 
   	}
 	
@@ -236,8 +225,7 @@ class PronewsPackage extends Package {
 	if( !is_object($photocaption) ) {
      	CollectionAttributeKey::add($textn, 
      	array('akHandle' => 'photo_caption', 
-     	'akName' => t('Photo Caption'),
-     	 
+     	'akName' => t('Photo Caption'), 
      	),$pkg)->setAttributeSet($newsset);  
   	}
 	
