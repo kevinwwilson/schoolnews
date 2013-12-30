@@ -579,6 +579,11 @@ z-index: 10;}
 	line-height:0;
 	cursor:pointer;
 }
+
+.searchResult {
+    margin-bottom: 24px;
+}
+
 /* news-block */
 .news-block h1{
 	float:right;
