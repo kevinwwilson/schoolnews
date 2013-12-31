@@ -15,7 +15,7 @@
 	$author = $c->getAttribute('author');
 	$secondaryheadline = $c->getAttribute('secondary_headline');
 	$photo_caption = $c->getAttribute('photo_caption');
-	$district = $c->getAttribute('district')->getOptions();
+	$district = $c->getAttribute('district');
 	$dateline = $c->getAttribute('dateline');
 	$slideimage = $c->getAttribute('files');	
 	$sliderimages = explode(',',$slideimage);

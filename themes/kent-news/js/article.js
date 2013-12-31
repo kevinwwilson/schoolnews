@@ -45,12 +45,7 @@
 				jQuery(this).addClass('inline-sidebar');
 			});
 			
-			//parse date
-			var date = jQuery('#pub_date').text();
-			if (date != ""){
-                            var date_parsed = moment(date, "YYYY-MM-DD").format('MMMM Do YYYY');;
-                            jQuery('#pub_date').text(date_parsed);
-                        }
+		
 			
 			});
 	
