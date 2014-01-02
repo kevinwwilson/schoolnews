@@ -197,7 +197,7 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	   $artid=implode("||",$artid);	 
 	   
 	   
-	   $sql = $db->query("UPDATE btselectProNewsList SET atID='$artid', time='$atday-$atmonth-$atyear $time_in_24_hour_format:00', active='' WHERE ID='$cID'");
+	   $sql = $db->query("UPDATE btselectProNewsList SET atID='$artid', time='$atday-$atmonth-$atyear $time_in_24_hour_format:00' WHERE ID='$cID'");
 	   
 	   $db->Execute($sql);
 		$this->redirect('/dashboard/pronews/shedule_news_group/','group_edited');	
