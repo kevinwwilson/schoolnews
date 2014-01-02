@@ -684,6 +684,18 @@ z-index: 10;}
 	overflow:hidden;
 	padding:3px 0 5px;
 }
+
+.article.guest {
+height: 600px;
+}
+.article-fade{
+background: url("/themes/kent-news/images/end-article.png") repeat-x;
+height: 60px;
+width: 100%;
+display: block;
+position: relative;
+margin-top: -60px;
+}
 /* image-holder */
 .image-holder, 
 .slideshow-holder{

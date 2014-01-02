@@ -128,6 +128,23 @@
 				//$pl->filterByNewsCategory($category,'LIKE');
 			}
 			
+			
+			
+			if ($this->tagss != 'All Tags') {				
+				$tagss = "\n$this->tagss\n";				
+				//$pl->filterByAttribute('news_category', "%\n$category\n%", 'like');
+				$pl->filterByAttribute('news_tag',"%$tagss%",'like');
+				//$pl->filterByNewsCategory($category,'LIKE');
+			}
+							
+			
+			if ($this->distss != 'All District') {				
+				$distss = "\n$this->distss\n";				
+				$pl->filterByAttribute('district',"%$distss%",'like');
+				
+			}
+			
+			
 			$b = Block::getByID($this->bID);
             $template = strtolower($b->getBlockFilename());
 			
@@ -150,7 +167,7 @@
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");            
 	        }		
 			}
 			
@@ -173,7 +190,7 @@
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");           
 	        }					
 			}
 			
@@ -184,11 +201,10 @@
             //$pl->filterByAttribute('group_status',"%Active%",'like');                         
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");
+		    	            
 	        }
-            
-            //$pl->filter(false,"ak_regional_feature not like '%$this->category%'");
-            $pl->filterByAttribute('regional_feature',"$this->category",'not like');					
+           					
 			}
 			
             if($template=='search'){        
@@ -199,24 +215,23 @@
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		   $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+	        }	
+	               					
+			}
+			
+			if($template=='full_article'){        
+            		
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filter(false,"ak_group_status like '%Published%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");	            
 	        }	        					
 			}
 			
-			
-			if ($this->tagss != 'All Tags') {				
-				$tagss = "\n$this->tagss\n";				
-				//$pl->filterByAttribute('news_category', "%\n$category\n%", 'like');
-				$pl->filterByAttribute('news_tag',"%$tagss%",'like');
-				//$pl->filterByNewsCategory($category,'LIKE');
-			}
-							
-			
-			if ($this->distss != 'All District') {				
-				$distss = "\n$this->distss\n";				
-				$pl->filterByAttribute('district',"%$distss%",'like');
-				
-			}
 
 			if ($num > 0) {
 				$pages = $pl->getPage();
