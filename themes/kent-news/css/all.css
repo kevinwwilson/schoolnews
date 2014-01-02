@@ -921,13 +921,28 @@ float: right;
 	height: 600px;
 }
 
+.article.guest h2 {
+      font: bold 31px/33px 'Open Sans Condensed',Arial,Helvetica,sans-serif;
+}
+
+.article.guest li {
+    
+    border: none;
+    padding: 0px;
+}
+
+
+.article.guest .switcher {
+    bottom: 38px;
+}
+
 .article-fade {
 	background:url("/themes/kent-news/images/end-article.png") repeat-x;
 	height: 60px;
 	width: 100%;
 	display: block;
 	position: relative;
-	margin-top: -60px;
+	margin-top: -57px;
 }
 
 .more-guest {
@@ -935,6 +950,7 @@ float: right;
 	text-transform: uppercase;
 	padding-bottom: 15px;
 }
+
 
 
 

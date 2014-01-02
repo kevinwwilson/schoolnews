@@ -93,7 +93,7 @@
         
         <strong class="date">by <?php echo $author ?></strong>        
         <p>
-        <span class="dateline"><?php echo $dateline?> — </span>
+            <span class="dateline"><?php echo $dateline?> —&nbsp;</span>
 		<?php  
 		if($use_content > 0){
 			$block = $cpage->getBlocks('Main');

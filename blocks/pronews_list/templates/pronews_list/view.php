@@ -23,7 +23,7 @@
 	<h3 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h3>    
     <strong class="date">by <?php echo $author ?></strong>    
 	<p>
-    <span class="dateline"><?php echo $dateline ?> — </span>
+            <span class="dateline"><?php echo $dateline ?> —&nbsp;</span>
 		<?php  
 		if($use_content > 0){
 			$block = $cobj->getBlocks('Main');

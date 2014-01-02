@@ -92,7 +92,7 @@
         <h2><?php echo $secondary_headline ?></h2>
         
         <strong class="date">by <?php echo $author ?></strong>
-        <p><span class="dateline"><?php echo $dateline?> — </span>
+        <p><span class="dateline"><?php echo $dateline?> —&nbsp;</span>
 <?php echo $cobj->getCollectionDescription(); ?>
         <br/>
         </p>

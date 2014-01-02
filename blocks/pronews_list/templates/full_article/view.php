@@ -5,8 +5,9 @@
 	// we'll include this block type's class, and pass the block to it, and get
 	// the content
 	
-	if (count($cArray) > 0) { ?>	
-	<div class="news-block">
+	if (count($cArray) > 0) { ?>
+
+        <div class="news-block">
 	<?php  
 	for ($i = 0; $i < count($cArray); $i++ ) {
 		$cobj = $cArray[$i]; 
@@ -64,7 +65,7 @@
             </li>
               <?php } ?>      
         </ul>
-<nav>
+    <nav>
         <ul class="switcher">
         <?php foreach($sliderimages as $simages){ ?>
             <li class=""><a href="#"></a></li>
@@ -77,40 +78,30 @@
     
     
     <div id="article_content">
- <p><span class="dateline"><?php echo $dateline ?>, MI — </span>
-   <?php $block = $cobj->getBlocks('Main');
-			foreach($block as $bi) {
-				if($bi->getBlockTypeHandle()=='content'){
-					$content = $bi->getInstance()->getContent();
-				}
-			} 
-			
-		echo $content;	
-			?>
- </div>
-    <strong class="date">Submitted on: <span id="pub_date"><?php echo $newsDate ?></span></strong>
-</div>
+    <p><span class="dateline"><?php echo $dateline ?>, MI — </span>
+      <?php $block = $cobj->getBlocks('Main');
+                           foreach($block as $bi) {
+                                   if($bi->getBlockTypeHandle()=='content'){
+                                           $content = $bi->getInstance()->getContent();
+                                   }
+                           } 
+
+                   echo $content;	
+                           ?>
+        </div>
+           <strong class="date">Submitted on: <span id="pub_date"><?php echo $newsDate ?></span></strong>
+       </div>
 
      <?php  } 	?>
- </div>			
-					
+    </div>			
+		
 <?php } ?>
 <div class="article-fade"> </div>
+<div class="more-guest">
+    <a class="more" href="<?php echo $nh->getLinkToCollection($cobj) ?>">Read Full Article  »</a>
+</div>
 <script type="text/javascript">
-$(document).ready(function(){
 
-	$('#article_content img').each(function(){
-	var imgatt = $(this).attr('alt');
-	var imgstl = $(this).attr('style');
-	var imgwidth = $(this).attr('width');
-	var imgheight = $(this).attr('height');
-	
-		
-	var imgsrc = $(this).attr('src');
-	$(this).after('<div class="img-caption right"><img src="'+imgsrc+'" style="'+imgstl+'" width="'+imgwidth+'" height="'+imgheight+'" alt="'+imgatt+'"/><div class="cap" style="float:none; color:#4A439A;">'+imgatt+'</span></div>')	
-	$(this).remove();	
-	});	
-})
 
 </script>
 
