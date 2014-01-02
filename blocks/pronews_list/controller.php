@@ -123,20 +123,30 @@
 				//echo $this->category;
 				//print_r($pl->getAttributeValue('news_category'));
 				//print_r($category);
-				//$pl->filterByAttribute('news_category', "%$category%", 'LIKE');
-				$pl->filterByNewsCategory($category,'LIKE');
-                                //$pl->filterByAttribute('news_category',"%\n$category\n%",'like');
+				$pl->filterByAttribute('news_category', "%$category%", 'LIKE');
+				//$pl->filterByAttribute('news_category',"%\n$category\n%",'like');
 				//$pl->filterByNewsCategory($category,'LIKE');
 			}
-                        
-                        global $u;
-                        if (!$u -> isLoggedIn ()) {
-                            $pl->filter(false,"ak_group_status like '%Published%'");  
-                        }
-                        
+			
+			
+			
+			if ($this->tagss != 'All Tags') {				
+				$tagss = "\n$this->tagss\n";				
+				//$pl->filterByAttribute('news_category', "%\n$category\n%", 'like');
+				$pl->filterByAttribute('news_tag',"%$tagss%",'like');
+				//$pl->filterByNewsCategory($category,'LIKE');
+			}
+							
+			
+			if ($this->distss != 'All District') {				
+				$distss = "\n$this->distss\n";				
+				$pl->filterByAttribute('district',"%$distss%",'like');
+				
+			}
+			
 			
 			$b = Block::getByID($this->bID);
-                        $template = strtolower($b->getBlockFilename());
+            $template = strtolower($b->getBlockFilename());
 			
 			if($template=='home_images'){								
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
@@ -149,7 +159,7 @@
 			}
 			
 			
-			/*
+			
 			if($template=='full_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
@@ -157,7 +167,7 @@
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");            
 	        }		
 			}
 			
@@ -180,10 +190,10 @@
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");           
 	        }					
 			}
-	*/		
+			
 			if($template=='pronews_list'){	
 			global $u;
             if (!$u -> isLoggedIn ()) {
@@ -191,43 +201,46 @@
             //$pl->filterByAttribute('group_status',"%Active%",'like');                         
             }
             else{
-		    //$pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");
+		    	            
 	        }
-            
-            //$pl->filter(false,"ak_regional_feature not like '%$this->category%'");
-            $pl->filterByAttribute('regional_feature',Null,'LIKE');					
+           					
 			}
 			
-            if($template=='search'){	
+            if($template=='search'){        
+            		
 			global $u;
             if (!$u -> isLoggedIn ()) {
             $pl->filter(false,"ak_group_status like '%Published%'");            
                                     
             }
             else{
-		    $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
-	        }						
+		   $pl->filter(false,"ak_group_status like '%Published%' or ak_group_status like '%Ready%'");	            
+	        }	
+	               					
 			}
 			
-			
-			if ($this->tagss != 'All Tags') {				
-				$tagss = "\n$this->tagss\n";				
-				//$pl->filterByAttribute('news_category', "%\n$category\n%", 'like');
-				$pl->filterByAttribute('news_tag',"%$tagss%",'like');
-				//$pl->filterByNewsCategory($category,'LIKE');
+			if($template=='full_article'){        
+            		
+			global $u;
+            if (!$u -> isLoggedIn ()) {
+            $pl->filter(false,"ak_group_status like '%Published%'");            
+                                    
+            }
+            else{
+		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");	            
+	        }	        					
 			}
-							
 			
-			if ($this->distss != 'All District') {				
-				$distss = "\n$this->distss\n";				
-				$pl->filterByAttribute('district',"%$distss%",'like');
-				
-			}
 
 			if ($num > 0) {
 				$pages = $pl->getPage();
 			} else {
 				$pages = $pl->get();
+			}
+			
+			if($template=='search' && $_GET['q'] != ''){ 
+			$pages = $pl->get();
 			}
 			$this->set('pl', $pl);
 			return $pages;
