@@ -225,7 +225,7 @@ class DashboardPronewsSheduleNewsGroupAddGroupController extends Controller {
 	   
 	   $artid=implode("||",$artid);	   
 	   
-	   $sql = $db->query("INSERT INTO btselectProNewsList (ID,atID,time,active) VALUES ('', '$artid','$atday-$atmonth-$atyear $time_in_24_hour_format:00','')");
+	   $sql = $db->query("INSERT INTO btselectProNewsList (atID,time) VALUES ('$artid','$atday-$atmonth-$atyear $time_in_24_hour_format:00')");
 	   $db->Execute($sql);
 		$this->redirect('/dashboard/pronews/shedule_news_group/','group_added');		
 	}	
