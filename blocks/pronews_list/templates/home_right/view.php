@@ -50,10 +50,26 @@
 		     $cpage->setAttribute('group_status','Published');
 		     $nh = Loader::helper('navigation');
 		     $url = $nh->getLinkToCollection($cpage);	                             	                             
-		     $photo_caption = $cobj->getAttribute('photo_caption');
 			 $secondary_headline = $cobj->getAttribute('secondary_headline');
-			 $dateline = $cobj->getAttribute('dateline');									
-			 $CatImage = $cobj->getAttribute('main_photo');
+			 $dateline = $cobj->getAttribute('dateline');
+                         $photo_type = $cobj->getAttribute('single_multiple_photo_status');
+
+                         
+                         if ($photo_type == 1) {
+                             //this is a single photo with a main photo assigned
+                             $CatImage = $cobj->getAttribute('main_photo');
+                             $photo_caption = $cobj->getAttribute('photo_caption');
+                         }
+                         elseif ($photo_type ==2) {
+                             //this is a slideshow 
+                            $slideimage = $cobj->getAttribute('files');	
+                            $sliderimages = explode(',',$slideimage);
+                            
+                            //Get the first photo in the slideshow
+                             $sliders = explode('||',$sliderimages[0]);
+                             $CatImage= File::getByID($sliders[0]);   
+                             $photo_caption = $sliders[1];
+                         }
 			 $image = '';
 			        if(is_object($CatImage)){
 			         $ih= Loader::helper('image');
@@ -120,7 +136,7 @@
 <div class="box">
             <strong class="title"><?php  echo $title?></strong>
             <strong class="date">by <?php echo $author ?></strong>
-    <p><span class="dateline"><?php echo $dateline ?> — </span>
+            <p><span class="dateline"><?php echo $dateline ?> —&nbsp;</span>
 <?php  
 		if($use_content > 0){
 			$block = $cobj->getBlocks('Main');
