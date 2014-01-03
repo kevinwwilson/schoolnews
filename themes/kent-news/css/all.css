@@ -905,7 +905,7 @@ float: right;
 	clear: both;
 }
 
-#guest-list .news-item:first-child{
+#guest-list li:first-child{
 	display: none;
 }
 
