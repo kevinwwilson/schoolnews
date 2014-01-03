@@ -62,6 +62,9 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 .group-article .det_link{float: right; padding-right: 30px}
 .ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
 .ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
+.ccm-ui div.ccm-pagination span {
+    margin-right: 4px;
+}
 </style>
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper1(t('Add News Group'), false, false, false);?>
 

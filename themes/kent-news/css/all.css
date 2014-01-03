@@ -249,6 +249,18 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	background:none;
 }
 
+.home .dateline,
+.home .summary,
+.home .read_more {
+    
+   font-size: 16px;
+   line-height: 26px;
+}
+
+.post.home .date {
+    font-size: 14px;
+}
+
 .post br,
 #content br{
     margin-bottom: 6px;

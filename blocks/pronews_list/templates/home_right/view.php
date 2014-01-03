@@ -103,16 +103,16 @@
     </div>
 
 
-    <article class="post">
+    <article class="post home">
         <h1><?php  echo $title?></h1>
         <h2><?php echo $secondary_headline ?></h2>
         
         <strong class="date">by <?php echo $author ?></strong>
-        <p><span class="dateline"><?php echo $dateline?> —&nbsp;</span>
-<?php echo $cobj->getCollectionDescription(); ?>
+        <p class="summary"><span class="dateline"><?php echo $dateline?> —&nbsp;</span>
+<?php echo $cobj->getCollectionDescription(); ?><span class="dots">...</span>
         <br/>
         </p>
-         <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>
+         <a class="read_more" href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>
     </article>
 
 
@@ -153,7 +153,7 @@
 		}else{
 			echo $textHelper->shorten($content,$controller->truncateChars);
 		}
-		?>
+		?><span class="dots">...</span>
         <br/>
         </p>
        <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
