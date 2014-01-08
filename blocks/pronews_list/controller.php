@@ -196,13 +196,18 @@
 			
 			if($template=='pronews_list'){	
 			global $u;
-            if (!$u -> isLoggedIn ()) {
-            $pl->filter(false,"ak_group_status like '%Published%'");            
-            //$pl->filterByAttribute('group_status',"%Active%",'like');                         
+			$category = $this->category;
+			if (!$u -> isLoggedIn ()) {
+            
+            $pl->filter(false,"((ak_group_status like '%Published%') and (ak_regional_feature not like '%".$category."%' or or ak_regional_feature is NULL ))"); 
+            //$pl->filter(false,"ak_regional_feature not like '%$category%'");           
+            //$pl->filterByAttribute('regional_feature',"%$category%",'not like');                         
             }
             else{
-		    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");
-		    	            
+            $pl->filter(false,"((ak_group_status like '%Published%' or ak_group_status like '%Ready%') and (ak_regional_feature not like '%".$category."%' or ak_regional_feature is NULL ))");
+		    //$pl->filter(false,"((ak_group_status like '%Published%' or ak_group_status like '%Ready%') and (ak_regional_feature not like '%".$category."%'))");
+		    //$pl->filter(false,"ak_regional_feature not like '%$category%'");
+		    //$pl->filterByAttribute('regional_feature',"%$category%",'not like');	            
 	        }
            					
 			}

@@ -38,8 +38,8 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
             $db = Loader::db();
 		if(!is_array($fIDs) && $fIDs != 0){			
 			$cfid = explode('||',$fIDs);
-			$fIDs = explode('^',$cfid[0]);
-			$fName = explode('^',$cfid[1]);
+			$fIDs = explode(',',$cfid[0]);
+			$fName = explode(',',$cfid[1]);
 		}
 		$cleanFIDs=array();
 		$i = 0;
@@ -49,7 +49,7 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
 			$i++;
 		}
 		$cleanFIDs = array_unique($cleanFIDs);
-		$db->Replace('atMultipleFiles', array('avID' => $this->getAttributeValueID(), 'value' => join('^',$cleanFIDs)), 'avID', true);
+		$db->Replace('atMultipleFiles', array('avID' => $this->getAttributeValueID(), 'value' => join(',',$cleanFIDs)), 'avID', true);
 	}
 	
 	public function deleteKey() {
@@ -75,7 +75,7 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
 	
 	static public function getFiles($valueStr=''){  
 		$files=array();
-		foreach(explode('^',$valueStr) as $fIDName){
+		foreach(explode(',',$valueStr) as $fIDName){
 			
 			$split = explode('||', $fIDName);
 			$fID = $split[0];

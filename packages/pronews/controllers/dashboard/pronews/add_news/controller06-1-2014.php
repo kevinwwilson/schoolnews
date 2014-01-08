@@ -94,11 +94,9 @@ class DashboardPronewsAddNewsController extends Controller {
 			$this->validate();
 			if (!$this->error->has()) {
 				$parent = Page::getByID($this->post('cParentID'));
-				$ct = CollectionType::getByID($this->post('ctID'));
-                                $handle = preg_replace('/[^a-z]+/i', '-', $this->post('newsTitle')); 
-				$data = array('cName' => $this->post('newsTitle'), 'cHandle' => $handle, 'cDescription' => $this->post('newsDescription'), 'cDatePublic' => Loader::helper('form/date_time')->translate('newsDate'));
+				$ct = CollectionType::getByID($this->post('ctID'));				
+				$data = array('cName' => $this->post('newsTitle'), 'cDescription' => $this->post('newsDescription'), 'cDatePublic' => Loader::helper('form/date_time')->translate('newsDate'));
 				$p = $parent->add($ct, $data);	
-                                //$p = Page::add($ct, $data);
 				$this->saveData($p);
 				$this->redirect('/dashboard/pronews/list/', 'news_added');
 			}
@@ -281,6 +279,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('regional_feature',$this->post('regionalFeature'));		
 		$p->setAttribute('news_tag',$this->post('newsTag'));
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
+		
 		
 		
 		$p->setAttribute('files',$this->post('files'));		
