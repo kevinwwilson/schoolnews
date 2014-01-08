@@ -45,7 +45,7 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
 		$i = 0;
 		foreach($fIDs as $fID)
 		{
-			$cleanFIDs[]=intval($fID).'||'.$fName[$i];
+			$cleanFIDs[]=intval($fID).'||'. htmlspecialchars($fName[$i]);
 			$i++;
 		}
 		$cleanFIDs = array_unique($cleanFIDs);

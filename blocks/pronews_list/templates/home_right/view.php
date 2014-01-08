@@ -6,6 +6,9 @@
 	// the content
 	
 	$db = Loader::db();		 
+        $nh = Loader::helper('navigation');
+        Loader::model('page_list');
+        
 	$row = $db->GetArray('SELECT * FROM btselectProNewsList');
 	foreach($row as $data){
 			if($data['active'] == 1){			
@@ -14,42 +17,42 @@
 		
 	}
 	$articleids = explode('||',$active_artid);		
-	$atids = array();
-	                             foreach($articleids as $displayid){
-	                             Loader::model('page_list');
-	                             $pl = new PageList();	                             	                                 
-	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
-	                             $pl->filter(false,"ak_group_status like '%Published%'");	                             
-	                             $pages = $pl->getPage(); 	                                                       
-	                             foreach($pages as $cpage){ 
+//	$atids = array();
+//	                             foreach($articleids as $displayid){
+//	                             Loader::model('page_list');
+//	                             $pl = new PageList();	                             	                                 
+//	                             $pl->filter(false, '( cv.cID in('.$displayid.') )');
+//	                             $pl->filter(false,"ak_group_status like '%Published%'");	                             
+//	                             $pages = $pl->getPage(); 	                                                       
+//	                             foreach($pages as $cpage){ 
+//	                             
+//	                             $atids[] = $cpage->cID;
+//	                             
+//	                             }
+//	                             }	
 	                             
-	                             $atids[] = $cpage->cID;
-	                             
-	                             }
-	                             }	
-	                                                          
-	shuffle($atids); 
+	shuffle($articleids); 
 	$m=0;
-	foreach($atids as $displayid){	
+	foreach($articleids as $displayid){	
 	
-	Loader::model('page_list');
-	$plz = new PageList(); 
-	$plz->filter(false,"ak_group_status like '%Published%'"); 
-	        
-	$pages = $plz->get(); 
+//	Loader::model('page_list');
+//	$plz = new PageList(); 
+//	$plz->filter(false,"ak_group_status like '%Published%'"); 
+//	        
+//	$pages = $plz->get(500); 
 	
-	foreach($pages as $cobj){ 
+	//foreach($pages as $cobj){ 
     
-	     if($cobj->cID == $displayid && $m < 4){
+	     //if($cobj->cID == $displayid && $m < 4){
 	     
-		    
-			 $title = $cobj->getCollectionName();
+		     $cobj = Page::getByID($displayid, $version = 'RECENT');
+                    $title = $cobj->getCollectionName();
 		     $author = $cobj->getAttribute('author');
 		     $dateline = $cobj->getAttribute('dateline'); 
 	     
-		     $cpage->setAttribute('group_status','Published');
-		     $nh = Loader::helper('navigation');
-		     $url = $nh->getLinkToCollection($cpage);	                             	                             
+		     //$cpage->setAttribute('group_status','Published');
+		    
+		     //$url = $nh->getLinkToCollection($cpage);	                             	                             
 			 $secondary_headline = $cobj->getAttribute('secondary_headline');
 			 $dateline = $cobj->getAttribute('dateline');
                          $photo_type = $cobj->getAttribute('single_multiple_photo_status');
@@ -134,7 +137,7 @@
 
 
 <div class="box">
-            <strong class="title"><?php  echo $title?></strong>
+            <strong class="title"><?php  echo $title ?></strong>
             <strong class="date">by <?php echo $author ?></strong>
             <p><span class="dateline"><?php echo $dateline ?> —&nbsp;</span>
 <?php  
@@ -165,7 +168,14 @@
 							
 				
 				
-<?php } } } $m++; }?>
+<?php } 
+
+           //} 
+
+                //} 
+                $m++; 
+                
+                }?>
 
                              </div>
 						</div>
