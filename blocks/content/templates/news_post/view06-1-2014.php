@@ -18,7 +18,7 @@
 	$district = $c->getAttribute('district');
 	$dateline = $c->getAttribute('dateline');
 	$slideimage = $c->getAttribute('files');	
-	$sliderimages = explode('^',$slideimage);
+	$sliderimages = explode(',',$slideimage);
 	
 	?>
 <root>

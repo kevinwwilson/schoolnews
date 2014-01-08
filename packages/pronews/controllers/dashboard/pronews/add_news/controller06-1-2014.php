@@ -281,6 +281,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
 		
 		
+		
 		$p->setAttribute('files',$this->post('files'));		
 		$bt = BlockType::getByHandle('content');
 		
