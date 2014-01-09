@@ -333,8 +333,9 @@ $addednewsIDs=array();
 		
 		$start_date = date("Y-m-d", strtotime($NW_DATE));
 		
-		
-		$data = array('cName' => $NW_PRIMARY_HEADLINE, 'cDescription' => $cdiscription, 'cDatePublic' => $start_date);
+		$handle = preg_replace('/[^a-z]+/i', '-', $NW_PRIMARY_HEADLINE); 
+                
+		$data = array('cName' => $NW_PRIMARY_HEADLINE, 'cHandle' => $handle, 'cDescription' => $cdiscription, 'cDatePublic' => $start_date);
 		$p = $parent->add($ct, $data);
 		$timings=array();
 				
