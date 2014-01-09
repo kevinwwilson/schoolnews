@@ -90,7 +90,7 @@ $newsSectionList = new PageList();
 			?>
 			<tr>
 				<td width="60px">
-				<a href="javascript://" onclick="addtoselectedarticle('<?php echo $cobj->getCollectionID(); ?>','<?php echo $cobj->getCollectionName(); ?>','<?php echo $nh->getLinkToCollection($cobj); ?>')" class="add-link">Add</a>	
+				<a href="javascript://" onclick="addtoselectedarticle('<?php echo $cobj->getCollectionID(); ?>','<?php echo str_replace("'","\'", $cobj->getCollectionName()); ?>','<?php echo $nh->getLinkToCollection($cobj); ?>')" class="add-link">Add</a>	
 				</td>
 				<td><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $cobj->getCollectionName()?></a></td>
 				<td>

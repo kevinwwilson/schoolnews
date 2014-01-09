@@ -80,7 +80,7 @@
 					
 					?>                
                 
-                <strong class="title"><?php echo $sliders[1] ?></strong>
+                <strong class="title"><?php echo htmlspecialchars_decode($sliders[1]) ?></strong>
             </li>
               <?php } ?>      
         </ul>

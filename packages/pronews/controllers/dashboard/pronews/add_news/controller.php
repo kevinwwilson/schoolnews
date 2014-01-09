@@ -285,7 +285,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		
 		$p->setAttribute('files',$this->post('files'));		
 		$bt = BlockType::getByHandle('content');
-		
+		$test = $this->post('files');
 		$main_image=$p->getAttribute('main_photo');
 		if($main_image != ''){	
 			

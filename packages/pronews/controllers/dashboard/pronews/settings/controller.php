@@ -391,8 +391,8 @@ $addednewsIDs=array();
 		
 		
 		
-$sliderimages=$NW_PHOTO1.','.$NW_PHOTO2.','.$NW_PHOTO3.','.$NW_PHOTO4.','.$NW_PHOTO5.'||'.$NW_CAPTION1.','.$NW_CAPTION2.','.$NW_CAPTION3.','.$NW_CAPTION4.','.$NW_CAPTION5;
-        
+//$sliderimages=$NW_PHOTO1.','.$NW_PHOTO2.','.$NW_PHOTO3.','.$NW_PHOTO4.','.$NW_PHOTO5.'||'.$NW_CAPTION1.','.$NW_CAPTION2.','.$NW_CAPTION3.','.$NW_CAPTION4.','.$NW_CAPTION5;
+  $sliderimages = $NW_PHOTO1 . "^" . $NW_PHOTO2 . "^" .  $NW_PHOTO3 . "^" . $NW_PHOTO4 .  "^" . $NW_PHOTO5 . "||" . htmlspecialchars($NW_CAPTION1) . "^" . htmlspecialchars($NW_CAPTION2) . "^" . htmlspecialchars($NW_CAPTION3) . "^" . htmlspecialchars($NW_CAPTION4) . "^" . htmlspecialchars($NW_CAPTION5);     
 	
 		$p->setAttribute('files',$sliderimages);
 		$p->setAttribute('single_multiple_photo_status','2');
