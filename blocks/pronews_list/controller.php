@@ -199,7 +199,7 @@
 			$category = $this->category;
 			if (!$u -> isLoggedIn ()) {
             
-            $pl->filter(false,"((ak_group_status like '%Published%') and (ak_regional_feature not like '%".$category."%' or or ak_regional_feature is NULL ))"); 
+            $pl->filter(false,"((ak_group_status like '%Published%') and (ak_regional_feature not like '%".$category."%' or ak_regional_feature is NULL ))"); 
             //$pl->filter(false,"ak_regional_feature not like '%$category%'");           
             //$pl->filterByAttribute('regional_feature',"%$category%",'not like');                         
             }
