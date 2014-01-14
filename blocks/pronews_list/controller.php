@@ -158,6 +158,9 @@
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');			
 			}
 			
+                        if($template=='district_left_side'){	
+                        $pl->filter(false,"ak_group_status like '%Published%'"); 
+			}
 			
 			
 			if($template=='full_list'){	
