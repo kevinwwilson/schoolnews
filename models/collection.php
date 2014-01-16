@@ -35,12 +35,16 @@ class Collection extends Concrete5_Model_Collection {
                                 $regional_feature = $page->getAttribute($ak_r);
                                 
                                 //These are both guaranteed to be an array of 1 by the select type
-                                foreach ($status as $v) {
-                                    $stat = $v->value;
+                                if (is_object($status)){
+                                    foreach ($status as $v) {
+                                        $stat = $v->value;
+                                    }   
                                 }
                                 
-                                foreach ($regional_feature as $r) {
-                                    $regional = $r->value;
+                                if (is_object($regional_feature)){
+                                    foreach ($regional_feature as $r) {
+                                        $regional = $r->value;
+                                    }
                                 }
                                 
                                 //force the value into the search index
