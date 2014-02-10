@@ -18,7 +18,7 @@
 		$dateline = $cobj->getAttribute('dateline');
 		$newsDate = $cobj->getCollectionDatePublic('F jS Y');
 		$slideimage = $cobj->getAttribute('files');	
-	    $sliderimages = explode(',',$slideimage);
+	    $sliderimages = explode('^',$slideimage);
 		$pid = $cobj->cID;
 		?>
 		
