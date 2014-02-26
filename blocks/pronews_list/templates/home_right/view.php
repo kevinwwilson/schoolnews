@@ -66,7 +66,7 @@
                          elseif ($photo_type ==2) {
                              //this is a slideshow 
                             $slideimage = $cobj->getAttribute('files');	
-                            $sliderimages = explode(',',$slideimage);
+                            $sliderimages = explode('^',$slideimage);
                             
                             //Get the first photo in the slideshow
                              $sliders = explode('||',$sliderimages[0]);
