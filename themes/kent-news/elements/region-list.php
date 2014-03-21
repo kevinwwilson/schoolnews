@@ -19,6 +19,7 @@
 					<span><a href="/districts/kent-city">Kent City Community</a></span>
 					<span><a href="/districts/northview">Northview Public</a></span>
 					<span><a href="/districts/rockford">Rockford Public</a></span>
+                                        <span><a href="/districts/sparta">Sparta Area</a></span>
 				
 			</div>
 		</div>
