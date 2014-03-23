@@ -19,15 +19,28 @@
 	$dateline = $c->getAttribute('dateline');
 	$slideimage = $c->getAttribute('files');	
 	$sliderimages = explode('^',$slideimage);
-	
+        
+        // convert district to array for counting and display
+        foreach ($district as $d) {
+            $districtArr[] = $d->value;
+        }
 	?>
 <root>
 <header class="heading">
     <div class="p-news">
-        <h1><span><?php foreach($district as $districts){
-	echo $districts->value,'<br/>';	
-	}
-	?></span>
+        <h1>
+            <span>
+                <?php if (count($districtArr) < 4 ) { ?>
+   
+                
+                    <?php foreach($districtArr as $d){
+                        echo $d,'<br/>';	
+                    }
+                    ?>
+                <?php  } else { ?>
+                    Kent ISD
+                <?php } ?>
+            </span>
         </h1>
     </div>
     <div class ="upper-social-media">

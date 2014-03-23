@@ -310,18 +310,19 @@ if (is_object($news)) {
 				</div>
                 
                 <div class="clearfix">
-					<?php  echo $form->label('district', t('Primary and Other Districts'))?>
-					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('district');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-					</div>
-				</div>
+                            <?php  echo $form->label('district', t('Primary and Other Districts'))?>
+                        <div class="district-check input">
+                            <input type="checkbox" id="ckbCheckAll" /> <strong>All Districts</strong>
+                                <?php  
+                                Loader::model("attribute/categories/collection");
+                                $akct = CollectionAttributeKey::getByHandle('district');
+                                if (is_object($news)) {
+                                        $tcvalue = $news->getAttributeValueObject($akct);
+                                }
+                                ?>
+                                <?php  echo $akct->render('form', $tcvalue, true);?>
+                        </div>
+                </div>
 	
 				<div class="clearfix">
 					<?php  echo $form->label('newsCategory', t('Region'))?>
@@ -467,6 +468,12 @@ if($('.statushidden input:text').val() == '2'){
 	
 }
 
+
+$("#ckbCheckAll").click(function () {
+        $(".district-check input").prop('checked', $(this).prop('checked'));
+    });
+    
+    
 $("input:radio[name=image]").click(function() {
     var value = $(this).val();
 	if(value==1){

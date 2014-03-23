@@ -1,5 +1,6 @@
 <?php  
 $df = Loader::helper('form/date_time');
+$ih = Loader::helper('concrete/interface');
 
 if (is_object($news)) { 
     $secondaryheadline = $news->getCollectionAttributeValue('secondary_headline');
@@ -51,6 +52,9 @@ height:20px;
 width:20px;
 background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your location of the image may differ*/
 }
+.top-buttons .btn {
+    margin-left: 10px;
+}
 .edit {background-position: -22px -2225px;margin-right: 6px!important;}
 .copy {background-position: -22px -439px;margin-right: 6px!important;}
 .delete {background-position: -22px -635px;}
@@ -83,6 +87,16 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
      
 
 	<div class="ccm-pane-body">
+            <div class="top-buttons">
+                <?php  
+                if ($this->controller->getTask() == 'edit_group') { 
+                    print $ih->submit(t('Edit Group'), 'news-form', 'right', 'primary'); 
+                } else { 
+                    print $ih->submit(t('Add Group'), 'news-form', 'right', 'primary'); 
+                }
+                    print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/shedule_news_group/'), 'right'); 
+                ?>
+            </div>
 	<div class="group-add-box">
 	
      <div class="clearfix">
@@ -303,7 +317,6 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 		?>
 	</div>
     <div class="ccm-pane-footer">
-    	<?php  $ih = Loader::helper('concrete/interface'); ?>
     	<?php  if ($this->controller->getTask() == 'edit_group') { ?>
     	 <?php  print $ih->submit(t('Edit Group'), 'news-form', 'right', 'primary'); ?>
     	<?php } else { ?>
