@@ -10,6 +10,7 @@ if (is_object($news)) {
 	$district = $news->getCollectionAttributeValue('district');
 	$regional_feature = $news->getCollectionAttributeValue('regional_feature');	
 	$news_tag = $news->getCollectionAttributeValue('news_tag');		
+	$long_summary = $news->getCollectionAttributeValue('long_summary');	
 	$files = $news->getCollectionAttributeValue('files');
 	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
 	$newsTitle = $news->getCollectionName();
@@ -47,125 +48,115 @@ if (is_object($news)) {
 	
 	
 	
-	<?php 
-		if($remove_name){
-		?>
-		<div class="alert-message block-message error">
-		  <a class="close" href="<?php  echo $this->action('clear_warning');?>">�</a>
-		  <p><strong><?php  echo t('Holy guacamole! This is a warning!');?></strong></p><br/>
-		  <p><?php  echo t('Are you sure you want to delete '.$remove_name.'?');?></p>
-		  <p><?php  echo t('This action may not be undone!');?></p>
-		  <div class="alert-actions">
-		    <a class="btn small" href="<?php  echo $this->action('delete_news', $remove_cid)?>"><?php  echo t('Yes Remove This');?></a> <a class="btn small" href="<?php  echo $this->action('clear_warning');?>"><?php  echo t('Cancel');?></a>
-		  </div>
-		</div>
-		<?php 
-		}
-		?>
-	
-	
-		<!--
-		<ul class="breadcrumb">
-		  <li><a href="/index.php/dashboard/pronews/list/">List</a> <span class="divider">|</span></li>
-		  <li class="active">Add/Edit </li>
-		</ul>
-		-->
-	<?php  if ($this->controller->getTask() == 'edit') { ?>
-		<form method="post" action="<?php  echo $this->action($task,$news->getCollectionID())?>" id="news-form">
-		<?php  echo $form->hidden('newsID', $news->getCollectionID())?>
-	<?php  }else{ ?>
-		<form method="post" action="<?php  echo $this->action($task)?>" id="news-form">
-	<?php  } ?>
-	
-			<ul class="tabs">
-				<li class="active"><a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.post').show();"><?php echo t('Post')?></a>
-				</li>				
-				<li><a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.meta').show();"><?php echo t('Meta')?></a>
-				</li>
-			</ul>
-			<div class="pane post">
-            	<div class="clearfix">
-					<?php  echo $form->label('storySlug', t('Story Slug'))?>
-					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('story_slug');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-					</div>
-				</div>
-                
-                <div class="clearfix">
-					<?php  echo $form->label('author', t('Author'))?>
-					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('author');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-					</div>
-				</div>
-                
-                <div class="clearfix">
-					<?php  echo $form->label('newsDate', t('Date/Time'))?>
-					<div class="input">
-						<?php  echo $df->datetime('newsDate', $newsDate)?>
-					</div>
-				</div>
-                
-				<div class="clearfix">
-					<?php  echo $form->label('newsTitle', t('Primary Headline'))?> *
-					<div class="input">
-						<?php  echo $form->text('newsTitle', $newsTitle, array('style' => 'width: 230px'))?>
-					</div>
-				</div>
-				<div class="clearfix">
-					<?php  echo $form->label('secondaryHeadline', t('Secondary Headline'))?>
-					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('secondary_headline');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-					</div>
-				</div>
-                
-                <div class="clearfix">
-					<?php  echo $form->label('dateline', t('Dateline'))?>
-					<div class="input">
-						<?php  
-						Loader::model("attribute/categories/collection");
-						$akct = CollectionAttributeKey::getByHandle('dateline');
-						if (is_object($news)) {
-							$tcvalue = $news->getAttributeValueObject($akct);
-						}
-						?>
-						<?php  echo $akct->render('form', $tcvalue, true);?>
-					</div>
-				</div>
-                
-                
-                
-                
-                
-				
-                <div class="clearfix">
-					<?php  echo $form->label('newsDescription', t('Summary'))?>
-					<div class="input">
-						<div><?php  echo $form->textarea('newsDescription', $newsDescription, array('style' => 'width: 98%; height: 90px; font-family: sans-serif;'))?></div>
-						
-						<div id="count"></div>
-					</div>
-				</div>				
+<?php 
+    if($remove_name){
+?>
+    <div class="alert-message block-message error">
+        <a class="close" href="<?php  echo $this->action('clear_warning');?>">�</a>
+        <p><strong><?php  echo t('Holy guacamole! This is a warning!');?></strong></p><br/>
+       <p><?php  echo t('Are you sure you want to delete '.$remove_name.'?');?></p>
+       <p><?php  echo t('This action may not be undone!');?></p>
+       <div class="alert-actions">
+         <a class="btn small" href="<?php  echo $this->action('delete_news', $remove_cid)?>"><?php  echo t('Yes Remove This');?></a> <a class="btn small" href="<?php  echo $this->action('clear_warning');?>"><?php  echo t('Cancel');?></a>
+        </div>
+    </div>
+<?php 
+    }
+?>
+<?php  if ($this->controller->getTask() == 'edit') { ?>
+    <form method="post" action="<?php  echo $this->action($task,$news->getCollectionID())?>" id="news-form">
+<?php  echo $form->hidden('newsID', $news->getCollectionID())?>
+<?php  }else{ ?>
+    <form method="post" action="<?php  echo $this->action($task)?>" id="news-form">
+<?php  } ?>
+
+        <ul class="tabs">
+            <li class="active">
+                <a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.post').show();"><?php echo t('Post')?></a>
+            </li>				
+            <li>
+                <a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.meta').show();"><?php echo t('Meta')?></a>
+            </li>
+        </ul>
+        <div class="pane post">
+        <div class="clearfix">
+        <?php  echo $form->label('storySlug', t('Story Slug'))?>
+            <div class="input">
+                <?php  
+                Loader::model("attribute/categories/collection");
+                $akct = CollectionAttributeKey::getByHandle('story_slug');
+                if (is_object($news)) {
+                    $tcvalue = $news->getAttributeValueObject($akct);
+                }
+                ?>
+                <?php  echo $akct->render('form', $tcvalue, true);?>
+            </div>
+        </div>
+        <div class="clearfix">
+            <?php  echo $form->label('author', t('Author'))?>
+            <div class="input">
+                <?php  
+                Loader::model("attribute/categories/collection");
+                $akct = CollectionAttributeKey::getByHandle('author');
+                if (is_object($news)) {
+                    $tcvalue = $news->getAttributeValueObject($akct);
+                }
+                ?>
+                <?php  echo $akct->render('form', $tcvalue, true);?>
+            </div>
+        </div>
+        <div class="clearfix">
+            <?php  echo $form->label('newsDate', t('Date/Time'))?>
+            <div class="input">
+                <?php  echo $df->datetime('newsDate', $newsDate)?>
+            </div>
+        </div>
+        <div class="clearfix">
+            <?php  echo $form->label('newsTitle', t('Primary Headline'))?> *
+            <div class="input">
+                <?php  echo $form->text('newsTitle', $newsTitle, array('style' => 'width: 230px'))?>
+            </div>
+        </div>
+        <div class="clearfix">
+            <?php  echo $form->label('secondaryHeadline', t('Secondary Headline'))?>
+            <div class="input">
+                <?php  
+                Loader::model("attribute/categories/collection");
+                $akct = CollectionAttributeKey::getByHandle('secondary_headline');
+                if (is_object($news)) {
+                        $tcvalue = $news->getAttributeValueObject($akct);
+                }
+                ?>
+                <?php  echo $akct->render('form', $tcvalue, true);?>
+            </div>
+        </div>
+        <div class="clearfix">
+            <?php  echo $form->label('dateline', t('Dateline'))?>
+            <div class="input">
+                <?php  
+                Loader::model("attribute/categories/collection");
+                $akct = CollectionAttributeKey::getByHandle('dateline');
+                if (is_object($news)) {
+                        $tcvalue = $news->getAttributeValueObject($akct);
+                }
+                ?>
+                <?php  echo $akct->render('form', $tcvalue, true);?>
+            </div>
+        </div>				
+        <div class="clearfix">
+            <?php  echo $form->label('newsDescription', t('Summary'))?>
+            <div class="input">
+                <div>
+                    <?php  echo $form->textarea('newsDescription', $newsDescription, array('style' => 'width: 98%; height: 90px; font-family: sans-serif;'))?>
+                </div>
+            </div>
+        </div>						
+        <div class="clearfix">
+            <?php  echo $form->label('longSummary', t('Long Summary'))?>
+            <div class="input lsummary">
+                    <?php  echo $form->textarea('longSummary', $long_summary, array('style' => 'width: 98%; height: 90px; font-family: sans-serif;'))?>
+            </div>
+        </div>				
 				<div class="clearfix">
 					<?php  echo $form->label('newsBody', t('Article'))?>
 					<div class="input">

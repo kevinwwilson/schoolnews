@@ -75,7 +75,7 @@
 				
 					<?php
 					   $stack = Stack::getByName('ARD Banner');
-						if ($stack) $stack->display();
+						//if ($stack) $stack->display();
 						?>
 					
 					

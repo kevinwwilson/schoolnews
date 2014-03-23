@@ -275,6 +275,8 @@ class DashboardPronewsAddNewsController extends Controller {
 		
 		$p->setAttribute('secondary_headline',$this->post('secondaryHeadline'));
 		$p->setAttribute('author',$this->post('author'));
+		$p->setAttribute('long_summary',$this->post('longSummary'));
+                
 		$p->setAttribute('main_photo',$this->post('mainPhoto'));
 		$p->setAttribute('photo_caption',$this->post('photoCaption'));
 		$p->setAttribute('dateline',$this->post('dateline'));

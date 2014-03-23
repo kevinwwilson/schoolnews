@@ -30,6 +30,17 @@
 	?></span>
         </h1>
     </div>
+    <div class ="upper-social-media">
+        <span id="upper-facebook">
+            <fb:like layout="button" action="like" show_faces="false" share="false"></fb:like>
+        </span>
+        <span id="upper-twitter">
+            <a href="https://twitter.com/share?count=none" class="twitter-share-button" data-dnt="true">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </span>
+        
+    </div>
+    
         <span id="print-button">
             <a title="Print this Article" href="" onclick="window.print()">
                 <span class="glyphicon glyphicon-print"></span>
@@ -40,17 +51,17 @@
 <div class="article">
        <?php if($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1){ ?>
         <div class="image-holder">
-       <?php $CatImage = $c->getAttribute('main_photo');
-                   if($CatImage){
-	               $ih= Loader::helper('image');
-	               $image_arr['realimg'] = $CatImage->getRelativePath();
-	               $thumb = $ih->getThumbnail($CatImage, 400, 283);                                
-				    $image = '';			       
-				    $image = '<img alt="" src="'.$thumb->src.'">';	
-					echo $image;
-					}
-					?>
-       <strong class="title"><?php echo $photo_caption ?></strong>
+            <?php $CatImage = $c->getAttribute('main_photo');
+                if($CatImage){
+                    $ih= Loader::helper('image');
+                    $image_arr['realimg'] = $CatImage->getRelativePath();
+                    $thumb = $ih->getThumbnail($CatImage, 400, 283);                                
+                    $image = '';			       
+                    $image = '<img alt="" src="'.$thumb->src.'">';	
+                    echo $image;
+                    }
+            ?>
+            <strong class="title"><?php echo $photo_caption ?></strong>
        </div>
        <?php } elseif($slideimage != '' && $c->getAttribute('single_multiple_photo_status') == 2) {?>
     
@@ -109,7 +120,7 @@
 	</span>
 	<span id="twitter"> 
             <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+           
 	</span>
 
         <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>

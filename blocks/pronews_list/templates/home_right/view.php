@@ -49,7 +49,11 @@
                     $title = $cobj->getCollectionName();
 		     $author = $cobj->getAttribute('author');
 		     $dateline = $cobj->getAttribute('dateline'); 
-	     
+                   
+                     
+                     $ak_long_summary = CollectionAttributeKey::getByHandle('long_summary'); 
+	$long_summary = $cobj->getCollectionAttributeValue($ak_long_summary); 
+
 		     //$cpage->setAttribute('group_status','Published');
 		    
 		     //$url = $nh->getLinkToCollection($cpage);	                             	                             
@@ -88,14 +92,7 @@
 
 
 
-				<div class="content-block-holder">
-				
-					<!--ASC:-->	
-	
-<!--?xml version="1.0"?-->
-
-
-
+<div class="content-block-holder">
     <div class="slide-block-noborder gallery-js-ready autorotation-active">
         <ul class="slideshow" style="height: 331px; ">
             <li style="display: block; " class="active">
@@ -104,23 +101,17 @@
             </li>
         </ul>
     </div>
-
-
     <article class="post home">
         <h1><?php  echo $title?></h1>
         <h2><?php echo $secondary_headline ?></h2>
-        
         <strong class="date">by <?php echo $author ?></strong>
         <p class="summary"><span class="dateline"><?php echo $dateline?> —&nbsp;</span>
-<?php echo $cobj->getCollectionDescription(); ?><span class="dots">...</span>
+        <?php echo $long_summary; ?><span class="dots">...</span>
         <br/>
         </p>
          <a class="read_more" href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>
-    </article>
-
-
-									
-				</div>
+    </article>							
+</div>
 				
 				<div class="slide-col">
 					<div class="mask">
