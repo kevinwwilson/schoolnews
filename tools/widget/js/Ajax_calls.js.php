@@ -10,7 +10,7 @@ if (!(typeof jQuery !== "undefined" && jQuery !== null)) {
 }
 
 yepnope([{
-  load: ['http://inti.foxbright.local/tools/widget/css/default.css'],
+  load: ['<?php echo BASE_URL ?>/tools/widget/css/default.css'],
   complete: function () {
        get_news(); 
     }
@@ -23,7 +23,7 @@ function get_news() {
     var alternate = "odd";
         $.ajax({
             type: 'GET',
-            url: 'http://inti.foxbright.local/index.php/tools/widget/loadNews.php',
+            url: '<?php echo BASE_URL ?>/index.php/tools/widget/loadNews.php',
             crossDomain: true,
             dataType: 'jsonp',
             success: function(data,status) {

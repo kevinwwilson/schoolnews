@@ -1,5 +1,6 @@
 <?php  
 $df = Loader::helper('form/date_time');
+$ih = Loader::helper('concrete/interface');
 
 if (is_object($news)) { 
     $secondaryheadline = $news->getCollectionAttributeValue('secondary_headline');
@@ -39,6 +40,14 @@ if (is_object($news)) {
 .ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
 .statushidden{display: none;}
 
+.top-buttons {
+    position: absolute;
+    right: 20px;
+}
+
+.top-buttons .btn {
+    margin-left: 10px;
+}
 
 </style>
 
@@ -69,7 +78,12 @@ if (is_object($news)) {
 <?php  }else{ ?>
     <form method="post" action="<?php  echo $this->action($task)?>" id="news-form">
 <?php  } ?>
+        <div class="top-buttons">
 
+        <?php  print $ih->submit(t($buttonText), 'news-form', 'right', 'primary'); ?>
+        
+        <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/list/'), 'dleft'); ?>
+        </div>
         <ul class="tabs">
             <li class="active">
                 <a href="javascript:void(0)" onclick="$('ul.tabs li').removeClass('active'); $(this).parent().addClass('active'); $('.pane').hide(); $('div.post').show();"><?php echo t('Post')?></a>
@@ -419,7 +433,6 @@ if (is_object($news)) {
 			</div>
 	</div>
 	<div class="ccm-pane-footer">
-    	<?php  $ih = Loader::helper('concrete/interface'); ?>
         <?php  print $ih->submit(t($buttonText), 'news-form', 'right', 'primary'); ?>
         
         <?php  print $ih->button(t('Cancel'), $this->url('/dashboard/pronews/list/'), 'dleft'); ?>
