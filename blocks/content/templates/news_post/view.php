@@ -30,16 +30,19 @@
     <div class="p-news">
         <h1>
             <span>
-                <?php if (count($districtArr) < 4 ) { ?>
-   
-                
-                    <?php foreach($districtArr as $d){
+                <?php
+                //if there are less than 4 districts, display them by name
+                //if there are 4 or more or if a district is not supplied with the 
+                //article, then display "Kent ISD" as default backup
+
+                if (is_array($districtArr) && count($districtArr) < 4) { 
+                    foreach($districtArr as $d){
                         echo $d,'<br/>';	
                     }
-                    ?>
-                <?php  } else { ?>
-                    Kent ISD
-                <?php } ?>
+                } else { 
+                    echo 'Kent ISD';
+                } 
+                ?>
             </span>
         </h1>
     </div>
