@@ -1,3 +1,5 @@
 files/
 config/site.php
 .htaccess
+/nbproject/private/
+nbproject/
