@@ -20,6 +20,7 @@ yepnope([{
 function get_news() {
     (function($) {
     var alternate = "odd";
+	var iart = 0;
         $.ajax({
             type: 'GET',
             url: '<?php echo BASE_URL ?>/tools/widget/loadNews.php',
@@ -27,42 +28,44 @@ function get_news() {
             dataType: 'jsonp',
             success: function(data,status) {
                 $article_list = $("<div>").addClass('FB_news_feed');
-                $.each(data, function (i, item) {
-                    $article = $("<div>")
-                        .addClass('FB_article')
-                        .addClass(alternate);
+                
+				$.each(data, function (i, item) {
+					if (data[i].District == district && iart < max_display) {
+						$article = $("<div>")
+							.addClass('FB_article')
+							.addClass(alternate);
 
-					if (data[i].Thumbnail != ''  && data[i].Thumbnail !=0) {
-						$("<img>")
-							.attr("src",data[i].Thumbnail)
+						if (data[i].Thumbnail != ''  && data[i].Thumbnail !=0) {
+							$("<img>")
+								.attr("src",data[i].Thumbnail)
+								.appendTo($article);
+						}
+
+						$("<h3>")
+							.addClass('FB_News_Title')
+							.text(data[i].Headline)
 							.appendTo($article);
+
+						$("<div>")
+							.addClass('FB_News_Summary')
+							.html(data[i].Summary)
+							.appendTo($article);
+
+						$("<a>")
+							.text('Read More...')
+							.attr("href",data[i].URL)
+							.appendTo($article);
+
+						$article.appendTo($article_list);
+						if (alternate =="odd") {
+							alternate = "even";
+						}
+						else {alternate = "odd";}
+						iart++;
 					}
-
-                    $("<h3>")
-                        .addClass('FB_News_Title')
-						.text(data[i].Headline)
-						.appendTo($article);
-
-                    $("<div>")
-                        .addClass('FB_News_Summary')
-						.html(data[i].Summary)
-						.appendTo($article);
-
-					$("<a>")
-						.text('Read More...')
-						.attr("href",data[i].URL)
-						.appendTo($article);
-
-                    $article.appendTo($article_list);
-                    if (alternate =="odd") {
-                        alternate = "even";
-                    }
-                    else {alternate = "odd";}
-
                 });
 
                 $article_list.appendTo("#result_set");
-
             },
             error: function (responseData, textStatus, errorThrown) {
                 alert('POST failed.' + errorThrown);
