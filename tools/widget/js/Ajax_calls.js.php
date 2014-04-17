@@ -12,18 +12,17 @@ if (!(typeof jQuery !== "undefined" && jQuery !== null)) {
 yepnope([{
   load: ['<?php echo BASE_URL ?>/tools/widget/css/default.css'],
   complete: function () {
-       get_news(); 
+       get_news();
     }
   }
 ]);
-
 
 function get_news() {
     (function($) {
     var alternate = "odd";
         $.ajax({
             type: 'GET',
-            url: '<?php echo BASE_URL ?>/index.php/tools/widget/loadNews.php',
+            url: '<?php echo BASE_URL ?>/tools/widget/loadNews.php',
             crossDomain: true,
             dataType: 'jsonp',
             success: function(data,status) {
@@ -32,26 +31,26 @@ function get_news() {
                     $article = $("<div>")
                         .addClass('FB_article')
                         .addClass(alternate);
-					
-					if (data[i].values.thumbnail != ''  && data[i].values.thumbnail !=0) {
+
+					if (data[i].Thumbnail != ''  && data[i].Thumbnail !=0) {
 						$("<img>")
-							.attr("src",data[i].values.thumbnail)
+							.attr("src",data[i].Thumbnail)
 							.appendTo($article);
 					}
-										
+
                     $("<h3>")
                         .addClass('FB_News_Title')
-						.text(data[i].values.primary_headline)
+						.text(data[i].Headline)
 						.appendTo($article);
 
                     $("<div>")
                         .addClass('FB_News_Summary')
-						.html(data[i].values.summary)
+						.html(data[i].Summary)
 						.appendTo($article);
-					
+
 					$("<a>")
 						.text('Read More...')
-						.attr("href",data[i].link)
+						.attr("href",data[i].URL)
 						.appendTo($article);
 
                     $article.appendTo($article_list);
