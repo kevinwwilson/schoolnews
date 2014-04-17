@@ -106,7 +106,7 @@
         <h2><?php echo $secondary_headline ?></h2>
         <strong class="date">by <?php echo $author ?></strong>
         <p class="summary"><span class="dateline"><?php echo $dateline?> —&nbsp;</span>
-        <?php echo $long_summary; ?><span class="dots">...</span>
+<?php echo $cobj->getCollectionDescription(); ?><span class="dots">...</span>
         <br/>
         </p>
          <a class="read_more" href="<?php  echo $nh->getLinkToCollection($cobj)?>">READ FULL STORY »</a>

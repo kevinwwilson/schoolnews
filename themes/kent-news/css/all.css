@@ -249,6 +249,18 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	background:none;
 }
 
+.home .dateline,
+.home .summary,
+.home .read_more {
+    
+   font-size: 16px;
+   line-height: 26px;
+}
+
+.post.home .date {
+    font-size: 14px;
+}
+
 .post br,
 #content br{
     margin-bottom: 6px;
@@ -521,6 +533,7 @@ z-index: 10;}
 
 /* heading */
 .heading{
+	overflow:hidden;
 	margin:0 -3px 15px 0;
 	padding:0 0 12px;
 	background:url("/themes/kent-news/images/separator2.png") repeat-x 0 100%;
@@ -819,7 +832,7 @@ float: right;
 	line-height: 13px;
 	font-size: 11px;
     font-weight: normal;
-	width: 100%
+	width: 100%;
 	display: block;
 	margin-top: 2px;
 }
@@ -907,11 +920,11 @@ float: right;
 	border-top:1px solid #CFD0D1; 
 	clear: both;
 }
-
+/*  Was used to hide those that already had shown on top
 #guest-list li:first-child{
 	display: none;
 }
-
+*/
 .guest .news-list {
 	border-top:1px solid #CFD0D1; 
 }
