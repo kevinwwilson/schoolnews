@@ -543,6 +543,7 @@ z-index: 10;}
 .heading .holder{overflow:hidden;}
 .heading-box{
 	margin:-31px -3px 15px 0;
+        overflow: hidden;
 }
 /* search-box */
 .search-box{float:left;}
