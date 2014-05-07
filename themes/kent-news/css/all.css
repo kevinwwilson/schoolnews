@@ -538,6 +538,7 @@ z-index: 10;}
 	padding:0 0 12px;
 	background:url("/themes/kent-news/images/separator2.png") repeat-x 0 100%;
         position: relative;
+        min-height: 20px;
 }
 .heading .holder{overflow:hidden;}
 .heading-box{
