@@ -2,4 +2,8 @@ files/
 config/site.php
 .htaccess
 /nbproject/private/
+sitemap.xml
 nbproject/
+
+
+
