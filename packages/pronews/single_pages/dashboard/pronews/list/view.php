@@ -51,8 +51,8 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
         <table class="ccm-results-list">
             <tr>
                 <th><strong><?php  echo $form->label('cParentID', t('District'))?></strong></th>
-                <th><strong><?php  echo t('by Article Keyword')?></strong></th>
-                <th><strong><?php  echo t('by Author')?></strong></th>
+                <th><strong><?php  echo t('by Keyword')?></strong></th>
+                <th><strong><?php  echo t('by Slug')?></strong></th>
                 <th><strong><?php  echo t('by Region')?></strong></th>
                 <th><strong><?php  echo t('by Tag')?></strong></th>
                 <th></th>
@@ -70,7 +70,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                     </select>
                 </td>
                 <td><?php  echo $form->text('keyword', $keyword)?></td>
-                <td><?php  echo $form->text('author', $author)?></td>
+                <td><?php  echo $form->text('slug', $slug)?></td>
                 <td>
                     <select name="cat" style="width: 110px!important;">
                         <option value=''>--</option>

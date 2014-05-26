@@ -29,13 +29,11 @@ class DashboardpronewslistController extends Controller {
             $newsList->filterByKeywords($_GET['keyword']);
         } 
 
-        if(!empty($_GET['like'])){
-            $newsList->filterByName($_GET['like']);
+        if(!empty($_GET['slug'])){
+            $slug = $_GET['slug'];
+            $newsList->filter(false,"ak_story_slug like '%$slug%'");
         }
-        if(!empty($_GET['author'])){
-            $aut = $_GET['author'];
-            $newsList->filter(false,"ak_author like '%$aut%'");
-        }
+        
         if(!empty($_GET['cat'])){
             $cat = $_GET['cat'];
             $newsList->filter(false,"ak_news_category like '%$cat%'");
