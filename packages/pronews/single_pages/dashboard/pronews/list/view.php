@@ -5,6 +5,7 @@ a.tooltip:hover span{display:inline; position:absolute; background:#ffffff; bord
 th {text-align: left;}
 .align_top{vertical-align: top;}
 .ccm-results-list tr td{ border-bottom-color: #dfdfdf; border-bottom-width: 1px; border-bottom-style: solid;}
+.ccm-ui .ccm-input-text{width:175px;}
 .icon {
 display: block;
 float: left;
@@ -43,7 +44,8 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 <?php 
     }
 ?>
-    <form method="get" action="<?php  echo $this->action('view')?>">
+<?php $form = Loader::helper('form'); ?>
+<form method="get" action="<?php  echo $this->action('view')?>">
         <?php  
         $sections[0] = '** All';
         asort($sections);
@@ -53,7 +55,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 <th><strong><?php  echo $form->label('cParentID', t('District'))?></strong></th>
                 <th><strong><?php  echo t('by Keyword')?></strong></th>
                 <th><strong><?php  echo t('by Slug')?></strong></th>
-                <th><strong><?php  echo t('by Region')?></strong></th>
+                <th><strong><?php  echo t('by Author')?></strong></th>
                 <th><strong><?php  echo t('by Tag')?></strong></th>
                 <th></th>
             </tr>
@@ -71,17 +73,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 </td>
                 <td><?php  echo $form->text('keyword', $keyword)?></td>
                 <td><?php  echo $form->text('slug', $slug)?></td>
-                <td>
-                    <select name="cat" style="width: 110px!important;">
-                        <option value=''>--</option>
-                    <?php 
-                    foreach($cat_values as $cat){
-                            if($_GET['cat']==$cat['value']){$selected = 'selected="selected"';}else{$selected=null;}
-                            echo '<option '.$selected.'>'.$cat['value'].'</option>';
-                    }	
-                    ?>
-                    </select>
-                </td>
+                <td><?php  echo $form->text('author', $author)?></td>
                 <td>
                     <select name="tag" style="width: 110px!important;">
                             <option value=''>--</option>
@@ -94,11 +86,12 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                     </select>
                 </td>
                 <td>
-                    <?php  echo $form->submit('submit', 'Search')?>
+                    <?php echo $form->submit('submit', 'Search');?>
                 </td>
             </tr>
         </table>	
     </form>
+
     <br/>
     <?php  
         $nh = Loader::helper('navigation');
@@ -108,22 +101,31 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
     <table border="0" class="ccm-results-list" cellspacing="0" cellpadding="0">
         <tr>
             <th>Edit</th>
-            <th class="<?php  echo $newsList->getSearchResultsClass('cvName')?>"><a href="<?php  echo $newsList->getSortByURL('cvName', 'asc')?>"><?php  echo t('Preview')?></a></th>
-            <th class="<?php  echo $newsList->getSearchResultsClass('cvDatePublic')?>"><a href="<?php  echo $newsList->getSortByURL('cvDatePublic', 'asc')?>"><?php  echo t('Date')?></a></th>
+            <th class="<?php  echo $newsList->getSearchResultsClass('cvName')?>">
+                <a href="<?php  echo $newsList->getSortByURL('cvName', 'asc')?>">
+                    <?php  echo t('Preview')?></a>
+            </th>
+            <th class="<?php  echo $newsList->getSearchResultsClass('cvDatePublic')?>">
+                <a href="<?php  echo $newsList->getSortByURL('cvDatePublic', 'asc')?>">
+                    <?php  echo t('Date')?></a>
+            </th>
             <th><?php  echo t('District')?></th>
-            <th class="<?php  echo $newsList->getSearchResultsClass('news_category')?>"><a href="<?php  echo $newsList->getSortByURL('news_category', 'asc')?>"><?php  echo t('Region')?></a></th>
-
+            <th class="<?php  echo $newsList->getSearchResultsClass('ak_author')?>">
+                <a href="<?php  echo $newsList->getSortByURL('ak_author', 'asc')?>">
+                    <?php  echo t('Author')?></a>
+            </th>
             <th><?php  echo t('Group Status')?></th>
         </tr>
         <?php  
             $pkt = Loader::helper('concrete/urls');
             $pkg= Package::getByHandle('pronews');
+            Loader::model('attribute/categories/collection');
             foreach($newsResults as $cobj) {
-                Loader::model('attribute/categories/collection');
-
                 $akct = CollectionAttributeKey::getByHandle('news_category');
                 $news_category = $cobj->getCollectionAttributeValue($akct);
-
+                
+                $akct = CollectionAttributeKey::getByHandle('author');
+                $author = $cobj->getCollectionAttributeValue($akct);
                 ?>
                 <tr>
                     <td width="60px">
@@ -154,7 +156,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                        ?>
                     </td>
                     <td>
-                        <?php  echo $news_category;?>
+                        <?php  echo $author;?>
                     </td>
                     <td class="gro-select" id = "<?php echo 'cat'.$cobj->cID ?>">
                         <form>
