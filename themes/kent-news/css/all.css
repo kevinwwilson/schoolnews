@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {display: block;}
 body{
 	min-width:320px;
 	margin:0;
-	color:#666666;
+	color:#333333;
 	font:12px/15px 'Open Sans', Arial, Helvetica, sans-serif;
 	background:#fff;
 	-webkit-text-size-adjust:100%;
