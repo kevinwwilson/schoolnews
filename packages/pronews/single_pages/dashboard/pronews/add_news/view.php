@@ -41,7 +41,6 @@ if (is_object($news)) {
 .statushidden{display: none;}
 .ccm-ui input, .ccm-ui input-text {width: 743px;}
 
-.fileAttachmentRow input {width: 590px;}
 .top-buttons {
     position: absolute;
     right: 20px;

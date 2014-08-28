@@ -14,7 +14,8 @@ function assignChooseMultiFileAttrFunc<?=$this->attributeKey->getAttributeKeyID(
 }
 
 </script>
- 
+
+
 <a onclick="assignChooseMultiFileAttrFunc<?=$this->attributeKey->getAttributeKeyID() ?>();ccm_alLaunchSelectorFileManager(''); return false" href="#"><?=t('Add a Image/File &raquo;') ?></a>
   
 <ul id="ak<?=$this->attributeKey->getAttributeKeyID() ?>_attachedFilesList" class="filesList"> 
@@ -30,15 +31,22 @@ if (is_object($this->attributeValue)){
 	$fileName = $fileObj[1];
 		$fv = $file->getApprovedVersion();
 		?>
-		<li class="fileAttachmentRow" id="ak<?=$this->attributeKey->getAttributeKeyID() ?>_fileAttachmentRow<?= $file->getFileID() ?>">
-        <table><tr><td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></td><td>
-			<input name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fID][]" type="checkbox" checked="checked" value="<?= $file->getFileID() ?>" /> 
-			<a class="fileAttachmentTitle" href="<?= $fv->getRelativePath() ?>" target="_blank"><?= $fv->getTitle() ?></a></td>
-			<td><input type="text" placeholder="Link Text" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" value="<?php echo $fileName; ?>" /></td>
-            
+    <li class="fileAttachmentRow" id="ak<?=$this->attributeKey->getAttributeKeyID() ?>_fileAttachmentRow<?= $file->getFileID() ?>">
+        <table class="multiple_files">
+            <tr>
+                <td class="files_sort">
+                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                </td>
+                <td class="files_file">
+                    <input name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fID][]" type="checkbox" checked="checked" value="<?= $file->getFileID() ?>" /> 
+                    <a class="fileAttachmentTitle" href="<?= $fv->getRelativePath() ?>" target="_blank"><?= $fv->getTitle() ?></a>
+                </td>
+                <td class="files_caption">
+                    <input type="text" placeholder="Link Text" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" value="<?php echo $fileName; ?>" />
+                </td>   
             </tr>
-            </table>
-		</li> 
+        </table>
+    </li> 
 	<? }  
 } ?> 
 
@@ -61,20 +69,40 @@ $(document).ready(function(){
 });	
 </script>
 <style type="text/css">
-.fileAttachmentRow {
-padding: 5px !important;
-background: #e3ecf2 ;
-margin-bottom: 1px !important;
-}
-.fileAttachmentRow:hover {
-background: #f5f5f5 ;
-}
+    .fileAttachmentRow {
+    padding: 5px !important;
+    background: #e3ecf2 ;
+    margin-bottom: 1px !important;
+    }
+    .fileAttachmentRow:hover {
+    background: #f5f5f5 ;
+    }
 
-.filesList {
-list-style: none !important;
-margin: 0 !important;
-padding: 0 !important;
-}
+    .filesList {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    }
+
+    .filesList .multiple_files  {
+        width: 100%;
+    }
+    
+    .multiple_files .files_sort {
+        width: 3%;
+    }
+    
+    .multiple_files .files_file {
+        width: 37%;
+    }
+    
+    .multiple_files .files_caption input {
+        width: inherit;
+    }
+    
+    .multiple_files .files_caption {
+        width: 98%;
+    }
 
 </style>
 
