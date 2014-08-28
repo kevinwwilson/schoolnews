@@ -17,13 +17,11 @@ $pnag = SinglePage::add('/dashboard/pronews/shedule_news_group/add_group', $pkg)
 		<!-- content -->
 		<section id="content">
 			<div class="content-block">
-				
-								<?php
-								$a = new Area('Featurettes');
-								$a->display($c);
-							?>
+                            <?php
+                                $a = new Area('Featurettes');
+                                $a->display($c);
+                            ?>
 			</div>
-			
 			<?php $this->inc('elements/region-list.php'); ?>			
 		
 		</section>

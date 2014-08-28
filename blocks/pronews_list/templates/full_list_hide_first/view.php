@@ -17,6 +17,7 @@ for ($i = 0; $i < count($cArray); $i++ ) {
             $title = $cobj->getCollectionName();
             $author = $cobj->getAttribute('author');
             $dateline = $cobj->getAttribute('dateline');
+            $long_summary = $cobj->getAttribute('long_summary');
         ?>
             <li>
                 <h2 class="ccm-page-list-title"><a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $title?></a></h2>
@@ -32,7 +33,11 @@ for ($i = 0; $i < count($cArray); $i++ ) {
                                     }
                                 }
                             } else {
-                                $content = $cobj->getCollectionDescription();
+                                if (strlen($long_summary) > 0)  {
+                                    $content = $long_summary;
+                                } else {
+                                    $content = $cobj->getCollectionDescription(); 
+                                }
                             }
                             if (!$controller->truncateSummaries) {
                                 echo $content;

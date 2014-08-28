@@ -39,7 +39,9 @@ if (is_object($news)) {
 .ccm-pane-footer .ccm-button-v2-left{color:#fff; background: #ef3939;}
 .ccm-pane-footer .ccm-button-v2-left:hover{color:#fff; background: #e02e2e;}
 .statushidden{display: none;}
+.ccm-ui input, .ccm-ui input-text {width: 743px;}
 
+.fileAttachmentRow input {width: 590px;}
 .top-buttons {
     position: absolute;
     right: 20px;
@@ -128,7 +130,7 @@ if (is_object($news)) {
         <div class="clearfix">
             <?php  echo $form->label('newsTitle', t('Primary Headline'))?> *
             <div class="input">
-                <?php  echo $form->text('newsTitle', $newsTitle, array('style' => 'width: 230px'))?>
+                <?php  echo $form->text('newsTitle', $newsTitle)?>
             </div>
         </div>
         <div class="clearfix">
@@ -180,7 +182,6 @@ if (is_object($news)) {
                 <div class="input">
                     <?php Loader::Element('editor_init'); ?>
                     <?php Loader::Element('editor_config'); ?>
-                    <?php //Loader::element('editor_controls', array('mode'=>'full')); ?>
                     <?php Loader::Element('editor_controls', array('mode' => 'full')); ?>
                     <?php echo $form->textarea('newsBody', $newsBody, array('style' => 'width: 100%; font-family: sans-serif;', 'class' => 'ccm-advanced-editor')) ?>
                 </div>
@@ -463,7 +464,7 @@ if($('.statushidden input:text').val() == '2'){
 }else if($('.statushidden input:text').val() == '1'){
 	    $('#slideshow').hide();
 		$('#single_image').show();
-		$('#photoCaption').hide();
+		$('#photoCaption').show();
 
 }else{
 	    $('#slideshow').hide();

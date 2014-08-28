@@ -1,6 +1,7 @@
 <?php  
 	defined('C5_EXECUTE') or die(_("Access Denied."));
 	$textHelper = Loader::helper("text"); 
+        $ih= Loader::helper('image');
 	// now that we're in the specialized content file for this block type, 
 	// we'll include this block type's class, and pass the block to it, and get
 	// the content
@@ -18,7 +19,6 @@ if (count($cArray) > 0) { ?>
             $long_summary = $cobj->getAttribute('long_summary'); 
             $image = '';
             if(is_object($CatImage)){
-                $ih= Loader::helper('image');
                 $image_arr['realimg'] = $CatImage->getRelativePath();
                 $thumb = $ih->getThumbnail($CatImage, 196, 138);	        
                 $image = '<img alt="" src="'.$thumb->src.'">';					
@@ -38,7 +38,11 @@ if (count($cArray) > 0) { ?>
                         }
                 }
             } else {
-                $content = $cobj->getCollectionDescription();
+                if (strlen($long_summary) > 0)  {
+                        $content = $long_summary;
+                    } else {
+                        $content = $cobj->getCollectionDescription(); 
+                    }
             }
             if(!$controller->truncateSummaries){
                 echo $content;

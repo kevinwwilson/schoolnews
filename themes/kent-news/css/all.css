@@ -253,9 +253,15 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 .home .summary,
 .home .read_more {
     
-   font-size: 16px;
-   line-height: 26px;
+   font-size: 14px;
+   line-height: 20px;
 }
+
+.home .read_more{
+    margin-bottom: 25px;
+    display: block;
+}
+
 
 .post.home .date {
     font-size: 14px;
@@ -650,7 +656,8 @@ z-index: 10;}
 	display: none;
 }
 
-.news-box h3{
+.news-box h3,
+.issue-link a{
 	font:bold 16px/20px 'Open Sans Condensed', Arial, Helvetica, sans-serif;
 	color:#4d4d4f;
 	text-transform:uppercase;
@@ -1074,14 +1081,15 @@ float: right;
 	padding:33px 0 17px 24px;
 	margin:0 0 0 10px;
 }
-#sidebar h2{
+#sidebar h2, 
+.issue-link span{
 	font:normal 15px/17px 'Oswald', Arial, Helvetica, sans-serif;
 	text-transform:uppercase;
 	position:relative;
 	z-index:2;
 	color:#928ec2;
 	margin:0 0 9px;
-}
+} 
 #sidebar .more{
 	display:inline-block;
 	vertical-align:top;

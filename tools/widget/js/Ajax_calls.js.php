@@ -17,7 +17,23 @@ yepnope([{
   }
 ]);
 
+
 function get_news() {
+
+    //set defaults
+    if (typeof snn_district === 'undefined') {
+        var snn_district = 'Kent ISD';
+    }
+    
+    if (typeof snn_max_display === 'undefined') {
+        var snn_max_display = 3;
+    }
+    
+    if (typeof snn_subscribe === 'undefined') {
+        var snn_subscribe = 'http://www.schoolnewsnetwork.org/newsletter';
+    }
+    
+
     (function($) {
     var alternate = "odd";
 	var iart = 0;
@@ -28,9 +44,13 @@ function get_news() {
             dataType: 'jsonp',
             success: function(data,status) {
                 $article_list = $("<div>").addClass('FB_news_feed');
+                    $("<h2>")
+                            .addClass('FB_Section_Title')
+                            .text('Our News on School News Network')
+                            .appendTo($article_list);
                 
 				$.each(data, function (i, item) {
-					if (data[i].District == district && iart < max_display) {
+					if (data[i].District == snn_district && iart < snn_max_display) {
 						$article = $("<div>")
 							.addClass('FB_article')
 							.addClass(alternate);
@@ -64,8 +84,28 @@ function get_news() {
 						iart++;
 					}
                 });
+                
+                if (snn_districtlanding.length > 1) {
+                    $("<a>")
+                        .addClass('FB_ReadMore')
+                        .text('View All Articles')
+                        .attr("href", snn_districtlanding)
+                        .attr("target", "_blank")
+                        .appendTo($article_list);
+                }
 
+                
+                $("<a>")
+                        .addClass('FB_Subscribe')
+                        .attr("href", snn_subscribe)
+                        .attr("target", "_blank")
+                        .text('Subscribe')
+                        .appendTo($article_list);
+                        
+                //display article set
                 $article_list.appendTo("#result_set");
+                
+                
             },
             error: function (responseData, textStatus, errorThrown) {
                 alert('POST failed.' + errorThrown);

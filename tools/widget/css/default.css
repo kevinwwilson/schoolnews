@@ -40,3 +40,11 @@
     margin-top: 0px;
     margin-bottom: 6px;
 }
+
+.FB_ReadMore {
+    float: left;
+}
+
+.FB_Subscribe {
+    float: right;
+}
