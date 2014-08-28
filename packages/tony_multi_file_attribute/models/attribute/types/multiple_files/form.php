@@ -5,9 +5,9 @@ function assignChooseMultiFileAttrFunc<?=$this->attributeKey->getAttributeKeyID(
 	ccm_chooseAsset = function (data){
 		if(!parseInt(data.fID)) return false;  
 		var html = '<li class="fileAttachmentRow" id="ak<?=$this->attributeKey->getAttributeKeyID() ?>_fileAttachmentRow'+data.fID+'">'; 
-		html = html+'<table><tr><td><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></td><td><input name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fID][]" type="checkbox" checked="checked" value="'+data.fID+'" />'; 
+		html = html+'<table class="multiple_files"><tr><td class="files_sort"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></td><td class="files_file"><input name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fID][]" type="checkbox" checked="checked" value="'+data.fID+'" />'; 
 		html = html+'<a class="fileAttachmentTitle" href="'+data.filePathDirect+'" target="_blank">'+data.title+'</a></td>';
-		html = html+'<td><input type="text" placeholder="Caption" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" /></td> </tr></table></li>'; 
+		html = html+'<td class="files_caption"><input type="text" placeholder="Caption" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" /></td> </tr></table></li>'; 
 		$('#ak<?=$this->attributeKey->getAttributeKeyID() ?>_attachedFilesList').append(html); 
 	}
 	
