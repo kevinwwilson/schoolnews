@@ -164,6 +164,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 .content-block-holder{
 	width:65.8%;
 	float:left;
+        padding-right: 24px;
 }
 /* slide-block */
 
