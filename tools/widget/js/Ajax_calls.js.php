@@ -18,7 +18,6 @@ yepnope([{
 ]);
 
 
-function get_news() {
 
     //set defaults
     if (typeof snn_district === 'undefined') {
@@ -32,7 +31,11 @@ function get_news() {
     if (typeof snn_subscribe === 'undefined') {
         var snn_subscribe = 'http://www.schoolnewsnetwork.org/newsletter';
     }
-    
+    s
+
+function get_news() {
+
+
 
     (function($) {
     var alternate = "odd";
