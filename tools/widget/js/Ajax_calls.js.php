@@ -31,7 +31,11 @@ yepnope([{
     if (typeof snn_subscribe === 'undefined') {
         var snn_subscribe = 'http://www.schoolnewsnetwork.org/newsletter';
     }
-    s
+    
+    if (typeof snn_summary ==='undefined'){
+        var snn_summary = 'all';
+    }
+    
 
 function get_news() {
 
@@ -59,25 +63,36 @@ function get_news() {
 							.addClass(alternate);
 
 						if (data[i].Thumbnail != ''  && data[i].Thumbnail !=0) {
-							$("<img>")
-								.attr("src",data[i].Thumbnail)
-								.appendTo($article);
+							var image = $("<img>")
+								.attr("src",data[i].Thumbnail);
 						}
+                                                
+                                                if (snn_summary == 'all') {
+                                                    image.appendTo($article);
+                                                } else if (snn_summary == 'first' & iart < 1){
+                                                    image.appendTo($article);
+                                                }
 
-						$("<h3>")
+						var title = $("<h3>")
 							.addClass('FB_News_Title')
 							.text(data[i].Headline)
 							.appendTo($article);
-
-						$("<div>")
-							.addClass('FB_News_Summary')
-							.html(data[i].Summary)
-							.appendTo($article);
-
+                                                        
 						$("<a>")
-							.text('Read More...')
+							.html(title)
 							.attr("href",data[i].URL)
-							.appendTo($article);
+							.appendTo($article);         
+						
+                                                var summary = $("<div>")
+							.addClass('FB_News_Summary')
+							.html(data[i].Summary);
+                                                        
+                                                if (snn_summary == 'all') {
+                                                    summary.appendTo($article);
+                                                } else if (snn_summary == 'first' & iart < 1){
+                                                    summary.appendTo($article);
+                                                }
+
 
 						$article.appendTo($article_list);
 						if (alternate =="odd") {

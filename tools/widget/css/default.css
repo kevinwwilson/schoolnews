@@ -43,6 +43,7 @@
 
 .FB_ReadMore {
     float: left;
+    clear: both;
 }
 
 .FB_Subscribe {
