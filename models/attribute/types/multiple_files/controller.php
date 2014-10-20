@@ -36,21 +36,77 @@ class MultipleFilesAttributeTypeController extends AttributeTypeController  {
 	public function saveValue( $fIDs=array() , $fName = array()) {
             if ($fIDs == null) return;
             $db = Loader::db();
-		if(!is_array($fIDs) && $fIDs != 0){			
-			$cfid = explode('||',$fIDs);
-			$fIDs = explode('^',$cfid[0]);
-			$fName = explode('^',$cfid[1]);
-		}
-		$cleanFIDs=array();
-		$i = 0;
-		foreach($fIDs as $fID)
-		{
-			$cleanFIDs[]=intval($fID).'||'. htmlspecialchars($fName[$i]);
-			$i++;
-		}
-		$cleanFIDs = array_unique($cleanFIDs);
-		$db->Replace('atMultipleFiles', array('avID' => $this->getAttributeValueID(), 'value' => join('^',$cleanFIDs)), 'avID', true);
+            
+            if(!is_array($fIDs) && $fIDs != 0){			
+                    $cfid = explode('||',$fIDs);
+                    $fIDs = explode('^',$cfid[0]);
+                    $captionList = explode('^',$cfid[1]);
+            } else {
+                $captionList = $this->prepareCaptions($fIDs, $fName);
+            }
+            $cleanFIDs=array();
+            $i = 0;
+            foreach($fIDs as $fID)
+            {
+                    $cleanFIDs[]=intval($fID).'||'. htmlspecialchars($captionList[$i]);
+                    $i++;
+            }
+            $cleanFIDs = array_unique($cleanFIDs);
+            $db->Replace('atMultipleFiles', array('avID' => $this->getAttributeValueID(), 'value' => join('^',$cleanFIDs)), 'avID', true);
 	}
+        
+        /*
+         * Process the caption list that was saved from the form
+         */
+        public function prepareCaptions($fIDs, $fName) {
+            //check to see that the nuumber of items in each array is the same.  If it is not, then one of the 
+            //files was unchecked, and the corresponding caption will need to be removed.
+            if (count($fIDs) < count($fName)) {
+                $fName = $this->cleanCaptions($fIDs, $fName);
+            }
+
+            //take out the nested array part now that we've matched the caption array to the file list array
+            foreach ($fName as $captionArray) {
+                foreach ($captionArray as $caption) {
+                    $captionList[] = $caption;
+                }
+            }
+            return $captionList;
+        }
+
+
+        /*
+         * Returns a caption array of the same number and order as the file list 
+         */
+        public function cleanCaptions($fileList, $captionList) {
+            $i=0;
+            $cleanCaptions = array();
+            foreach($fileList as $fileId) {
+                if (is_string($captionList[$i][$fileId])){
+                    $cleanCaptions[$i][$fileId] = $captionList[$i][$fileId];
+                } else {
+                    $cleanCaptions[$i][$fileId]= $this->findCaption($fileId, $captionList);
+                } 
+                $i++;
+            }
+            
+            return $cleanCaptions;
+        }
+        
+        /*
+         * Finds the Caption with Id of $id in the array $captionList
+         * The captionlist is an array within an array to allow for duplicat file Id's in a single slideshow
+         * and while still properly saving the slideshow and captions.
+         */
+        public function findCaption($id, $captionList){
+            foreach ($captionList as $caption) {
+                if (strlen($caption[$id]) > 0 ) {
+                    return $caption[$id];
+                }
+            }
+            
+        }
+    
 	
 	public function deleteKey() {
 		$db = Loader::db();

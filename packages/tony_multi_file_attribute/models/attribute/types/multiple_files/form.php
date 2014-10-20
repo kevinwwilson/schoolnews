@@ -7,7 +7,7 @@ function assignChooseMultiFileAttrFunc<?=$this->attributeKey->getAttributeKeyID(
 		var html = '<li class="fileAttachmentRow" id="ak<?=$this->attributeKey->getAttributeKeyID() ?>_fileAttachmentRow'+data.fID+'">'; 
 		html = html+'<table class="multiple_files"><tr><td class="files_sort"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></td><td class="files_file"><input name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fID][]" type="checkbox" checked="checked" value="'+data.fID+'" />'; 
 		html = html+'<a class="fileAttachmentTitle" href="'+data.filePathDirect+'" target="_blank">'+data.title+'</a></td>';
-		html = html+'<td class="files_caption"><input type="text" placeholder="Caption" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" /></td> </tr></table></li>'; 
+		html = html+'<td class="files_caption"><input type="text" placeholder="Caption" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][][[' + data.fID + ']" /></td> </tr></table></li>'; 
 		$('#ak<?=$this->attributeKey->getAttributeKeyID() ?>_attachedFilesList').append(html); 
 	}
 	
@@ -42,7 +42,7 @@ if (is_object($this->attributeValue)){
                     <a class="fileAttachmentTitle" href="<?= $fv->getRelativePath() ?>" target="_blank"><?= $fv->getTitle() ?></a>
                 </td>
                 <td class="files_caption">
-                    <input type="text" placeholder="Link Text" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][]" value="<?php echo $fileName; ?>" />
+                    <input type="text" placeholder="Caption" name="akID[<?=$this->attributeKey->getAttributeKeyID() ?>][fName][][<?= $file->getFileID() ?>]" value="<?php echo $fileName; ?>" />
                 </td>   
             </tr>
         </table>
