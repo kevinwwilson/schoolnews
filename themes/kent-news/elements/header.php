@@ -10,6 +10,7 @@
     <link media="all" rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/css/all.css" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/typography.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/forms.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/print.css') ?>" />
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
     <script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>

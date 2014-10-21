@@ -4,15 +4,18 @@
    #footer,
    #nav,
    #print-button,
-   .comments-block {
+   .comments-block,
+   .upper-social-media{
        display: none;
     }
     
     
-    #content {
+    #article_content {
         width: auto;
         padding: 0;
     }
+    
+    
     
     
 }
