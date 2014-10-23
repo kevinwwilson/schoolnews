@@ -88,7 +88,10 @@ foreach ($articleids as $displayid) {
                                 $image = '<img alt="" src="' . $thumb->src . '">';
                                 echo $image;
                              } ?>
-                            <strong class="title"><?php echo $title ?></strong>
+                             <a href="<?php echo $nh->getLinkToCollection($cobj) ?>">
+                                 <strong class="title"><?php echo $title ?></strong>
+                             </a>
+                            
                             <strong class="date">by <?php echo $author ?></strong>
                             <p><span class="dateline"><?php echo $dateline ?> —&nbsp;</span>
                                 <?php
@@ -110,7 +113,7 @@ foreach ($articleids as $displayid) {
                                 ?><span class="dots">...</span>
                                 <br/>
                             </p>
-                            <a href="<?php echo $nh->getLinkToCollection($cobj) ?>">More »</a> 
+                            
 
                         </div>
                         <?php

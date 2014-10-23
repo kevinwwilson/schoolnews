@@ -1467,6 +1467,10 @@ float: right;
 	.footer-text div {
 		width: 100%;
 	}
+        
+        .upper-social-media {
+                display:none;
+        }
 	
 	
 	

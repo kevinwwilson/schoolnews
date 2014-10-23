@@ -501,9 +501,9 @@ $("input:radio[name=image]").click(function() {
 
 });
 
-$("#newsDescription").keyup(function(){ countCharacters('#newsDescription', '#shortCount', 280); });
+$("#newsDescription").keyup(function(){ countCharacters('#newsDescription', '#shortCount', 150); });
 
-$("#newsDescription").click(function(){ countCharacters('#newsDescription', '#shortCount', 280); });
+$("#newsDescription").click(function(){ countCharacters('#newsDescription', '#shortCount', 150); });
 
 $("#longSummary").keyup(function(){ countCharacters('#longSummary', '#longCount', 400); });
 
