@@ -1,12 +1,32 @@
 <!-- items-block -->
+<?php 
+
+function getRegionalThumbnail($region)
+{
+    Loader::model('file_list');
+    $ih= Loader::helper('image');
+    $fl = new FileList();
+    $fs = FileSet::getByName($region);
+    $fl->filterBySet($fs);
+    $files = $fl->get();
+    shuffle($files);
+    $thumb= $ih->getThumbnail($files[0], 166, 117);
+    $image = '<img alt="" src="'.$thumb->src.'">';	
+    return $image;
+}
+    
+?>
 <aside class="items-block">
 	<a href="/news-region/"><h2>SCHOOL NEWS BY REGION</h2></a>
 	<div class="items-block-holder">
 		<div class="item">
 			<a href="/news-region/n">
 				<?php
-				$a = new Area('Regional North Photo');
-				$a->display($c);
+//				$a = new Area('Regional North Photo');
+//				$a->display($c);
+                                      
+                                echo getRegionalThumbnail('north');                          
+                                
 				?>
 			</a>
 		<div class="expandable-box">

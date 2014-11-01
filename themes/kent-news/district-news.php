@@ -48,6 +48,18 @@ $this->inc('elements/header.php');
 
         </div>
     </section>
+    
+    <script>
+        
+$( document ).ready(function() {
+    initCarousel();
+});
+    // scroll gallery init
+function initCarousel() {
+	jQuery('#scroller').scrollGallery({
+	});
+}
+    </script>
     <!-- sidebar -->
     <?php $this->inc('elements/sidebar.php'); ?>
 </div> <!-- end main -->
