@@ -637,12 +637,18 @@ z-index: 10;}
 }
 
 .district-list .feature-area {
-    width: 254px;
+    width: 300px;
+    float: left;
+    margin-right: 24px;
 }
 
 .district-list .feature-area .text-holder {
-	width: 202px;
+	width: 289px;
 }	
+
+.ad2{
+    margin-top: 15px;
+}
 
  .text-holder{
 	width:28.3%;

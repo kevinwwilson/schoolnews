@@ -39,7 +39,6 @@
 		}
 		?>
         <br/>
-       <a href="<?php  echo $nh->getLinkToCollection($cobj)?>">More »</a> 
 	</p>
 	</li>
 <?php  } 
