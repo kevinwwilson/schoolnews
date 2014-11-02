@@ -19,11 +19,25 @@ if (count($cArray) > 0) {
             $dateline = $cobj->getAttribute('dateline');
             $long_summary = $cobj->getAttribute('long_summary');
             $image = '';
-            if (is_object($CatImage)) {
-                $image_arr['realimg'] = $CatImage->getRelativePath();
-                $thumb = $ih->getThumbnail($CatImage, 196, 138);
-                $image = '<img alt="" src="' . $thumb->src . '">';
-            }
+            $photo_type = $cobj->getAttribute('single_multiple_photo_status');
+
+           if ($photo_type == 1) {
+               //this is a single photo with a main photo assigned
+               $CatImage = $cobj->getAttribute('main_photo');
+           } elseif ($photo_type == 2) {
+               //this is a slideshow 
+               $slideimage = $cobj->getAttribute('files');
+               $sliderimages = explode('^', $slideimage);
+
+               //Get the first photo in the slideshow
+               $sliders = explode('||', $sliderimages[0]);
+               $CatImage = File::getByID($sliders[0]);
+           }
+           $image = '';
+           if (is_object($CatImage)) {
+               $thumb = $ih->getThumbnail($CatImage, 300, 211);
+               $image = '<img alt="" src="' . $thumb->src . '">';
+           }
             ?>
             <a href="<?php echo $nh->getLinkToCollection($cobj) ?>"><?php echo $image; ?></a>
             <h3 class="ccm-page-list-title">
@@ -59,7 +73,7 @@ if (count($cArray) > 0) {
         <?php }
         ?>
 
-    <?php
+        <?php
     }
 
     if (!$previewMode && $controller->rss) {
@@ -69,7 +83,7 @@ if (count($cArray) > 0) {
         ?>
 
         <div class="rssIcon" style="margin-top:10px;">
-    <?php echo t('Subscribe') ?> &nbsp;<a href="<?php echo $rssUrl ?>" target="_blank">
+            <?php echo t('Subscribe') ?> &nbsp;<a href="<?php echo $rssUrl ?>" target="_blank">
                 <img src="<?php echo BASE_URL . DIR_REL ?>/blocks/pronews_list/rss.png" alt="codestrat concrete5 addon development" title="CodeStrat Concrete5 Addon Development" width="14" height="14" /></a>
         </div>
         <link href="<?php echo $rssUrl ?>" rel="alternate" type="application/rss+xml" title="<?php echo $controller->rssTitle ?>" />

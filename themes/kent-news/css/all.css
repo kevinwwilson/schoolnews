@@ -637,9 +637,10 @@ z-index: 10;}
 }
 
 .district-list .feature-area {
-    width: 300px;
+    width: 325px;
     float: left;
     margin-right: 24px;
+    background: url('/themes/kent-news/images/separator3.png') repeat-y scroll 100% 0px transparent;
 }
 
 .district-list .feature-area .text-holder {
@@ -694,6 +695,12 @@ z-index: 10;}
 	display:block;
 	overflow:hidden;
 }
+
+.district-article-thumbnail {
+    float: left;
+    margin-right: 10px;
+}
+
 .list-area li{margin:0 0 18px;}
 .more-link{
 	background:url("/themes/kent-news/images/separator2.png") repeat-x 0 50%;
