@@ -189,7 +189,7 @@
                                 }
 			}
 
-			if($template=='pronews_list'){
+			if($template=='pronews_list' || 'pronews_list_thumbnails'){
 			global $u;
 			$category = $this->category;
 			if (!$u -> isLoggedIn ()) {

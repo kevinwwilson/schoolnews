@@ -1,31 +1,12 @@
 <!-- items-block -->
-<?php 
-
-function getRegionalThumbnail($region)
-{
-    Loader::model('file_list');
-    $ih= Loader::helper('image');
-    $fl = new FileList();
-    $fs = FileSet::getByName($region);
-    $fl->filterBySet($fs);
-    $files = $fl->get();
-    shuffle($files);
-    $thumb= $ih->getThumbnail($files[0], 166, 117);
-    $image = '<img alt="" src="'.$thumb->src.'">';	
-    return $image;
-}
-    
-?>
 <aside class="items-block">
 	<a href="/news-region/"><h2>SCHOOL NEWS BY REGION</h2></a>
 	<div class="items-block-holder">
 		<div class="item">
 			<a href="/news-region/n">
 				<?php
-//				$a = new Area('Regional North Photo');
-//				$a->display($c);
                                       
-                                echo getRegionalThumbnail('north');                          
+                                echo $northThumbnail;                          
                                 
 				?>
 			</a>
@@ -53,8 +34,7 @@ function getRegionalThumbnail($region)
 		<div class="item">
 			<a href="/news-region/s-sw">
 			<?php
-				$a = new Area('Regional South Photo');
-				$a->display($c);
+				echo $SWThumbnail;
 				?>
 			</a>
 			<div class="expandable-box">
@@ -79,8 +59,7 @@ function getRegionalThumbnail($region)
 		<div class="item">
 			<a href="/news-region/e-se">
 			<?php
-				$a = new Area('Regional East Photo');
-				$a->display($c);
+				echo $SEThumbnail;
 				?>
 			</a>
 			<div class="expandable-box">
@@ -105,8 +84,7 @@ function getRegionalThumbnail($region)
 		<div class="item">
 			<a href="/news-region/central-kisd">
 			<?php
-				$a = new Area('Regional Central Photo');
-				$a->display($c);
+				echo $centralThumbnail;
 				?>
 			</a>
 			<div class="expandable-box">

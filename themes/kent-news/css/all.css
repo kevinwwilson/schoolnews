@@ -348,6 +348,11 @@ z-index: 10;}
 	border-bottom:1px solid #cfd0d1;
 	position:relative;
 }
+
+.carousel .box a {
+    color: #4d4d4f;
+}
+
 .carousel .title{
 	font:bold 16px/20px 'Open Sans Condensed', Arial, Helvetica, sans-serif;
 	color:#4d4d4f;
@@ -1452,7 +1457,6 @@ float: right;
 		float:none;
 		overflow:hidden;
 	}
-	.slide-col .mask{height:510px;}
 	.items-block-holder{margin:0;}
 	.items-block .item{
 		width:23%;
@@ -1517,6 +1521,11 @@ float: right;
 		margin:0 0.8% 20px;
 		text-align:left;
 	}
+        .list-area {
+            float: left;
+        }
+        
+        
 }
 
 @media only screen and (max-width: 320px){

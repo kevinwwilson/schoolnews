@@ -58,7 +58,7 @@ foreach ($articleids as $displayid) {
         ?>
         <div class="content-block-holder">
             <div class="slide-block-noborder gallery-js-ready autorotation-active">
-                <ul class="slideshow" style="height: 331px; ">
+                <ul class="slideshow-test">
                     <li style="display: block; " class="active">
                         <?php echo $image; ?>
                         <strong class="caption" style="display: none; "><?php echo $photo_caption ?></strong>
