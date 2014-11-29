@@ -107,6 +107,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	border-bottom:1px solid #e2e1e1;
 	box-shadow:0 1px 4px #ccc;
         height: 100px;
+        position: relative;
 }
 /* logo */
 .logo{
@@ -123,6 +124,13 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 
 /* animated logo */
 .edgeLoad-EDGE-307356695 { visibility:hidden; }
+
+/* covering line in header*/
+.covering {
+    font-style: italic;
+    text-align: right;
+    text-transform: none;
+}
 
 /* navigation */
 #nav{
@@ -339,14 +347,18 @@ z-index: 10;}
 	position:relative;
 	/*overflow:hidden;
 	height:534px;*/
-	margin:-13px 0 24px;
+	margin:0px 0 24px;
 }
 /* carousel */
 .carousel{/*height:9999px;*/}
 .carousel .box{
-	padding:13px 0 17px;
+	padding:10px 0 4px;
 	border-bottom:1px solid #cfd0d1;
 	position:relative;
+}
+
+.carousel .box:first-child{
+	padding-top: 0px;
 }
 
 .carousel .box a {
@@ -365,7 +377,7 @@ z-index: 10;}
 	line-height:11px;
 	font-weight:normal;
 	color:#4a439a;
-	margin:0 0 16px;
+	margin:0 0 8px;
 }
 .carousel .more{
 	font-weight:bold;
@@ -1115,6 +1127,47 @@ float: right;
 	font-weight:bold;
 	text-transform:uppercase;
 }
+
+#sidebar ul {
+    
+}
+
+#sidebar li {
+    list-style-position: inside;
+    padding-left: 0.5em;
+    text-indent: -1.3em;
+    line-height: 12px;
+    margin: 0 0 5px;
+}
+
+#sidebar ul li:before
+{
+    content: '-';
+    margin: 0 .2em;
+    color: #8DB354;
+}
+/*highlight-box*/
+#sidebar .highlight-box {
+    
+}
+
+.highlight-box {
+    border: 1px solid #A4CE54;
+}
+
+.highlight-box .title {
+    background: none repeat scroll 0 0 #A4CF63;
+    font: 20px/24px 'Open Sans Condensed',Arial,Helvetica,sans-serif;
+    padding: 0px 5px;
+    color: #fff; 
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+
+.highlight-box .content {
+    padding: 5px;
+}
 /* links-box */
 .links-box{padding:0 0 18px;}
 #sidebar .links-box h2{
@@ -1429,7 +1482,14 @@ float: right;
 @media only screen and (max-width: 767px){
 	.header-holder{padding:15px;}
 	.header-holder .holder .ad{margin:0 5px 0 0;}
-	.logo{
+        .header-frame {
+               padding: 13px 5px;
+        }
+        .covering{
+            margin-top: -8px;
+            text-align: left;
+        }
+        .logo{
 		float:none;
 		display:block;
 		text-align:center;
@@ -1524,8 +1584,16 @@ float: right;
         .list-area {
             float: left;
         }
-        
-        
+        #nav{
+            display: none;
+        }
+        .header-holder {
+            position: relative;
+        }
+        .covering {
+            position: absolute;
+            bottom: 2px;
+        }
 }
 
 @media only screen and (max-width: 320px){
@@ -1539,6 +1607,7 @@ float: right;
 	{
 		width: 50% !important;
 	}
+
 	
 	
 }

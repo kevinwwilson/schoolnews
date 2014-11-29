@@ -90,6 +90,9 @@
                                 </div>
                             </a>
                         </strong>
+                        <div class="covering">
+                            Covering Kent County MI Area Public School Districts
+                        </div>
                         <!-- navigation -->
                         <nav>
                             <!-- Main Nav -->

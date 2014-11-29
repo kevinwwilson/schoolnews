@@ -42,6 +42,14 @@ body, pre {color:#000; font-family:Verdana, Arial, Helvetica, sans-serif; font-s
 	margin-bottom: 16px;
 }	
 
+#sidebar #block-content p {
+    margin-bottom: 0px;
+}
+
+#sidebar br {
+    margin: -2px 0px;
+}
+
 .p-news h1{
 background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !important}
 

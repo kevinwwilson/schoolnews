@@ -1,7 +1,5 @@
 <!-- sidebar -->
-				<aside id="sidebar">
-					<span id="today"> <?php echo date('F j\, Y'); ?> </span>
-				
+				<aside id="sidebar">			
 					<!-- links-box -->
 						<?php
 						   $stack = Stack::getByName('Quicklinks');
