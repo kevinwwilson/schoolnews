@@ -43,7 +43,24 @@
                     }
             });
         });
+        
+        // advertising 
+        var googletag = googletag || {}; 
+        googletag.cmd = googletag.cmd || []; 
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true; gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+        googletag.cmd.push(function() { googletag.defineSlot('/17748645/EFP_SNN_B_MediumRectangle_300x250', [300, 250], 'div-gpt-ad-1417707677693-0').addService(googletag.pubads()); googletag.pubads().enableSingleRequest(); googletag.enableServices();  });
+        googletag.cmd.push(function() { googletag.defineSlot('/17748645/EFP_SNN_A_MediumRectangle_300x250', [300, 250], 'div-gpt-ad-1417707641356-0').addService(googletag.pubads()); googletag.pubads().enableSingleRequest(); googletag.enableServices(); });
+        googletag.cmd.push(function() { googletag.defineSlot('/17748645/EFP_SNN_LeaderBoard_728x90', [728, 90], 'div-gpt-ad-1417707775481-0').addService(googletag.pubads()); googletag.pubads().enableSingleRequest(); googletag.enableServices(); });
     </script>
+    
+    
 </head>
 <body>
 	<!-- Facebook  Include the JavaScript SDK on your page once, ideally right after the opening <body> tag.-->
@@ -64,7 +81,7 @@
                 <!-- header -->
                 <header id="header">
                     <!-- header-holder - ARD banner -->
-                    <div class="header-holder">
+                    <div class="header-holder" id="div-gpt-ad-1417707775481-0">
                         <?php
                         $stack = Stack::getByName('ARD Banner');
                         if ($stack)

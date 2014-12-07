@@ -66,14 +66,15 @@ foreach ($articleids as $displayid) {
                 </ul>
             </div>
             <article class="post home">
-                <h1><?php echo $title ?></h1>
+                <a href="<?php echo $nh->getLinkToCollection($cobj) ?>">
+                    <h1><?php echo $title ?></h1>
+                </a>
                 <h2><?php echo $secondary_headline ?></h2>
                 <strong class="date">by <?php echo $author ?></strong>
                 <p class="summary"><span class="dateline"><?php echo $dateline ?> —&nbsp;</span>
                     <?php echo $long_summary ?><span class="dots">...</span>
                     <br/>
                 </p>
-                <a class="read_more" href="<?php echo $nh->getLinkToCollection($cobj) ?>">READ FULL STORY »</a>
             </article>							
         </div>
 

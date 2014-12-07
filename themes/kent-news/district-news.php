@@ -28,11 +28,15 @@ $this->inc('elements/header.php');
                             $a->display($c);
                             ?> 
                         </div>
-                        <div class="ad1">
-                            <img src="<?php print $this->getThemePath(); ?>/images/ad_placeholder.png"/>
+                        <div class="ad1" id="div-gpt-ad-1417707641356-0">
+                            <script type="text/javascript">
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707641356-0'); });
+                            </script>
                         </div>
-                        <div class="ad2">
-                            <img src="<?php print $this->getThemePath(); ?>/images/ad_placeholder.png"/>
+                        <div class="ad2" id="div-gpt-ad-1417707677693-0">
+                            <script type="text/javascript">
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707677693-0'); });
+                            </script>
                         </div> 
                     </div>
 
@@ -52,7 +56,6 @@ $this->inc('elements/header.php');
     <div class="home-news">
         <!-- sidebar -->
         <aside id="sidebar">
-            <span id="today"> <?php echo date('F j\, Y'); ?> </span>
                 <?php $this->inc('elements/home-news.php'); ?>
             <!-- links-box -->
             <?php

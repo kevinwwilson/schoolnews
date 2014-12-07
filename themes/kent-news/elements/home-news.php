@@ -1,3 +1,4 @@
+<h2 class="widget-title">Latest Headlines</h2>
 <ul class="cycle-slideshow"
     data-cycle-slides="li"
     data-cycle-timeout="8000"

@@ -141,8 +141,9 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 #nav li{
 	float:left;
-	margin:0 43px 0 23px;
+	margin:0 0 0 66px;
         text-align:center;
+        font-weight: bold;
 }
 
 #nav span {
@@ -152,10 +153,10 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 /* main */
 #main{
 	width:100%;
-	background:url("/themes/kent-news/images/separator3.png") repeat-y 79% 0;
+	/*background:url("/themes/kent-news/images/separator3.png") repeat-y 79% 0;  Removed dividng line per request*/
 }
 #main:after{
-	content:'';
+	content:'';   
 	display:block;
 	clear:both;
 }
@@ -288,6 +289,9 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	margin:0 0 4px;
 }
 
+.post.home a {
+    color: #4d4d4f;
+}
 
 .post h2 {
     font-size: 16px;
@@ -401,8 +405,8 @@ z-index: 10;}
 }
 /* items-block */
 .items-block{
-	padding:31px 0 20px;
-	background:url("/themes/kent-news/images/separator2.png") repeat-x;
+	padding:3px 0 20px;
+	/*background:url("/themes/kent-news/images/separator2.png") repeat-x; Removed dividing line per request */
 }
 .items-block h2{
 	font:17px/20px 'Oswald', Arial, Helvetica, sans-serif;
@@ -1140,12 +1144,30 @@ float: right;
     margin: 0 0 5px;
 }
 
+
+
 #sidebar ul li:before
 {
     content: '-';
-    margin: 0 .2em;
+    margin: 0 1px 5px 9px;
     color: #8DB354;
 }
+
+/*Don't reformat the home page widget for the district pages */
+#sidebar ul.cycle-slideshow li:before {
+    color: #8db354;
+    content: "";
+    margin: 0;
+}
+
+#sidebar .cycle-slideshow li {
+    line-height: 15px;
+    list-style-position: unset;
+    margin: 0;
+    padding-left: 0;
+    text-indent: 0;
+}
+
 /*highlight-box*/
 #sidebar .highlight-box {
     
@@ -1593,6 +1615,7 @@ float: right;
         .covering {
             position: absolute;
             bottom: 2px;
+            font-size: 10px;
         }
 }
 
@@ -1608,7 +1631,6 @@ float: right;
 		width: 50% !important;
 	}
 
-	
-	
+
 }
 
