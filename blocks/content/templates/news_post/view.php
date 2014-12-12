@@ -15,7 +15,7 @@ foreach ($status as $articleState) {
 if ($i > 1) {
     die(_("Access Denied.  Bad Article Status"));
 } elseif ($visibility != 'Published' && !$u->isLoggedIn()) {
-    die(_("Access Denied"));
+    die("Access Denied");
 }
 
 
