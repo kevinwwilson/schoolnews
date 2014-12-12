@@ -65,7 +65,9 @@ function get_news() {
 						if (data[i].Thumbnail != ''  && data[i].Thumbnail !=0) {
 							var image = $("<img>")
 								.attr("src",data[i].Thumbnail);
-						}
+						} else {
+                                                        var image = $("<img>");
+                                                }
                                                 
                                                 if (snn_summary == 'all') {
                                                     image.appendTo($article);
