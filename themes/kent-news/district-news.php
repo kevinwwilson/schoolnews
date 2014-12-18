@@ -29,16 +29,14 @@ $this->inc('elements/header.php');
                             ?> 
                         </div>
                         <div class="ad1" id="div-gpt-ad-1417707641356-0">
-                            <img width="300" height="250" src="/themes/kent-news/images/KCTC-box-ad-Spring-15.gif">
-<!--                            <script type="text/javascript">
+                            <script type="text/javascript">
                                 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707641356-0'); });
-                            </script>-->
+                            </script>
                         </div>
                         <div class="ad2" id="div-gpt-ad-1417707677693-0">
-                            <img width="300" height="250" src="/themes/kent-news/images/Poverty-web-ad.gif">
-<!--                            <script type="text/javascript">
+                            <script type="text/javascript">
                                 googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707677693-0'); });
-                            </script>-->
+                            </script>
                         </div> 
                     </div>
 

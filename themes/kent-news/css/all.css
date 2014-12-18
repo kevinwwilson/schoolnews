@@ -125,6 +125,12 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 /* animated logo */
 .edgeLoad-EDGE-307356695 { visibility:hidden; }
 
+/* Google banner ads */
+.banner-ad {
+    display: block;
+    margin: auto;
+}
+
 /* covering line in header*/
 .covering {
     font-style: italic;
