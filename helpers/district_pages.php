@@ -8,7 +8,7 @@ class DistrictPagesHelper{
         'Caledonia Community Schools'=>'/districts/caledonia',
         'Cedar Springs Public Schools'=>'/districts/cedar-springs',
         'Comstock Park Public Schools'=>'/districts/comstock-park',
-        'East Grand Rapids Public Schools'=>'/districts/east-grand-rapid/',
+        'East Grand Rapids Public Schools'=>'/districts/east-grand-rapids',
         'Forest Hills Public Schools'=>'',
         'Godfrey Lee Public Schools'=>'/districts/godfrey-lee',
         'Grand Rapids Public Schools (GRPS)'=>'/districts/grand-rapids',
