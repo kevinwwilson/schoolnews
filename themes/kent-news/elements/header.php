@@ -8,7 +8,7 @@
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
     <style type="text/css">@import "/concrete/css/ccm.app.css";</style>
     <link media="all" rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/css/all.css" />
-    <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/typography.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('typography.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/forms.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/print.css') ?>" />
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
@@ -129,5 +129,11 @@
                                 $stack->display();
                             ?>
                         </nav>
+                        <form class="search-form" method="get" action="/index.php/search">
+                            <fieldset>
+                                <input type="text" name="query">
+                                <input type="submit" value="Submit">
+                            </fieldset>
+                        </form>
                     </div>
                 </header>

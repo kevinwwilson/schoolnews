@@ -49,3 +49,25 @@ body, pre {color:#000; font-size:12px; margin:8px;}
 .p-news h1{
 background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !important}
 
+.inline-sidebar {
+	border: 1px solid #E2E1E1; 
+	padding: 10px; 
+	line-height: 15px; 
+	margin-bottom: 10px; 
+	margin-left: 10px;
+	font-size: 12px;
+	border-width: 1px !important;
+        width: 280px;
+}
+
+.inline-sidebar td {
+	padding: 10px;
+}
+
+.inline-sidebar.right {
+    float: right;
+}
+
+.inline-sidebar.left {
+    float: left;
+}
