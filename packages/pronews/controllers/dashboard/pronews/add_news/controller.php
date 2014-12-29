@@ -47,10 +47,9 @@ class DashboardPronewsAddNewsController extends Controller {
 	}
 
 
-	public function edit($cID) {
+	public function edit($cID, $redirect = null) {
 		$this->setupForm();
 		$news = Page::getByID($cID);
-		
 		if ($this->isPost()) {
 			$this->validate();
 			if (!$this->error->has()) {
@@ -63,8 +62,14 @@ class DashboardPronewsAddNewsController extends Controller {
 					$p->move($parent);
 				}
 				$this->saveData($p);
-				$this->redirect('/dashboard/pronews/list/', 'news_updated');
-			}
+                                if ($redirect == 'return') {
+                                    $this->set('news', $news);
+                                    $this->set('message', t('News updated.'));
+                                    $this->view();
+                                } else {
+                                    $this->redirect('/dashboard/pronews/list/', 'news_updated');
+                                }        
+                            }
 		}
 		
 		$sections = $this->get('sections');
@@ -88,8 +93,9 @@ class DashboardPronewsAddNewsController extends Controller {
 		$this->addHeaderItem(Loader::helper('html')->javascript('tiny_mce/tiny_mce.js'));
 	}
 
-	public function add() {
+	public function add($redirect = null) {
 		$this->setupForm();
+                $urlHelper = Loader::helper('url');
 		if ($this->isPost()) {
 			$this->validate();
 			if (!$this->error->has()) {
@@ -102,7 +108,14 @@ class DashboardPronewsAddNewsController extends Controller {
                                 //$p = Page::add($ct, $data);
 				$this->saveData($p);
                                 $p->reindex();
-				$this->redirect('/dashboard/pronews/list/', 'news_added');
+                                
+                                if ($redirect == 'return') {
+                                    $redirectUrl  = '/dashboard/pronews/add_news/edit/' . $p->getCollectionID();
+                                    $this->set('message', t('News Added.'));
+                                    $this->redirect($redirectUrl);
+                                } else {
+                                    $this->redirect('/dashboard/pronews/list/', 'news_updated');
+                                }
 			}
 		}
 	}
