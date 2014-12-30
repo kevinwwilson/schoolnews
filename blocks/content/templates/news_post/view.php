@@ -145,7 +145,7 @@ foreach ($district as $d) {
 
     <h2><?php echo $newsTitle ?></h2>
     <h4><?php echo $secondaryheadline ?></h4>
-    <strong class="date">by <?php echo $author ?></strong>
+    <strong class="date">by <a href="/about/reporters"><?php echo $author ?></a></strong>
     <div id="article_content">
         <?php
         echo '<span class="dateline">' . $dateline . ', MI — &nbsp</span>';

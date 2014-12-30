@@ -20,23 +20,13 @@
 				
 				
 				
-				<div class="footer-frame">
+				<div class="footer-frame footer-nav">
 					<!-- footer-nav -->
 					<nav>
 					<?php
 					   $stack = Stack::getByName('Footer Navigation');
 						if ($stack) $stack->display();
 						?>
-						<ul class="login footer-nav">
-							<li>
-								<?php $u = new User();
-								if ((!$u->isRegistered()) || $c->isEditMode()) { ?>
-								<a href="<?php echo $this->url('/login'); ?>">:&nbsp;:</a>
-								<?php } else { ?>
-								<a href="<?php echo $this->url('/login','logout'); ?>">Log Out</a>
-								<?php }?>
-							</li>
-						</ul>
 					</nav>
 				</div> <!-- end footer-frame-->
 				<div class="footer-text">
@@ -50,7 +40,16 @@
 						<p>School News Network is funded with advertising dollars and developed in collaboration with Kent ISD and our districts.</p>
 					</div>
 				</div>
-				
+                                <ul class="login">
+                                        <li>
+                                                <?php $u = new User();
+                                                if ((!$u->isRegistered()) || $c->isEditMode()) { ?>
+                                                <a href="<?php echo $this->url('/login'); ?>">:&nbsp;:</a>
+                                                <?php } else { ?>
+                                                <a href="<?php echo $this->url('/login','logout'); ?>">Log Out</a>
+                                                <?php }?>
+                                        </li>
+                                </ul>
 				
 			</footer>
 			

@@ -109,6 +109,21 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
         height: 100px;
         position: relative;
 }
+
+.header-frame .search-form {
+    float: right;
+    clear: right;
+    background: #fff;
+    border: 1px solid #a4cf63;
+    margin-top: 6px;
+}
+
+.header-frame .search-form input[type="submit"] {
+    background: url("/themes/kent-news/images/sprite.png") no-repeat scroll 3px -21px #a4cf63;
+    margin: 0px;
+    height: 21px;
+    width : 21px;
+}
 /* logo */
 .logo{
 	float:left;
@@ -140,7 +155,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 
 /* navigation */
 #nav{
-	padding:25px 0 0;
+	padding:6px 0 0;
 	float:right;
 	font:300 17px/20px 'Oswald', Arial, Helvetica, sans-serif;
 	letter-spacing:1px;
@@ -909,6 +924,10 @@ float: right;
 	line-height: 21px;
 }
 
+/* Override the default link color for the author link */
+.date > a {
+    color: #4a439a;
+}
 
 .article .date{
 	display:block;
@@ -936,19 +955,6 @@ float: right;
 	font-size: 11px;
 }
 
-.inline-sidebar {
-	border: 1px solid #E2E1E1; 
-	padding: 10px; 
-	line-height: 15px; 
-	margin-bottom: 10px; 
-	margin-left: 10px;
-	font-size: 12px;
-	border-width: 1px !important;
-}
-
-.inline-sidebar td {
-	padding: 10px;
-}
 
 /* comments-block */
 .comments-block{
@@ -1373,11 +1379,16 @@ float: right;
 .footer-nav a{color:#fff;}
 
 .login {
-	position: relative;
-	display: inline;
-	margin: 0;
-	font-size: 13px;
+    display: block;
+    margin: 6px 0px 0px 0px;
+    font-size: 13px;
     font-weight: bold;
+    width: 300px;   
+    float: left;
+}
+
+.login a {
+    color: #fff;
 }
 
 .address {
@@ -1576,6 +1587,11 @@ float: right;
         .upper-social-media {
                 display:none;
         }
+        
+        /* Per request - hide news by region from appearing when page stacked*/
+        .news-region {
+            display:none;
+        }
 	
 	
 	
@@ -1637,6 +1653,8 @@ float: right;
 		width: 50% !important;
 	}
 
-
+        #article_content .inline-sidebar {
+            float: none;
+        }
 }
 
