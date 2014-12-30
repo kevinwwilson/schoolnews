@@ -105,6 +105,10 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 <a href="<?php  echo $newsList->getSortByURL('cvName', 'asc')?>">
                     <?php  echo t('Preview')?></a>
             </th>
+            <th class="<?php  echo $newsList->getSearchResultsClass('ak_story_slug')?>">
+                <a href="<?php  echo $newsList->getSortByURL('ak_story_slug', 'asc')?>">
+                <?php echo t('Slug') ?>
+            </th>
             <th class="<?php  echo $newsList->getSearchResultsClass('cvDatePublic')?>">
                 <a href="<?php  echo $newsList->getSortByURL('cvDatePublic', 'asc')?>">
                     <?php  echo t('Date')?></a>
@@ -128,11 +132,14 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 $author = $cobj->getCollectionAttributeValue($akct);
                 ?>
                 <tr>
-                    <td width="60px">
+                    <td width="20px">
                         <a href="<?php  echo $this->url('/dashboard/pronews/add_news', 'edit', $cobj->getCollectionID())?>" class="icon edit"></a>				
                     </td>
                     <td>
                         <a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $cobj->getCollectionName()?></a>
+                    </td>
+                    <td>
+                        <?php echo $cobj->getCollectionAttributeValue('story_slug'); ?>
                     </td>
                     <td>
                         <?php  
@@ -141,18 +148,25 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                             echo $cobj->getCollectionDatePublic();
                             echo '</font>';
                         } else {
-                            echo $cobj->getCollectionDatePublic(DATE_APP_GENERIC_MDYT_FULL);
+                            echo $cobj->getCollectionDatePublic(DATE_APP_GENERIC_MDYT);
                         }
                         ?>
                     </td>
                     <td>
                        <?php 
                        $district = $cobj->getCollectionAttributeValue('district');
+                       $districtArray = Array();
                        if($district>0){
-                           foreach($district as $dist){
-                                echo $dist->value, ',';
-                            }
-                       }
+                           echo $district->current();
+                           if ($district->count() > 1) {
+                               echo ' <a href="#" class="district-list" data-toggle="tooltip" title="';
+                               for ($districtIndex = 1; $districtIndex < $district->count(); $districtIndex++) {
+                                   $districtArray[] = $district->get($districtIndex);
+                               }
+                               echo implode(', ', $districtArray);
+                               echo '">[more]</a>';
+                           } 
+                       } 
                        ?>
                     </td>
                     <td>
@@ -242,5 +256,8 @@ $(".gro-select select option[value='']").remove();
         }
     });
 });
+
+$(".district-list").tooltip();
 });
+
 </script>   
