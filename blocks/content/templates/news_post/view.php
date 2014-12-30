@@ -168,13 +168,14 @@ foreach ($district as $d) {
         <h3>Spread the word!</h3></div>
     <div id="HTMLBlock648" class="HTMLBlock">
         <div id="social-media">
-            <span id="facebook"> 
-                <fb:like send="false" layout="button_count" width="450" show_faces="false" fb-xfbml-state="rendered" class="fb_edge_widget_with_comment fb_iframe_widget"><span style="height: 20px; width: 72px;"><iframe id="f201b9c6a" name="f2bde98bbc" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=378843365553326&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D27%23cb%3Df39aa7bfec%26domain%3Dwww.schoolnewsnetwork.org%26origin%3Dhttp%253A%252F%252Fwww.schoolnewsnetwork.org%252Ff20d77428%26relation%3Dparent.parent&amp;colorscheme=light&amp;extended_social_context=false&amp;href=http%3A%2F%2Fwww.schoolnewsnetwork.org%2F%2Fnews%2F%3FrID%3D799&amp;layout=button_count&amp;locale=en_US&amp;node_type=link&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=450" style="border: none; overflow: hidden; height: 20px; width: 72px;"></iframe></span></fb:like>
-            </span>
-            <span id="twitter"> 
-                <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
-
-            </span>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
+            <span class='st_googleplus_large' displayText='Google +'></span>
+            <span class='st_sharethis_large' displayText='ShareThis'></span>
+            <span class='st_email_large' displayText='Email'></span>
+            <span class='st_fblike_large' displayText='Facebook Like'></span>
 
             <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>
         </div>
