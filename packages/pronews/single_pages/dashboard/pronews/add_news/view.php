@@ -27,11 +27,11 @@ if (is_object($news)) {
 		}
 	}
 	$task = 'edit';
-	$buttonText = t('Save');
+	$buttonText = t('Save & Close');
 
 } else {
 	$task = 'add';
-	$buttonText = t('Add News Item');
+	$buttonText = t('Add News Item & Close');
 
 }
 ?>
@@ -50,6 +50,16 @@ if (is_object($news)) {
     margin-left: 10px;
 }
 
+
+.ccm-ui button.btn, .ccm-ui input.btn[type="submit"] {
+}
+
+.btn.ccm-button-v2.right-static {
+    bottom: 40px;
+    display: block;
+    position: fixed;
+    right: 20px;
+}
 </style>
 
 
@@ -79,6 +89,7 @@ if (is_object($news)) {
 <?php  }else{ ?>
     <form method="post" action="<?php  echo $this->action($task)?>" id="news-form">
 <?php  } ?>
+        <button id="progress-save-news-form" class="btn ccm-button-v2 right-static">Save</button>
         <div class="top-buttons">
 
         <?php  print $ih->submit(t($buttonText), 'news-form', 'right', 'primary'); ?>
@@ -519,5 +530,13 @@ function countCharacters(count, update, max)
         $(update).text("Maximum allowed charecters");
     }
 }
+
+$("#progress-save-news-form").click(function(){
+    var $form = $('#news-form');
+    var url = $form.attr('action');
+    url = url + 'return/';
+    $form.attr('action', url);
+    $form.submit();
+});
 
 </script>
