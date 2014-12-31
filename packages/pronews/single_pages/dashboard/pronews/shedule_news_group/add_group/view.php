@@ -90,7 +90,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
             <div class="top-buttons">
                 <?php  
                 if ($this->controller->getTask() == 'edit_group') { 
-                    print $ih->submit(t('Edit Group'), 'news-form', 'right', 'primary'); 
+                    print $ih->submit(t('Save & Close'), 'news-form', 'right', 'primary'); 
                 } else { 
                     print $ih->submit(t('Add Group'), 'news-form', 'right', 'primary'); 
                 }

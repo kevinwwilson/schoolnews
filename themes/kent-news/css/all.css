@@ -1535,15 +1535,9 @@ float: right;
 		margin:0 0 5px;
 	}
 	#nav{
-		float:none;
-		text-align:center;
+            display: none;
 	}
-	#nav li{
-		float:none;
-		display:inline-block;
-		vertical-align:top;
-		margin:0 10px;
-	}
+
 	#main{width:96%;background:none;}
 	#content{width:100%;}
 	.content-block-holder{
@@ -1588,6 +1582,19 @@ float: right;
                 display:none;
         }
         
+        .header-frame .search-form {
+            position: absolute;
+            top: 130px;
+            width: 294px;
+            float: left;
+        }
+        
+        #header,
+        .header-frame {
+            overflow: visible;
+        }
+        
+        
         /* Per request - hide news by region from appearing when page stacked*/
         .news-region {
             display:none;
@@ -1628,9 +1635,7 @@ float: right;
         .list-area {
             float: left;
         }
-        #nav{
-            display: none;
-        }
+
         .header-holder {
             position: relative;
         }

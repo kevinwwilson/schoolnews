@@ -54,7 +54,6 @@ background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !importa
 	padding: 10px; 
 	line-height: 15px; 
 	margin-bottom: 10px; 
-	margin-left: 10px;
 	font-size: 12px;
 	border-width: 1px !important;
         width: 280px;
@@ -66,8 +65,10 @@ background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !importa
 
 .inline-sidebar.right {
     float: right;
+    margin-left: 10px;
 }
 
 .inline-sidebar.left {
     float: left;
+    margin-right: 10px;
 }
