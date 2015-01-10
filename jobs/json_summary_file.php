@@ -38,9 +38,10 @@ class JsonSummaryFile extends Job {
 			 $keys = array_keys($sections);
 			 $keys[] = -1;
 			 $newsList->filterByParentID($keys);
+                         $newsList->filter(false,"ak_group_status like '%Published%'");
 			 }
 			 $newsList -> sortByPublicDateDescending();
-			 $newsResults=$newsList->get(2000);
+			 $newsResults=$newsList->get();
 
 			 $arr = array();
 			 foreach($newsResults as $cobj){
@@ -49,12 +50,11 @@ class JsonSummaryFile extends Job {
 
 
 			 $district = $cobj->getCollectionAttributeValue('district');
-
+                         
 			 $dis = array();
 
 			 foreach($district as $dist){
 			    $dis[] = $dist->value;
-
 			 }
 
 
@@ -63,12 +63,11 @@ class JsonSummaryFile extends Job {
 
 
 
-
 			 $date = $cobj->getCollectionDatePublic();
 			 $url = $nh->getLinkToCollection($cobj);
 			 $base = BASE_URL.DIR_REL;
 			 $full_url = $base.''.$url;
-			 $primary_headline = $cobj->getCollectionName();
+			 $primary_headline = $cobj->getCollectionName();                                         
 			 $summary = $cobj->getCollectionDescription();
 			 $thumbnail = $cobj->getCollectionAttributeValue('thumbnail');
 			 if($thumbnail != ''){

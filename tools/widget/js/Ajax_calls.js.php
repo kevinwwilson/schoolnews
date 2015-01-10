@@ -57,7 +57,7 @@ function get_news() {
                             .appendTo($article_list);
                 
 				$.each(data, function (i, item) {
-					if (data[i].District == snn_district && iart < snn_max_display) {
+					if (data[i].District.search(snn_district) > -1 && iart < snn_max_display) {
 						$article = $("<div>")
 							.addClass('FB_article')
 							.addClass(alternate);
