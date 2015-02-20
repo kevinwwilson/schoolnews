@@ -68,6 +68,7 @@
 					<a href="/news-region/e-se">
 						<span><a href="/districts/caledonia">Caledonia Community</a></span>
 						<span><a href="/districts/east-grand-rapids">East Grand Rapids Public</a></span>
+                                                <span><a href="/districts/forest-hills">Forest Hills Public</a></span>
 						<span><a href="/districts/kentwood">Kentwood Public</a></span>
 						<span><a href="/districts/lowell">Lowell Area</a></span>
 						<span><a href="/districts/thornapple-kellogg">Thornapple Kellogg</a></span>
