@@ -36,24 +36,23 @@ class RssFeedController extends Controller  {
         $Feed->setChannelAbout(BASE_URL . '/about');
 
         //Adding a feed. Generally this portion will be in a loop and add all feeds.
-$newsArticleList = GetNewsInfoHelper::getNewsFromJson();
-
+$newsArticleList = GetNewsInfoHelper::getRecentNews();
+//var_dump($newsArticleList); die();
         foreach ($newsArticleList as $article) {
             //Create an empty FeedItem
             $newItem = $Feed->createNewItem();                  
             //Add elements to the feed item
             //Use wrapper functions to add common feed elements
-            $newItem->setTitle(strip_tags($article->Headline));
-            $newItem->setLink($article->URL);
+            $newItem->setTitle(strip_tags($article->title));
+            $newItem->setLink($article->link);
             
-            $newItem->setDate($article->Date);
+            $newItem->setDate($article->date);
                         
-            $desc = "<em>" . $this->parseDistrict($article->District) . ", MI &#151; </em>";
-            $desc .= strip_tags($article->Summary, "<br>,<em>,<strong>");
+            $desc = "<em>" . $this->parseDistrict($article->dateline) . ", MI &#151; </em>";
+            $desc .= strip_tags($article->summary, "<br>,<em>,<strong>");
             
             $newItem->setDescription($desc);
-            $image_html = '<p><img src="' .$article->Thumbnail .'"></p>';
-            $newItem->setContent($image_html);  
+            $newItem->setAuthor($article->author);
                        
             //Now add the feed item
             $Feed->addItem($newItem);

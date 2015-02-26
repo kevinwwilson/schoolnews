@@ -1,7 +1,2 @@
 <?php
-defined('C5_EXECUTE') or die("Access Denied.");
-
-$feed->printFeed();
-
-
-?>
+//placeholder for single page
