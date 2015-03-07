@@ -29,14 +29,14 @@ class RssFeedController extends Controller  {
         $Feed->setDate(new DateTime());
         
         //Set feed description to the home page description
-//        $home = Page::getByPath("/", 'active');
-//        $Feed->setDescription($home->getCollectionDescription());
+        $home = Page::getByPath("/", 'active');
+        $Feed->setDescription($home->getCollectionDescription());
         
         //It's important for RSS 1.0 
         $Feed->setChannelAbout(BASE_URL . '/about');
 
         //Adding a feed. Generally this portion will be in a loop and add all feeds.
-$newsArticleList = GetNewsInfoHelper::getRecentNews();
+        $newsArticleList = GetNewsInfoHelper::getRecentNews();
 //var_dump($newsArticleList); die();
         foreach ($newsArticleList as $article) {
             //Create an empty FeedItem
