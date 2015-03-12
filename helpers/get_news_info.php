@@ -13,7 +13,7 @@ class GetNewsInfoHelper {
         return $news;
     }
 
-    public static function getRecentNews($articles = 5) {
+    public static function getRecentNews($articles = 50) {
 
         Loader::model('page_list');
         Loader::model('article');
