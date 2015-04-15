@@ -794,6 +794,15 @@ display: block;
 position: relative;
 margin-top: -60px;
 }
+
+.article-box {
+    float: left;
+    padding: 5px 10px 5px 0px;
+}
+
+.article-footer {
+    margin-top: 16px;
+}
 /* image-holder */
 .image-holder, 
 .slideshow-holder{

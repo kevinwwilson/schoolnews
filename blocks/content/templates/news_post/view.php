@@ -153,6 +153,23 @@ foreach ($district as $d) {
         print $content;
         ?>
         <strong class="date">Submitted on: <span id="pub_date"><?php echo $newsDate; ?></span></strong>
+        <div class="article-box">
+            
+            
+            
+                        <!-- Article Box [async] -->
+            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+            <script type="text/javascript">
+            var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+            var abkw = window.abkw || '';
+            var plc181293 = window.plc181293 || 0;
+            var html = $('#article_content').html();
+            html = html.replace('♥', '<div class="article-box" id="placement_181293_'+plc181293+'"></div>');
+            $('#article_content').html(html);
+//            document.write('<div id="placement_181293_'+plc181293+'"></div>');
+            AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 181293, [300,250], 'placement_181293_'+opt.place, opt); }, opt: { place: plc181293++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
+            </script>
+        </div>
     </div>
     <?php
 //display a link to the district page only if there is one district assigned to  the article
@@ -180,17 +197,15 @@ foreach ($district as $d) {
             <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>
         </div>
     </div>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'schoolnewsnetwork'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <div class="article-footer">
+<!-- Article Footer [javascript] -->
+<script type="text/javascript">
+var rnd = window.rnd || Math.floor(Math.random()*10e6);
+var pid181294 = window.pid181294 || rnd;
+var plc181294 = window.plc181294 || 0;
+var abkw = window.abkw || '';
+var absrc = 'http://ab166541.adbutler-chargino.com/adserve/;ID=166541;size=728x90;setID=181294;type=js;sw='+screen.width+';sh='+screen.height+';spr='+window.devicePixelRatio+';kw='+abkw+';pid='+pid181294+';place='+(plc181294++)+';rnd='+rnd+'';
+document.write('<scr'+'ipt src="'+absrc+'" type="text/javascript"></scr'+'ipt>');
+</script>
+    </div>
+    
