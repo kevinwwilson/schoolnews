@@ -53,7 +53,7 @@ function get_news() {
                 $article_list = $("<div>").addClass('FB_news_feed');
                     $("<h2>")
                             .addClass('FB_Section_Title')
-                            .text('Our News on School News Network')
+                            .text('Our District News')
                             .appendTo($article_list);
                 
 				$.each(data, function (i, item) {
