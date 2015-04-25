@@ -2,11 +2,10 @@
 defined('C5_EXECUTE') or die(_("Access Denied."));
 $textHelper = Loader::helper("text");
 $ih = Loader::helper('image');
+global $c;
 // now that we're in the specialized content file for this block type, 
 // we'll include this block type's class, and pass the block to it, and get
 // the content
-
-
 
 
 if (count($cArray) > 0) {
@@ -14,6 +13,12 @@ if (count($cArray) > 0) {
     <?php
     for ($i = 0; $i < count($cArray); $i++) {
         $cobj = $cArray[$i];
+        
+        //this section will display duplicates of other sections on the page.  Use the master
+        //article list to de-duplicate
+        if ($c->displayedArticles[$cobj->cID] != 'pronews_list_thumbnails') {
+            continue;
+        }
         $title = $cobj->getCollectionName();
         $thumbnail = $cobj->getAttribute('thumbnail');
         $author = $cobj->getAttribute('author');

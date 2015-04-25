@@ -74,12 +74,15 @@
 			}
 
 			$num = (int) $row['num'];
-
+                        
 			if ($num > 0) {
 				$pl->setItemsPerPage($num);
 			}
 
+                        $b = Block::getByID($this->bID);
 			$c = Page::getCurrentPage();
+                        $template = strtolower($b->getBlockFilename());
+                        
 			if (is_object($c)) {
 				$this->cID = $c->getCollectionID();
 			}
@@ -131,16 +134,19 @@
 				//$pl->filterByNewsCategory($category,'LIKE');
 			}
 
-			if ($this->distss != 'All District') {
-				$distss = "\n$this->distss\n";
-				$pl->filterByAttribute('district',"%$distss%",'like');
-
-			}
-
-
-			$b = Block::getByID($this->bID);
-
-                        $template = strtolower($b->getBlockFilename());
+			
+                        //these are the templates where the "All Districts option should work and 
+                        //show all the districts
+                        $distss = "\n$this->distss\n";
+                        if($template=='pronews_list_thumbnails'){
+                            if ($this->distss != 'All District') {
+                                $pl->filter(false,"ak_district like '%$distss%' or ak_district like '%All Districts%'");
+                            } else {
+                                $pl->filter(false,"ak_disctrict = 'All Districts'");
+                            }
+                        } else {
+                            $pl->filterByAttribute('district',"%$distss%",'like');   
+                        }
 
 			if($template=='home_images'){
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');
@@ -189,7 +195,7 @@
                                 }
 			}
 
-			if($template=='pronews_list' || 'pronews_list_thumbnails'){
+			if($template=='pronews_list'){
 			global $u;
 			$category = $this->category;
 			if (!$u -> isLoggedIn ()) {
@@ -199,7 +205,7 @@
                             //$pl->filterByAttribute('regional_feature',"%$category%",'not like');
                             }
                             else{
-                            $pl->filter(false,"((ak_group_status like '%Published%' or ak_group_status like '%Ready%') and (ak_regional_feature not like '%".$category."%' or ak_regional_feature is NULL ))");
+                                    $pl->filter(false,"((ak_group_status like '%Published%' or ak_group_status like '%Ready%') and (ak_regional_feature not like '%".$category."%' or ak_regional_feature is NULL ))");
                                     //$pl->filter(false,"((ak_group_status like '%Published%' or ak_group_status like '%Ready%') and (ak_regional_feature not like '%".$category."%'))");
                                     //$pl->filter(false,"ak_regional_feature not like '%$category%'");
                                     //$pl->filterByAttribute('regional_feature',"%$category%",'not like');
@@ -245,6 +251,8 @@
 			if($template=='search' && $_GET['q'] != ''){
                             $pages = $pl->get();
 			}
+                        $this->trackDisplayedArticles($pages);
+
 			$this->set('pl', $pl);
 			return $pages;
 		}
@@ -329,6 +337,19 @@
 			$rssUrl = $uh->getBlockTypeToolsURL($bt)."/rss?bID=".$b->getBlockID()."&cID=".$c->getCollectionID()."&arHandle=" . $a->getAreaHandle();
 			return $rssUrl;
 		}
+                
+                public function trackDisplayedArticles($pages)
+                {
+                    global $c;
+                    $b = Block::getByID($this->bID);
+                    $template = strtolower($b->getBlockFilename());
+
+                    foreach ($pages as $page) {
+                        if (!isset($c->displayedArticles[$page->getCollectionID()])) {
+                            $c->displayedArticles[$page->getCollectionID()] = $template;
+                        }
+                    }
+                }
 	}
 
 ?>

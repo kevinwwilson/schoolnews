@@ -702,10 +702,6 @@ z-index: 10;}
 	clear: both;
 }
 
-.district-list .list-area li:first-child {
-	display: none;
-}
-
 .news-box h3,
 .issue-link a{
 	font:bold 16px/20px 'Open Sans Condensed', Arial, Helvetica, sans-serif;
