@@ -98,11 +98,12 @@ if (count($cArray) > 0) {
     <?php } ?>
     </div>			
 
-<?php } ?>
+
 <div class="article-fade"> </div>
 <div class="more-guest">
     <a class="more" href="<?php echo $nh->getLinkToCollection($cobj) ?>">Read Full Article  »</a>
 </div>
+<?php } ?>
 <script type="text/javascript">
 
 

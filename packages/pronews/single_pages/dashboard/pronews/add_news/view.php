@@ -327,7 +327,6 @@ if (is_object($news)) {
                 <div class="clearfix">
                             <?php  echo $form->label('district', t('Primary and Other Districts'))?>
                         <div class="district-check input">
-                            <input type="checkbox" id="ckbCheckAll" /> <strong>All Districts</strong>
                                 <?php
                                 Loader::model("attribute/categories/collection");
                                 $akct = CollectionAttributeKey::getByHandle('district');
@@ -482,11 +481,6 @@ if($('.statushidden input:text').val() == '2'){
 		$('#photoCaption').hide();
 
 }
-
-
-$("#ckbCheckAll").click(function () {
-        $(".district-check input").prop('checked', $(this).prop('checked'));
-    });
 
 
 $("input:radio[name=image]").click(function() {
