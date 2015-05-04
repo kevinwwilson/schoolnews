@@ -11,7 +11,7 @@ class DistrictPagesHelper{
         'East Grand Rapids Public Schools'=>'/districts/east-grand-rapids',
         'Forest Hills Public Schools'=>'',
         'Godfrey Lee Public Schools'=>'/districts/godfrey-lee',
-        'Grand Rapids Public Schools (GRPS)'=>'/districts/grand-rapids',
+        'Grand Rapids Public Schools - GRPS'=>'/districts/grand-rapids',
         'Grandville Public Schools'=>'',
         'Kelloggsville Public Schools'=>'/districts/kelloggsville',
         'Kenowa Hills Public Schools'=>'/districts/kenowa-hills',
