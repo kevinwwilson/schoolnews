@@ -105,7 +105,8 @@ if (count($cArray) > 0) {
 </div>
 <?php } ?>
 <script type="text/javascript">
-
-
+    var html = $('#article_content').html();
+    html = html.replace('♥', '');
+    $('#article_content').html(html);
 </script>
 
