@@ -51,7 +51,7 @@
                                                     <a href="<?php echo $this->url('/login','logout'); ?>">Log Out</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/reporter-preview">Reporter Preview</a>
+<!--                                                    <a href="/reporter-preview">Reporter Preview</a>-->
                                                 </li>
                                                 <?php } ?>                                        
                                 </ul>
