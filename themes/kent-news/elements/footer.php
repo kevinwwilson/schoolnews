@@ -41,14 +41,19 @@
 					</div>
 				</div>
                                 <ul class="login">
-                                        <li>
                                                 <?php $u = new User();
                                                 if ((!$u->isRegistered()) || $c->isEditMode()) { ?>
-                                                <a href="<?php echo $this->url('/login'); ?>">:&nbsp;:</a>
+                                                <li>
+                                                    <a href="<?php echo $this->url('/login'); ?>">:&nbsp;:</a>
+                                                </li>
                                                 <?php } else { ?>
-                                                <a href="<?php echo $this->url('/login','logout'); ?>">Log Out</a>
-                                                <?php }?>
-                                        </li>
+                                                <li>
+                                                    <a href="<?php echo $this->url('/login','logout'); ?>">Log Out</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/reporter-preview">Reporter Preview</a>
+                                                </li>
+                                                <?php } ?>                                        
                                 </ul>
 				
 			</footer>
