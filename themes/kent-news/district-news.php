@@ -10,7 +10,14 @@ $this->inc('elements/header.php');
         <div class="news-block district-list">
             <!-- heading -->
             <header class="heading">
-                <h1><span><?php echo $c->getCollectionName() ?></span></h1>
+                <h1 class="district-name"><span><?php echo $c->getCollectionName() ?></span></h1>
+                <div class="district-logo">
+                    <?php
+                    $a = new Area('District Logo');
+                    $a->display($c);
+                    ?>
+                </div>
+                
             </header>
             <!-- news-box -->
             <aside class="news-box">

@@ -238,6 +238,8 @@
                             }
 			}
 
+                        $pl->filterByIsAlias(false);
+                        
                         //we want to get the first page of the whole list before
                         //going and getting the specific page that is being requested
                         $first_page = clone $pl;
