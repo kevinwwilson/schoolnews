@@ -173,7 +173,7 @@
 
                             }
                             else{
-                                    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%')");
+                                    $pl->filter(false,"(ak_group_status like '%Published%' or ak_group_status like '%Ready%' or ak_group_status like '%In Editing%' or ak_group_status like '%Draft%')");
                                 }
 			}
 

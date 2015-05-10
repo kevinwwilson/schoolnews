@@ -60,7 +60,7 @@ foreach ($district as $d) {
                         echo $d, '<br/>';
                     }
                 } else {
-                    echo 'Kent ISD';
+                    echo '&nbsp';
                 }
                 ?>
             </span>
@@ -148,7 +148,12 @@ foreach ($district as $d) {
     <strong class="date">by <a href="/about/reporters"><?php echo $author ?></a></strong>
     <div id="article_content">
         <?php
-        echo '<span class="dateline">' . $dateline . ', MI — &nbsp</span>';
+        if (strlen($dateline) > 0) {
+            echo '<span class="dateline">' . $dateline . ', MI — &nbsp</span>';
+        } else {
+            echo '<span class="dateline"> — &nbsp</span>';
+        }
+        
         $content = $controller->getContent();
         print $content;
         ?>
