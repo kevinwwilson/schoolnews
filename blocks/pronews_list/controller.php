@@ -163,7 +163,9 @@
 			}
 
                         if($template=='district_left_side'){
-                        $pl->filter(false,"ak_group_status like '%Published%'");
+                            $pl->filter(false,"ak_group_status like '%Published%'");
+                            $distss = "\n$this->distss\n";
+                            $pl->filter(false,"ak_district like '%$distss%'");
 			}
 
 			if($template=='full_list'){
