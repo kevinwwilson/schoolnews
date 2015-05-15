@@ -3,6 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width" />
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon/apple-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
+        <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
 	<?php Loader::element('header_required_news'); ?>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
 	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
