@@ -170,7 +170,7 @@
 
 			if($template=='full_list'){
                                         global $u;
-                            if (!$u -> isLoggedIn ()) {
+                            if (!$u->isLoggedIn()) {
                             $pl->filter(false,"ak_group_status like '%Published%'");
 
                             }

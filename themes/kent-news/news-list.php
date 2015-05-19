@@ -21,6 +21,7 @@ $this->inc('elements/header.php'); ?>
 							</ul>
 						</aside>
 					</div>
+                                        <?php $this->inc('elements/footer-ad.php'); ?>
 				</section>
 				<?php $this->inc('elements/sidebar.php'); ?>
 			</div> <!-- end main -->

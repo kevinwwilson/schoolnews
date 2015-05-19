@@ -56,9 +56,10 @@ $this->inc('elements/header.php');
                     </ul>
                 </div>
             </aside>
-
         </div>
+        <?php $this->inc('elements/footer-ad.php'); ?>
     </section>
+    
     <!-- sidebar -->
     <div class="home-news">
         <!-- sidebar -->

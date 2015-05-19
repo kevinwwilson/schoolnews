@@ -11,6 +11,7 @@ $this->inc('elements/header.php'); ?>
 						$a->display($c);
 						?>
 					</div>
+                                   <?php $this->inc('elements/footer-ad.php'); ?>
 				</section> <!-- end content -->
 				<aside id="sidebar">
 				<?php

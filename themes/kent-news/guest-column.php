@@ -36,7 +36,7 @@ $this->inc('elements/header.php'); ?>
 							$a->display($c);
 							?>
 					</ul>
-					
+					<?php $this->inc('elements/footer-ad.php'); ?>
 				</section> <!-- end content -->
 				<?php $this->inc('elements/sidebar.php'); ?>
 			</div> <!-- end main -->

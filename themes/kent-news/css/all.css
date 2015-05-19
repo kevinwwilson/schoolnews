@@ -808,6 +808,7 @@ margin-top: -60px;
 
 .article-footer {
     margin-top: 16px;
+    float: left;
 }
 /* image-holder */
 .image-holder, 
