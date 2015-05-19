@@ -23,7 +23,7 @@ $pnag = SinglePage::add('/dashboard/pronews/shedule_news_group/add_group', $pkg)
                             ?>
 			</div>
 			<?php $this->inc('elements/region-list.php'); ?>			
-		
+                    <?php $this->inc('elements/footer-ad.php'); ?>
 		</section>
 		<!-- sidebar -->
 		<?php $this->inc('elements/sidebar.php'); ?>
