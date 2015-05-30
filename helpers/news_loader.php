@@ -28,6 +28,6 @@ class NewsLoaderHelper {
         }
         return $pageArray;
     }
-
     
 }
+ 

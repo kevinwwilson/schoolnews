@@ -42,7 +42,7 @@ class article extends Object
         $this->dateline = $page->getAttribute('dateline')->getOptions();
         $this->dateline = $this->dateline[0]->value;
         $long_summary = CollectionAttributeKey::getByHandle('long_summary');
-        $this->longSummary = $page->getCollectionAttributeValue($ak_long_summary);
+        $this->longSummary = $page->getCollectionAttributeValue($long_summary);
         $this->summary = $page->getCollectionDescription();
         $this->secondaryHeadline = $page->getAttribute('secondary_headline');
         $this->photoType = $page->getAttribute('single_multiple_photo_status');

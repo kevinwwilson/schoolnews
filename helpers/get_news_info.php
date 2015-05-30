@@ -13,6 +13,11 @@ class GetNewsInfoHelper {
         return $news;
     }
 
+    /**
+     * 
+     * @param int $articles - number of articles to retrieve
+     * @return PageList of articles
+     */
     public static function getRecentNews($articles = 50) {
 
         Loader::model('page_list');
@@ -36,6 +41,32 @@ class GetNewsInfoHelper {
         $newsArticles->sortBy('cvDatePublic', 'desc');
         $collectionList = $newsArticles->getPage();
         return article::buildFromPageList($collectionList);
+    }
+    
+    /**
+     * Loads district news using the json summary file if it is available in
+     * order to drasticlly reduce the page load speed and the load on the server
+     * of loading multiple article pages.
+     * 
+     * @param string $district - The district news to retrieve
+     * @param type $num - The number of recent articles to retrieve
+     */
+    public function getRecentDistrictNewsFromFile ($district, $num = 2, $exclude = '') {
+        $news = static::getNewsFromJson();
+        $count = 0;
+        $articles = array();
+        
+        foreach ($news as $item) {
+            if ($item->District == $district && $item->Headline != $exclude) {
+                $count++;
+                $articles[] = $item;
+            }  
+            
+            if ($count >= $num) {
+                break;
+            }
+        }
+        return $articles;
     }
 
     static function compare_date($a, $b) {

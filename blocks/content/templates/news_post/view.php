@@ -176,15 +176,6 @@ foreach ($district as $d) {
             </script>
         </div>
     </div>
-    <?php
-//display a link to the district page only if there is one district assigned to  the article
-    if (count($districtArr) == 1) {
-        $districtMap = $districtPagesHelper->getDistrictMap();
-        $districtUrl = $districtMap[$districtArr[0]];
-        $districtPageLink = '<a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a>';
-        echo $districtPageLink;
-    }
-    ?>
     </root>
     <div id="social-call" class=" ccm-block-styles">
         <h3>Spread the word!</h3></div>
@@ -203,4 +194,33 @@ foreach ($district as $d) {
         </div>
     </div>
 
-    
+    <?php if (count($districtArr) == 1) { ?>
+    <div id="more-district">
+    <?php
+    //display a link to the district page only if there is one district assigned to  the article
+        $newsInfo = Loader::helper('get_news_info');
+        $articles = $newsInfo->getRecentDistrictNewsFromFile($districtArr[0], 2, $newsTitle);
+        foreach ($articles as $article) {
+    ?>
+        <div class="listing">
+            <img src="<?php echo $article->Thumbnail?>">
+            <h3 class="title">
+                <a href="<?php echo $article->URL ?>">
+                    <?php echo $article->Headline ?>
+                </a>
+            </h3>
+            <div class="news-summary"><?php echo '<span class="dateline">' 
+            . $dateline . ', MI — &nbsp</span>' 
+                    . $article->Summary?>
+            </div>
+        </div>
+    <?php } //end foreach ?>
+        
+        <?php
+        $districtMap = $districtPagesHelper->getDistrictMap();
+        $districtUrl = $districtMap[$districtArr[0]];
+        $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
+        echo $districtPageLink;
+        echo '</div>'; //close the more-district div
+        } //end if only one district
+     
