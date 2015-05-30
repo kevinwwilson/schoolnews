@@ -217,10 +217,14 @@ foreach ($district as $d) {
     <?php } //end foreach ?>
         
         <?php
-        $districtMap = $districtPagesHelper->getDistrictMap();
-        $districtUrl = $districtMap[$districtArr[0]];
-        $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
-        echo $districtPageLink;
-        echo '</div>'; //close the more-district div
-        } //end if only one district
+        //don't display this part for an All Distrcits article, as that doesn't have a landing page.
+        if ($districtArr[0] != 'All Districts') {
+            $districtMap = $districtPagesHelper->getDistrictMap();
+            $districtUrl = $districtMap[$districtArr[0]];
+            $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
+            echo $districtPageLink;
+            echo '</div>'; //close the more-district div            
+        }
+
+    } //end if only one district
      
