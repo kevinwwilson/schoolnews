@@ -203,7 +203,9 @@ foreach ($district as $d) {
         foreach ($articles as $article) {
     ?>
         <div class="listing">
-            <img src="<?php echo $article->Thumbnail?>">
+            <?php if (strlen($article->Thumbnail) > 0) { ?>
+                <img src="<?php echo $article->Thumbnail?>">
+            <?php } ?>
             <h3 class="title">
                 <a href="<?php echo $article->URL ?>">
                     <?php echo $article->Headline ?>
