@@ -27,6 +27,7 @@
 		function getPages($query = null) {
 			Loader::model('page_list');
 			$db = Loader::db();
+                        global $u;
 			$bID = $this->bID;
 			if ($this->bID) {
 				$q = "select * from btProNewsList where bID = '$bID'";
@@ -140,25 +141,26 @@
 			
 //                        //these are the templates where the "All Districts option should work and 
 //                        //show all the districts
-//                        $distss = "\n$this->distss\n";
+
                         if($template == 'pronews_list_thumbnails'){
+                            if (!$u->isLoggedIn ()) {
+                                $pl->filter(false,"ak_group_status like '%Published%'");
+                            }
                             if ($this->distss != 'All District') {
                                 $distss = "\n$this->distss\n";
-                                $pl->filter(false,"ak_district like '%$distss%' or ak_district like '%All Districts%'");
+                                $pl->filter(false,"(ak_district like '%$distss%' or ak_district like '%All Districts%')");
                             } else {
                                 $pl->filter(false,"ak_district = 'All Districts'");
                             }
                         } else {
                             $pl->filterByAttribute('district',"%$distss%",'like');   
                         }
-
                         
 			if($template=='home_images'){
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');
 			}
 
 			if($template=='left_side'){
-			global $u;
 			$pl->filterByAttribute('regional_feature',"%$this->category%",'like');
 			}
 
