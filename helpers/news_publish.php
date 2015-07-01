@@ -58,11 +58,8 @@ class NewsPublishHelper {
             $idsplit = explode('||', $curids);
             foreach($idsplit as $atids)
             {
-                $page = Page::getByID($atids, $version = 'RECENT');
+                $page = Page::getByID($atids, $version = 'ACTIVE');
                 $page->setAttribute('group_status', 'Published');
-                Log::addEntry('Published article id ' . $atids);
-                $status = $page->getCollectionAttributeValue('group_status');
-                Log::addEntry('Article Status is now ' . $status);
             }
         }
     }
