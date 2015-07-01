@@ -11,6 +11,7 @@ float: left;
 .mapWrapper {
 margin:0 auto;
 position:relative;
+height: 390px;
 }
 
 #map {
