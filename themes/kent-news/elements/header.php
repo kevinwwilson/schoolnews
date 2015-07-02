@@ -20,11 +20,13 @@
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('typography.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/forms.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/print.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/js/modal/jquery.modal.css "/>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
     <script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/moment/moment.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jcaption/jcaption.min.js"></script>
+    <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/modal/jquery.modal.min.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/ie.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="/logo/SNN_AnimatedLogo_PNG_edgePreload.js"></script>
