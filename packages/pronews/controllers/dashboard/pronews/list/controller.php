@@ -78,14 +78,14 @@ class DashboardpronewslistController extends Controller {
     }
 
     public function approvethis($cIDd,$name) {
-        $p = Page::getByID($cIDd);
+        $p = Page::getByID($cIDd, 'ACTIVE');
         $p->setAttribute('approve','1');;
         $this->set('message', t('"'.$name.'" has been approved and is now public')); 
         $this->view();
     }
 
     public function unapprovethis($cIDd,$name) {
-        $p = Page::getByID($cIDd);
+        $p = Page::getByID($cIDd, 'ACTIVE');
         $p->setAttribute('approve','0');;
         $this->set('message', t('"'.$name.'" has been approved and is now public')); 
         $this->view();
@@ -98,7 +98,7 @@ class DashboardpronewslistController extends Controller {
     }
 
     public function deletethis($cIDd,$name) {
-        $c= Page::getByID($cIDd);
+        $c= Page::getByID($cIDd, 'ACTIVE');
         $c->delete();
         $this->set('message', t('"'.$name.'" has been deleted')); 
         $this->set('remove_name','');

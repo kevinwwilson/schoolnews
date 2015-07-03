@@ -21,7 +21,7 @@ class NewsLoaderHelper {
         $m = 0;
         $pageArray = array();
         foreach ($articleids as $displayid) {
-            $page = Page::getByID($displayid, $version = 'RECENT');
+            $page = Page::getByID($displayid, $version = 'ACTIVE');
             $article = new article();
             $article->getArticleAttributes($page);
             $pageArray[] = $article;

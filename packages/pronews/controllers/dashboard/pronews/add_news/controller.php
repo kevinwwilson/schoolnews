@@ -49,11 +49,11 @@ class DashboardPronewsAddNewsController extends Controller {
 
 	public function edit($cID, $redirect = null) {
 		$this->setupForm();
-		$news = Page::getByID($cID);
+		$news = Page::getByID($cID, 'ACTIVE');
 		if ($this->isPost()) {
 			$this->validate();
 			if (!$this->error->has()) {
-				$p = Page::getByID($this->post('newsID'));
+				$p = Page::getByID($this->post('newsID'), 'ACTIVE');
 				$parent = Page::getByID($this->post('cParentID'));
 				$ct = CollectionType::getByID($this->post('ctID'));				
 				$data = array('ctID' =>$ct->getCollectionTypeID(), 'cDescription' => $this->post('newsDescription'), 'cName' => $this->post('newsTitle'), 'cDatePublic' => Loader::helper('form/date_time')->translate('newsDate'));
@@ -124,12 +124,12 @@ class DashboardPronewsAddNewsController extends Controller {
 	    $this->set('remove_name','This news');
 		$this->set('remove_cid',$cIDd);
 		$this->setupForm();
-		$news = Page::getByID($cIDd);
+		$news = Page::getByID($cIDd, 'ACTIVE');
 		
 		if ($this->isPost()) {
 			$this->validate();
 			if (!$this->error->has()) {
-				$p = Page::getByID($this->post('newsID'));
+				$p = Page::getByID($this->post('newsID'), 'ACTIVE');
 				$parent = Page::getByID($this->post('cParentID'));
 				$ct = CollectionType::getByID($this->post('ctID'));				
 				$data = array('ctID' =>$ct->getCollectionTypeID(), 'cDescription' => $this->post('newsDescription'), 'cName' => $this->post('newsTitle'), 'cDatePublic' => Loader::helper('form/date_time')->translate('newsDate'));
@@ -187,7 +187,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		    
 	    }
 	
-	    $c= Page::getByID($cIDd);
+	    $c= Page::getByID($cIDd, 'ACTIVE');
 		$c->delete();
 		$this->set('message', t('News has been deleted'));
 	    $this->redirect('/dashboard/pronews/list/','news_deleted');

@@ -11,7 +11,7 @@ if($_GET['bID']) {
        
         $nh = Loader::helper('navigation');
         
-        $c = Page::getByID($_GET['cID']);
+        $c = Page::getByID($_GET['cID'], 'ACTIVE');
 	$a = Area::get($c, $_GET['arHandle']);
 		
 	//edit survey mode

@@ -27,7 +27,7 @@ class Collection extends Concrete5_Model_Collection {
 				$db->Replace('PageSearchIndex', array('cID' => $this->getCollectionID(), 'cRequiresReindex' => 0), array('cID'), false);
                                 
                                 // added this as a hack - concrete 5 was not cooperating with setting this in the search index
-                                $page = Page::getByID($this->getCollectionID());
+                                $page = Page::getByID($this->getCollectionID(), 'ACTIVE');
                                 $ak_g = CollectionAttributeKey::getByHandle('group_status');
                                 $ak_r = CollectionAttributeKey::getByHandle('regional_feature');
                                           

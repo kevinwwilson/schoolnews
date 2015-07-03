@@ -19,7 +19,7 @@ $articleids = explode('||', $active_artid);
 shuffle($articleids);
 $m = 0;
 foreach ($articleids as $displayid) {
-    $cobj = Page::getByID($displayid, $version = 'RECENT');
+    $cobj = Page::getByID($displayid, $version = 'ACTIVE');
     $title = $cobj->getCollectionName();
     $author = $cobj->getAttribute('author');
     $dateline = $cobj->getAttribute('dateline');
