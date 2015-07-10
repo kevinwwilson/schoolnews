@@ -67,12 +67,10 @@ foreach ($district as $d) {
         </h1>
     </div>
     <div class ="upper-social-media">
-        <span class="share-caption">Print</span>
-        <span id="print" onclick="window.print();"></span>
         <span class="share-caption">Share</span>
         <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
-
-        
+        <span class="share-caption">Print</span>
+        <span id="print" onclick="window.print();"></span>
     </div>                         
 </header>
 <div class="article">

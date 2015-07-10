@@ -581,14 +581,22 @@ z-index: 10;}
 
 #print {
     background: url('../images/printer-32.png') no-repeat;
-    border-right: 1px dotted #bbbbbb;
     float: left;
     height: 32px;
     width: 32px;
     position: relative;
-    margin: 0 9px 0 3px;
-    padding-right: 9px;
     cursor: pointer;
+    margin: 0 3px;
+}
+
+#share {
+    border-right: 1px dotted #bbbbbb;
+    background: url('../images/sharethis_32.png') no-repeat 3px 0;
+    float: left;
+    margin: 0 9px 0 0px;
+    padding-right: 9px;
+    height: 32px;
+    width: 32px;
 }
 
 .upper-social-media {
