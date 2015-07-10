@@ -46,4 +46,6 @@ jQuery(document).ready(function() {
     jQuery ("#article_content table").each(function(i) {
             jQuery(this).addClass('inline-sidebar');
     });
+
+    
 });

@@ -67,30 +67,11 @@ foreach ($district as $d) {
         </h1>
     </div>
     <div class ="upper-social-media">
-        <span id="upper-facebook">
-            <fb:like layout="button" action="like" show_faces="false" share="false"></fb:like>
-        </span>
-        <span id="upper-twitter">
-            <a href="https://twitter.com/share?count=none" class="twitter-share-button" data-dnt="true">Tweet</a>
-            <script>!function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, 'script', 'twitter-wjs');</script>
-        </span>
-
-    </div>
-
-    <span id="print-button">
-        <a title="Print this Article" href="" onclick="window.print()">
-            <span class="glyphicon glyphicon-print"></span>
-            <span class="print-text">Print Article</span>
-        </a>                            
-    </span>                          
+        <span class="share-caption">Share</span>
+        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class="share-caption">Print</span>
+        <span id="print" onclick="window.print();"></span>
+    </div>                         
 </header>
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
@@ -186,6 +167,7 @@ foreach ($district as $d) {
             <span class='st_linkedin_large' displayText='LinkedIn'></span>
             <span class='st_pinterest_large' displayText='Pinterest'></span>
             <span class='st_googleplus_large' displayText='Google +'></span>
+            <span class='st_tumblr_large' displayText='Tumblr'></span>
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
             <span class='st_fblike_large' displayText='Facebook Like'></span>
@@ -229,4 +211,26 @@ foreach ($district as $d) {
         }
 
     } //end if only one district
-     
+     ?>
+<div id="social-share" class="modal">
+    <div id="HTMLBlock648" class="HTMLBlock">
+        <div id="social-media">
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
+            <span class='st_googleplus_large' displayText='Google +'></span>
+            <span class='st_tumblr_large' displayText='Tumblr'></span>
+            
+            <span class='st_sharethis_large' displayText='ShareThis'></span>
+            <span class='st_email_large' displayText='Email'></span>
+            <span class='st_fblike_large' displayText='Facebook Like'></span>
+        </div>
+        <span id="print-button">
+            <a id="print" title="Print this Article" href="">
+                <span class="glyphicon glyphicon-print"></span>
+                <span class="print-text">Print Article</span>
+            </a>                            
+        </span> 
+    </div>
+</div>

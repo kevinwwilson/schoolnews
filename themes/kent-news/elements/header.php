@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('typography.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/forms.css') ?>" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('css/print.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/js/modal/jquery.modal.css "/>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jquery.main.js"></script>
     <script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>

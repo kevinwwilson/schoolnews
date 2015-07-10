@@ -567,7 +567,6 @@ z-index: 10;}
 
 #print-button {
     font-size: 12px;
-    position: absolute;
     top: 0px;
 }
 
@@ -575,8 +574,34 @@ z-index: 10;}
     text-decoration: none;
 }
 
+.share-caption {
+    float: left;
+    margin: 10px 3px 0 0;
+}
+
+#print {
+    background: url('../images/printer-32.png') no-repeat;
+    float: left;
+    height: 32px;
+    width: 32px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+#share {
+    border-right: 1px dotted #bbbbbb;
+    background: url('../images/sharethis_32.png') no-repeat 3px 0;
+    float: left;
+    margin: 0 9px 0 0px;
+    padding-right: 9px;
+    height: 32px;
+    width: 32px;
+}
+
 .upper-social-media {
     line-height: 9px;
+    color: #777777
 }
 
 
