@@ -67,7 +67,12 @@ foreach ($district as $d) {
         </h1>
     </div>
     <div class ="upper-social-media">
-        <a href="#social-share" rel="modal:open">Print / Share</a>
+        <span class="share-caption">Print</span>
+        <span id="print" onclick="window.print();"></span>
+        <span class="share-caption">Share</span>
+        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
+
+        
     </div>                         
 </header>
 <div class="article">
@@ -218,6 +223,7 @@ foreach ($district as $d) {
             <span class='st_pinterest_large' displayText='Pinterest'></span>
             <span class='st_googleplus_large' displayText='Google +'></span>
             <span class='st_tumblr_large' displayText='Tumblr'></span>
+            
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
             <span class='st_fblike_large' displayText='Facebook Like'></span>

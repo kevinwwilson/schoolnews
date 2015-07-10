@@ -46,10 +46,6 @@ jQuery(document).ready(function() {
     jQuery ("#article_content table").each(function(i) {
             jQuery(this).addClass('inline-sidebar');
     });
-    
-    jQuery("#print").on("click", function(){
-        $.modal.close();
-        window.print();
-    });
+
     
 });

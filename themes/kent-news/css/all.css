@@ -574,8 +574,26 @@ z-index: 10;}
     text-decoration: none;
 }
 
+.share-caption {
+    float: left;
+    margin: 10px 3px 0 0;
+}
+
+#print {
+    background: url('../images/printer-32.png') no-repeat;
+    border-right: 1px dotted #bbbbbb;
+    float: left;
+    height: 32px;
+    width: 32px;
+    position: relative;
+    margin: 0 9px 0 3px;
+    padding-right: 9px;
+    cursor: pointer;
+}
+
 .upper-social-media {
     line-height: 9px;
+    color: #777777
 }
 
 

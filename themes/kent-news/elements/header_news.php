@@ -25,7 +25,6 @@
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/respond.min.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/moment/moment.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jcaption/jcaption.min.js"></script>
-        <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/modal/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/ie.js"></script>
 	
 	<script>
