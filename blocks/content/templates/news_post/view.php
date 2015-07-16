@@ -45,7 +45,14 @@ foreach ($district as $d) {
 }
 ?>
 <root>
+    <div class ="upper-social-media">
+        <span class="share-caption">Share</span>
+        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class="share-caption">Print</span>
+        <span id="print" onclick="window.print();"></span>
+    </div>  
 <header class="heading">
+
     <div class="p-news">
         <h1>
             <span>
@@ -65,13 +72,7 @@ foreach ($district as $d) {
                 ?>
             </span>
         </h1>
-    </div>
-    <div class ="upper-social-media">
-        <span class="share-caption">Share</span>
-        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
-        <span class="share-caption">Print</span>
-        <span id="print" onclick="window.print();"></span>
-    </div>                         
+    </div>                      
 </header>
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
