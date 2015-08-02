@@ -30,7 +30,7 @@ Website: <a url ="http://www.kentcityschools.org/" target="_blank">http://www.ke
 <br/><br/>]]>
 </stateData>
 
-<stateData stateName="Thornapple Kellogg" url ="http://www.tkschools.org/Pages/districthome.aspx" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7" stateSize=" s1.35">
+<stateData stateName="Thornapple Kellogg" url ="http://www.tkschools.org/" stateMode = "ON" initialStateColor= "86C247" stateOverColor = "86C247" stateSelectedColor = "4AB5E7" stateSize=" s1.35">
 <![CDATA[<h1>Thornapple Kellogg</h1><br/>
 Website: <a url ="http://www.tkschools.org/Pages/districthome.aspx" target="_blank">http://www.tkschools.org/Pages/districthome.aspx</a>
 <br/><br/>]]>
@@ -76,7 +76,7 @@ Website: <a url ="http://www.wyoming.k12.mi.us/" target="_blank">http://www.wyom
 <![CDATA[ ]]>
 </stateData>
 
-<stateData stateName="Kelloggsville" url ="http://www.kvilleps.org/cms/One.aspx" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7" stateSize=" s2.5">
+<stateData stateName="Kelloggsville" url ="http://www.kvilleps.org" stateMode = "ON" initialStateColor= "F48F29" stateOverColor = "F48F29" stateSelectedColor = "4AB5E7" stateSize=" s2.5">
 <![CDATA[<h1>Kelloggsville</h1><br />
 Website: <a url ="http://www.kvilleps.org/cms/One.aspx" target="_blank">http://www.kvilleps.org/cms/One.aspx</a>
 <br />]]>
@@ -118,7 +118,7 @@ Website: <a url ="http://www.caledonia.k12.mi.us/" target="_blank">http://www.ca
 <br /><br />]]>
 </stateData>
 
-<stateData stateName="Godfrey Lee" url ="http://www.godfrey-lee.org/pages/Godfrey-LeePS" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7" stateSize=" s3">
+<stateData stateName="Godfrey Lee" url =" http://www.godfrey-lee.org" stateMode = "ON" initialStateColor= "4AB5E7" stateOverColor = "4AB5E7" stateSelectedColor = "4AB5E7" stateSize=" s3">
 <![CDATA[<h1>Godfrey Lee</h1><br />
 Website: <a url ="http://www.godfrey-lee.org/pages/Godfrey-LeePS" target="_blank">http://www.godfrey-lee.org/pages/Godfrey-LeePS</a>
 <br /><br />]]>
