@@ -53,7 +53,7 @@ class RssFeedController extends Controller  {
             
             $newItem->setDescription($desc);
             $newItem->setAuthor($article->author);
-                       
+            $newItem->addElement('image', null, array('url'=>$article->thumbnail));
             //Now add the feed item
             $Feed->addItem($newItem);
 
