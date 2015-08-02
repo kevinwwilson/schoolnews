@@ -15,11 +15,12 @@ class RssFeedController extends Controller  {
         Loader::library('FeedWriter/Item');
         Loader::library('FeedWriter/Feed');
         Loader::library('FeedWriter/ATOM');
+        Loader::library('FeedWriter/RSS2');
 
         date_default_timezone_set('UTC');
 
         //Creating an instance of RSS1 class.
-        $Feed = new ATOM;
+        $Feed = new \FeedWriter\RSS2();
 
         //Setting the channel elements
         //Use wrapper functions for common elements
@@ -27,11 +28,10 @@ class RssFeedController extends Controller  {
         $Feed->setTitle(SITE);
         $Feed->setLink(BASE_URL);
         $Feed->setDate(new DateTime());
-        
         //Set feed description to the home page description
         $home = Page::getByPath("/", 'active');
         $Feed->setDescription($home->getCollectionDescription());
-        
+        $Feed->addNamespace('media', 'http://search.yahoo.com/mrss/');
         //It's important for RSS 1.0 
         $Feed->setChannelAbout(BASE_URL . '/about');
 
@@ -52,8 +52,8 @@ class RssFeedController extends Controller  {
             $desc .= strip_tags($article->summary, "<br>,<em>,<strong>");
             
             $newItem->setDescription($desc);
-            $newItem->setAuthor($article->author);
-            $newItem->addElement('image', null, array('url'=>$article->thumbnail));
+//            $newItem->setAuthor($article->author);
+            $newItem->addElement('media:content', null, array('url'=>$article->thumbnail));
             //Now add the feed item
             $Feed->addItem($newItem);
 
