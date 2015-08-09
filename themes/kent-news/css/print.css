@@ -4,14 +4,17 @@
    #footer,
    #nav,
    #print-button,
+   #social-call,
+   #newsletter,
+   .heading,
    .comments-block,
-   .upper-social-media{
+   .upper-social-media,
+   #header{
        display: none;
     }
     
-    
-    #article_content {
-        width: auto;
+    #content {
+        width: 100%;
         padding: 0;
     }
     

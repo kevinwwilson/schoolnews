@@ -61,7 +61,7 @@ foreach ($district as $d) {
                 //if there are 4 or more or if a district is not supplied with the 
                 //article, then display "Kent ISD" as default backup
 
-                if (is_array($districtArr) && count($districtArr) < 4) {
+                if (is_array($districtArr) && count($districtArr) < 3) {
 
                     foreach ($districtArr as $d) {
                         echo $d, '<br/>';
