@@ -54,25 +54,25 @@ foreach ($district as $d) {
 <header class="heading">
 
     <div class="p-news">
-        <h1>
-            <span>
-                <?php
-                //if there are less than 4 districts, display them by name
-                //if there are 4 or more or if a district is not supplied with the 
-                //article, then display "Kent ISD" as default backup
-
-                if (is_array($districtArr) && count($districtArr) < 3) {
-
-                    foreach ($districtArr as $d) {
-                        echo $d, '<br/>';
-                    }
-                } else {
-                    echo '&nbsp';
-                }
-                ?>
-            </span>
-        </h1>
-    </div>                      
+        <?php
+        if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
+            $districtMap = $districtPagesHelper->getDistrictMap();
+            $districtUrl = $districtMap[$districtArr[0]];
+        ?>
+        <a href="<?php echo $districtUrl ?>">
+            <h1>
+                <span> <?php  echo $districtArr[0]; ?> </span>
+            </h1>
+        </a>
+        <span class="more-district">
+            <a href="<?php echo $districtUrl ?>">More District News</a>
+        </span>
+        <?php
+        } else {
+            echo '<h1>&nbsp</h1>';
+        }
+        ?>
+    </div>                       
 </header>
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
@@ -204,8 +204,6 @@ foreach ($district as $d) {
         <?php
         //don't display this part for an All Distrcits article, as that doesn't have a landing page.
         if ($districtArr[0] != 'All Districts') {
-            $districtMap = $districtPagesHelper->getDistrictMap();
-            $districtUrl = $districtMap[$districtArr[0]];
             $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
             echo $districtPageLink;
             echo '</div>'; //close the more-district div            
