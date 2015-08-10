@@ -7,19 +7,13 @@ class RssFeedController extends Controller  {
      public function view() {
          
         Loader::helper('get_news_info');
-        
-        
-//        $newsArticleList = GetNewsInfoHelper::getRecentNews();
-
-//        var_dump($newsArticleList); die();       
         Loader::library('FeedWriter/Item');
         Loader::library('FeedWriter/Feed');
-        Loader::library('FeedWriter/ATOM');
         Loader::library('FeedWriter/RSS2');
+        //Creating an instance of RSS1 class.
 
         date_default_timezone_set('UTC');
 
-        //Creating an instance of RSS1 class.
         $Feed = new \FeedWriter\RSS2();
 
         //Setting the channel elements
@@ -29,8 +23,8 @@ class RssFeedController extends Controller  {
         $Feed->setLink(BASE_URL);
         $Feed->setDate(new DateTime());
         //Set feed description to the home page description
-        $home = Page::getByPath("/", 'active');
-        $Feed->setDescription($home->getCollectionDescription());
+        $home = Page::getByID(1);
+        $Feed->setDescription($home->getAttribute('meta_description'));
         $Feed->addNamespace('media', 'http://search.yahoo.com/mrss/');
         //It's important for RSS 1.0 
         $Feed->setChannelAbout(BASE_URL . '/about');
