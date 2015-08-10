@@ -267,11 +267,12 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 						
 				$akct = CollectionAttributeKey::getByHandle('news_category');
 				$news_category = $cobj->getCollectionAttributeValue($akct);
-				
+//			var_dump(str_replace(array("'", '"'),array("\'",""), 'Camp "Invention" Coming to Innovation High'));
+//                        die();
 			?>
 			<tr>
 				<td width="60px">
-                                    <a href="javascript://" onclick="addtoselectedarticle('<?php echo $cobj->getCollectionID(); ?>','<?php echo str_replace("'","\'", $cobj->getCollectionName()); ?>','<?php echo $nh->getLinkToCollection($cobj); ?>')" class="add-link">Add</a>	
+                                    <a href="javascript://" onclick="addtoselectedarticle('<?php echo $cobj->getCollectionID(); ?>','<?php echo str_replace(array("'", '"'),array("\'",""), $cobj->getCollectionName()); ?>','<?php echo $nh->getLinkToCollection($cobj); ?>')" class="add-link">Add</a>	
 				</td>
 				<td> <a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $cobj->getCollectionName()?></a></td>
 				<td>
