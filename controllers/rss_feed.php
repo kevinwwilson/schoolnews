@@ -75,7 +75,7 @@ class RssFeedController extends Controller  {
 
         $newItem->setDescription($desc);
 
-        $newItem->addElement('media:content', null, array('url'=>$article->thumbnail));
+        $newItem->addElement('media:content', null, array('url'=>$article->thumbnail, 'medium'=>'image'));
         //Now add the feed item
         $feed->addItem($newItem);
     }
