@@ -43,7 +43,7 @@ class RssFeedController extends Controller  {
         //For other optional channel elements, use setChannelElement() function
         $feed->setTitle(SITE);
         $feed->setLink(BASE_URL);
-        $feed->setDate(new DateTime());
+//        $feed->setDate(new DateTime());
         //Set feed description to the home page description
         $home = Page::getByID(1);
         $feed->setDescription($home->getAttribute('meta_description'));
@@ -66,6 +66,7 @@ class RssFeedController extends Controller  {
         //Add elements to the feed item
         //Use wrapper functions to add common feed elements
         $newItem->setTitle(strip_tags($article->title));
+         $newItem->setAuthor($article->author, '');
         $newItem->setLink($article->link);
 
         $newItem->setDate($article->date);
