@@ -82,6 +82,10 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 /* header */
 #header{overflow:hidden;}
+
+#header .ad {
+    text-align: center;
+}
 .header-holder{
 	background:#eeefef url("/themes/kent-news/images/separator1.png") repeat-x 0 100%;
 	overflow:hidden;

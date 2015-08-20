@@ -35,15 +35,27 @@ $this->inc('elements/header.php');
                             $a->display($c);
                             ?> 
                         </div>
-                        <div class="ad1" id="div-gpt-ad-1417707641356-0">
+                        <div class="ad1">
+                            <!-- District Index Top Box Ad [async] -->
+                            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
                             <script type="text/javascript">
-                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707641356-0'); });
+                            var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+                            var abkw = window.abkw || '';
+                            var plc187875 = window.plc187875 || 0;
+                            document.write('<'+'div id="placement_187875_'+plc187875+'"></'+'div>');
+                            AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 187875, [300,250], 'placement_187875_'+opt.place, opt); }, opt: { place: plc187875++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
                             </script>
                         </div>
-                        <div class="ad2" id="div-gpt-ad-1417707677693-0">
+                        <div class="ad2">
+                            <!-- District Index Bottom Box Ad [async] -->
+                            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
                             <script type="text/javascript">
-                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1417707677693-0'); });
-                            </script>
+                            var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+                            var abkw = window.abkw || '';
+                            var plc187876 = window.plc187876 || 0;
+                            document.write('<'+'div id="placement_187876_'+plc187876+'"></'+'div>');
+                            AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 187876, [300,250], 'placement_187876_'+opt.place, opt); }, opt: { place: plc187876++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
+                            </script>                            
                         </div> 
                     </div>
 

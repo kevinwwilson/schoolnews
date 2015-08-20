@@ -54,32 +54,6 @@
             });
         });
         </script>
-
-        <script type='text/javascript'>
-            var googletag = googletag || {};
-            googletag.cmd = googletag.cmd || [];
-            (function() {
-            var gads = document.createElement('script');
-            gads.async = true;
-            gads.type = 'text/javascript';
-            var useSSL = 'https:' == document.location.protocol;
-            gads.src = (useSSL ? 'https:' : 'http:') + 
-            '//www.googletagservices.com/tag/js/gpt.js';
-            var node = document.getElementsByTagName('script')[0];
-            node.parentNode.insertBefore(gads, node);
-            })();
-        </script>
-
-        <script type='text/javascript'>
-            googletag.cmd.push(function() {
-            googletag.defineSlot('/17748645/EFP_SNN_LeaderBoard_728x90', [728, 90], 'div-gpt-ad-1418672784287-0').addService(googletag.pubads());
-            googletag.defineSlot('/17748645/EFP_SNN_A_MediumRectangle_300x250', [300, 250], 'div-gpt-ad-1417707641356-0').addService(googletag.pubads());
-            googletag.defineSlot('/17748645/EFP_SNN_B_MediumRectangle_300x250', [300, 250], 'div-gpt-ad-1417707677693-0').addService(googletag.pubads());
-            googletag.pubads().enableSingleRequest();
-            googletag.enableServices();
-            });
-        </script>
-
     
 </head>
 <body>
@@ -100,13 +74,17 @@
             <div class="wrapper-holder">
                 <!-- header -->
                 <header id="header">
-                    <!-- EFP_SNN_LeaderBoard_728x90 -->
-                    <div id='div-gpt-ad-1418672784287-0' class="banner-ad" style='width:728px; height:90px;'>
-                    <script type='text/javascript'>
-                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1418672784287-0'); });
-                    </script>
+                    <div class="ad">
+                        <!-- Header Banner [async] -->
+                        <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+                        <script type="text/javascript">
+                        var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+                        var abkw = window.abkw || '';
+                        var plc187409 = window.plc187409 || 0;
+                        document.write('<'+'div id="placement_187409_'+plc187409+'"></'+'div>');
+                        AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 187409, [728,90], 'placement_187409_'+opt.place, opt); }, opt: { place: plc187409++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
+                        </script>
                     </div>
-
 
                     <div class="header-frame">
                         <!-- logo -->
