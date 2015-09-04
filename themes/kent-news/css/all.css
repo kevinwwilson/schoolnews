@@ -633,6 +633,11 @@ z-index: 10;}
     padding-right: 5px
 }
 
+.p-news .district-logo img {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
 .heading .more-district {
     float:right;
 }

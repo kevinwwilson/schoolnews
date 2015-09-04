@@ -47,7 +47,7 @@ class DistrictPagesHelper{
                 ),
             'Caledonia Community Schools'       =>array (
                 'link' => '/districts/caledonia',
-                'image' => '',
+                'image' => 'ccs.png',
                 'abbrev'=> 'ccs'
                 ),
             'Cedar Springs Public Schools'      =>array (
