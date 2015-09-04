@@ -13,12 +13,46 @@ class GetNewsInfoHelper {
         return $news;
     }
 
+    /*
+     * Applies rules of featuring and de-duplicates list
+     */
+    public static function buildFeaturedList ($district) 
+    {
+        //how many district articles to include first
+        $districtNumber = 2;
+        
+        //what other articles to include after the featured district
+        $otherFeatures = array (
+            'Kent ISD',
+            'All Districts'
+        );
+        
+        //how many of each of the other articles to include
+        $otherNumber = 3;
+        
+        //build district list first
+        $districtList = static::getRecentNews(2, $district);
+        foreach ($districtList as $districtArticle) {
+            $articleList[$districtArticle->link] = $districtArticle; 
+        }
+        
+        
+        foreach ($otherFeatures as $feature) {
+            $secondaryList = static::getRecentNews($otherNumber, $feature);
+            foreach ($secondaryList as $secondaryArticle) {
+                $articleList[$secondaryArticle->link] = $secondaryArticle;
+            }
+        }
+        return array_values($articleList);
+    }
+
+
     /**
      * 
      * @param int $articles - number of articles to retrieve
      * @return PageList of articles
      */
-    public static function getRecentNews($articles = 50) {
+    public static function getRecentNews($articles = 50, $district = null) {
 
         Loader::model('page_list');
         Loader::model('article');
@@ -36,6 +70,9 @@ class GetNewsInfoHelper {
 
         $newsArticles = new PageList();
         $newsArticles->filterByParentID($pageIds);
+        if ($district) {
+            $newsArticles->filter(false, "(ak_district like '%$district%')");
+        }
         $newsArticles->filter(false, "ak_group_status like '%Published%'");
         $newsArticles->setItemsPerPage($articles);
         $newsArticles->sortBy('cvDatePublic', 'desc');

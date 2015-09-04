@@ -5,8 +5,11 @@ class RssFeedController extends Controller  {
 
     
      public function view() {
-        
-        $feed = $this->createFeed();
+        $districtAbbrev = filter_input(INPUT_GET, 'district', FILTER_DEFAULT);
+        $districtPagesHelper = Loader::helper('district_pages');
+        $districtName = $districtPagesHelper->getByAbbrev($districtAbbrev);
+         
+        $feed = $this->createFeed($districtName);
 
         //OK. Everything is done. Now generate the feed.
         $this->set('feed',$feed);
@@ -27,7 +30,7 @@ class RssFeedController extends Controller  {
         }
     }
     
-    public function createFeed() {
+    public function createFeed($district) {
         Loader::helper('get_news_info');
         Loader::library('FeedWriter/Item');
         Loader::library('FeedWriter/Feed');
@@ -52,7 +55,13 @@ class RssFeedController extends Controller  {
         $feed->setChannelAbout(BASE_URL . '/about');
 
         //Adding a feed. Generally this portion will be in a loop and add all feeds.
-        $newsArticleList = GetNewsInfoHelper::getRecentNews();
+
+        //Get featured district articles, if necessary 
+        if ($district) {
+            $newsArticleList = GetNewsInfoHelper::buildFeaturedList($district);
+        } else {
+            $newsArticleList = GetNewsInfoHelper::getRecentNews();
+        }
         
         foreach ($newsArticleList as $article) {
             $this->addFeedItem($feed, $article);
