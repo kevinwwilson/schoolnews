@@ -59,6 +59,9 @@ foreach ($district as $d) {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
         <a href="<?php echo $districtUrl ?>">
+            <div class="district_logo">
+                <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
+            </div>
             <h1>
                 <span> <?php  echo $districtArr[0]; ?> </span>
             </h1>

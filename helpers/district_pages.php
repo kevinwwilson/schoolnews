@@ -14,9 +14,11 @@ class DistrictPagesHelper{
     
     public function getDistrictImage($district)
     {
+        $districtLogoPath = '/logo/district/';
+        
         $map = $this->getDistrictMap();
         if (array_key_exists($district, $map)) {
-            return $map[$district]['link'];
+            return $districtLogoPath . $map[$district]['image'];
         } else {
             return null;
         }
@@ -40,7 +42,7 @@ class DistrictPagesHelper{
         return array(
             'Byron Center Public Schools'       =>array (
                 'link'  => '/districts/byron-center',
-                'image' => '',
+                'image' => 'bcps.png',
                 'abbrev'=> 'bcps'
                 ),
             'Caledonia Community Schools'       =>array (
