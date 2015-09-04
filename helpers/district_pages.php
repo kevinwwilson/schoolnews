@@ -156,7 +156,7 @@ class DistrictPagesHelper{
             'Calvin Christian Schools'          =>array (
                 'link' => '',
                 'image' => '',
-                'abbrev'=> ''
+                'abbrev'=> 'cc'
                 ),
             );    
     }

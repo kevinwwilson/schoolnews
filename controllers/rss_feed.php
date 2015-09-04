@@ -8,7 +8,7 @@ class RssFeedController extends Controller  {
         $districtAbbrev = filter_input(INPUT_GET, 'district', FILTER_DEFAULT);
         $districtPagesHelper = Loader::helper('district_pages');
         $districtName = $districtPagesHelper->getByAbbrev($districtAbbrev);
-         
+
         $feed = $this->createFeed($districtName);
 
         //OK. Everything is done. Now generate the feed.
