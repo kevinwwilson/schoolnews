@@ -45,36 +45,41 @@ foreach ($district as $d) {
 }
 ?>
 <root>
+
+<header class="heading">
     <div class ="upper-social-media">
         <span class="share-caption">Share</span>
         <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
+        <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
     </div>  
-<header class="heading">
-
+   
     <div class="p-news">
         <?php
         if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
-        <a href="<?php echo $districtUrl ?>">
-            <div class="district-logo">
+         <div class="district-logo">
                 <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
             </div>
+        <a href="<?php echo $districtUrl ?>">
+            
             <h1>
                 <span> <?php  echo $districtArr[0]; ?> </span>
             </h1>
+            
         </a>
         <span class="more-district">
             <a href="<?php echo $districtUrl ?>">More District News</a>
         </span>
+        
         <?php
         } else {
             echo '<h1>&nbsp</h1>';
         }
         ?>
-    </div>                       
+    </div>
 </header>
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>

@@ -281,7 +281,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 .content-block .post{
 	padding:10px 20px 0 0;
-	background:none;
+	background: url("/themes/kent-news/images/separator2.png") repeat-x scroll 0px 100% transparent;
 }
 
 .home .dateline,
@@ -606,7 +606,15 @@ z-index: 10;}
 
 .upper-social-media {
     line-height: 9px;
-    color: #777777
+    color: #777777;
+    float: left;
+}
+
+.share-story {
+    float: left;
+    width: 135px;
+    margin: 5px 0 0 9px;
+    clear: left;
 }
 
 
@@ -644,6 +652,17 @@ z-index: 10;}
 
 .heading .more-district a {
     color: #928EC2;
+}
+
+.heading h1 {
+    width: 428px;
+    text-align: right;
+}
+
+.heading .district-name {
+    width: 523px;
+    text-align: right;
+    float: right;
 }
 
 /* search-box */
