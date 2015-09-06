@@ -33,7 +33,9 @@ class GetNewsInfoHelper {
         //build district list first
         $districtList = static::getRecentNews(2, $district);
         foreach ($districtList as $districtArticle) {
+            $districtArticle->date = date(DATE_RSS);
             $articleList[$districtArticle->link] = $districtArticle; 
+            
         }
         
         
