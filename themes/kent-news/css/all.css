@@ -644,10 +644,14 @@ z-index: 10;}
 .p-news .district-logo img {
     padding-right: 0px;
     padding-left: 5px;
+    height: 70px;
+    width: auto;
 }
 
 .heading .more-district {
     float:right;
+    width: 50%;
+    text-align: right;
 }
 
 .heading .more-district a {
@@ -655,8 +659,8 @@ z-index: 10;}
 }
 
 .heading h1 {
-    width: 428px;
-    text-align: right;
+    width: 310px;
+    float: right;
 }
 
 .heading .district-name {
@@ -1632,6 +1636,11 @@ float: right;
 		display:inline-block;
 		vertical-align:top;
 	}
+        
+        .upper-social-media {
+                display:none;
+        }
+        
 }
 @media only screen and (max-width: 767px){
 	.header-holder{padding:15px;}
@@ -1693,9 +1702,6 @@ float: right;
 		width: 100%;
 	}
         
-        .upper-social-media {
-                display:none;
-        }
         
         .header-frame .search-form {
             position: absolute;
@@ -1768,6 +1774,12 @@ float: right;
         
 }
 
+@media only screen and (max-width: 450px)  {
+    .district-logo {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 320px){
 
 	#article_content img	{
@@ -1784,4 +1796,3 @@ float: right;
             float: none;
         }
 }
-

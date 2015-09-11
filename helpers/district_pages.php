@@ -17,7 +17,7 @@ class DistrictPagesHelper{
         $districtLogoPath = '/logo/district/';
         
         $map = $this->getDistrictMap();
-        if (array_key_exists($district, $map)) {
+        if (array_key_exists($district, $map) && strlen($map[$district]['image']) > 0) {
             return $districtLogoPath . $map[$district]['image'];
         } else {
             return null;

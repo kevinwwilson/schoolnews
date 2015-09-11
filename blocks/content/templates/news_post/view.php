@@ -60,9 +60,11 @@ foreach ($district as $d) {
         if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
-         <div class="district-logo">
-                <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
-            </div>
+        <?php if (!@is_null($districtPagesHelper->getDistrictImage($districtArr[0])))  { ?>
+        <div class="district-logo">
+            <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
+        </div>
+        <?php  } ?>
         <a href="<?php echo $districtUrl ?>">
             
             <h1>
