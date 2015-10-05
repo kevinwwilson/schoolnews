@@ -1,6 +1,6 @@
 <?php
 class DistrictPagesHelper{
-    
+
     public function getDistrictMap()
     {
         return array(
@@ -13,7 +13,7 @@ class DistrictPagesHelper{
         'Godwin Heights Public Schools' => '/districts/godwin-heights',
         'Godfrey Lee Public Schools'=>'/districts/godfrey-lee',
         'Grand Rapids Public Schools - GRPS'=>'/districts/grand-rapids',
-        'Grandville Public Schools'=>'',
+        'Grandville Public Schools'=>'/districts/grandville',
         'Kelloggsville Public Schools'=>'/districts/kelloggsville',
         'Kenowa Hills Public Schools'=>'/districts/kenowa-hills',
         'Kent ISD'=>'/districts/kent-isd',
@@ -28,6 +28,6 @@ class DistrictPagesHelper{
         'Catholic Diocese of Grand Rapids'=>'',
         'Grand Rapids Christian Schools'=>'',
         'Calvin Christian Schools'=>'',
-        );    
+        );
     }
 }
