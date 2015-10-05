@@ -1,33 +1,165 @@
 <?php
 class DistrictPagesHelper{
 
-    public function getDistrictMap()
+    public function getDistrictLink($district)
+    {
+        $map = $this->getDistrictMap();
+        if (array_key_exists($district, $map)) {
+            return $map[$district]['link'];
+        } else {
+            return null;
+        }
+
+    }
+
+    public function getDistrictImage($district)
+    {
+        $map = $this->getDistrictMap();
+        if (array_key_exists($district, $map)) {
+            return $map[$district]['link'];
+        } else {
+            return null;
+        }
+
+    }
+
+    public function getByAbbrev($abbrev)
+    {
+        $map = $this->getDistrictMap();
+        foreach ($map as $districtName => $districtInfo) {
+            if ($districtInfo['abbrev'] == $abbrev) {
+                return $districtName;
+            }
+        }
+        return null;
+    }
+
+
+    private function getDistrictMap()
     {
         return array(
-        'Byron Center Public Schools' =>'/districts/byron-center',
-        'Caledonia Community Schools'=>'/districts/caledonia',
-        'Cedar Springs Public Schools'=>'/districts/cedar-springs',
-        'Comstock Park Public Schools'=>'/districts/comstock-park',
-        'East Grand Rapids Public Schools'=>'/districts/east-grand-rapids',
-        'Forest Hills Public Schools'=>'/districts/forest-hills',
-        'Godwin Heights Public Schools' => '/districts/godwin-heights',
-        'Godfrey Lee Public Schools'=>'/districts/godfrey-lee',
-        'Grand Rapids Public Schools - GRPS'=>'/districts/grand-rapids',
-        'Grandville Public Schools'=>'/districts/grandville',
-        'Kelloggsville Public Schools'=>'/districts/kelloggsville',
-        'Kenowa Hills Public Schools'=>'/districts/kenowa-hills',
-        'Kent ISD'=>'/districts/kent-isd',
-        'Kent City Community Schools'=>'/districts/kent-city',
-        'Kentwood Public Schools'=>'/districts/kentwood',
-        'Lowell Area Schools'=>'/districts/Lowell',
-        'Northview Public Schools'=>'/districts/northview',
-        'Rockford Public Schools'=>'/districts/rockford',
-        'Sparta Area Schools'=>'/districts/sparta',
-        'Thornapple Kellogg Schools'=>'/districts/thornapple-kellogg',
-        'Wyoming Public Schools'=>'/districts/wyoming',
-        'Catholic Diocese of Grand Rapids'=>'',
-        'Grand Rapids Christian Schools'=>'',
-        'Calvin Christian Schools'=>'',
-        );
+            'Byron Center Public Schools'       =>array (
+                'link'  => '/districts/byron-center',
+                'image' => '',
+                'abbrev'=> 'bcps'
+                ),
+            'Caledonia Community Schools'       =>array (
+                'link' => '/districts/caledonia',
+                'image' => '',
+                'abbrev'=> 'ccs'
+                ),
+            'Cedar Springs Public Schools'      =>array (
+                'link' => '/districts/cedar-springs',
+                'image' => '',
+                'abbrev'=> 'csps'
+                ),
+            'Comstock Park Public Schools'      =>array (
+               'link' => '/districts/comstock-park',
+                'image' => '',
+                'abbrev'=> 'cpps'
+                ),
+            'East Grand Rapids Public Schools'  =>array (
+                'link' => '/districts/east-grand-rapids',
+                'image' => '',
+                'abbrev'=> 'egr'
+                ),
+            'Forest Hills Public Schools'       =>array (
+                'link' => '/districts/forest-hills',
+                'image' => '',
+                'abbrev'=> 'fhps'
+                ),
+            'Godwin Heights Public Schools'     =>array (
+                'link' => '/districts/godwin-heights',
+                'image' => '',
+                'abbrev'=> 'ghps'
+                ),
+            'Godfrey Lee Public Schools'        =>array (
+                'link' => '/districts/godfrey-lee',
+                'image' => '',
+                'abbrev'=> 'glps'
+                ),
+            'Grand Rapids Public Schools - GRPS'=>array (
+                'link' => '/districts/grand-rapids',
+                'image' => '',
+                'abbrev'=> 'grps'
+                ),
+            'Grandville Public Schools'         =>array (
+                'link' => '/districts/grandville',
+                'image' => '',
+                'abbrev'=> 'gps'
+                ),
+            'Kelloggsville Public Schools'      =>array (
+                'link' => '/districts/kelloggsville',
+                'image' => '',
+                'abbrev'=> 'kps'
+                ),
+            'Kenowa Hills Public Schools'       =>array (
+                'link' => '/districts/kenowa-hills',
+                'image' => '',
+                'abbrev'=> 'khps'
+                ),
+            'Kent ISD'                          =>array (
+                'link' => '/districts/kent-isd',
+                'image' => '',
+                'abbrev'=> 'kisd'
+                ),
+            'Kent City Community Schools'       =>array (
+                'link' => '/districts/kent-city',
+                'image' => '',
+                'abbrev'=> 'kccs'
+                ),
+            'Kentwood Public Schools'           =>array (
+                'link' => '/districts/kentwood',
+                'image' => '',
+                'abbrev'=> 'kps'
+                ),
+            'Lowell Area Schools'               =>array (
+                'link' => '/districts/Lowell',
+                'image' => '',
+                'abbrev'=> 'las'
+                ),
+            'Northview Public Schools'          =>array (
+                'link' => '/districts/northview',
+                'image' => '',
+                'abbrev'=> 'nps'
+                ),
+            'Rockford Public Schools'           =>array (
+                'link' => '/districts/rockford',
+                'image' => '',
+                'abbrev'=> 'rps'
+                ),
+            'Sparta Area Schools'               =>array (
+                'link' => '/districts/sparta',
+                'image' => '',
+                'abbrev'=> 'sas'
+                ),
+            'Thornapple Kellogg Schools'        =>array (
+                'link' => '/districts/thornapple-kellogg',
+                'image' => '',
+                'abbrev'=> 'tks'
+                ),
+            'Wyoming Public Schools'            =>array (
+                'link' => '/districts/wyoming',
+                'image' => '',
+                'abbrev'=> 'wps'
+                ),
+            'Catholic Diocese of Grand Rapids'  =>array (
+                'link' => '',
+                'image' => '',
+                'abbrev'=> 'cdgr'
+                ),
+            'Grand Rapids Christian Schools'    =>array (
+                'link' => '',
+                'image' => '',
+                'abbrev'=> 'grcs'
+                ),
+            'Calvin Christian Schools'          =>array (
+                'link' => '',
+                'image' => '',
+                'abbrev'=> 'cc'
+                ),
+            );
     }
+
+
 }

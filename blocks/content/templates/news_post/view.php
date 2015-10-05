@@ -56,8 +56,7 @@ foreach ($district as $d) {
     <div class="p-news">
         <?php
         if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
-            $districtMap = $districtPagesHelper->getDistrictMap();
-            $districtUrl = $districtMap[$districtArr[0]];
+            $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
         <a href="<?php echo $districtUrl ?>">
             <h1>
