@@ -91,7 +91,7 @@ class DistrictPagesHelper{
             'Kelloggsville Public Schools'      =>array (
                 'link' => '/districts/kelloggsville',
                 'image' => '',
-                'abbrev'=> 'kps'
+                'abbrev'=> 'kvps'
                 ),
             'Kenowa Hills Public Schools'       =>array (
                 'link' => '/districts/kenowa-hills',
