@@ -1,6 +1,6 @@
 <?php
 class DistrictPagesHelper{
-    
+
     public function getDistrictLink($district)
     {
         $map = $this->getDistrictMap();
@@ -9,22 +9,22 @@ class DistrictPagesHelper{
         } else {
             return null;
         }
-        
+
     }
-    
+
     public function getDistrictImage($district)
     {
         $districtLogoPath = '/logo/district/';
-        
+
         $map = $this->getDistrictMap();
         if (array_key_exists($district, $map) && strlen($map[$district]['image']) > 0) {
             return $districtLogoPath . $map[$district]['image'];
         } else {
             return null;
         }
-        
+
     }
-    
+
     public function getByAbbrev($abbrev)
     {
         $map = $this->getDistrictMap();
@@ -92,8 +92,8 @@ class DistrictPagesHelper{
                 ),
             'Kelloggsville Public Schools'      =>array (
                 'link' => '/districts/kelloggsville',
-                'image' => 'ks.jpg',
-                'abbrev'=> 'ks'
+                'image' => 'kvps.jpg',
+                'abbrev'=> 'kvps'
                 ),
             'Kenowa Hills Public Schools'       =>array (
                 'link' => '/districts/kenowa-hills',
@@ -160,8 +160,8 @@ class DistrictPagesHelper{
                 'image' => '',
                 'abbrev'=> 'cc'
                 ),
-            );    
+            );
     }
-    
-    
+
+
 }
