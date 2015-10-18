@@ -53,8 +53,8 @@ foreach ($district as $d) {
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
         <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
-    </div>  
-   
+    </div>
+
     <div class="p-news">
         <?php
         if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
@@ -66,16 +66,16 @@ foreach ($district as $d) {
         </div>
         <?php  } ?>
         <a href="<?php echo $districtUrl ?>">
-            
+
             <h1>
-                <span> <?php  echo $districtArr[0]; ?> </span>
+                <span> <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?> </span>
             </h1>
-            
+
         </a>
         <span class="more-district">
             <a href="<?php echo $districtUrl ?>">More District News</a>
         </span>
-        
+
         <?php
         } else {
             echo '<h1>&nbsp</h1>';
@@ -117,21 +117,21 @@ foreach ($district as $d) {
                         $image = '';
                         $image = '<img alt="" src="' . $thumb->src . '">';
                         echo $image;
-                        ?>                
+                        ?>
 
                         <strong class="title"><?php echo htmlspecialchars_decode($sliders[1]) ?></strong>
                     </li>
-    <?php } ?>      
+    <?php } ?>
             </ul>
             <nav>
                 <ul class="switcher">
                     <?php foreach ($sliderimages as $simages) { ?>
                         <li class=""><a href="#"></a></li>
-    <?php } ?>            
+    <?php } ?>
                 </ul>
             </nav>
         </div>
-<?php } ?> 
+<?php } ?>
 
 
     <h2><?php echo $newsTitle ?></h2>
@@ -144,15 +144,15 @@ foreach ($district as $d) {
         } else {
             echo '<span class="dateline"> — &nbsp</span>';
         }
-        
+
         $content = $controller->getContent();
         print $content;
         ?>
         <strong class="date">Submitted on: <span id="pub_date"><?php echo $newsDate; ?></span></strong>
         <div class="article-box">
-            
-            
-            
+
+
+
                         <!-- Article Box [async] -->
             <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
             <script type="text/javascript">
@@ -203,19 +203,19 @@ foreach ($district as $d) {
                     <?php echo $article->Headline ?>
                 </a>
             </h3>
-            <div class="news-summary"><?php echo '<span class="dateline">' 
-            . $dateline . ', MI — &nbsp</span>' 
+            <div class="news-summary"><?php echo '<span class="dateline">'
+            . $dateline . ', MI — &nbsp</span>'
                     . $article->Summary?>
             </div>
         </div>
     <?php } //end foreach ?>
-        
+
         <?php
         //don't display this part for an All Distrcits article, as that doesn't have a landing page.
         if ($districtArr[0] != 'All Districts') {
             $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
             echo $districtPageLink;
-            echo '</div>'; //close the more-district div            
+            echo '</div>'; //close the more-district div
         }
 
     } //end if only one district
@@ -229,7 +229,7 @@ foreach ($district as $d) {
             <span class='st_pinterest_large' displayText='Pinterest'></span>
             <span class='st_googleplus_large' displayText='Google +'></span>
             <span class='st_tumblr_large' displayText='Tumblr'></span>
-            
+
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
             <span class='st_fblike_large' displayText='Facebook Like'></span>
@@ -238,7 +238,7 @@ foreach ($district as $d) {
             <a id="print" title="Print this Article" href="">
                 <span class="glyphicon glyphicon-print"></span>
                 <span class="print-text">Print Article</span>
-            </a>                            
-        </span> 
+            </a>
+        </span>
     </div>
 </div>

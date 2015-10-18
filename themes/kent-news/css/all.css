@@ -659,8 +659,12 @@ z-index: 10;}
 }
 
 .heading h1 {
-    width: 310px;
+    width: 315px;
     float: right;
+}
+
+#content .heading br {
+	margin-bottom: 0px;
 }
 
 .heading .district-name {
