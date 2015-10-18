@@ -635,8 +635,6 @@ z-index: 10;}
 }
 
 .district-logo img {
-    height: 75px;
-    width: auto;
     float: right;
     padding-right: 5px
 }
@@ -644,13 +642,11 @@ z-index: 10;}
 .p-news .district-logo img {
     padding-right: 0px;
     padding-left: 5px;
-    height: 70px;
-    width: auto;
 }
 
 .heading .more-district {
     float:right;
-    width: 50%;
+    width: 55%;
     text-align: right;
 }
 

@@ -62,7 +62,9 @@ foreach ($district as $d) {
         ?>
         <?php if (!@is_null($districtPagesHelper->getDistrictImage($districtArr[0])))  { ?>
         <div class="district-logo">
-            <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
+            <div>
+                <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
+            </div>
         </div>
         <?php  } ?>
         <a href="<?php echo $districtUrl ?>">

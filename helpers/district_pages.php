@@ -84,13 +84,13 @@ class DistrictPagesHelper{
             'Forest Hills Public Schools'       =>array (
                 'title' => 'Forest Hills<br/>Public Schools',
                 'link' => '/districts/forest-hills',
-                'image' => 'fhps.jpg',
+                'image' => 'fhps.gif',
                 'abbrev'=> 'fhps'
                 ),
             'Godwin Heights Public Schools'     =>array (
                 'title' => 'Godwin Heights<br/>Public Schools',
                 'link' => '/districts/godwin-heights',
-                'image' => '',
+                'image' => 'placeholder.jpg',
                 'abbrev'=> 'ghps'
                 ),
             'Godfrey Lee Public Schools'        =>array (
@@ -99,7 +99,7 @@ class DistrictPagesHelper{
                 'image' => 'glps.jpg',
                 'abbrev'=> 'glps'
                 ),
-            'Grand Rapids Public Schools - GRPS'=>array (
+            'Grand Rapids Public Schools (GRPS)'=>array (
                 'title' => 'Grand Rapids<br/>Public Schools',
                 'link' => '/districts/grand-rapids',
                 'image' => 'grps.jpg',
@@ -124,7 +124,7 @@ class DistrictPagesHelper{
                 'abbrev'=> 'khps'
                 ),
             'Kent ISD'                          =>array (
-                'title' => 'Kent ISD',
+                'title' => '&nbsp;',
                 'link' => '/districts/kent-isd',
                 'image' => 'kisd.png',
                 'abbrev'=> 'kisd'
