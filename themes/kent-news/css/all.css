@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {display: block;}
 body{
 	min-width:320px;
@@ -57,7 +57,7 @@ a{
 }
 a:hover {text-decoration:underline;}
 a:active {background-color: transparent;}
-input[type="submit"]::-moz-focus-inner{ 
+input[type="submit"]::-moz-focus-inner{
 	border: 0;
 	padding: 0;
 }
@@ -181,7 +181,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	/*background:url("/themes/kent-news/images/separator3.png") repeat-y 79% 0;  Removed dividng line per request*/
 }
 #main:after{
-	content:'';   
+	content:'';
 	display:block;
 	clear:both;
 }
@@ -287,7 +287,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 .home .dateline,
 .home .summary,
 .home .read_more {
-    
+
    font-size: 14px;
    line-height: 20px;
 }
@@ -338,7 +338,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 position: relative;
 right: 1px;
 z-index: 10;}
-.dateline{float:left;} 
+.dateline{float:left;}
 .img-caption.right{float:right;}
 
 
@@ -515,7 +515,7 @@ z-index: 10;}
 .news-box .expandable-box {
      z-index: 10;
      width: 196px;
-     
+
 }
 
 .news-box .expandable-box .opener:after {
@@ -566,7 +566,7 @@ z-index: 10;}
 /* news-block */
 .news-block{
 	padding:27px 0 0;
-       
+
 }
 
 #print-button {
@@ -638,7 +638,8 @@ z-index: 10;}
 }
 
 .heading .more-district a {
-    color: #928EC2;
+    color: #4A439A;
+		font-size: 13px;
 }
 
 /* search-box */
@@ -735,7 +736,7 @@ z-index: 10;}
 
 .district-list .feature-area .text-holder {
 	width: 289px;
-}	
+}
 
 .ad2{
     margin-top: 15px;
@@ -856,6 +857,11 @@ margin-top: -60px;
     width: 100%;
 }
 
+#more-district .district-page a {
+	color: #4A439A;
+	font-size: 13px;
+}
+
 
 #more-district img {
     float: left;
@@ -869,7 +875,7 @@ margin-top: -60px;
 }
 
 #more-district .listing:first-child {
-    margin: 0 25px 0px 0px; 
+    margin: 0 25px 0px 0px;
 }
 
 #more-district h3 a{
@@ -885,7 +891,7 @@ margin-top: -60px;
     clear: both;
 }
 /* image-holder */
-.image-holder, 
+.image-holder,
 .slideshow-holder{
 	float:left;
 	margin:3px 27px 0 0;
@@ -910,13 +916,13 @@ margin-top: -60px;
 .image-holder .title,
 .slideshow-holder .title{
 	width:100%;
-		
+
 	/*  Taken out per request from Allison to have captions underneath
 	position:absolute;
 	background:url("/themes/kent-news/images/transparent1.png");
 	padding:7px 11px 3px;
 	*/
-	
+
 	font-weight:normal;
 	font-size: 11px;
 	bottom:0;
@@ -924,7 +930,7 @@ margin-top: -60px;
 	z-index:2;
 	display: block;
 	margin-top: 5px;
-	
+
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1064,7 +1070,7 @@ float: right;
 
 
 .guest .news-block {
-	border-top:1px solid #CFD0D1; 
+	border-top:1px solid #CFD0D1;
 	clear: both;
 }
 /*  Was used to hide those that already had shown on top
@@ -1073,7 +1079,7 @@ float: right;
 }
 */
 .guest .news-list {
-	border-top:1px solid #CFD0D1; 
+	border-top:1px solid #CFD0D1;
 }
 
 .guest .heading.news-block {
@@ -1089,7 +1095,7 @@ float: right;
 }
 
 .article.guest li {
-    
+
     border: none;
     padding: 0px;
 }
@@ -1219,7 +1225,7 @@ float: right;
 	padding:33px 0 17px 24px;
 	margin:0 0 0 10px;
 }
-#sidebar h2, 
+#sidebar h2,
 .issue-link span{
 	font:normal 15px/17px 'Oswald', Arial, Helvetica, sans-serif;
 	text-transform:uppercase;
@@ -1227,7 +1233,7 @@ float: right;
 	z-index:2;
 	color:#928ec2;
 	margin:0 0 9px;
-} 
+}
 #sidebar .more{
 	display:inline-block;
 	vertical-align:top;
@@ -1236,7 +1242,7 @@ float: right;
 }
 
 #sidebar ul {
-    
+
 }
 
 #sidebar li {
@@ -1273,7 +1279,7 @@ float: right;
 
 /*highlight-box*/
 #sidebar .highlight-box {
-    
+
 }
 
 .highlight-box {
@@ -1284,7 +1290,7 @@ float: right;
     background: none repeat scroll 0 0 #A4CF63;
     font: 20px/24px 'Open Sans Condensed',Arial,Helvetica,sans-serif;
     padding: 0px 5px;
-    color: #fff; 
+    color: #fff;
     font-variant: small-caps;
     font-weight: bold;
 }
@@ -1474,7 +1480,7 @@ float: right;
     margin: 6px 0px 0px 0px;
     font-size: 13px;
     font-weight: bold;
-    width: 300px;   
+    width: 300px;
     float: left;
 }
 
@@ -1591,7 +1597,7 @@ float: right;
 	}
 	.slideshow{height:234px}
 	.items-block-holder{margin:0 -10px 0 0;}
-	
+
 	#print-button {
 		display:none;
 	}
@@ -1664,50 +1670,50 @@ float: right;
 		text-align:center;
 	}
 	#sidebar{width:100%;}
-	
+
 	.footer-text div {
 		width: 100%;
 	}
-        
+
         .upper-social-media {
                 display:none;
         }
-        
+
         .header-frame .search-form {
             position: absolute;
             top: 130px;
             width: 294px;
             float: left;
         }
-        
+
         #header,
         .header-frame {
             overflow: visible;
         }
-        
-        
+
+
         /* Per request - hide news by region from appearing when page stacked*/
         .news-region {
             display:none;
         }
-	
-	
-	
+
+
+
 }
 @media only screen and (max-width: 600px){
 	.news-block h1{	font:normal 22px/25px 'Oswald', Arial, Helvetica, sans-serif;}
 	.text-holder,
 	.feature-area .text-holder,
 	.feature-area
-	
+
 	{
 		float:none;
 		width:100%;
 		margin:0 0 20px;
 		padding:2px 0 7px;
 	}
-	
-	
+
+
 	.image-holder,
 	.slideshow-holder,
 .footer-text	{
@@ -1735,13 +1741,13 @@ float: right;
             bottom: 2px;
             font-size: 10px;
         }
-        
+
     #more-district .listing {
         float: none;
         width: 100%;
         clear: both;
     }
-        
+
 }
 
 @media only screen and (max-width: 320px){
@@ -1749,9 +1755,9 @@ float: right;
 	#article_content img	{
 		width: 100% !important;
 	}
-	
+
 	#article_content .img-small,
-	#article_content .img-small-caption 
+	#article_content .img-small-caption
 	{
 		width: 50% !important;
 	}
@@ -1760,4 +1766,3 @@ float: right;
             float: none;
         }
 }
-
