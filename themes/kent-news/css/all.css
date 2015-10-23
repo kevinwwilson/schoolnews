@@ -1322,7 +1322,7 @@ float: right;
     padding: 5px;
 }
 /* links-box */
-.links-box{padding:0 0 18px;}
+.links-box{padding:0 0 0px;}
 #sidebar .links-box h2{
 	font:11px/13px 'Open Sans', Arial, Helvetica, sans-serif;
 	color:#a4cf62;
