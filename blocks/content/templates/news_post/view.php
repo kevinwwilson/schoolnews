@@ -47,10 +47,10 @@ foreach ($district as $d) {
 <root>
     <div class ="upper-social-media">
         <span class="share-caption">Share</span>
-        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
+        <span id="share" class='st_sharethis_large' displayText='ShareThis' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
-    </div>  
+    </div>
 <header class="heading">
 
     <div class="p-news">
@@ -71,7 +71,7 @@ foreach ($district as $d) {
             echo '<h1>&nbsp</h1>';
         }
         ?>
-    </div>                       
+    </div>
 </header>
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
@@ -107,21 +107,21 @@ foreach ($district as $d) {
                         $image = '';
                         $image = '<img alt="" src="' . $thumb->src . '">';
                         echo $image;
-                        ?>                
+                        ?>
 
                         <strong class="title"><?php echo htmlspecialchars_decode($sliders[1]) ?></strong>
                     </li>
-    <?php } ?>      
+    <?php } ?>
             </ul>
             <nav>
                 <ul class="switcher">
                     <?php foreach ($sliderimages as $simages) { ?>
                         <li class=""><a href="#"></a></li>
-    <?php } ?>            
+    <?php } ?>
                 </ul>
             </nav>
         </div>
-<?php } ?> 
+<?php } ?>
 
 
     <h2><?php echo $newsTitle ?></h2>
@@ -134,15 +134,15 @@ foreach ($district as $d) {
         } else {
             echo '<span class="dateline"> — &nbsp</span>';
         }
-        
+
         $content = $controller->getContent();
         print $content;
         ?>
         <strong class="date">Submitted on: <span id="pub_date"><?php echo $newsDate; ?></span></strong>
         <div class="article-box">
-            
-            
-            
+
+
+
                         <!-- Article Box [async] -->
             <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
             <script type="text/javascript">
@@ -162,7 +162,7 @@ foreach ($district as $d) {
         <h3>Spread the word!</h3></div>
     <div id="HTMLBlock648" class="HTMLBlock">
         <div id="social-media">
-            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_facebook_large' displayText='Facebook' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
             <span class='st_twitter_large' displayText='Tweet'></span>
             <span class='st_linkedin_large' displayText='LinkedIn'></span>
             <span class='st_pinterest_large' displayText='Pinterest'></span>
@@ -170,7 +170,7 @@ foreach ($district as $d) {
             <span class='st_tumblr_large' displayText='Tumblr'></span>
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
-            <span class='st_fblike_large' displayText='Facebook Like'></span>
+            <span class='st_fblike_large' displayText='Facebook Like' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
 
             <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>
         </div>
@@ -193,19 +193,19 @@ foreach ($district as $d) {
                     <?php echo $article->Headline ?>
                 </a>
             </h3>
-            <div class="news-summary"><?php echo '<span class="dateline">' 
-            . $dateline . ', MI — &nbsp</span>' 
+            <div class="news-summary"><?php echo '<span class="dateline">'
+            . $dateline . ', MI — &nbsp</span>'
                     . $article->Summary?>
             </div>
         </div>
     <?php } //end foreach ?>
-        
+
         <?php
         //don't display this part for an All Distrcits article, as that doesn't have a landing page.
         if ($districtArr[0] != 'All Districts') {
             $districtPageLink = '<div class="district-page"><a href="' . $districtUrl . '">More ' . $districtArr[0] . ' News</a></div>';
             echo $districtPageLink;
-            echo '</div>'; //close the more-district div            
+            echo '</div>'; //close the more-district div
         }
 
     } //end if only one district
@@ -219,7 +219,7 @@ foreach ($district as $d) {
             <span class='st_pinterest_large' displayText='Pinterest'></span>
             <span class='st_googleplus_large' displayText='Google +'></span>
             <span class='st_tumblr_large' displayText='Tumblr'></span>
-            
+
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
             <span class='st_fblike_large' displayText='Facebook Like'></span>
@@ -228,7 +228,7 @@ foreach ($district as $d) {
             <a id="print" title="Print this Article" href="">
                 <span class="glyphicon glyphicon-print"></span>
                 <span class="print-text">Print Article</span>
-            </a>                            
-        </span> 
+            </a>
+        </span>
     </div>
 </div>
