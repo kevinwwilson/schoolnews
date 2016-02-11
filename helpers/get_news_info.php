@@ -28,7 +28,7 @@ class GetNewsInfoHelper {
         );
 
         //how many of each of the other articles to include
-        $otherNumber = 1;
+        $otherNumber = 2;
 
         //build district list first
         $districtList = static::getRecentNews(2, $district);
@@ -38,13 +38,13 @@ class GetNewsInfoHelper {
 
         }
 
-
-        foreach ($otherFeatures as $feature) {
-            $secondaryList = static::getRecentNews($otherNumber, $feature);
+        $secondaryList = static::getRecentNews($otherNumber, $otherFeatures);
+        // foreach ($otherFeatures as $feature) {
+            // $secondaryList = static::getRecentNews($otherNumber, $feature);
             foreach ($secondaryList as $secondaryArticle) {
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
-        }
+        // }
 
         return array_values($articleList);
     }
@@ -74,7 +74,8 @@ class GetNewsInfoHelper {
         $newsArticles = new PageList();
         $newsArticles->filterByParentID($pageIds);
         if ($district) {
-            $newsArticles->filter(false, "(ak_district like '%$district%')");
+            $queryString = static::createQueryString($district);
+            $newsArticles->filter(false, $queryString);
         }
         $newsArticles->filter(false, "ak_group_status like '%Published%'");
 
@@ -119,6 +120,28 @@ class GetNewsInfoHelper {
         return ($a['values']['date'] > $b['values']['date']) ? -1 : 1;
     }
 
+    public static function createQueryString($districts = null)
+    {
+        $n = 0;
+        $queryString = '';
+        if (is_array($districts)) {
+            foreach ($districts as $district) {
+                if ($n == 0) {
+                    $queryString = "(ak_district like '%$district%'";
+                } else {
+                    $queryString = $queryString . " or ak_district like '$district'";
+                }
+                $n++;
+            }
+            $queryString = $queryString . ')';
+            return $queryString;
+
+        } else {
+            return "(ak_district like '%$districts%')";
+        }
+    }
+
 }
+
 
 ?>
