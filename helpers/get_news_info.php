@@ -75,6 +75,7 @@ class GetNewsInfoHelper {
         $newsArticles->filterByParentID($pageIds);
         if ($district) {
             $queryString = static::createQueryString($district);
+
             $newsArticles->filter(false, $queryString);
         }
         $newsArticles->filter(false, "ak_group_status like '%Published%'");
@@ -129,11 +130,12 @@ class GetNewsInfoHelper {
                 if ($n == 0) {
                     $queryString = "(ak_district like '%$district%'";
                 } else {
-                    $queryString = $queryString . " or ak_district like '$district'";
+                    $queryString = $queryString . " or ak_district like '%$district%'";
                 }
                 $n++;
             }
             $queryString = $queryString . ')';
+// var_dump($queryString); die();
             return $queryString;
 
         } else {
