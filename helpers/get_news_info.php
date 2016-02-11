@@ -16,41 +16,42 @@ class GetNewsInfoHelper {
     /*
      * Applies rules of featuring and de-duplicates list
      */
-    public static function buildFeaturedList ($district) 
+    public static function buildFeaturedList ($district)
     {
         //how many district articles to include first
         $districtNumber = 2;
-        
+
         //what other articles to include after the featured district
         $otherFeatures = array (
             'Kent ISD',
             'All Districts'
         );
-        
+
         //how many of each of the other articles to include
-        $otherNumber = 3;
-        
+        $otherNumber = 1;
+
         //build district list first
         $districtList = static::getRecentNews(2, $district);
         foreach ($districtList as $districtArticle) {
             $districtArticle->date = date(DATE_RSS);
-            $articleList[$districtArticle->link] = $districtArticle; 
-            
+            $articleList[$districtArticle->link] = $districtArticle;
+
         }
-        
-        
+
+
         foreach ($otherFeatures as $feature) {
             $secondaryList = static::getRecentNews($otherNumber, $feature);
             foreach ($secondaryList as $secondaryArticle) {
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
         }
+
         return array_values($articleList);
     }
 
 
     /**
-     * 
+     *
      * @param int $articles - number of articles to retrieve
      * @return PageList of articles
      */
@@ -76,17 +77,18 @@ class GetNewsInfoHelper {
             $newsArticles->filter(false, "(ak_district like '%$district%')");
         }
         $newsArticles->filter(false, "ak_group_status like '%Published%'");
+
         $newsArticles->setItemsPerPage($articles);
         $newsArticles->sortBy('cvDatePublic', 'desc');
         $collectionList = $newsArticles->getPage();
         return article::buildFromPageList($collectionList);
     }
-    
+
     /**
      * Loads district news using the json summary file if it is available in
      * order to drasticlly reduce the page load speed and the load on the server
      * of loading multiple article pages.
-     * 
+     *
      * @param string $district - The district news to retrieve
      * @param type $num - The number of recent articles to retrieve
      */
@@ -94,13 +96,13 @@ class GetNewsInfoHelper {
         $news = static::getNewsFromJson();
         $count = 0;
         $articles = array();
-        
+
         foreach ($news as $item) {
             if ($item->District == $district && $item->Headline != $exclude) {
                 $count++;
                 $articles[] = $item;
-            }  
-            
+            }
+
             if ($count >= $num) {
                 break;
             }
