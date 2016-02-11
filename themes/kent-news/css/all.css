@@ -752,7 +752,7 @@ z-index: 10;}
 }
 
 .news-box h3,
-.issue-link a{
+.issue-link h3{
 	font:bold 16px/20px 'Open Sans Condensed', Arial, Helvetica, sans-serif;
 	color:#4d4d4f;
 	text-transform:uppercase;
