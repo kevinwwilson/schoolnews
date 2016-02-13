@@ -19,16 +19,15 @@ class GetNewsInfoHelper {
     public static function buildFeaturedList ($district)
     {
         //how many district articles to include first
-        $districtNumber = 2;
+        $districtNumber = 4;
 
         //what other articles to include after the featured district
         $otherFeatures = array (
-            'Kent ISD',
             'All Districts'
         );
 
         //how many of each of the other articles to include
-        $otherNumber = 2;
+        $otherNumber = 3;
 
         //build district list first
         $districtList = static::getRecentNews(2, $district);
@@ -38,9 +37,15 @@ class GetNewsInfoHelper {
 
         }
 
+<<<<<<< Updated upstream
         $secondaryList = static::getRecentNews($otherNumber, $otherFeatures);
         // foreach ($otherFeatures as $feature) {
             // $secondaryList = static::getRecentNews($otherNumber, $feature);
+=======
+
+        foreach ($otherFeatures as $feature) {
+            $secondaryList = static::getRecentNews($otherNumber, $feature);
+>>>>>>> Stashed changes
             foreach ($secondaryList as $secondaryArticle) {
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
@@ -145,5 +150,8 @@ class GetNewsInfoHelper {
 
 }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ?>
