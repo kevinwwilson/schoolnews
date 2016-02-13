@@ -37,20 +37,10 @@ class GetNewsInfoHelper {
 
         }
 
-<<<<<<< Updated upstream
         $secondaryList = static::getRecentNews($otherNumber, $otherFeatures);
-        // foreach ($otherFeatures as $feature) {
-            // $secondaryList = static::getRecentNews($otherNumber, $feature);
-=======
-
-        foreach ($otherFeatures as $feature) {
-            $secondaryList = static::getRecentNews($otherNumber, $feature);
->>>>>>> Stashed changes
             foreach ($secondaryList as $secondaryArticle) {
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
-        // }
-
         return array_values($articleList);
     }
 
@@ -140,7 +130,6 @@ class GetNewsInfoHelper {
                 $n++;
             }
             $queryString = $queryString . ')';
-// var_dump($queryString); die();
             return $queryString;
 
         } else {
@@ -149,9 +138,3 @@ class GetNewsInfoHelper {
     }
 
 }
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-?>
