@@ -48,6 +48,7 @@ class GetNewsInfoHelper {
     /**
      *
      * @param int $articles - number of articles to retrieve
+     * @param mixed $district = Can be either a string of the district or an array string district names
      * @return PageList of articles
      */
     public static function getRecentNews($articles = 50, $district = null) {
