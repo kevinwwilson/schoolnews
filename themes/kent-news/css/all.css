@@ -292,6 +292,10 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
    line-height: 20px;
 }
 
+.summary {
+	border-bottom: 1px solid #CFD0D1;
+}
+
 .home .read_more{
     margin-bottom: 25px;
     display: block;
