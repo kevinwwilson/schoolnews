@@ -33,6 +33,21 @@
       <input id="submit_search" type="button" value="Search"></input>
     </form>
 </div>
+
+<script>
+  (function() {
+    var cx = '016213019444767079058:kfgr2stainc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
 <script>
     var formUrl = '/customsearch';
     $('#submit_search').click(function(){
@@ -42,9 +57,8 @@
     function submitSearch(){
       var district = $( "#districts option:selected" ).text();
       var search = $("#search").val();
-      var query = search + ' ' + district;
+      var query = encodeURIComponent(search + ' ' + district);
       var url = formUrl + '?q=' + query;
-      //todo: need to urlencode the url variable before adding it here.
       $('#search_form').attr('action', url).submit();
     }
 </script>
