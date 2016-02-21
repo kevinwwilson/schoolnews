@@ -21,7 +21,14 @@ class RightSidebarPageTypeController extends Controller{
 
         //add Facebook header items
         $openGraph = '<meta property="og:image" content="' . $imagePath . '"/>';
+        $meta = '<meta name="thumbnail" content="' . $imagePath . '"/>';
         $this->addHeaderItem($openGraph);
+        $this->addHeaderItem($meta);
+
+        //add district name PageMap
+        $district = $this->c->getAttribute('dateline');
+        $districtName = '<meta name="district" content="' . $district .  '">';
+        $this->addHeaderItem($districtName);
 
         //add share this header script
         $shareButtonScript = '<script type="text/javascript">var switchTo5x=true;</script>';
@@ -31,7 +38,7 @@ class RightSidebarPageTypeController extends Controller{
 
         //add the sidebar home page news
         $header = '<script type="text/javascript" src="/js/cycle/cycle.min.js"></script>';
-        $this->addHeaderItem($header);  
+        $this->addHeaderItem($header);
         $newsHelper = Loader::helper("news_loader");
         $newsList = $newsHelper->getHomeNews();
         $this->set('newsList', $newsList);
