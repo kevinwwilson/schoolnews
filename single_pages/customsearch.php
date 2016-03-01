@@ -21,19 +21,33 @@
 
 <div class="custom_search_form">
     <form id="search_form" action="/customsearch" method="post">
-      <label for="search">Search:</label>
-      <input id="search" name="search"></input>
-      <label for="districts_list">Search in District:</label>
+      <label for="search">Look For:</label>
+      <input id="search" name="search" value="<?php echo $_GET['text']?>"></input>
+      <label for="districts_list">Which Districts:</label>
       <select name="district_list" id="districts" class="district_list">
-        <option value=""></option>
-        <?php foreach($districtList as $district) { ?>
-            <option><?php echo $district->value; ?></option>
-        <?php } ?>
+        <option value="">All Districts</option>
+        <?php
+            $selected = '';
+            $i = 1;
+            $selectedDist = (int)$_GET['dist'];
+            foreach($districtList as $district) {
+                if ($selectedDist && $selectedDist == $i) {
+                    $selected = 'selected="selected"';
+                } else {
+                    $selected = '';
+                }
+
+                if ($district->value != "All Districts") {
+                ?>
+                <option <?php echo $selected; ?> value="<?php echo $i++ ?>" ><?php echo $district->value; ?></option>
+        <?php
+            }
+        } //end foreach
+            ?>
       </select>
       <input id="submit_search" type="button" value="Search"></input>
     </form>
 </div>
-
 <script>
   (function() {
     var cx = '016213019444767079058:kfgr2stainc';
@@ -56,9 +70,19 @@
 
     function submitSearch(){
       var district = $( "#districts option:selected" ).text();
+      var distVal = $( "#districts option:selected" ).val();
+
+      //all districts doesn't append anything to the search
+      if (district == 'All Districts') {
+          district = '';
+      }
+
       var search = $("#search").val();
-      var query = encodeURIComponent(search + ' ' + district);
-      var url = formUrl + '?q=' + query;
+    //   var query = encodeURIComponent(search + ' ' + district);
+        var query = search + ' ' + district;
+        var params = {q: query, text: search, dist: distVal}
+    //   var url = formUrl + '?q=' + query;
+        var url = formUrl + '?' + jQuery.param(params);
       $('#search_form').attr('action', url).submit();
     }
 </script>
