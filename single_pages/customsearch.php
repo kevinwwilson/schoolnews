@@ -1,14 +1,22 @@
 <style>
 
+table.gsc-branding,
+table.gcsc-branding,
+.gsc-table-cell-thumbnail.gsc-thumbnail {
+	display: none;
+}
+
+.gs-bidi-start-align.gs-snippet {
+    margin-left: 8px;
+}
+
 .custom_search_form input {
   width: 200px;
   margin-right: 20px;
-  font-weight: bold;
 }
 
 .custom_search_form select {
   width: 270px;
-  font-weight: bold;
 }
 
 .custom_search_form label {

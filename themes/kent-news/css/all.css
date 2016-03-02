@@ -703,11 +703,6 @@ z-index: 10;}
     margin-bottom: 24px;
 }
 
-/* Google Search */
-table.gsc-branding, table.gcsc-branding {
-	display: none;
-}
-
 /* news-block */
 .news-block h1{
 	float:right;
