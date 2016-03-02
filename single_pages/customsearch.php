@@ -30,14 +30,13 @@ table.gcsc-branding,
 <div class="custom_search_form">
     <form id="search_form" action="/customsearch" method="post">
       <label for="search">Look For:</label>
-      <input id="search" name="search" value="<?php echo $_GET['text']?>"></input>
+      <input id="search" name="search" value="<?php echo $searchText ?>"></input>
       <label for="districts_list">Which Districts:</label>
       <select name="district_list" id="districts" class="district_list">
         <option value="">All Districts</option>
         <?php
             $selected = '';
             $i = 1;
-            $selectedDist = (int)$_GET['dist'];
             foreach($districtList as $district) {
                 if ($selectedDist && $selectedDist == $i) {
                     $selected = 'selected="selected"';
@@ -71,26 +70,23 @@ table.gcsc-branding,
 <gcse:searchresults-only></gcse:searchresults-only>
 
 <script>
-    var formUrl = '/customsearch';
     $('#submit_search').click(function(){
       submitSearch();
     });
 
     function submitSearch(){
-      var district = $( "#districts option:selected" ).text();
-      var distVal = $( "#districts option:selected" ).val();
+        var district = $( "#districts option:selected" ).text();
+        var distVal = $( "#districts option:selected" ).val();
 
-      //all districts doesn't append anything to the search
-      if (district == 'All Districts') {
-          district = '';
-      }
-
-      var search = $("#search").val();
-    //   var query = encodeURIComponent(search + ' ' + district);
+        //all districts doesn't append anything to the search
+        if (district == 'All Districts') {
+            district = '';
+        }
+        var formUrl = '/customsearch';
+        var search = $("#search").val();
         var query = search + ' ' + district;
         var params = {q: query, text: search, dist: distVal}
-    //   var url = formUrl + '?q=' + query;
         var url = formUrl + '?' + jQuery.param(params);
-      $('#search_form').attr('action', url).submit();
+        $('#search_form').attr('action', url).submit();
     }
 </script>
