@@ -9,10 +9,8 @@ class CustomSearchController extends Controller  {
         //if the specific text is provided, separated from the district name, then use that
         if (is_string($_GET['text'])) {
             $searchText = $_GET['text'];
-        }
-
-        //otherwise use the same query string that was provided
-        if (is_string($_GET['q'])) {
+        } elseif (is_string($_GET['q'])) {
+            //otherwise use the same query string that was provided
             $searchText = $_GET['q'];
         }
 

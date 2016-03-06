@@ -52,7 +52,7 @@ table.gcsc-branding,
         } //end foreach
             ?>
       </select>
-      <input id="submit_search" type="button" value="Search"></input>
+      <input id="submit_search" type="submit" value="Search"></input>
     </form>
 </div>
 <script>
@@ -73,6 +73,10 @@ table.gcsc-branding,
     $('#submit_search').click(function(){
       submitSearch();
     });
+
+	$('#search_form').submit(function(e){
+		submitSearch();
+	});
 
     function submitSearch(){
         var district = $( "#districts option:selected" ).text();
