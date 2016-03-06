@@ -1,16 +1,7 @@
 <style>
 
-table.gsc-branding,
-table.gcsc-branding,
-.gsc-table-cell-thumbnail.gsc-thumbnail {
-	display: none;
-}
 
-.gs-bidi-start-align.gs-snippet {
-    margin-left: 8px;
-}
-
-.custom_search_form input {
+/*.custom_search_form input {
   width: 200px;
   margin-right: 20px;
 }
@@ -23,7 +14,7 @@ table.gcsc-branding,
   width: 150px;
   display: inline;
   font-weight: bold;
-}
+}*/
 
 </style>
 
