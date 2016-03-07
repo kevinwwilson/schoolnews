@@ -286,7 +286,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 .content-block .post{
 	padding:10px 20px 0 0;
-	background:none;
+	background: url("/themes/kent-news/images/separator2.png") repeat-x scroll 0px 100% transparent;
 }
 
 .home .dateline,
@@ -613,9 +613,20 @@ z-index: 10;}
     width: 32px;
 }
 
+
+
 .upper-social-media {
     line-height: 9px;
-    color: #777777
+    color: #777777;
+    float: left;
+}
+
+.share-story {
+    float: left;
+    width: 140px;
+    margin: 5px 0 0 9px;
+    clear: left;
+	background: url('../images/share_story.png') no-repeat;
 }
 
 
@@ -636,19 +647,39 @@ z-index: 10;}
 }
 
 .district-logo img {
-    height: 75px;
-    width: auto;
     float: right;
     padding-right: 5px
 }
 
+.p-news .district-logo img {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
 .heading .more-district {
     float:right;
+    width: 55%;
+    text-align: right;
 }
 
 .heading .more-district a {
     color: #4A439A;
 		font-size: 13px;
+}
+
+.heading h1 {
+    width: 315px;
+    float: right;
+}
+
+#content .heading br {
+	margin-bottom: 0px;
+}
+
+.heading .district-name {
+    width: 523px;
+    text-align: right;
+    float: right;
 }
 
 /* search-box */
@@ -1334,7 +1365,7 @@ float: right;
     padding: 5px;
 }
 /* links-box */
-.links-box{padding:0 0 18px;}
+.links-box{padding:0 0 0px;}
 #sidebar .links-box h2{
 	font:11px/13px 'Open Sans', Arial, Helvetica, sans-serif;
 	color:#a4cf62;
@@ -1654,6 +1685,11 @@ float: right;
 		display:inline-block;
 		vertical-align:top;
 	}
+
+        .upper-social-media {
+                display:none;
+        }
+
 }
 @media only screen and (max-width: 767px){
 	.header-holder{padding:15px;}
@@ -1788,6 +1824,12 @@ float: right;
         clear: both;
     }
 
+}
+
+@media only screen and (max-width: 450px)  {
+    .district-logo {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 320px){
