@@ -19,7 +19,7 @@ class GetNewsInfoHelper {
     public static function buildFeaturedList ($district)
     {
         //how many district articles to include first
-        $districtNumber = 4;
+        $districtNumber = 40;
 
         //what other articles to include after the featured district
         $otherFeatures = array (
@@ -27,7 +27,7 @@ class GetNewsInfoHelper {
         );
 
         //how many of each of the other articles to include
-        $otherNumber = 3;
+        $otherNumber = 30;
 
         //build district list first
         $districtList = static::getRecentNews(2, $district);
