@@ -5,9 +5,9 @@
 		<div class="item">
 			<a href="/news-region/n">
 				<?php
-                                      
-                                echo $northThumbnail;                          
-                                
+
+                                echo $northThumbnail;
+
 				?>
 			</a>
 		<div class="expandable-box">
@@ -21,7 +21,7 @@
 					<span><a href="/districts/northview">Northview Public</a></span>
 					<span><a href="/districts/rockford">Rockford Public</a></span>
                                         <span><a href="/districts/sparta">Sparta Area</a></span>
-				
+
 			</div>
 		</div>
 			<ul>
@@ -44,6 +44,7 @@
 						<span><a href="/districts/byron-center">Byron Center Public</a></span>
 						<span><a href="/districts/godfrey-lee">Godfrey Lee Public</a></span>
 						<span><a href="/districts/godwin-heights">Godwin Heights Public</a></span>
+						<span><a href="/districts/grandville">Grandville Public</a></span>
 						<span><a href="/districts/kelloggsville">Kelloggsville Public</a></span>
 						<span><a href="/districts/wyoming">Wyoming Public</a></span>
 					</a>

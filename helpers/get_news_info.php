@@ -19,7 +19,7 @@ class GetNewsInfoHelper {
     public static function buildFeaturedList ($district)
     {
         //how many district articles to include first
-        $districtNumber = 4;
+        $districtNumber = 3;
 
         //what other articles to include after the featured district
         $otherFeatures = array (
@@ -30,7 +30,7 @@ class GetNewsInfoHelper {
         $otherNumber = 3;
 
         //build district list first
-        $districtList = static::getRecentNews(2, $district);
+        $districtList = static::getRecentNews($districtNumber, $district);
         foreach ($districtList as $districtArticle) {
             $districtArticle->date = date(DATE_RSS);
             $articleList[$districtArticle->link] = $districtArticle;
@@ -39,6 +39,7 @@ class GetNewsInfoHelper {
 
         $secondaryList = static::getRecentNews($otherNumber, $otherFeatures);
             foreach ($secondaryList as $secondaryArticle) {
+                $secondaryArticle->date = date(DATE_RSS);
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
         return array_values($articleList);
