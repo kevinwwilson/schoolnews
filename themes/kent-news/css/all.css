@@ -86,6 +86,11 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 #header .ad {
     text-align: center;
 }
+
+#header .ad img {
+	height: auto;
+}
+
 .header-holder{
 	background:#eeefef url("/themes/kent-news/images/separator1.png") repeat-x 0 100%;
 	overflow:hidden;
@@ -290,6 +295,10 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 
    font-size: 14px;
    line-height: 20px;
+}
+
+.summary {
+	border-bottom: 1px solid #CFD0D1;
 }
 
 .home .read_more{
@@ -604,6 +613,8 @@ z-index: 10;}
     width: 32px;
 }
 
+
+
 .upper-social-media {
     line-height: 9px;
     color: #777777;
@@ -612,9 +623,11 @@ z-index: 10;}
 
 .share-story {
     float: left;
-    width: 140px;
+    width: 162px;
     margin: 5px 0 0 9px;
     clear: left;
+	background: url('../images/share_story.png') no-repeat;
+	height: 30px;
 }
 
 
@@ -636,7 +649,14 @@ z-index: 10;}
 
 .district-logo img {
     float: right;
-    padding-right: 5px
+    padding-right: 5px;
+	width: auto;
+	max-height: 80px;
+}
+
+.p-news .district-logo img {
+    padding-right: 0px;
+    padding-left: 5px;
 }
 
 .p-news .district-logo img {
@@ -651,7 +671,23 @@ z-index: 10;}
 }
 
 .heading .more-district a {
-    color: #928EC2;
+    color: #4A439A;
+		font-size: 13px;
+}
+
+.heading h1 {
+    width: 315px;
+    float: right;
+}
+
+#content .heading br {
+	margin-bottom: 0px;
+}
+
+.heading .district-name {
+    width: 523px;
+    text-align: right;
+    float: right;
 }
 
 .heading h1 {
@@ -724,6 +760,31 @@ z-index: 10;}
 
 .searchResult {
     margin-bottom: 24px;
+}
+table.gsc-branding,
+table.gcsc-branding,
+.gsc-table-cell-thumbnail.gsc-thumbnail {
+	display: none;
+}
+
+.gs-bidi-start-align.gs-snippet {
+    margin-left: 8px;
+}
+
+
+#search_form #search {
+  width: 200px;
+  margin-right: 20px;
+}
+
+#search_form select {
+  width: 250px;
+}
+
+#search_form label {
+  width: 150px;
+  display: inline;
+  font-weight: bold;
 }
 
 /* news-block */
@@ -882,6 +943,11 @@ margin-top: -60px;
     clear: left;
     display: block;
     width: 100%;
+}
+
+#more-district .district-page a {
+	color: #4A439A;
+	font-size: 13px;
 }
 
 
@@ -1623,6 +1689,12 @@ float: right;
 	#print-button {
 		display:none;
 	}
+
+	#search_form label {
+		display: block;
+	}
+
+
 }
 @media only screen and (max-width: 850px){
 	.news-block .heading{text-align:center;}
@@ -1702,6 +1774,12 @@ float: right;
 		width: 100%;
 	}
 
+<<<<<<< HEAD
+=======
+        .upper-social-media {
+                display:none;
+        }
+>>>>>>> origin/LogosToArticleHeads
 
         .header-frame .search-form {
             position: absolute;

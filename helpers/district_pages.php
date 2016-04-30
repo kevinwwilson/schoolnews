@@ -107,7 +107,7 @@ class DistrictPagesHelper{
                 ),
             'Grandville Public Schools'         =>array (
                 'title' => 'Grandville<br/>Public Schools',
-                'link' => '',
+                'link' => '/districts/grandville',
                 'image' => '',
                 'abbrev'=> 'gps'
                 ),
@@ -177,25 +177,7 @@ class DistrictPagesHelper{
                 'link' => '/districts/wyoming',
                 'image' => 'wps.jpg',
                 'abbrev'=> 'wps'
-                ),
-            'Catholic Diocese of Grand Rapids'  =>array (
-                'title' => 'Catholic Diocese<br/>of Grand Rapids',
-                'link' => '',
-                'image' => '',
-                'abbrev'=> 'cdgr'
-                ),
-            'Grand Rapids Christian Schools'    =>array (
-                'title' => 'Grand Rapids<br/>Christian Schools',
-                'link' => '',
-                'image' => '',
-                'abbrev'=> 'grcs'
-                ),
-            'Calvin Christian Schools'          =>array (
-                'title' => 'Calvin<br/>Christian Schools',
-                'link' => '',
-                'image' => '',
-                'abbrev'=> 'cc'
-                ),
+                )
             );
     }
 

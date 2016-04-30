@@ -54,7 +54,7 @@
             });
         });
         </script>
-    
+
 </head>
 <body>
 	<!-- Facebook  Include the JavaScript SDK on your page once, ideally right after the opening <body> tag.-->
@@ -117,9 +117,9 @@
                                 $stack->display();
                             ?>
                         </nav>
-                        <form class="search-form" method="get" action="/index.php/search">
+                        <form class="search-form" method="get" action="/customsearch">
                             <fieldset>
-                                <input type="text" name="query">
+                                <input type="text" name="q">
                                 <input type="submit" value="Submit">
                             </fieldset>
                         </form>

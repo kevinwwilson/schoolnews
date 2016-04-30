@@ -49,12 +49,11 @@ foreach ($district as $d) {
 <header class="heading">
     <div class ="upper-social-media">
         <span class="share-caption">Share</span>
-        <span id="share" class='st_sharethis_large' displayText='ShareThis'></span>
+        <span id="share" class='st_sharethis_large' displayText='ShareThis' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
-        <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
+        <div class="share-story"><a href="mailto:snn@kentisd.org"></a></div>
     </div>
-
     <div class="p-news">
         <?php
         if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
@@ -70,7 +69,11 @@ foreach ($district as $d) {
         <a href="<?php echo $districtUrl ?>">
 
             <h1>
+<<<<<<< HEAD
                 <span> <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?> </span>
+=======
+                <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?>
+>>>>>>> origin/LogosToArticleHeads
             </h1>
 
         </a>
@@ -85,6 +88,7 @@ foreach ($district as $d) {
         ?>
     </div>
 </header>
+
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
         <div class="image-holder">
@@ -174,7 +178,7 @@ foreach ($district as $d) {
         <h3>Spread the word!</h3></div>
     <div id="HTMLBlock648" class="HTMLBlock">
         <div id="social-media">
-            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_facebook_large' displayText='Facebook' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
             <span class='st_twitter_large' displayText='Tweet'></span>
             <span class='st_linkedin_large' displayText='LinkedIn'></span>
             <span class='st_pinterest_large' displayText='Pinterest'></span>
@@ -182,7 +186,7 @@ foreach ($district as $d) {
             <span class='st_tumblr_large' displayText='Tumblr'></span>
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
-            <span class='st_fblike_large' displayText='Facebook Like'></span>
+            <span class='st_fblike_large' displayText='Facebook Like' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
 
             <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>
         </div>

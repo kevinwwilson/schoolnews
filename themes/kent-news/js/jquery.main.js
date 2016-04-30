@@ -1,6 +1,6 @@
 // page init
 jQuery(function(){
-	jcf.customForms.replaceAll();
+	// jcf.customForms.replaceAll();
 	//initCarousel();
 	initSlideShow();
 	initSlideShowNoBorder();
@@ -85,7 +85,7 @@ function initInputs() {
 		clearTextareas: true,
 		clearPasswords: true,
 		skipClass: 'default',
-		
+
 		// input options
 		wrapWithElement: false,
 		showUntilTyping: false,
@@ -166,7 +166,7 @@ function initSameHeight() {
 			this.maskSizeProperty = 'height';
 			this.animProperty = this.options.vertical ? 'marginTop' : 'marginLeft';
 			this.swipeProperties = this.options.vertical ? ['up', 'down'] : ['left', 'right'];
-			
+
 			// control elements
 			this.gallery = $(this.options.holder).addClass(this.options.galleryReadyClass);
 			this.mask = this.gallery.find(this.options.mask);
@@ -175,7 +175,7 @@ function initSameHeight() {
 			this.btnPrev = this.gallery.find(this.options.btnPrev);
 			this.btnNext = this.gallery.find(this.options.btnNext);
 			this.currentStep = 0; this.stepsCount = 0;
-			
+
 			// get start index
 			if(this.options.step === false) {
 				var activeSlide = this.slides.filter('.'+this.options.activeClass);
@@ -183,11 +183,11 @@ function initSameHeight() {
 					this.currentStep = this.slides.index(activeSlide);
 				}
 			}
-			
+
 			// calculate offsets
 			this.calculateOffsets();
 			$(window).bind('load resize orientationchange', $.proxy(this.onWindowResize, this));
-			
+
 			// create gallery pagination
 			if(typeof this.options.generatePagination === 'string') {
 				this.pagerLinks = $();
@@ -196,12 +196,12 @@ function initSameHeight() {
 				this.pagerLinks = this.gallery.find(this.options.pagerLinks);
 				this.attachPaginationEvents();
 			}
-			
+
 			// autorotation control buttons
 			this.btnPlay = this.gallery.find(this.options.btnPlay);
 			this.btnPause = this.gallery.find(this.options.btnPause);
 			this.btnPlayPause = this.gallery.find(this.options.btnPlayPause);
-			
+
 			// misc elements
 			this.curNum = this.gallery.find(this.options.currentNumber);
 			this.allNum = this.gallery.find(this.options.totalNumber);
@@ -215,7 +215,7 @@ function initSameHeight() {
 				this.nextSlide();
 				e.preventDefault();
 			}));
-			
+
 			// pause on hover handling
 			if(this.options.pauseOnHover) {
 				this.gallery.hover(this.bindScope(function(){
@@ -230,7 +230,7 @@ function initSameHeight() {
 					}
 				}));
 			}
-			
+
 			// autorotation buttons handler
 			this.btnPlay.bind(this.options.event, this.bindScope(this.startRotation));
 			this.btnPause.bind(this.options.event, this.bindScope(this.stopRotation));
@@ -241,14 +241,14 @@ function initSameHeight() {
 					this.stopRotation();
 				}
 			}));
-			
+
 			// swipe event handling
 			if(isTouchDevice) {
 				// enable hardware acceleration
 				if(this.options.useTranslate3D) {
 					this.slider.css({'-webkit-transform': 'translate3d(0px, 0px, 0px)'});
 				}
-				
+
 				// swipe gestures
 				if(this.options.handleTouch && $.fn.swipe) {
 					this.mask.swipe({
@@ -311,11 +311,11 @@ function initSameHeight() {
 				tmpObj[this.innerSizeFunction] = this.mask[this.innerSizeFunction]();
 				this.slides.css(tmpObj);
 			}
-			
+
 			this.maskSize = this.mask[this.innerSizeFunction]();
 			this.sumSize = this.getSumSize();
 			this.maxOffset = this.maskSize - this.sumSize;
-			
+
 			// vertical gallery with single size step custom behavior
 			if(this.options.vertical && this.options.maskAutoSize) {
 				this.options.step = 1;
@@ -329,14 +329,14 @@ function initSameHeight() {
 				this.maxOffset = tmpOffset;
 				return;
 			}
-			
+
 			// scroll by slide size
 			if(typeof this.options.step === 'number' && this.options.step > 0) {
 				this.slideDimensions = [];
 				this.slides.each($.proxy(function(ind, obj){
 					this.slideDimensions.push( $(obj)[this.fullSizeFunction](true) );
 				},this));
-				
+
 				// calculate steps count
 				this.stepOffsets = [0];
 				this.stepsCount = 1;
@@ -352,7 +352,7 @@ function initSameHeight() {
 			else {
 				// define step size
 				this.stepSize = this.maskSize;
-				
+
 				// calculate steps count
 				this.stepsCount = 1;
 				var tmpOffset = 0;
@@ -448,13 +448,13 @@ function initSameHeight() {
 				if(this.resizeQueue) {
 					this.onWindowResize();
 				}
-				
+
 				// onchange callback
 				this.makeCallback('onChange', this);
 				this.autoRotate();
 			})});
 			this.refreshState();
-			
+
 			// onchange callback
 			this.makeCallback('onBeforeChange', this);
 		},
@@ -465,14 +465,14 @@ function initSameHeight() {
 			this.pagerLinks.removeClass(this.options.activeClass).eq(this.currentStep).addClass(this.options.activeClass);
 			this.curNum.html(this.currentStep+1);
 			this.allNum.html(this.stepsCount);
-			
+
 			// initial refresh
 			if(this.options.maskAutoSize && typeof this.options.step === 'number') {
 				this.tmpProps = {};
 				this.tmpProps[this.maskSizeProperty] = this.slides.eq(Math.min(this.currentStep,this.slides.length-1))[this.slideSizeFunction](true);
 				this.mask.stop()[initial ? 'css' : 'animate'](this.tmpProps);
 			}
-			
+
 			// disabled state
 			if(!this.options.circularRotation) {
 				this.btnPrev.add(this.btnNext).removeClass(this.options.disabledClass);
@@ -524,7 +524,7 @@ function initSameHeight() {
 			}
 		}
 	};
-	
+
 	// detect device type
 	var isTouchDevice = (function() {
 		try {
@@ -533,7 +533,7 @@ function initSameHeight() {
 			return false;
 		}
 	}());
-	
+
 	// jquery plugin
 	$.fn.scrollGallery = function(opt){
 		return this.each(function(){
@@ -601,12 +601,12 @@ function initSameHeight() {
 			this.btnPrev = this.gallery.find(this.options.btnPrev);
 			this.btnNext = this.gallery.find(this.options.btnNext);
 			this.currentIndex = 0;
-			
+
 			// disable fade effect in old IE
 			if(this.options.disableFadeIE && !$.support.opacity) {
 				this.options.animSpeed = 0;
 			}
-			
+
 			// create gallery pagination
 			if(typeof this.options.generatePagination === 'string') {
 				this.pagerHolder = this.gallery.find(this.options.generatePagination).empty();
@@ -618,23 +618,23 @@ function initSameHeight() {
 			} else {
 				this.pagerLinks = this.gallery.find(this.options.pagerLinks);
 			}
-			
+
 			// get start index
 			var activeSlide = this.slides.filter('.'+this.options.activeClass);
 			if(activeSlide.length) {
 				this.currentIndex = this.slides.index(activeSlide);
 			}
 			this.prevIndex = this.currentIndex;
-			
+
 			// autorotation control buttons
 			this.btnPlay = this.gallery.find(this.options.btnPlay);
 			this.btnPause = this.gallery.find(this.options.btnPause);
 			this.btnPlayPause = this.gallery.find(this.options.btnPlayPause);
-			
+
 			// misc elements
 			this.curNum = this.gallery.find(this.options.currentNumber);
 			this.allNum = this.gallery.find(this.options.totalNumber);
-			
+
 			// handle flexible layout
 			$(window).bind('load resize orientationchange', $.proxy(this.onWindowResize, this));
 		},
@@ -668,7 +668,7 @@ function initSameHeight() {
 					e.preventDefault();
 				});
 			});
-			
+
 			// autorotation buttons handler
 			this.btnPlay.bind(this.options.event, function(e){
 				self.startRotation();
@@ -700,7 +700,7 @@ function initSameHeight() {
 					}
 				});
 			}
-			
+
 			// pause on hover handling
 			if(this.options.pauseOnHover) {
 				this.gallery.hover(function(){
@@ -761,7 +761,7 @@ function initSameHeight() {
 				} else {
 					this.slides.eq(this.prevIndex).stop().animate({opacity:0},{duration: this.options.animSpeed});
 				}
-				
+
 				this.switchNext = function() {
 					if(!self.options.animSpeed) {
 						self.slides.eq(self.currentIndex).css({opacity:''});
@@ -772,12 +772,12 @@ function initSameHeight() {
 						self.slides.eq(self.currentIndex).css({opacity:''});
 						self.galleryAnimating = false;
 						self.autoRotate();
-						
+
 						// onchange callback
 						self.makeCallback('onChange', self);
 					}, self.options.animSpeed);
 				}
-				
+
 				if(this.options.switchSimultaneously) {
 					self.switchNext();
 				} else {
@@ -787,7 +787,7 @@ function initSameHeight() {
 					}, this.options.animSpeed);
 				}
 				this.refreshState();
-				
+
 				// onchange callback
 				this.makeCallback('onBeforeChange', this);
 			}
@@ -797,7 +797,7 @@ function initSameHeight() {
 			this.pagerLinks.removeClass(this.options.activeClass).eq(this.currentIndex).addClass(this.options.activeClass);
 			this.curNum.html(this.currentIndex+1);
 			this.allNum.html(this.stepsCount);
-			
+
 			// initial refresh
 			if(this.options.autoHeight) {
 				if(initial) {
@@ -806,7 +806,7 @@ function initSameHeight() {
 					this.slidesHolder.stop().animate({height: this.slides.eq(this.currentIndex).outerHeight(true)}, {duration: this.options.animSpeed});
 				}
 			}
-			
+
 			// disabled state
 			if(!this.options.circularRotation) {
 				this.btnPrev.add(this.btnNext).removeClass(this.options.disabledClass);
@@ -894,7 +894,7 @@ function initSameHeight() {
 			this.holder = $(this.options.holder);
 			this.opener = this.holder.find(this.options.opener);
 			this.slider = this.holder.find(this.options.slider);
-			
+
 			if (!this.holder.hasClass(this.options.activeClass)) {
 				this.slider.addClass(slideHiddenClass);
 			}
@@ -948,7 +948,7 @@ function initSameHeight() {
 			if (self.options.addClassBeforeAnimation) {
 				self.holder.removeClass(self.options.activeClass);
 			}
-			
+
 			self.makeCallback('animStart', false);
 			toggleEffects[self.options.effect].hide({
 				box: self.slider,
@@ -975,7 +975,7 @@ function initSameHeight() {
 			}
 		}
 	};
-	
+
 	// add stylesheet for slide on DOMReady
 	var slideHiddenClass = 'js-slide-hidden';
 	$(function() {
@@ -989,7 +989,7 @@ function initSameHeight() {
 		}
 		$('head').append(tabStyleSheet);
 	});
-	
+
 	// animation effects
 	var toggleEffects = {
 		slide: {
@@ -1017,7 +1017,7 @@ function initSameHeight() {
 			}
 		}
 	};
-	
+
 	// jQuery plugin interface
 	$.fn.openClose = function(opt) {
 		return this.each(function() {
@@ -1337,7 +1337,7 @@ jcf = {
 				'-webkit-user-select:none;'+
 				'user-select:none;'+
 			'}');
-		
+
 		// append style element
 		style.type = 'text/css';
 		if(style.styleSheet) {
@@ -1429,7 +1429,7 @@ jcf.setBaseModule({
 		// handle focus loses
 		if(this.focused) return;
 		this.focused = true;
-		
+
 		// handle touch devices also
 		if(jcf.isTouchDevice) {
 			if(jcf.focusedInstance && jcf.focusedInstance.realElement != this.realElement) {
@@ -1831,7 +1831,7 @@ jcf.lib = {
 			if (e.isFixed) {
 				return e;
 			}
-			e.isFixed = true; 
+			e.isFixed = true;
 			e.preventDefault = e.preventDefault || function(){this.returnValue = false}
 			e.stopPropagation = e.stopPropagaton || function(){this.cancelBubble = true}
 			if (!e.target) {
@@ -1939,9 +1939,9 @@ jcf.addModule({
 		selectedClass:'item-selected',
 		currentSelectedClass:'current-selected',
 		disabledClass:'select-disabled',
-		valueSelector:'span.center', 
+		valueSelector:'span.center',
 		optGroupClass:'optgroup',
-		openerSelector:'a.select-opener',		
+		openerSelector:'a.select-opener',
 		selectStructure:'<span class="left"></span><span class="center"></span><a class="select-opener"></a>',
 		wrapperTag: 'span',
 		classPrefix:'select-',
@@ -1985,7 +1985,7 @@ jcf.addModule({
 				this.realElement.title = '';
 			}, this)
 		}
-		
+
 		// create select body
 		this.opener = jcf.lib.queryBySelector(this.options.openerSelector, this.fakeElement)[0];
 		this.valueText = jcf.lib.queryBySelector(this.options.valueSelector, this.fakeElement)[0];
@@ -2179,7 +2179,7 @@ jcf.addModule({
 			if(!jcf.lib.prevSibling(obj) || jcf.lib.prevSibling(obj).tagName.toLowerCase() != 'option') {
 				res += '<ul>';
 			}
-			
+
 			optImage = this.parseOptionTitle(obj.title);
 			res += '<li rel="'+(this.optNum++)+'" class="'+(obj.className? obj.className + ' ' : '')+(index % 2 ? 'option-even ' : '')+'jcfcalc"><a href="#">'+(optImage ? '<img src="'+optImage+'" alt="" />' : '')+'<span>' + obj.innerHTML + '</span></a></li>';
 			if(!jcf.lib.nextSibling(obj) || jcf.lib.nextSibling(obj).tagName.toLowerCase() != 'option') {
@@ -2201,8 +2201,8 @@ jcf.addModule({
 	positionDropdown: function(){
 		var ofs = jcf.lib.getOffset(this.fakeElement), selectAreaHeight = this.fakeElement.offsetHeight, selectDropHeight = this.selectDrop.offsetHeight;
 		var fitInTop = ofs.top - selectDropHeight >= jcf.lib.getScrollTop() && jcf.lib.getScrollTop() + jcf.lib.getWindowHeight() < ofs.top + selectAreaHeight + selectDropHeight;
-		
-		
+
+
 		if((this.options.handleDropPosition && fitInTop) || this.options.selectDropPosition === 'top') {
 			this.selectDrop.style.top = (ofs.top - selectDropHeight)+'px';
 			jcf.lib.addClass(this.selectDrop, this.options.dropFlippedClass);
@@ -2223,7 +2223,7 @@ jcf.addModule({
 		var activeItem = this.getFakeActiveOption();
 		this.removeClassFromItems(this.options.currentSelectedClass);
 		jcf.lib.addClass(activeItem, this.options.currentSelectedClass);
-		
+
 		// show current dropdown
 		jcf.lib.event.add(window, 'resize', this.onResizeWindow, this);
 		jcf.lib.event.add(window, 'scroll', this.onScrollWindow, this);
@@ -2457,7 +2457,7 @@ jcf.addModule({
 				this.fakeElement.style.color = getStyle(this.element, 'color');
 				this.fakeElement.style.position = 'absolute';
 				this.element.parentNode.insertBefore(this.fakeElement, this.element);
-				
+
 				if(this.element.value === this.origValue || !this.element.value) {
 					this.element.value = '';
 					this.togglePlaceholderText(true);
@@ -2571,7 +2571,7 @@ jcf.addModule({
 			if(!el) return; else if(state) addClass(el,cls); else removeClass(el,cls);
 		}
 	};
-	
+
 	// utility functions
 	function convertToArray(collection) {
 		var arr = [];

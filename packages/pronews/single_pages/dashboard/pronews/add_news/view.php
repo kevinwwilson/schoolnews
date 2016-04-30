@@ -506,13 +506,13 @@ $("input:radio[name=image]").click(function() {
 
 });
 
-$("#newsDescription").keyup(function(){ countCharacters('#newsDescription', '#shortCount', 150); });
+$("#newsDescription").keyup(function(){ countCharacters('#newsDescription', '#shortCount', 200); });
 
-$("#newsDescription").click(function(){ countCharacters('#newsDescription', '#shortCount', 150); });
+$("#newsDescription").click(function(){ countCharacters('#newsDescription', '#shortCount', 200); });
 
-$("#longSummary").keyup(function(){ countCharacters('#longSummary', '#longCount', 400); });
+$("#longSummary").keyup(function(){ countCharacters('#longSummary', '#longCount', 300); });
 
-$("#longSummary").click(function(){ countCharacters('#longSummary', '#longCount', 400); });
+$("#longSummary").click(function(){ countCharacters('#longSummary', '#longCount', 300); });
 
 function countCharacters(count, update, max)
 {

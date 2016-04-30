@@ -1,11 +1,11 @@
 			<!-- footer -->
 			<footer id="footer">
-			
+
 				<div class="footer-holder">
 					<!-- search-form -->
-					<form action="/index.php/search" method="get" class="search-form">
+					<form action="customsearch" method="get" class="search-form">
 						<fieldset>
-							<input type="text" name="query" />
+							<input type="text" id="query" name="q" />
 							<input type="submit" value="Submit" />
 						</fieldset>
 					</form>
@@ -17,9 +17,9 @@
 							?>
 					</ul>
 				</div> <!-- end footer-holder -->
-				
-				
-				
+
+
+
 				<div class="footer-frame footer-nav">
 					<!-- footer-nav -->
 					<nav>
@@ -53,13 +53,13 @@
                                                 <li>
 <!--                                                    <a href="/reporter-preview">Reporter Preview</a>-->
                                                 </li>
-                                                <?php } ?>                                        
+                                                <?php } ?>
                                 </ul>
-				
+
 			</footer>
-			
-			
-			
+
+
+
 		</div> <!-- end wrapper-holder -->
 	</div> <!-- end wrapper -->
 	<?php Loader::element('footer_required'); ?>

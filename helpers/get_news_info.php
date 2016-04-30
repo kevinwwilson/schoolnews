@@ -16,40 +16,39 @@ class GetNewsInfoHelper {
     /*
      * Applies rules of featuring and de-duplicates list
      */
-    public static function buildFeaturedList ($district) 
+    public static function buildFeaturedList ($district)
     {
         //how many district articles to include first
-        $districtNumber = 2;
-        
+        $districtNumber = 4;
+
         //what other articles to include after the featured district
         $otherFeatures = array (
-            'Kent ISD',
             'All Districts'
         );
-        
+
         //how many of each of the other articles to include
         $otherNumber = 3;
-        
+
         //build district list first
         $districtList = static::getRecentNews(2, $district);
         foreach ($districtList as $districtArticle) {
-            $articleList[$districtArticle->link] = $districtArticle; 
+            $districtArticle->date = date(DATE_RSS);
+            $articleList[$districtArticle->link] = $districtArticle;
+
         }
-        
-        
-        foreach ($otherFeatures as $feature) {
-            $secondaryList = static::getRecentNews($otherNumber, $feature);
+
+        $secondaryList = static::getRecentNews($otherNumber, $otherFeatures);
             foreach ($secondaryList as $secondaryArticle) {
                 $articleList[$secondaryArticle->link] = $secondaryArticle;
             }
-        }
         return array_values($articleList);
     }
 
 
     /**
-     * 
+     *
      * @param int $articles - number of articles to retrieve
+     * @param mixed $district = Can be either a string of the district or an array string district names
      * @return PageList of articles
      */
     public static function getRecentNews($articles = 50, $district = null) {
@@ -71,20 +70,23 @@ class GetNewsInfoHelper {
         $newsArticles = new PageList();
         $newsArticles->filterByParentID($pageIds);
         if ($district) {
-            $newsArticles->filter(false, "(ak_district like '%$district%')");
+            $queryString = static::createQueryString($district);
+
+            $newsArticles->filter(false, $queryString);
         }
         $newsArticles->filter(false, "ak_group_status like '%Published%'");
+
         $newsArticles->setItemsPerPage($articles);
         $newsArticles->sortBy('cvDatePublic', 'desc');
         $collectionList = $newsArticles->getPage();
         return article::buildFromPageList($collectionList);
     }
-    
+
     /**
      * Loads district news using the json summary file if it is available in
      * order to drasticlly reduce the page load speed and the load on the server
      * of loading multiple article pages.
-     * 
+     *
      * @param string $district - The district news to retrieve
      * @param type $num - The number of recent articles to retrieve
      */
@@ -92,13 +94,13 @@ class GetNewsInfoHelper {
         $news = static::getNewsFromJson();
         $count = 0;
         $articles = array();
-        
+
         foreach ($news as $item) {
             if ($item->District == $district && $item->Headline != $exclude) {
                 $count++;
                 $articles[] = $item;
-            }  
-            
+            }
+
             if ($count >= $num) {
                 break;
             }
@@ -115,6 +117,25 @@ class GetNewsInfoHelper {
         return ($a['values']['date'] > $b['values']['date']) ? -1 : 1;
     }
 
-}
+    public static function createQueryString($districts = null)
+    {
+        $n = 0;
+        $queryString = '';
+        if (is_array($districts)) {
+            foreach ($districts as $district) {
+                if ($n == 0) {
+                    $queryString = "(ak_district like '%$district%'";
+                } else {
+                    $queryString = $queryString . " or ak_district like '%$district%'";
+                }
+                $n++;
+            }
+            $queryString = $queryString . ')';
+            return $queryString;
 
-?>
+        } else {
+            return "(ak_district like '%$districts%')";
+        }
+    }
+
+}

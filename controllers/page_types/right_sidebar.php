@@ -19,14 +19,28 @@ class RightSidebarPageTypeController extends Controller{
         //so that they don't slow down all pages like the home page where they are
         //not necessary.
 
-        //add Facebook header items 
+        //add Facebook header items
         $openGraph = '<meta property="og:image" content="' . $imagePath . '"/>';
+        $meta = '<meta name="thumbnail" content="' . $imagePath . '"/>';
         $this->addHeaderItem($openGraph);
-        
+        $this->addHeaderItem($meta);
+
+        //add district name PageMap
+        $district = $this->c->getAttribute('dateline');
+        $districtName = '<meta name="district" content="' . $district .  '">';
+        $this->addHeaderItem($districtName);
+
         //add share this header script
         $shareButtonScript = '<script type="text/javascript">var switchTo5x=true;</script>';
         $shareButtonScript .= '<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>';
         $shareButtonScript .= '<script type="text/javascript">stLight.options({publisher: "7f8dd855-a413-4e5c-85b0-9e266c6a116d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>';
         $this->addHeaderItem($shareButtonScript);
+
+        //add the sidebar home page news
+        $header = '<script type="text/javascript" src="/js/cycle/cycle.min.js"></script>';
+        $this->addHeaderItem($header);
+        $newsHelper = Loader::helper("news_loader");
+        $newsList = $newsHelper->getHomeNews();
+        $this->set('newsList', $newsList);
     }
 }
