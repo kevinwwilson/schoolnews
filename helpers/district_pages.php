@@ -90,7 +90,7 @@ class DistrictPagesHelper{
             'Godwin Heights Public Schools'     =>array (
                 'title' => 'Godwin Heights<br/>Public Schools',
                 'link' => '/districts/godwin-heights',
-                'image' => 'placeholder.jpg',
+                'image' => 'ghps.jpg',
                 'abbrev'=> 'ghps'
                 ),
             'Godfrey Lee Public Schools'        =>array (
@@ -99,7 +99,7 @@ class DistrictPagesHelper{
                 'image' => 'glps.jpg',
                 'abbrev'=> 'glps'
                 ),
-            'Grand Rapids Public Schools (GRPS)'=>array (
+            'Grand Rapids Public Schools - GRPS'=>array (
                 'title' => 'Grand Rapids<br/>Public Schools',
                 'link' => '/districts/grand-rapids',
                 'image' => 'grps.jpg',
@@ -108,7 +108,7 @@ class DistrictPagesHelper{
             'Grandville Public Schools'         =>array (
                 'title' => 'Grandville<br/>Public Schools',
                 'link' => '/districts/grandville',
-                'image' => '',
+                'image' => 'gps.jpg',
                 'abbrev'=> 'gps'
                 ),
             'Kelloggsville Public Schools'      =>array (
@@ -124,9 +124,9 @@ class DistrictPagesHelper{
                 'abbrev'=> 'khps'
                 ),
             'Kent ISD'                          =>array (
-                'title' => '&nbsp;',
+                'title' => 'Kent ISD',
                 'link' => '/districts/kent-isd',
-                'image' => 'kisd.png',
+                'image' => '',
                 'abbrev'=> 'kisd'
                 ),
             'Kent City Community Schools'       =>array (

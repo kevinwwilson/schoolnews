@@ -52,7 +52,7 @@ foreach ($district as $d) {
         <span id="share" class='st_sharethis_large' displayText='ShareThis' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
-        <div class="share-story"><a href="mailto:snn@kentisd.org"></a></div>
+        <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
     </div>
     <div class="p-news">
         <?php
@@ -60,20 +60,15 @@ foreach ($district as $d) {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
         <?php if (!@is_null($districtPagesHelper->getDistrictImage($districtArr[0])))  { ?>
+
         <div class="district-logo">
-            <div>
-                <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
-            </div>
+            <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
         </div>
         <?php  } ?>
         <a href="<?php echo $districtUrl ?>">
 
             <h1>
-<<<<<<< HEAD
                 <span> <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?> </span>
-=======
-                <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?>
->>>>>>> origin/LogosToArticleHeads
             </h1>
 
         </a>

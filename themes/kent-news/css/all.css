@@ -630,6 +630,11 @@ z-index: 10;}
 	height: 30px;
 }
 
+.p-news {
+    width: 520px;
+    float: right;
+}
+
 
 /* heading */
 .heading{
@@ -684,10 +689,16 @@ z-index: 10;}
 	margin-bottom: 0px;
 }
 
+/* On the article pages, set the width of the district name section */
 .heading .district-name {
     width: 523px;
     text-align: right;
     float: right;
+}
+
+/* On the district index,  do not set the width */
+.district-list .heading .district-name {
+	width: auto;
 }
 
 .heading h1 {
@@ -1694,6 +1705,15 @@ float: right;
 		display: block;
 	}
 
+	/* school district header found on article pages */
+	.p-news {
+		width: 300px;
+	}
+
+	.p-news .district-logo img {
+		display: none;
+	}
+
 
 }
 @media only screen and (max-width: 850px){
@@ -1708,10 +1728,6 @@ float: right;
 		display:inline-block;
 		vertical-align:top;
 	}
-
-        .upper-social-media {
-                display:none;
-        }
 
 }
 @media only screen and (max-width: 767px){
@@ -1774,24 +1790,17 @@ float: right;
 		width: 100%;
 	}
 
-<<<<<<< HEAD
-=======
-        .upper-social-media {
-                display:none;
-        }
->>>>>>> origin/LogosToArticleHeads
+    .header-frame .search-form {
+        position: absolute;
+        top: 130px;
+        width: 294px;
+        float: left;
+    }
 
-        .header-frame .search-form {
-            position: absolute;
-            top: 130px;
-            width: 294px;
-            float: left;
-        }
-
-        #header,
-        .header-frame {
-            overflow: visible;
-        }
+    #header,
+    .header-frame {
+        overflow: visible;
+    }
 
 
         /* Per request - hide news by region from appearing when page stacked*/
@@ -1849,6 +1858,10 @@ float: right;
         width: 100%;
         clear: both;
     }
+
+	.upper-social-media {
+		display: none;
+	}
 
 }
 
