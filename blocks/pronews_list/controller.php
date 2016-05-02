@@ -371,15 +371,17 @@ class PronewsListBlockController extends BlockController {
         ]
     */
     public function sortDistrictsFirst($pages, $district) {
+        //for some reason these come surrounded by junk from C5
+        $district = trim($district);
+
         $sortedList = array();
         foreach ($pages as $page) {
-            $dateline = $page->getAttribute('dateline');
+            $dateline = (string)$page->getAttribute('dateline');
 
             //business rule: the important thing is to have the articles with the target district showing in the dateline.  There may
             //be many different distrits assigned to the article, but only regard the article as primary if the dateline shows the
             //district
-
-            if ($dateline == $district) {
+                if ($dateline == $district) {
                 $sortedList['primary'][] = $page;
             } else {
                 $sortedList['secondary'][] = $page;

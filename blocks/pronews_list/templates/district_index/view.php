@@ -1,18 +1,19 @@
 <?php
 defined('C5_EXECUTE') or die(_("Access Denied."));
-$textHelper = Loader::helper("text");
-$ih = Loader::helper('image');
-global $c;
 // now that we're in the specialized content file for this block type,
 // we'll include this block type's class, and pass the block to it, and get
 // the content
-displayList($cArray['primary']);
-
 ?>
-<hr>
-<?php  displayList($cArray['secondary']);
-// var_dump($cArray['secondary']);
-
+<div class="primary">
+<?php
+displayList($cArray['primary']);
+?>
+</div>
+<h2 class="separate-text">Additional articles of interest</h2>
+<div class="secondary">
+    <?php  displayList($cArray['secondary']); ?>
+</div>
+<?php
 if (!$previewMode && $controller->rss) {
     $bt = BlockType::getByHandle('pronews_list');
     $uh = Loader::helper('concrete/urls');
@@ -37,6 +38,10 @@ if ($paginate && $num > 0 && is_object($pl)) {
 */
 function displayList($articles)
 {
+    $textHelper = Loader::helper("text");
+    $ih = Loader::helper('image');
+    $nh = Loader::helper('navigation');
+    global $c;
     if (count($articles) > 0) {
         for ($i = 0; $i < count($articles); $i++) {
             $cobj = $articles[$i];
