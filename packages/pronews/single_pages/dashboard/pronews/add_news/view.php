@@ -5,6 +5,7 @@ $ih = Loader::helper('concrete/interface');
 if (is_object($news)) {
     $secondaryheadline = $news->getCollectionAttributeValue('secondary_headline');
 	$author = $news->getCollectionAttributeValue('author');
+    $regularAuthor = $news->getCollectionAttributeValue('regular_author');
 	$mainphoto = $news->getCollectionAttributeValue('main_photo');
 	$photocaption = $news->getCollectionAttributeValue('photo_caption');
 	$dateline = $news->getCollectionAttributeValue('dateline');
@@ -123,12 +124,18 @@ if (is_object($news)) {
             <div class="input">
                 <?php
                 Loader::model("attribute/categories/collection");
+                //get list
                 $akct = CollectionAttributeKey::getByHandle('author');
                 if (is_object($news)) {
                     $tcvalue = $news->getAttributeValueObject($akct);
                 }
                 ?>
-                <?php  echo $akct->render('form', $tcvalue, true);?>
+                <?php  echo $form->text('author', $author, array('style' => 'width: 520px;'));
+                $akct = CollectionAttributeKey::getByHandle('regular_author');
+                if (is_object($news)) {
+                        $tcvalue = $news->getAttributeValueObject($akct);
+                }
+                echo $akct->render('form', $tcvalue, true); ?>
             </div>
         </div>
         <div class="clearfix">
