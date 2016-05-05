@@ -177,6 +177,12 @@ class DistrictPagesHelper{
                 'link' => '/districts/wyoming',
                 'image' => 'wps.jpg',
                 'abbrev'=> 'wps'
+            ),
+            'All Districts'            =>array (
+                'title' => 'Kent County<br/>Schools',
+                'link' => '/series',
+                'image' => 'alldist.png',
+                'abbrev'=> 'all'
                 )
             );
     }

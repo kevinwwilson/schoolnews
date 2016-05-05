@@ -56,7 +56,7 @@ foreach ($district as $d) {
     </div>
     <div class="p-news">
         <?php
-        if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
+        if (is_array($districtArr) && count($districtArr) == 1) {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
         <?php if (!@is_null($districtPagesHelper->getDistrictImage($districtArr[0])))  { ?>
@@ -73,7 +73,12 @@ foreach ($district as $d) {
 
         </a>
         <span class="more-district">
-            <a href="<?php echo $districtUrl ?>">More District News</a>
+            <a href="<?php echo $districtUrl ?>">
+                <?php if ($district == 'All Districts') { ?>
+                    More News</a>
+                <?php } else { ?>
+                    More  District News</a>
+                <?php } ?>
         </span>
 
         <?php
