@@ -9,7 +9,6 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 displayList($cArray['primary']);
 ?>
 </div>
-<h2 class="separate-text">Additional articles of interest</h2>
 <div class="secondary">
     <?php  displayList($cArray['secondary']); ?>
 </div>
