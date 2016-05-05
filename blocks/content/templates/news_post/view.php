@@ -45,27 +45,42 @@ foreach ($district as $d) {
 }
 ?>
 <root>
+
+<header class="heading">
     <div class ="upper-social-media">
         <span class="share-caption">Share</span>
         <span id="share" class='st_sharethis_large' displayText='ShareThis' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
         <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
+        <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
     </div>
-<header class="heading">
-
     <div class="p-news">
         <?php
-        if (is_array($districtArr) && count($districtArr) == 1  && $districtArr[0] != 'All Districts') {
+        if (is_array($districtArr) && count($districtArr) == 1) {
             $districtUrl = $districtPagesHelper->getDistrictLink($districtArr[0]);
         ?>
+        <?php if (!@is_null($districtPagesHelper->getDistrictImage($districtArr[0])))  { ?>
+
+        <div class="district-logo">
+            <img src="<?php echo $districtPagesHelper->getDistrictImage($districtArr[0])?>">
+        </div>
+        <?php  } ?>
         <a href="<?php echo $districtUrl ?>">
+
             <h1>
-                <span> <?php  echo $districtArr[0]; ?> </span>
+                <span> <?php  echo $districtPagesHelper->getDistrictTitle($districtArr[0]); ?> </span>
             </h1>
+
         </a>
         <span class="more-district">
-            <a href="<?php echo $districtUrl ?>">More District News</a>
+            <a href="<?php echo $districtUrl ?>">
+                <?php if ($district == 'All Districts') { ?>
+                    More News</a>
+                <?php } else { ?>
+                    More  District News</a>
+                <?php } ?>
         </span>
+
         <?php
         } else {
             echo '<h1>&nbsp</h1>';
@@ -73,6 +88,7 @@ foreach ($district as $d) {
         ?>
     </div>
 </header>
+
 <div class="article">
     <?php if ($c->getAttribute('main_photo') != '' && $c->getAttribute('single_multiple_photo_status') == 1) { ?>
         <div class="image-holder">
