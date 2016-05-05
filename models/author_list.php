@@ -1,7 +1,7 @@
 <?php
 class AuthorList extends Object
 {
-        public $authors;
+        private $authors;
 
         public function __construct() {
 
@@ -20,15 +20,29 @@ class AuthorList extends Object
             $this->authors = array();
             while($row=$akv->fetchrow()){
                     $author = new Author();
-                    $author->setFromCompiledString($row);
+                    $author->setFromCompiledString($row['value']);
+                    $this->authors[] = $author;
             }
             if (empty($values)){
                     $values = array();
             }
         }
 
-        public function findByName($name) {
+        public function getNames()
+        {
+            $names = array();
+            foreach ($this->authors as $author) {
+                $names[]=$author->getName();
+            }
+            return $names;
+        }
 
+        public function getEmailByName($name) {
+            foreach ($this->authors as $author) {
+                if ($author->getName() == $name) {
+                    return $author->getEmail();
+                }
+            }
         }
 
 

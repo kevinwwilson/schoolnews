@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <?php
 $df = Loader::helper('form/date_time');
 $ih = Loader::helper('concrete/interface');
@@ -131,11 +134,9 @@ if (is_object($news)) {
                 }
                 ?>
                 <?php  echo $form->text('author', $author, array('style' => 'width: 520px;'));
-                $akct = CollectionAttributeKey::getByHandle('regular_author');
-                if (is_object($news)) {
-                        $tcvalue = $news->getAttributeValueObject($akct);
-                }
-                echo $akct->render('form', $tcvalue, true); ?>
+                $authors = $authorList->getNames();
+                $authors = array_pad($authors,-(count($authors)+1), '');
+                echo $form->select('regular_author', $authors, 1); ?>
             </div>
         </div>
         <div class="clearfix">
@@ -489,7 +490,6 @@ if($('.statushidden input:text').val() == '2'){
 
 }
 
-
 $("input:radio[name=image]").click(function() {
     var value = $(this).val();
 	if(value==1){
@@ -539,5 +539,15 @@ $("#progress-save-news-form").click(function(){
     $form.attr('action', url);
     $form.submit();
 });
+
+$(document).ready(function(){
+    var $regular_author = $('#regular_author');
+    $regular_author.change(function(){
+        var selected = $regular_author.selected().val();
+        $('#author').val(selected);
+    });
+
+});
+
 
 </script>

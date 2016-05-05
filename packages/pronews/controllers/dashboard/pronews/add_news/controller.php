@@ -94,7 +94,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		Loader::model('author_list');
 		$authorList = new AuthorList();
 		$authorList->loadValues();
-
+		$this->set('authorList', $authorList);
 		$this->set('pageTypes', $pageTypes);
 		$this->addHeaderItem(Loader::helper('html')->javascript('tiny_mce/tiny_mce.js'));
 	}

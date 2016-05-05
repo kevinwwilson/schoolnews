@@ -5,11 +5,11 @@ class Author extends Object
         private $email;
 
         public function getName() {
-            return $name;
+            return $this->name;
         }
 
         public function getEmail() {
-            return $email;
+            return $this->email;
         }
 
         public function setFromCompiledString($authorDetails) {
