@@ -828,6 +828,15 @@ table.gcsc-branding,
 	overflow:hidden;
 	margin:0 -6.2% 0 0;
 }
+
+.separate-text {
+	border-bottom: 1px solid #CFD0D1;
+}
+
+h2.separate-text{
+	color: #928EC2;
+}
+
 .more-link a{
 	float:right;
 	padding:0 8px 0 14px;
@@ -856,6 +865,8 @@ table.gcsc-branding,
 	top: 50%;
 	margin-top: -15px;
 }
+
+
 /* article */
 .article{
 	overflow:hidden;
