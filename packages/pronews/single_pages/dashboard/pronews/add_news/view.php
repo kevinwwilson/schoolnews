@@ -136,7 +136,7 @@ if (is_object($news)) {
                 <?php  echo $form->text('author', $author, array('style' => 'width: 520px;'));
                 $authors = $authorList->getNames();
                 $authors = array_pad($authors,-(count($authors)+1), '');
-                echo $form->select('regular_author', $authors, 1); ?>
+                echo $form->select('regular_author', $authors, 0); ?>
             </div>
         </div>
         <div class="clearfix">
@@ -541,9 +541,8 @@ $("#progress-save-news-form").click(function(){
 });
 
 $(document).ready(function(){
-    var $regular_author = $('#regular_author');
-    $regular_author.change(function(){
-        var selected = $regular_author.selected().val();
+    $('#regular_author').change(function(){
+        var selected = $('#regular_author option:selected').text();
         $('#author').val(selected);
     });
 

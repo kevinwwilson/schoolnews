@@ -148,7 +148,11 @@ foreach ($district as $d) {
 
     <h2><?php echo $newsTitle ?></h2>
     <h4><?php echo $secondaryheadline ?></h4>
-    <strong class="date">by <?php echo $author ?><a href="mailto:<?php echo $authorList->getEmailByName($author)?>">Email</a></strong>
+    <strong class="date">by <?php echo $author ?>
+        <a href="mailto:<?php echo $authorList->getEmailByName($author)?>">
+        &nbsp;<i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+    </strong>
     <div id="article_content">
         <?php
         if (strlen($dateline) > 0) {

@@ -37,12 +37,18 @@ class AuthorList extends Object
             return $names;
         }
 
+        /*
+        Requires that the attribute has one element that is defined as "Default" showing the e-mail address
+        that will be shown in the case of an author or combination of authors that is not specifically registered
+        */
         public function getEmailByName($name) {
             foreach ($this->authors as $author) {
                 if ($author->getName() == $name) {
                     return $author->getEmail();
                 }
             }
+            //if the specific name of the author is not defined, then return the default
+            return $this->getEmailByName('Default');
         }
 
 
