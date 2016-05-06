@@ -14,6 +14,8 @@
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
     <?php Loader::element('header_required'); ?>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="<?php print $this->getThemePath(); ?>/fonts/font-awesome-4.6.2/css/font-awesome.min.css">
+
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
     <style type="text/css">@import "/concrete/css/ccm.app.css";</style>
     <link media="all" rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/css/all.css" />
