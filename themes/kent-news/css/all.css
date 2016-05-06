@@ -1455,10 +1455,13 @@ float: right;
 	position: relative;
 }
 .social-networks a{
-	display:block;
-	text-indent:-9999px;
+	color: white;
+	font-size: 20px;
+	/*display:block;
 	overflow:hidden;
 	height:21px;
+	text-indent:-9999px;*/
+
 }
 .social-networks .twitter{
 	background:url("/themes/kent-news/images/sprite.png") no-repeat -12px 0;
