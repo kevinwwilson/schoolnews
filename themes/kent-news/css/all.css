@@ -286,7 +286,7 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 }
 .content-block .post{
 	padding:10px 20px 0 0;
-	background:none;
+	background: url("/themes/kent-news/images/separator2.png") repeat-x scroll 0px 100% transparent;
 }
 
 .home .dateline,
@@ -339,6 +339,15 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	color:#4a439a;
 	margin: 7px 0 7px;
 }
+
+.date i {
+	font-size: 13px;
+}
+
+.date a:hover {
+	text-decoration: none;
+}
+
 .post p{margin:0 0 8px;}
 .post .more{font-weight:bold;}
 
@@ -613,9 +622,26 @@ z-index: 10;}
     width: 32px;
 }
 
+
+
 .upper-social-media {
     line-height: 9px;
-    color: #777777
+    color: #777777;
+    float: left;
+}
+
+.share-story {
+    float: left;
+    width: 162px;
+    margin: 5px 0 0 9px;
+    clear: left;
+	background: url('../images/share_story.png') no-repeat;
+	height: 30px;
+}
+
+.p-news {
+    width: 520px;
+    float: right;
 }
 
 
@@ -636,19 +662,67 @@ z-index: 10;}
 }
 
 .district-logo img {
-    height: 75px;
-    width: auto;
     float: right;
-    padding-right: 5px
+    padding-right: 5px;
+	width: auto;
+	max-height: 80px;
+}
+
+.p-news .district-logo img {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.p-news .district-logo img {
+    padding-right: 0px;
+    padding-left: 5px;
 }
 
 .heading .more-district {
     float:right;
+    width: 55%;
+    text-align: right;
 }
 
 .heading .more-district a {
     color: #4A439A;
 		font-size: 13px;
+}
+
+.heading h1 {
+    width: 315px;
+    float: right;
+}
+
+#content .heading br {
+	margin-bottom: 0px;
+}
+
+/* On the article pages, set the width of the district name section */
+.heading .district-name {
+    width: 523px;
+    text-align: right;
+    float: right;
+}
+
+/* On the district index,  do not set the width */
+.district-list .heading .district-name {
+	width: auto;
+}
+
+.heading h1 {
+    width: 315px;
+    float: right;
+}
+
+#content .heading br {
+	margin-bottom: 0px;
+}
+
+.heading .district-name {
+    width: 523px;
+    text-align: right;
+    float: right;
 }
 
 /* search-box */
@@ -828,6 +902,15 @@ table.gcsc-branding,
 	overflow:hidden;
 	margin:0 -6.2% 0 0;
 }
+
+.separate-text {
+	border-bottom: 1px solid #CFD0D1;
+}
+
+h2.separate-text{
+	color: #928EC2;
+}
+
 .more-link a{
 	float:right;
 	padding:0 8px 0 14px;
@@ -856,6 +939,8 @@ table.gcsc-branding,
 	top: 50%;
 	margin-top: -15px;
 }
+
+
 /* article */
 .article{
 	overflow:hidden;
@@ -1334,7 +1419,7 @@ float: right;
     padding: 5px;
 }
 /* links-box */
-.links-box{padding:0 0 18px;}
+.links-box{padding:0 0 0px;}
 #sidebar .links-box h2{
 	font:11px/13px 'Open Sans', Arial, Helvetica, sans-serif;
 	color:#a4cf62;
@@ -1643,6 +1728,15 @@ float: right;
 		display: block;
 	}
 
+	/* school district header found on article pages */
+	.p-news {
+		width: 300px;
+	}
+
+	.p-news .district-logo img {
+		display: none;
+	}
+
 
 }
 @media only screen and (max-width: 850px){
@@ -1657,6 +1751,7 @@ float: right;
 		display:inline-block;
 		vertical-align:top;
 	}
+
 }
 @media only screen and (max-width: 767px){
 	.header-holder{padding:15px;}
@@ -1718,21 +1813,17 @@ float: right;
 		width: 100%;
 	}
 
-        .upper-social-media {
-                display:none;
-        }
+    .header-frame .search-form {
+        position: absolute;
+        top: 130px;
+        width: 294px;
+        float: left;
+    }
 
-        .header-frame .search-form {
-            position: absolute;
-            top: 130px;
-            width: 294px;
-            float: left;
-        }
-
-        #header,
-        .header-frame {
-            overflow: visible;
-        }
+    #header,
+    .header-frame {
+        overflow: visible;
+    }
 
 
         /* Per request - hide news by region from appearing when page stacked*/
@@ -1791,6 +1882,16 @@ float: right;
         clear: both;
     }
 
+	.upper-social-media {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 450px)  {
+    .district-logo {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 320px){
