@@ -16,6 +16,7 @@
 							if ($stack) $stack->display();
 							?>
 					</ul>
+					<i class="fa fa-facebook" aria-hidden="true"></i>
 				</div> <!-- end footer-holder -->
 
 
