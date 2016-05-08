@@ -139,10 +139,10 @@ class PronewsListBlockController extends BlockController {
 
 
 //                        $pl->filterByAttribute('district',"%$distss%",'like');
-//                        //these are the templates where the "All Districts option should work and 
+//                        //these are the templates where the "All Districts option should work and
 //                        //show all the districts
 
-        if ($template == 'pronews_list_thumbnails') {
+        if ($template == 'pronews_list_thumbnails' || $template == 'district_index') {
             if (!$u->isLoggedIn()) {
                 $pl->filter(false, "ak_group_status like '%Published%'");
             }
@@ -155,6 +155,7 @@ class PronewsListBlockController extends BlockController {
         } else {
             $pl->filterByAttribute('district', "%$distss%", 'like');
         }
+
 
         if ($template == 'home_images') {
             $pl->filterByAttribute('regional_feature', "%$this->category%", 'like');
@@ -253,7 +254,14 @@ class PronewsListBlockController extends BlockController {
         if ($template == 'search' && $_GET['q'] != '') {
             $pages = $pl->get();
         }
+
+
         $this->trackDisplayedArticles($pages);
+
+        if ($template == 'district_index') {
+            $pages = $this->sortDistrictsFirst($pages, $distss);
+        }
+// var_dump($pages['secondary']);
 
         $this->set('pl', $pl);
         return $pages;
@@ -350,6 +358,37 @@ class PronewsListBlockController extends BlockController {
                 $c->displayedArticles[$page->getCollectionID()] = $template;
             }
         }
+    }
+
+    /*
+        For only certain templates where it is desirable to have the primary, district articles appear before the
+        rest of the scondary articles
+
+        @returns - array of articles of the format
+        [
+            'primary' => [articles...]
+            'secondary' => [articles...]
+        ]
+    */
+    public function sortDistrictsFirst($pages, $district) {
+        //for some reason these come surrounded by junk from C5
+        $district = trim($district);
+
+        $sortedList = array();
+        foreach ($pages as $page) {
+            $dateline = (string)$page->getAttribute('dateline');
+
+            //business rule: the important thing is to have the articles with the target district showing in the dateline.  There may
+            //be many different distrits assigned to the article, but only regard the article as primary if the dateline shows the
+            //district
+                if ($dateline == $district) {
+                $sortedList['primary'][] = $page;
+            } else {
+                $sortedList['secondary'][] = $page;
+            }
+        }
+
+        return $sortedList;
     }
 
 }
