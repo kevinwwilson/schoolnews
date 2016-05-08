@@ -1539,23 +1539,13 @@ float: right;
 	position: relative;
 }
 .social-networks a{
-	display:block;
-	text-indent:-9999px;
-	overflow:hidden;
-	height:21px;
-}
-.social-networks .twitter{
-	background:url("/themes/kent-news/images/sprite.png") no-repeat -12px 0;
-	width:26px;
-}
-.social-networks .facebook{
-	background:url("/themes/kent-news/images/sprite.png") no-repeat -50px 0;
-	width:10px;
+	color: white;
+	font-size: 24px;
 }
 
-.social-networks .rss{
-	background:url("/themes/kent-news/images/sprite.png") no-repeat -74px 0;
-	width:20px;
+.social-networks a:hover {
+	text-decoration: none;
+	text-shadow: 1px 2px 2px #888888;
 }
 
 .social-networks .newsletter{
@@ -1566,15 +1556,6 @@ float: right;
 	font-weight: bold;
 	font-size: 14px;
 }
-
-.social-networks .contact {
-	width: 25px;
-	background:url("/themes/kent-news/images/sprite.png") no-repeat -105px 0;
-	text-indent: 0px;
-	color: #fff;
-}
-
-
 
 .footer-frame{
 	float:right;
