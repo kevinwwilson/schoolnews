@@ -30,7 +30,13 @@ $tags = $c->getCollectionAttributeValue($ak_g);
 
 $ak_u = CollectionAttributeKey::getByHandle('news_url');
 $url = $c->getCollectionAttributeValue($ak_u);
+
+//load everything related to the author of the article
 $author = $c->getAttribute('author');
+Loader::model('author_list');
+$authorList = new AuthorList();
+$authorList->loadValues();
+
 $secondaryheadline = $c->getAttribute('secondary_headline');
 $photo_caption = $c->getAttribute('photo_caption');
 $district = $c->getAttribute('district');
@@ -142,7 +148,11 @@ foreach ($district as $d) {
 
     <h2><?php echo $newsTitle ?></h2>
     <h4><?php echo $secondaryheadline ?></h4>
-    <strong class="date">by <a href="/about/reporters"><?php echo $author ?></a></strong>
+    <strong class="date">by <?php echo $author ?>
+        <a href="mailto:<?php echo $authorList->getEmailByName($author)?>">
+        &nbsp;<i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+    </strong>
     <div id="article_content">
         <?php
         if (strlen($dateline) > 0) {

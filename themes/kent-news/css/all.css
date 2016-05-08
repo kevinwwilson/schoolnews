@@ -339,6 +339,15 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	color:#4a439a;
 	margin: 7px 0 7px;
 }
+
+.date i {
+	font-size: 13px;
+}
+
+.date a:hover {
+	text-decoration: none;
+}
+
 .post p{margin:0 0 8px;}
 .post .more{font-weight:bold;}
 

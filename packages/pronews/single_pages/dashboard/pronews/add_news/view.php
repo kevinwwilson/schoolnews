@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <?php
 $df = Loader::helper('form/date_time');
 $ih = Loader::helper('concrete/interface');
@@ -5,6 +8,7 @@ $ih = Loader::helper('concrete/interface');
 if (is_object($news)) {
     $secondaryheadline = $news->getCollectionAttributeValue('secondary_headline');
 	$author = $news->getCollectionAttributeValue('author');
+    $regularAuthor = $news->getCollectionAttributeValue('regular_author');
 	$mainphoto = $news->getCollectionAttributeValue('main_photo');
 	$photocaption = $news->getCollectionAttributeValue('photo_caption');
 	$dateline = $news->getCollectionAttributeValue('dateline');
@@ -123,12 +127,16 @@ if (is_object($news)) {
             <div class="input">
                 <?php
                 Loader::model("attribute/categories/collection");
+                //get list
                 $akct = CollectionAttributeKey::getByHandle('author');
                 if (is_object($news)) {
                     $tcvalue = $news->getAttributeValueObject($akct);
                 }
                 ?>
-                <?php  echo $akct->render('form', $tcvalue, true);?>
+                <?php  echo $form->text('author', $author, array('style' => 'width: 520px;'));
+                $authors = $authorList->getNames();
+                $authors = array_pad($authors,-(count($authors)+1), '');
+                echo $form->select('regular_author', $authors, 0); ?>
             </div>
         </div>
         <div class="clearfix">
@@ -482,7 +490,6 @@ if($('.statushidden input:text').val() == '2'){
 
 }
 
-
 $("input:radio[name=image]").click(function() {
     var value = $(this).val();
 	if(value==1){
@@ -532,5 +539,14 @@ $("#progress-save-news-form").click(function(){
     $form.attr('action', url);
     $form.submit();
 });
+
+$(document).ready(function(){
+    $('#regular_author').change(function(){
+        var selected = $('#regular_author option:selected').text();
+        $('#author').val(selected);
+    });
+
+});
+
 
 </script>
