@@ -179,7 +179,7 @@ class DistrictPagesHelper{
                 'abbrev'=> 'wps'
             ),
             'All Districts'            =>array (
-                'title' => 'Kent County<br/>Schools',
+                'title' => 'Kent County<br/>Area Schools',
                 'link' => '/series',
                 'image' => 'alldist.png',
                 'abbrev'=> 'all'
