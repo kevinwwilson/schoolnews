@@ -1,4 +1,4 @@
-var base_url = 'http://kent-newsv2.local';
+var base_url = 'http://kent-newsv2';
 
 $(document).ready(function(){
     $('.schoolnewsfeed').each(function(i, obj) {
@@ -13,8 +13,8 @@ $(document).ready(function(){
             dataType: 'jsonp',
             success: function(data,status) {
                 var fullUrl = addFullUrl(data.data);
-                //TODO: may need to nanually trigger the slideshow
                 $(obj).append(fullUrl);
+                $('.cycle-slideshow').cycle();
             },
             error: function (responseData, textStatus, errorThrown) {
                 alert('POST failed.' + errorThrown);
@@ -26,10 +26,10 @@ $(document).ready(function(){
         $obj = $(data);
         $('img').each(function(i, image){
             var url = $(image).attr('src');
-            var full_url = base_url + url;
-            console.log(full_url);
-            //TODO: Check first to see if the current url already starts with http.
-            $(image).attr('src', full_url);
+            if (url.substring(0,4) != 'http') {
+                var full_url = base_url + url;
+                $(image).attr('src', full_url);
+            }
         });
         return $obj;
     }
