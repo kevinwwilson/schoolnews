@@ -7,25 +7,38 @@ $error = false;
 //get custom php generated content
 if ($type == 'custom') {
     ob_start();
-    include 'custom\\'. $name . '.php';
+    $result = include 'custom\\'. $name . '.php';
+    if ($result) {
+        $html = ob_get_clean();
+    } else {
+        $html = '<p class="error"> Unknown feed name: ' . $name . '</p>';
+        $error = true;
+    }
     //assign all captured output to variable
-    $html = ob_get_clean();
 } elseif ($type == 'stack') {
     //get stack
     $stack = Stack::getByName($name);
-    $blocks = $stack->getBlocks();
-
-    //start capturing output stream
-    ob_start();
-    foreach ($blocks as $block) {
-        $block->display();
+    if ($stack) {
+        $blocks = $stack->getBlocks();
+        //start capturing output stream
+        ob_start();
+        foreach ($blocks as $block) {
+            $block->display();
+        }
+        //assign all captured output to variable
+        $html = ob_get_clean();
+    } else {
+        $html = '<p class="error"> Unknown stack name: ' . $name . '</p>';
+        $error = true;
     }
-    //assign all captured output to variable
-    $html = ob_get_clean();
+
 } else {
     $html = '<p class="error"> Expected feed type of custom or stack and found ' . $type . '</p>';
     $error = true;
 }
+
+//keep the images from loading when first brought into the browsers
+$html = str_replace('src="', 'src-data="', $html);
 
 $returnData = [];
 if ($error) {
