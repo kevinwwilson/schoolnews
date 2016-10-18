@@ -4,12 +4,25 @@
     <title>News Widget Test</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <script type="text/javascript" src="/concrete/js/jquery.js?v=23247b9d2d8217d7f27d441a8b8576a0"></script>
-    <script type="text/javascript" src="/js/cycle2/cycle2.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link media="all" rel="stylesheet" type="text/css" href="http://kent-newsv2.local/themes/kent-news/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="http://kent-newsv2.local/files/cache/css/kent-news/typography.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://kent-newsv2.local/js/cycle2/cycle2.min.js"></script>
     <script type='text/javascript' src="http://kent-newsv2.local/tools/feed/js/schoolnewsfeed.js"></script>
 </head>
 <body>
-	<div class="schoolnewsfeed" snn-type="stack" snn-name="Sponsors"></div>
-	<div class="schoolnewsfeed" snn-type="custom" snn-name="home_widget"></div>
-	<div class="schoolnewsfeed" snn-type="stack" snn-name="Footer Navigation"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div style="width:1170px; height:120px; background-color:#efefef"></div>
+            </div>
+            <div class="col-md-9"><div style="width:930px; height:1500px; background-color:#efefef"></div></div>
+            <div class="col-md-2">
+                <div class="schoolnewsfeed" snn-type="stack" snn-name="Sponsors"></div>
+                <div class="schoolnewsfeed" snn-type="custom" snn-name="home_widget"></div>
+                <div class="schoolnewsfeed" snn-type="stack" snn-name="Footer Navigation"></div>
+            </div>
+        </div>
+    </div>
 </body>
