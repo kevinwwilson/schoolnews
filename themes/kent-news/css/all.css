@@ -1338,9 +1338,9 @@ float: right;
 }
 
 #sidebar{
-	width:18.7%;
+	width:23%;
 	float:right;
-	padding:33px 0 17px 24px;
+	padding:33px 0 17px 0px;
 	margin:0 0 0 10px;
 }
 #sidebar h2,
