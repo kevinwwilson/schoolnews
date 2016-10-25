@@ -14,7 +14,7 @@
       ?>
       <li style="display: none;">
           <div class="main-image">
-              <img src="<?php echo $series->resizeMainImage(180, 127); ?>">
+              <img src="<?php echo $series->resizeMainImage(221, 155); ?>">
           </div>
           <h3><a href="<?php echo $series->link?>"><?php echo $series->title ?></a></h3>
           <div class="summary"><?php echo $series->summary ?></div>
