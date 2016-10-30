@@ -42,5 +42,9 @@ class RightSidebarPageTypeController extends Controller{
         $newsHelper = Loader::helper("news_loader");
         $newsList = $newsHelper->getHomeNews();
         $this->set('newsList', $newsList);
+
+        //add the series list
+        $seriesList = $newsHelper->getSeriesList();
+        $this->set('seriesList', $seriesList);
     }
 }

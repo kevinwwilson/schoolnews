@@ -28,6 +28,17 @@ class NewsLoaderHelper {
         }
         return $pageArray;
     }
-    
+
+    public function getSeriesList() {
+        Loader::model('page_list');
+        Loader::model('series_list');
+        $pl = new PageList();
+        $pl->filterByAttribute('series_list', 1);
+        if (count($pl > 0)) {
+            $seriesList = $pl->get();
+            //Load the c5 page list into a set of custom SeriesList models
+            return seriesList::buildFromPageList($seriesList);
+        }
+    }
+
 }
- 

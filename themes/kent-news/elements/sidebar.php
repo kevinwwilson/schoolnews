@@ -37,5 +37,6 @@
 							$a->display($c);
 							?>
 
+					<?php $this->inc('elements/series-list.php'); ?>
 
 				</aside>
