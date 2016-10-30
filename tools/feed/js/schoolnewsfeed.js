@@ -1,4 +1,4 @@
-var base_url = 'http://kent-newsv2.local';
+var base_url = 'http://www.schoolnewsnetwork.org';
 
 $(document).ready(function(){
     $('.schoolnewsfeed').each(function(i, obj) {
