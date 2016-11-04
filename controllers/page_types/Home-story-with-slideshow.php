@@ -6,8 +6,15 @@ class HomeStoryWithSlideshowPageTypeController extends Controller
         $this->set('SWThumbnail', $this->getRegionalThumbnail('SW Thumb'));
         $this->set('SEThumbnail', $this->getRegionalThumbnail('SE Thumb'));
         $this->set('centralThumbnail', $this->getRegionalThumbnail('Central Thumb'));
+
+        //add the series list
+        $header = '<script type="text/javascript" src="/js/cycle/cycle.min.js"></script>';
+        $this->addHeaderItem($header);
+        $newsHelper = Loader::helper("news_loader");
+        $seriesList = $newsHelper->getSeriesList();
+        $this->set('seriesList', $seriesList);
     }
-    
+
     public function getRegionalThumbnail($region)
     {
         Loader::model('file_list');
@@ -18,7 +25,7 @@ class HomeStoryWithSlideshowPageTypeController extends Controller
         $files = $fl->get();
         shuffle($files);
         $thumb= $ih->getThumbnail($files[0], 166, 117);
-        $image = '<img alt="" src="'.$thumb->src.'">';	
+        $image = '<img alt="" src="'.$thumb->src.'">';
         return $image;
     }
 }
