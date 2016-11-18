@@ -56,8 +56,8 @@ foreach ($district as $d) {
     <div class ="upper-social-media">
         <span class="share-caption">Share</span>
         <span id="share" class='st_sharethis_large' displayText='ShareThis' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
-        <span class="share-caption">Print</span>
         <span id="print" onclick="window.print();"></span>
+        <div id="search"><a href="/search" title="Search the School News Network Site"></a></div>
         <div class="share-story"><a href="mailto:snn@kentisd.org">Send us your story ideas</a></div>
     </div>
     <div class="p-news">
