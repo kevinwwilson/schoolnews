@@ -1,7 +1,7 @@
 body, pre {color:#000; font-size:12px; margin:8px;}
 
-#block-content ul, 
-#block-content ol, 
+#block-content ul,
+#block-content ol,
 #block-content li {
 	/*list-style: square inside none;*/
 }
@@ -43,16 +43,16 @@ body, pre {color:#000; font-size:12px; margin:8px;}
 #block-content p,
 #block-content strong {
 	margin-bottom: 16px;
-}	
+}
 
 .p-news h1{
 background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !important}
 
 .inline-sidebar {
-	border: 1px solid #E2E1E1; 
-	padding: 10px; 
-	line-height: 15px; 
-	margin-bottom: 10px; 
+	border: 1px solid #E2E1E1;
+	padding: 10px;
+	line-height: 15px;
+	margin-bottom: 10px;
 	font-size: 12px;
 	border-width: 1px !important;
         width: 280px;
@@ -70,4 +70,45 @@ background: none !important; margin:0 0 0 0 !important; padding:0 0 0 0 !importa
 .inline-sidebar.left {
     float: left;
     margin-right: 10px;
+}
+
+
+/* Green Link */
+#sidebar h1 {
+    color : #402c7a;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+#sidebar h2 a {
+    color : #303030;
+    font-size: 15px;
+}
+
+#sidebar h3 a {
+    color : #8db354;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#sidebar h4 a,
+.green-link a {
+    color : #8db354;
+    font-size: 13px;
+
+}
+
+/* Charcoal link */
+#sidebar h5 a,
+.charcoal-link a {
+    color : #303030;
+    font-size: 13px;
+}
+
+/*Purple link */
+#sidebar h6 a,
+.purple-link a {
+    color : #402c7a;
+    font-size: 13px;
 }
