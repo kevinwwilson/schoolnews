@@ -18,6 +18,7 @@ if (is_object($news)) {
 	$long_summary = $news->getCollectionAttributeValue('long_summary');
 	$files = $news->getCollectionAttributeValue('files');
 	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
+	$publishDate= $news->getCollectionAttributeValue('publish_date');
 	$newsTitle = $news->getCollectionName();
 	$newsDescription = $news->getCollectionDescription();
 	$newsDate = $news->getCollectionDatePublic();
@@ -415,6 +416,12 @@ if (is_object($news)) {
 					</div>
 				</div>
 
+            <div class="clearfix">
+                <?php  echo $form->label('publishdate', t('Date/Time'))?>
+                <div class="input">
+                    <?php  echo $df->datetime('publishdate', $publishDate)?>
+                </div>
+            </div>
 
 			</div>
 			<div class="pane meta" style="display: none;">

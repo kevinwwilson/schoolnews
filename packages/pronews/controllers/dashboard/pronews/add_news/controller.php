@@ -304,8 +304,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('regional_feature',$this->post('regionalFeature'));
 		$p->setAttribute('news_tag',$this->post('newsTag'));
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
-
-
+        $p->setAttribute('publish_date',Loader::helper('form/date_time')->translate('publishdate'));
 		$p->setAttribute('files',$this->post('files'));
 		$bt = BlockType::getByHandle('content');
 		$test = $this->post('files');
