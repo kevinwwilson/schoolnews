@@ -80,7 +80,7 @@ class NewsPublishHelper {
         $published = 0;
         foreach ($pages as $page) {
             $publishDate = $page->getAttribute('publish_date');
-            if ($publishDate >= date('Y-m-d H:i:s')  ) {
+            if ($publishDate <= date('Y-m-d H:i:s')  ) {
                 $this->publishArticle($page);
                 $published++;
             }
