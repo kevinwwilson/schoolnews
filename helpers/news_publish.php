@@ -64,19 +64,32 @@ class NewsPublishHelper {
         }
     }
 
+    /**
+    * @return bool true to indicate that there was at least 1 article published.  Returns false if nothing done
+    */
     public function publishByDate(  ) {
         $pl = new PageList();
         $pl->filter(false, "ak_group_status like '%Ready%'");
         $pl->sortByPublicDateDescending();
-        $articles = $pl->get();
-
+        $pages = $pl->get();
+        if (count($pages) < 1) {
+            //none of the articles are ready, so nothing to publish
+            //return false to indicate nothing published
+            return false;
+        }
+        $published = 0;
         foreach ($pages as $page) {
             $publishDate = $page->getAttribute('publish_date');
             if ($publishDate >= date('Y-m-d H:i:s')  ) {
                 $this->publishArticle($page);
+                $published++;
             }
         }
-
+        if ($published > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function publishArticle($page) {
