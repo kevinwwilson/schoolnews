@@ -64,4 +64,26 @@ class NewsPublishHelper {
         }
     }
 
+    public function publishByDate(  ) {
+        $pl = new PageList();
+        $pl->filter(false, "ak_group_status like '%Ready%'");
+        $pl->sortByPublicDateDescending();
+        $articles = $pl->get();
+
+        foreach ($pages as $page) {
+            $publishDate = $page->getAttribute('publish_date');
+            if ($publishDate >= date('Y-m-d H:i:s')  ) {
+                $this->publishArticle($page);
+            }
+        }
+
+    }
+
+    public function publishArticle($page) {
+        if (is_object($page)) {
+            $page->setAttribute('group_status', 'Published');
+        }
+
+    }
+
 }

@@ -417,7 +417,7 @@ if (is_object($news)) {
 				</div>
 
             <div class="clearfix">
-                <?php  echo $form->label('publishdate', t('Date/Time'))?>
+                <?php  echo $form->label('publishdate', t('Publish Date'))?>
                 <div class="input">
                     <?php  echo $df->datetime('publishdate', $publishDate)?>
                 </div>
