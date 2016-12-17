@@ -306,6 +306,8 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
         $p->setAttribute('publish_date',Loader::helper('form/date_time')->translate('publishdate'));
 		$p->setAttribute('files',$this->post('files'));
+		// var_dump($this->post()); die();
+		$p->setAttribute('schedule_article',$this->post('schedulearticle'));
 		$bt = BlockType::getByHandle('content');
 		$test = $this->post('files');
 		$main_image=$p->getAttribute('main_photo');
