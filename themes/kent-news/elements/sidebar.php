@@ -1,5 +1,5 @@
 <!-- sidebar -->
-				<aside id="sidebar">
+				<aside id="sidebar" class="nocontent">
 						<?php $this->inc('elements/home-news.php'); ?>
 					<!-- links-box -->
 						<?php

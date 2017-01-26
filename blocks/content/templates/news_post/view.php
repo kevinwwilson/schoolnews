@@ -203,7 +203,7 @@ foreach ($district as $d) {
     </div>
 
     <?php if (count($districtArr) == 1) { ?>
-    <div id="more-district">
+    <div id="more-district" class="nocontent">
     <?php
     //display a link to the district page only if there is one district assigned to  the article
         $newsInfo = Loader::helper('get_news_info');
