@@ -17,7 +17,7 @@ $this->inc('elements/header.php');
                     $a->display($c);
                     ?>
                 </div>
-                
+
             </header>
             <!-- news-box -->
             <aside class="news-box">
@@ -33,11 +33,11 @@ $this->inc('elements/header.php');
                             <?php
                             $a = new Area('District Feature');
                             $a->display($c);
-                            ?> 
+                            ?>
                         </div>
                         <div class="ad1">
                             <!-- District Index Top Box Ad [async] -->
-                            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+                            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
                             <script type="text/javascript">
                             var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
                             var abkw = window.abkw || '';
@@ -55,8 +55,8 @@ $this->inc('elements/header.php');
                             var plc187876 = window.plc187876 || 0;
                             document.write('<'+'div id="placement_187876_'+plc187876+'"></'+'div>');
                             AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 187876, [300,250], 'placement_187876_'+opt.place, opt); }, opt: { place: plc187876++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
-                            </script>                            
-                        </div> 
+                            </script>
+                        </div>
                     </div>
 
 
@@ -71,7 +71,7 @@ $this->inc('elements/header.php');
         </div>
         <?php $this->inc('elements/footer-ad.php'); ?>
     </section>
-    
+
     <!-- sidebar -->
     <div class="home-news">
         <!-- sidebar -->

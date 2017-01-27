@@ -13,10 +13,10 @@
         <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
     <?php Loader::element('header_required'); ?>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Oswald:400,300,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="<?php print $this->getThemePath(); ?>/fonts/font-awesome-4.6.2/css/font-awesome.min.css">
 
-    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
     <style type="text/css">@import "/concrete/css/ccm.app.css";</style>
     <link media="all" rel="stylesheet" type="text/css" href="<?php print $this->getThemePath(); ?>/css/all.css" />
     <link rel="stylesheet" type="text/css" href="<?php print $this->getStyleSheet('typography.css') ?>" />
@@ -78,7 +78,7 @@
                 <header id="header">
                     <div class="ad">
                         <!-- Header Banner [async] -->
-                        <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+                        <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
                         <script type="text/javascript">
                         var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
                         var abkw = window.abkw || '';

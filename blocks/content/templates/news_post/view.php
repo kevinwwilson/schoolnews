@@ -170,7 +170,7 @@ foreach ($district as $d) {
 
 
                         <!-- Article Box [async] -->
-            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
             <script type="text/javascript">
             var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
             var abkw = window.abkw || '';
