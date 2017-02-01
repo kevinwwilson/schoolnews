@@ -30,6 +30,7 @@
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/jcaption/jcaption.min.js"></script>
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/ie.js"></script>
 
+    <script type="text/javascript" src="/logo/edge.2.0.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="/logo/SNN_AnimatedLogo_PNG_edgePreload.js"></script>
 
     <script type="text/javascript" src="<?php print $this->getThemePath(); ?>/js/article.js"></script>
