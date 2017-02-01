@@ -170,7 +170,7 @@ foreach ($district as $d) {
 
 
                         <!-- Article Box [async] -->
-            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://ab166541.adbutler-chargino.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+            <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://servedbyadbutler.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
             <script type="text/javascript">
             var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
             var abkw = window.abkw || '';
@@ -179,7 +179,7 @@ foreach ($district as $d) {
             html = html.replace('♥', '<div class="article-box" id="placement_181293_'+plc181293+'"></div>');
             $('#article_content').html(html);
 //            document.write('<div id="placement_181293_'+plc181293+'"></div>');
-            AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 181293, [300,250], 'placement_181293_'+opt.place, opt); }, opt: { place: plc181293++, keywords: abkw, domain: 'ab166541.adbutler-chargino.com' }});
+            AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 181293, [300,250], 'placement_181293_'+opt.place, opt); }, opt: { place: plc181293++, keywords: abkw, domain: 'servedbyadbutler.com' }});
             </script>
         </div>
     </div>
