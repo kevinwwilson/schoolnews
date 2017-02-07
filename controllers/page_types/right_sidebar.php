@@ -32,7 +32,7 @@ class RightSidebarPageTypeController extends Controller{
 
         //add share this header script
         $shareButtonScript = '<script type="text/javascript">var switchTo5x=true;</script>';
-        $shareButtonScript .= '<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>';
+        $shareButtonScript .= '<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>';
         $shareButtonScript .= '<script type="text/javascript">stLight.options({publisher: "7f8dd855-a413-4e5c-85b0-9e266c6a116d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>';
         $this->addHeaderItem($shareButtonScript);
 
