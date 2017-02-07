@@ -120,11 +120,8 @@
                                 $stack->display();
                             ?>
                         </nav>
-                        <form class="search-form" method="get" action="/customsearch">
-                            <fieldset>
-                                <input type="text" name="q">
-                                <input type="submit" value="Submit">
-                            </fieldset>
-                        </form>
+                        <div class="subscribe">
+                            <a href="/newsletter" target="_blank"><img src="<?php print $this->getThemePath(); ?>/images/Subscribe-graphic.gif" alt="Subscribe-graphic.gif" width="180" height="50"></a>
+                        </div>
                     </div>
                 </header>
