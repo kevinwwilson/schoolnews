@@ -1441,7 +1441,7 @@ float: right;
 }
 .info-box{
 	padding:11px 0 12px;
-	border-top:1px solid #cfd0d1;
+	/* border-top:1px solid #cfd0d1; Removed when moving sidebar elements around*/
 }
 #sidebar .info-box h2{
 	font-size:17px;
