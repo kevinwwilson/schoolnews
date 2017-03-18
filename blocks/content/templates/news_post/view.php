@@ -196,7 +196,7 @@ foreach ($district as $d) {
             <span class='st_tumblr_large' displayText='Tumblr'></span>
             <span class='st_sharethis_large' displayText='ShareThis'></span>
             <span class='st_email_large' displayText='Email'></span>
-            <span class='st_fblike_large' displayText='Facebook Like' st_url="<?php echo BASE_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
+            <span class='st_fblike_large' displayText='Facebook Like' st_url="<?php echo SOCIAL_URL. $this->url($this->getCollectionObject()->cPath); ?>"></span>
 
             <span id="newsletter"><a href="/newsletter">Subscribe to Weekly Headlines</a></span>
         </div>
