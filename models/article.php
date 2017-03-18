@@ -14,7 +14,7 @@ class article extends Object
     public $mainImage;
     public $slideShow;
     public $thumbnail;
-    
+
     /*
      * Takes a c5 page_list model and returns an array of article models
      */
@@ -32,7 +32,7 @@ class article extends Object
     {
         $nh = Loader::helper('navigation');
         Loader::model('page_list');
-        
+
         $this->title = $page->getCollectionName();
         $this->date = $page->getCollectionDatePublic();
         $this->status = $page->getCollectionAttributeValue('group_status')->getOptions();
@@ -50,7 +50,7 @@ class article extends Object
         $this->mainImage = $this->getMainImage($page);
         $this->slideShow = $this->getSlideImages($page);
     }
-    
+
     public function getMainImage($page) {
 
         $photoType = $page->getAttribute('single_multiple_photo_status');
@@ -58,7 +58,7 @@ class article extends Object
             //this is a single photo with a main photo assigned
             $image = $page->getAttribute('main_photo');
         } elseif ($photoType == 2) {
-            //this is a slideshow 
+            //this is a slideshow
             $slideimage = $page->getAttribute('files');
             $sliderimages = explode('^', $slideimage);
 
@@ -71,7 +71,7 @@ class article extends Object
 
     public function getSlideImages($page) {
         $photoType = $page->getAttribute('single_multiple_photo_status');
-        
+
         if ($photoType == 2) {
             $slideimage = $page->getAttribute('files');
             $sliderimages = explode('^', $slideimage);
@@ -86,23 +86,23 @@ class article extends Object
            return null;
         }
     }
-    
+
     public function resizeMainImage($width, $height)
     {
         $ih = Loader::helper('image');
         $thumb = $ih->getThumbnail($this->mainImage, $width, $height);
         return $thumb->src;
     }
-    
+
     public function getThumbnailPath($page) {
         $thumbnail = $page->getCollectionAttributeValue('thumbnail');
         if($thumbnail != ''){
         $thumbnailPath = $thumbnail->getRelativePath();
-        $fullThumbPath = BASE_URL.DIR_REL.''.$thumbnailPath;
+        $fullThumbPath = DIR_REL.''.$thumbnailPath;
         } else {
 
                $fullThumbPath = '';
         }
-        return $fullThumbPath; 
+        return $fullThumbPath;
     }
 }
