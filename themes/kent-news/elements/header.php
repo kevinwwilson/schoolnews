@@ -121,7 +121,7 @@
                             ?>
                         </nav>
                         <div class="subscribe">
-                            <a href="/newsletter" target="_blank"><img src="<?php print $this->getThemePath(); ?>/images/Subscribe-graphic.gif" alt="Subscribe-graphic.gif" width="180" height="50"></a>
+                            <a href="/newsletter" target="_blank"><img src="<?php print $this->getThemePath(); ?>/images/Subscribe-graphic.gif" alt="Subscribe-graphic.gif"></a>
                         </div>
                     </div>
                 </header>
