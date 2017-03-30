@@ -57,6 +57,8 @@
             });
         });
         </script>
+        <meta property="og:url" content="<?php echo SOCIAL_URL . $this->url($this->getCollectionObject()->cPath); ?>" />
+
 
 </head>
 <body>
