@@ -145,7 +145,12 @@ foreach ($district as $d) {
         </div>
 <?php } ?>
 
-
+    <?php
+    $seriesName = 'TestValue';
+    if (strlen($seriesName) > 0) {
+    ?>
+    <a class="series">Part of the SNN series "<?php echo $seriesName ?>"</a>
+    <?php } ?>
     <h2><?php echo $newsTitle ?></h2>
     <h4><?php echo $secondaryheadline ?></h4>
     <strong class="date">by <?php echo $author ?>

@@ -1143,7 +1143,8 @@ float: right;
     color: #4a439a;
 }
 
-.article .date{
+.article .date,
+a.series {
 	display:block;
 	font-size:9px;
 	line-height:11px;
