@@ -37,7 +37,7 @@
 						?>
 					</div>
 					<div class="notice">
-						<p>School News Network is funded through sponsorship and developed in collaboration with Kent ISD and our districts.</p>
+						<p>School News Network is community journalism at work, funded through the donations of our sponsors and member school districts and developed by Kent ISD.</p>
 					</div>
 				</div>
                                 <ul class="login">
