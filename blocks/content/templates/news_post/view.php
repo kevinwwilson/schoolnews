@@ -37,6 +37,16 @@ Loader::model('author_list');
 $authorList = new AuthorList();
 $authorList->loadValues();
 
+Loader::model('series_list');
+$seriesId = $c->getCollectionAttributeValue('series_index_id');
+if ($seriesId > 0) {
+    $seriesIndex = seriesList::getById($seriesId);
+} else {
+    $seriesIndex = null;
+}
+
+//add the series name
+
 $secondaryheadline = $c->getAttribute('secondary_headline');
 $photo_caption = $c->getAttribute('photo_caption');
 $district = $c->getAttribute('district');
@@ -146,10 +156,9 @@ foreach ($district as $d) {
 <?php } ?>
 
     <?php
-    $seriesName = 'TestValue';
-    if (strlen($seriesName) > 0) {
+    if (is_object($seriesIndex)) {
     ?>
-    <a class="series">Part of the SNN series "<?php echo $seriesName ?>"</a>
+    <a class="series" href="<?php echo $seriesIndex->link ?>">Part of the SNN series "<?php echo $seriesIndex->title ?>"</a>
     <?php } ?>
     <h2><?php echo $newsTitle ?></h2>
     <h4><?php echo $secondaryheadline ?></h4>

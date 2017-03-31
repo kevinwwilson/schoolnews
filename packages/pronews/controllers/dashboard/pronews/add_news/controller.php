@@ -92,8 +92,18 @@ class DashboardPronewsAddNewsController extends Controller {
 		}
 
 		Loader::model('author_list');
-		$authorList = new AuthorList();
+        $newsHelper = Loader::helper("news_loader");
+
+        //add the series list
+        $seriesList = $newsHelper->getSeriesList();
+
+        $this->set('seriesList', $seriesList);
+
+        $authorList = new AuthorList();
 		$authorList->loadValues();
+
+
+
 		$this->set('authorList', $authorList);
 		$this->set('pageTypes', $pageTypes);
 		$this->addHeaderItem(Loader::helper('html')->javascript('tiny_mce/tiny_mce.js'));
@@ -303,6 +313,7 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('story_slug',$this->post('storySlug'));
 		$p->setAttribute('regional_feature',$this->post('regionalFeature'));
 		$p->setAttribute('news_tag',$this->post('newsTag'));
+		$p->setAttribute('series_index_id',$this->post('seriesIndexId'));
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
 
 

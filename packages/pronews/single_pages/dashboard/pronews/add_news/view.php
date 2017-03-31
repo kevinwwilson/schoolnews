@@ -14,7 +14,8 @@ if (is_object($news)) {
 	$dateline = $news->getCollectionAttributeValue('dateline');
 	$district = $news->getCollectionAttributeValue('district');
 	$regional_feature = $news->getCollectionAttributeValue('regional_feature');
-	$news_tag = $news->getCollectionAttributeValue('news_tag');
+    $news_tag = $news->getCollectionAttributeValue('news_tag');
+    $seriesIndexId = $news->getCollectionAttributeValue('series_index_id');
 	$long_summary = $news->getCollectionAttributeValue('long_summary');
 	$files = $news->getCollectionAttributeValue('files');
 	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
@@ -385,6 +386,18 @@ if (is_object($news)) {
 						}
 						?>
 						<?php  echo $akct->render('form', $tcvalue, true);?>
+					</div>
+				</div>
+
+                <div class="clearfix">
+					<?php  echo $form->label('ctID', t('Belongs to the series'))?> *
+					<?php
+					 if($seriesIndexId != ''){
+						$seriesId = $seriesIndexId;
+
+					} ?>
+					<div class="input">
+						<?php  echo $form->select('seriesIndexId', $seriesList, $seriesId)?>
 					</div>
 				</div>
 

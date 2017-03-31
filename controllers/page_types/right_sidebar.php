@@ -46,5 +46,6 @@ class RightSidebarPageTypeController extends Controller{
         //add the series list
         $seriesList = $newsHelper->getSeriesList();
         $this->set('seriesList', $seriesList);
+        
     }
 }
