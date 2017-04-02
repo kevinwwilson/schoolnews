@@ -98,7 +98,7 @@ class article extends Object
         $thumbnail = $page->getCollectionAttributeValue('thumbnail');
         if($thumbnail != ''){
         $thumbnailPath = $thumbnail->getRelativePath();
-        $fullThumbPath = DIR_REL.''.$thumbnailPath;
+        $fullThumbPath = BASE_URL.DIR_REL.''.$thumbnailPath;
         } else {
 
                $fullThumbPath = '';
