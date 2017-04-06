@@ -29,7 +29,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
 
 <?php echo Loader::helper('concrete/dashboard')->getDashboardPaneHeaderWrapper(t('View/Search News'), false, false, false);?>
 <div class="ccm-pane-body">
-<?php 
+<?php
     if($remove_name){
 ?>
         <div class="alert-message block-message error">
@@ -41,12 +41,12 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 <a class="btn small" href="<?php  echo $this->action('deletethis', $remove_cid, $remove_name)?>"><?php  echo t('Yes Remove This');?></a> <a class="btn small" href="<?php  echo $this->action('clear_warning');?>"><?php  echo t('Cancel');?></a>
             </div>
         </div>
-<?php 
+<?php
     }
 ?>
 <?php $form = Loader::helper('form'); ?>
 <form method="get" action="<?php  echo $this->action('view')?>">
-        <?php  
+        <?php
         $sections[0] = '** All';
         asort($sections);
         ?>
@@ -63,11 +63,11 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 <td>
                     <select name="dist" style="width: 130px!important;">
                         <option value=''>--</option>
-                        <?php 
+                        <?php
                         foreach($dist_values as $dist){
                             if($_GET['dist']==$dist['value']){$selected = 'selected="selected"';}else{$selected=null;}
                             echo '<option '.$selected.'>'.$dist['value'].'</option>';
-                        }	
+                        }
                         ?>
                     </select>
                 </td>
@@ -77,11 +77,11 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                 <td>
                     <select name="tag" style="width: 110px!important;">
                             <option value=''>--</option>
-                    <?php 
+                    <?php
                     foreach($tag_values as $tag){
                         if($_GET['tag']==$tag['value']){$selected = 'selected="selected"';}else{$selected=null;}
                         echo '<option '.$selected.'>'.$tag['value'].'</option>';
-                    }	
+                    }
                     ?>
                     </select>
                 </td>
@@ -89,15 +89,15 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                     <?php echo $form->submit('submit', 'Search');?>
                 </td>
             </tr>
-        </table>	
+        </table>
     </form>
 
     <br/>
-    <?php  
+    <?php
         $nh = Loader::helper('navigation');
-        if ($newsList->getTotal() > 0) { 
+        if ($newsList->getTotal() > 0) {
         $newsList->displaySummary();
-    ?>	
+    ?>
     <table border="0" class="ccm-results-list" cellspacing="0" cellpadding="0">
         <tr>
             <th>Edit</th>
@@ -119,21 +119,22 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                     <?php  echo t('Author')?></a>
             </th>
             <th><?php  echo t('Group Status')?></th>
+            <th></th>
         </tr>
-        <?php  
+        <?php
             $pkt = Loader::helper('concrete/urls');
             $pkg= Package::getByHandle('pronews');
             Loader::model('attribute/categories/collection');
             foreach($newsResults as $cobj) {
                 $akct = CollectionAttributeKey::getByHandle('news_category');
                 $news_category = $cobj->getCollectionAttributeValue($akct);
-                
+
                 $akct = CollectionAttributeKey::getByHandle('author');
                 $author = $cobj->getCollectionAttributeValue($akct);
                 ?>
                 <tr>
                     <td width="20px">
-                        <a href="<?php  echo $this->url('/dashboard/pronews/add_news', 'edit', $cobj->getCollectionID())?>" class="icon edit"></a>				
+                        <a href="<?php  echo $this->url('/dashboard/pronews/add_news', 'edit', $cobj->getCollectionID())?>" class="icon edit"></a>
                     </td>
                     <td>
                         <a href="<?php  echo $nh->getLinkToCollection($cobj)?>"><?php  echo $cobj->getCollectionName()?></a>
@@ -142,7 +143,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                         <?php echo $cobj->getCollectionAttributeValue('story_slug'); ?>
                     </td>
                     <td>
-                        <?php  
+                        <?php
                         if ($cobj->getCollectionDatePublic() > date(DATE_APP_GENERIC_MDYT_FULL) ){
                             echo '<font style="color:green;">';
                             echo $cobj->getCollectionDatePublic();
@@ -153,7 +154,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                         ?>
                     </td>
                     <td>
-                       <?php 
+                       <?php
                        $district = $cobj->getCollectionAttributeValue('district');
                        $districtArray = Array();
                        if($district>0){
@@ -165,8 +166,8 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                                }
                                echo implode(', ', $districtArray);
                                echo '">[more]</a>';
-                           } 
-                       } 
+                           }
+                       }
                        ?>
                     </td>
                     <td>
@@ -175,7 +176,7 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                     <td class="gro-select" id = "<?php echo 'cat'.$cobj->cID ?>">
                         <form>
                             <?php echo Loader::helper('form')->hidden('news_id',$cobj->cID); ?>
-                            <?php  
+                            <?php
                                 Loader::model("attribute/categories/collection");
                                 $akct = CollectionAttributeKey::getByHandle('group_status');
                                 if (is_object($cobj)) {
@@ -190,20 +191,30 @@ background-image:url('<?php  echo ASSETS_URL_IMAGES?>/icons_sprite.png'); /*your
                             if($("#"+id+" .ccm-input-select").val() == '93'){
                                 $('#'+id+' .ccm-input-select').addClass('greensel');
                             }else if($("#"+id+" .ccm-input-select").val() == '92') {
-                                $('#'+id+' .ccm-input-select').addClass('whitesel');	 
+                                $('#'+id+' .ccm-input-select').addClass('whitesel');
                             }else if($("#"+id+" .ccm-input-select").val() == '94'){
                                 $('#'+id+' .ccm-input-select').addClass('yellowesel');
                             }else{
-                                $('#'+id+' .ccm-input-select').addClass('redesel'); 
+                                $('#'+id+' .ccm-input-select').addClass('redesel');
                             }
                          </script>
                         </td>
+                        <?php
+                        $scheduled = $cobj->getCollectionAttributeValue('schedule_article');
+                        $publishDate = $cobj->getCollectionAttributeValue('publish_date');
+
+                        if ($scheduled == '1' && $publishDate >= date('Y-m-d H:i:s')  ) {
+                        ?>
+                            <td><a class="schedule" data-toggle="tooltip" title="<?php echo $publishDate; ?>"> <i style="margin-bottom: 20px;" class="icon-time" ></i></a></td>
+                        <?php
+                        }
+                        ?>
                 </tr>
     <?php  } ?>
     </table>
         <br/>
-        <?php  
-        $newsList->displayPaging();		
+        <?php
+        $newsList->displayPaging();
         } else {
             print t('No news entries found.');
         }
@@ -219,7 +230,7 @@ $(document).ready(function(){
 
 $(".gro-select select option[value='']").remove();
 
-    $('.gro-select select').change(function(){	
+    $('.gro-select select').change(function(){
         var crid = $(this).parent().parent().attr('id');
 
         var data=$(this).parent().serialize();
@@ -238,7 +249,7 @@ $(".gro-select select option[value='']").remove();
                 $("#"+crid+" .ccm-input-select").removeClass('redesel');
                 $("#"+crid+" .ccm-input-select").removeClass('whitesel');
                 $("#"+crid+" .ccm-input-select").removeClass('yellowesel');
-                $("#"+crid+" .ccm-input-select").addClass('greensel');	
+                $("#"+crid+" .ccm-input-select").addClass('greensel');
 
             }else if($.trim(data) == 'redesel'){
                 $("#"+crid+" .ccm-input-select").removeClass('greensel');
@@ -258,6 +269,7 @@ $(".gro-select select option[value='']").remove();
 });
 
 $(".district-list").tooltip();
+$(".schedule").tooltip();
 });
 
-</script>   
+</script>

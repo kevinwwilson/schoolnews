@@ -1,7 +1,7 @@
-<?php  
-defined('C5_EXECUTE') or die(_("Access Denied.")); 
+<?php
+defined('C5_EXECUTE') or die(_("Access Denied."));
 class DashboardpronewslistController extends Controller {
-	
+
     public $num = 15;
 
     public $helpers = array('html','form');
@@ -27,22 +27,22 @@ class DashboardpronewslistController extends Controller {
         }
         if(!empty($_GET['keyword'])){
             $newsList->filterByKeywords($_GET['keyword']);
-        } 
+        }
 
         if(!empty($_GET['author'])){
             $author = $_GET['author'];
             $newsList->filter(false,"ak_author like '%$author%'");
         }
-        
+
         if(!empty($_GET['slug'])){
             $slug = $_GET['slug'];
             $newsList->filter(false,"ak_story_slug like '%$slug%'");
         }
-        
+
         if(!empty($_GET['cat'])){
             $cat = $_GET['cat'];
             $newsList->filter(false,"ak_news_category like '%$cat%'");
-        } 
+        }
 
         if(!empty($_GET['tag'])){
             $tag = $_GET['tag'];
@@ -52,9 +52,9 @@ class DashboardpronewslistController extends Controller {
         if(!empty($_GET['dist'])){
             $dist = $_GET['dist'];
             $newsList->filter(false,"ak_district like '%$dist%'");
-        }           
+        }
 
-        $newsList->setItemsPerPage($this->num);		    
+        $newsList->setItemsPerPage($this->num);
         $newsResults=$newsList->getPage();
 
         $this->set('newsResults', $newsResults);
@@ -62,6 +62,9 @@ class DashboardpronewslistController extends Controller {
         $this->set('cat_values', $this->getNewsCats());
         $this->set('tag_values', $this->getNewsTags());
         $this->set('dist_values', $this->getDistict());
+
+		$icons = '<script type="text/javascript" src="/js/cycle/cycle.min.js"></script>';
+		$this->addHeaderItem($icons);
     }
 
     protected function loadnewsSections() {
@@ -80,14 +83,14 @@ class DashboardpronewslistController extends Controller {
     public function approvethis($cIDd,$name) {
         $p = Page::getByID($cIDd, 'ACTIVE');
         $p->setAttribute('approve','1');;
-        $this->set('message', t('"'.$name.'" has been approved and is now public')); 
+        $this->set('message', t('"'.$name.'" has been approved and is now public'));
         $this->view();
     }
 
     public function unapprovethis($cIDd,$name) {
         $p = Page::getByID($cIDd, 'ACTIVE');
         $p->setAttribute('approve','0');;
-        $this->set('message', t('"'.$name.'" has been approved and is now public')); 
+        $this->set('message', t('"'.$name.'" has been approved and is now public'));
         $this->view();
     }
 
@@ -100,7 +103,7 @@ class DashboardpronewslistController extends Controller {
     public function deletethis($cIDd,$name) {
         $c= Page::getByID($cIDd, 'ACTIVE');
         $c->delete();
-        $this->set('message', t('"'.$name.'" has been deleted')); 
+        $this->set('message', t('"'.$name.'" has been deleted'));
         $this->set('remove_name','');
         $this->set('remove_cid','');
         $this->view();

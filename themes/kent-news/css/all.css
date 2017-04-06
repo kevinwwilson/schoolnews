@@ -115,24 +115,16 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
 	text-transform:uppercase;
 	border-bottom:1px solid #e2e1e1;
 	box-shadow:0 1px 4px #ccc;
-        height: 100px;
-        position: relative;
+    height: 112 px;
+    position: relative;
 }
 
-.header-frame .search-form {
+.subscribe {
     float: right;
     clear: right;
-    background: #fff;
-    border: 1px solid #a4cf63;
     margin-top: 6px;
 }
 
-.header-frame .search-form input[type="submit"] {
-    background: url("/themes/kent-news/images/sprite.png") no-repeat scroll 3px -21px #a4cf63;
-    margin: 0px;
-    height: 21px;
-    width : 21px;
-}
 /* logo */
 .logo{
 	float:left;
@@ -602,8 +594,11 @@ z-index: 10;}
 }
 
 #print {
+    border-right: 1px dotted #bbbbbb;
     background: url('../images/printer-32.png') no-repeat;
     float: left;
+    margin: 0 9px 0 0px;
+    padding-right: 14px;
     height: 32px;
     width: 32px;
     position: relative;
@@ -622,6 +617,19 @@ z-index: 10;}
     width: 32px;
 }
 
+#search {
+    background: url('../images/search_button.png') no-repeat 3px 0;
+    float: left;
+    height: 32px;
+    width: 38px;
+    margin-left: 9px;
+}
+
+#search a {
+    width: 40px;
+    height: 32px;
+    position: absolute;
+}
 
 
 .upper-social-media {
@@ -630,16 +638,27 @@ z-index: 10;}
     float: left;
 }
 
+ .search a {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.search {
+    background-color: #8DB354;
+
+}
+
 .share-story {
     float: left;
     width: 162px;
-    margin: 5px 0 0 9px;
+    margin: 5px 0 0 34px;
     clear: left;
 	height: 30px;
 }
 
 .p-news {
-    width: 520px;
+    width: 515px;
     float: right;
 }
 
@@ -1441,7 +1460,7 @@ float: right;
 }
 .info-box{
 	padding:11px 0 12px;
-	border-top:1px solid #cfd0d1;
+	/* border-top:1px solid #cfd0d1; Removed when moving sidebar elements around*/
 }
 #sidebar .info-box h2{
 	font-size:17px;
@@ -1453,6 +1472,8 @@ float: right;
 }
 .info-box img{margin:0 0 12px;}
 .info-box p{margin:0 0 3px;}
+
+
 /* weather-box */
 .weather-box{
 	padding:30px 0 10px;
