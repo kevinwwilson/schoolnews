@@ -19,6 +19,8 @@ if (is_object($news)) {
 	$long_summary = $news->getCollectionAttributeValue('long_summary');
 	$files = $news->getCollectionAttributeValue('files');
 	$singlemultiple = $news->getCollectionAttributeValue('single_multiple_photo_status');
+	$publishDate= $news->getCollectionAttributeValue('publish_date');
+	$scheduleArticle= $news->getCollectionAttributeValue('schedule_article');
 	$newsTitle = $news->getCollectionName();
 	$newsDescription = $news->getCollectionDescription();
 	$newsDate = $news->getCollectionDatePublic();
@@ -427,7 +429,26 @@ if (is_object($news)) {
 						<?php  echo $aku->render('form', $uvalue, array('size'=>'50'));?>
 					</div>
 				</div>
+            <div class="clearfix">
+                <?php  echo $form->label('schedulearticle', t('Schedule Article'))?>
+                <div class="input">
+                    <?php
+                    Loader::model("attribute/categories/collection");
+                    $akct = CollectionAttributeKey::getByHandle('schedule_article');
+                    if (is_object($news)) {
+                        $tcvalue = $news->getAttributeValueObject($akct);
+                    }
+                    ?>
+                    <?php  echo $akct->render('form', $tcvalue, true);?>
+                </div>
+            </div>
 
+            <div class="clearfix">
+                <?php  echo $form->label('publishdate', t('Publish Date'))?>
+                <div class="input">
+                    <?php  echo $df->datetime('publishdate', $publishDate)?>
+                </div>
+            </div>
 
 			</div>
 			<div class="pane meta" style="display: none;">
@@ -483,8 +504,8 @@ if (is_object($news)) {
         #longCount, #shortCount{text-align: right; margin-top: 20px; margin-right: 10px;}
     </style>
 <script>
-            if($('.statushidden input:text').val() == ''){
-$('.statushidden input:text').val(3);
+if($('.statushidden input:text').val() == ''){
+    $('.statushidden input:text').val(3);
 }
 
 if($('.statushidden input:text').val() == '2'){
@@ -502,6 +523,8 @@ if($('.statushidden input:text').val() == '2'){
 		$('#photoCaption').hide();
 
 }
+
+
 
 $("input:radio[name=image]").click(function() {
     var value = $(this).val();
@@ -525,6 +548,7 @@ $("input:radio[name=image]").click(function() {
 	}
 
 });
+
 
 $("#newsDescription").keyup(function(){ countCharacters('#newsDescription', '#shortCount', 200); });
 
