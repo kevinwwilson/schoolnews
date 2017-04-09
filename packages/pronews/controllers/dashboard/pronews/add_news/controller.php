@@ -96,6 +96,9 @@ class DashboardPronewsAddNewsController extends Controller {
 
         //add the series list
         $seriesList = $newsHelper->getSeriesList();
+		// add a first, non option to the list
+		$defaultOption = ["" => '** None'];
+		$seriesList = $defaultOption + $seriesList;
 
         $this->set('seriesList', $seriesList);
 
@@ -317,7 +320,6 @@ class DashboardPronewsAddNewsController extends Controller {
 		$p->setAttribute('single_multiple_photo_status',$this->post('singlemultiple'));
         $p->setAttribute('publish_date',Loader::helper('form/date_time')->translate('publishdate'));
 		$p->setAttribute('files',$this->post('files'));
-		// var_dump($this->post()); die();
 		$p->setAttribute('schedule_article',$this->post('schedulearticle'));
 		$bt = BlockType::getByHandle('content');
 		$test = $this->post('files');
