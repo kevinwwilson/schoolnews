@@ -1,6 +1,6 @@
 <!-- items-block -->
 <aside class="items-block news-region">
-	<a href="/news-region/"><h2>SCHOOL NEWS BY REGION</h2></a>
+	<h2>SCHOOL NEWS BY REGION</h2>
 	<div class="items-block-holder">
 		<div class="item">
 			<a href="/news-region/n">
