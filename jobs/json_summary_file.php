@@ -23,7 +23,7 @@ class JsonSummaryFile extends Job {
 		$tmpSections = $newsSectionList->get();
 		$sections = array();
 
-		$lastthree_date = date("Y-m-d H:i:s",strtotime("-3 Months"));
+		$lastthree_date = date("Y-m-d H:i:s",strtotime("-5 Months"));
 
 
 
@@ -50,7 +50,7 @@ class JsonSummaryFile extends Job {
 
 
 			 $district = $cobj->getCollectionAttributeValue('district');
-                         
+
 			 $dis = array();
 
 			 foreach($district as $dist){
@@ -67,7 +67,7 @@ class JsonSummaryFile extends Job {
 			 $url = $nh->getLinkToCollection($cobj);
 			 $base = BASE_URL.DIR_REL;
 			 $full_url = $base.''.$url;
-			 $primary_headline = $cobj->getCollectionName();                                         
+			 $primary_headline = $cobj->getCollectionName();
 			 $summary = $cobj->getCollectionDescription();
 			 $thumbnail = $cobj->getCollectionAttributeValue('thumbnail');
 			 if($thumbnail != ''){
