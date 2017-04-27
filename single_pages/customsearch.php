@@ -21,7 +21,7 @@
 <div class="custom_search_form">
     <form id="search_form" action="/customsearch" method="post">
       <label for="search">Look For:</label>
-      <input id="search" name="search" value="<?php echo $searchText ?>"></input>
+      <input id="search_box" name="search" value="<?php echo $searchText ?>"></input>
       <label for="districts_list">Which Districts:</label>
       <select name="district_list" id="districts" class="district_list">
         <option value="">All Districts</option>
@@ -78,7 +78,7 @@
             district = '';
         }
         var formUrl = '/customsearch';
-        var search = $("#search").val();
+        var search = $("#search_box").val();
         var query = search + ' ' + district;
         var params = {q: query, text: search, dist: distVal}
         var url = formUrl + '?' + jQuery.param(params);

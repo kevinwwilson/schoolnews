@@ -3,7 +3,7 @@
 
 				<div class="footer-holder">
 					<!-- search-form -->
-					<form action="customsearch" method="get" class="search-form">
+					<form action="/customsearch" method="get" class="search-form">
 						<fieldset>
 							<input type="text" id="query" name="q" />
 							<input type="submit" value="Submit" />
