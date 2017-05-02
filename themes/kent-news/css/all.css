@@ -125,6 +125,18 @@ input[type=text], input[type=password],input[type=submit], input[type=file], tex
     margin-top: 6px;
 }
 
+.subscribe .fa-search {
+	font-size: 19px;
+	margin-left: 10px;
+	width: 20px;
+}
+
+.subscribe .fa-search:hover {
+	color: #928ec2;
+	text-decoration: none;
+	font-weight: bold;
+}
+
 /* logo */
 .logo{
 	float:left;

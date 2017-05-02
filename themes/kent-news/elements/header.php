@@ -123,7 +123,8 @@
                             ?>
                         </nav>
                         <div class="subscribe">
-                            <a href="/newsletter" target="_blank"><img src="<?php print $this->getThemePath(); ?>/images/Subscribe-graphic.gif" alt="Subscribe-graphic.gif"></a>
+                            <a href="/newsletter" title="Get school news in your inbox" target="_blank"><img src="<?php print $this->getThemePath(); ?>/images/Subscribe-graphic.gif" alt="Subscribe-graphic.gif"></a>
+                            <a class="fa fa-search" title="Search all of School News Network" href="/customsearch" target="_blank"></a>
                         </div>
                     </div>
                 </header>
