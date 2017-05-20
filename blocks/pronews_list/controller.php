@@ -245,9 +245,19 @@ class PronewsListBlockController extends BlockController {
         $this->set('first_page', $first_page[0]);
 
         //now go and get pages
+
+        //this is set the same way on all district index pages
+        $articesPerPage = 10;
         if ($num > 0) {
+            //requesting a page number
+            if (num <= 3) {
+                //sort out a bunch of district articles first
+            } else {
+                //just use the page requested
+            }
             $pages = $pl->getPage();
         } else {
+            //no page number found
             $pages = $pl->get();
         }
 
@@ -255,14 +265,16 @@ class PronewsListBlockController extends BlockController {
             $pages = $pl->get();
         }
 
-
-        $this->trackDisplayedArticles($pages);
-
         if ($template == 'district_index') {
-            $pages = $this->sortDistrictsFirst($pages, $distss);
-        }
-// var_dump($pages['secondary']);
+            $this->handleDistrictList($pl, $num);
+            //move this to the function
+            //$pages = $this->sortDistrictsFirst($pages, $distss);
+        } else {
 
+        }
+        //set all the articles that will display into a master array that is used on the pages
+        //to deduplicate those shown
+        $this->trackDisplayedArticles($pages);
         $this->set('pl', $pl);
         return $pages;
     }
