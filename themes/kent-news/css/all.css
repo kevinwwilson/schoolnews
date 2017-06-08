@@ -1783,6 +1783,11 @@ a.series {
             display: none;
 	}
 
+
+.subscribe {
+    padding-top: 12px;
+}
+
 	#main{width:96%;background:none;}
 	#content{width:100%;}
 	.content-block-holder{

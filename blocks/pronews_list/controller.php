@@ -419,7 +419,7 @@ class PronewsListBlockController extends BlockController {
 
     public function handleDistrictList($pageList, $articlesPerPage, $district) {
         //this is set the same way on all district index pages
-        $districtArticles = 3;
+        $districtArticles = 4;
         $pageNum = $this->getCurrentPage();
         if ($pageNum > 0) {
             //requesting a page number
