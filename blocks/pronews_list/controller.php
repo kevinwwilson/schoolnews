@@ -385,6 +385,7 @@ class PronewsListBlockController extends BlockController {
             //district
             if ($dateline == $district && $primary <= $districtNum) {
                 $sortedList['primary'][] = $page;
+                //Update the total number of primary articles found.
                 $primary++;
             } else {
                 $sortedList['secondary'][] = $page;
@@ -396,14 +397,22 @@ class PronewsListBlockController extends BlockController {
         //further down, but we don't want to actually show them unless we're on the first page.
         if ($pageNum > 1) {
             $sortedList['primary'] = array();
+            $secondaryToDisplay = $totalNum;
+
+            //How far into the secondary array to go to start fetching articles
+            $offset = (($pageNum - 2) * $totalNum) + ($totalNum - $primary);
+        } else {
+            //We're on the first page, subtract the primary from the number to display.
+            $secondaryToDisplay = $totalNum - $primary;
+            $offset = 0;
         }
-        
+
         //if requesting the total number of articles be limited, then trim off the articles off the secondary array
         //in order to make the correct number.
         //if requesting a particular page number than use that as the offset to return a particular portion of the
         //array.
         if ($totalNum > 0) {
-            $sortedList['secondary'] = array_slice($sortedList['secondary'], ($pageNum - 1) * $totalNum, $totalNum - count($sortedList['primary']));
+            $sortedList['secondary'] = array_slice($sortedList['secondary'], $offset, $secondaryToDisplay);
         }
         return $sortedList;
     }
