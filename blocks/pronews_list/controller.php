@@ -244,37 +244,24 @@ class PronewsListBlockController extends BlockController {
         $first_page = $first_page->get(1, 0);
         $this->set('first_page', $first_page[0]);
 
-        //now go and get pages
-
-        //this is set the same way on all district index pages
-        $articesPerPage = 10;
-        if ($num > 0) {
-            //requesting a page number
-            if (num <= 3) {
-                //sort out a bunch of district articles first
-            } else {
-                //just use the page requested
-            }
-            $pages = $pl->getPage();
-        } else {
-            //no page number found
-            $pages = $pl->get();
-        }
 
         if ($template == 'search' && $_GET['q'] != '') {
             $pages = $pl->get();
         }
 
         if ($template == 'district_index') {
-            $this->handleDistrictList($pl, $num);
-            //move this to the function
-            //$pages = $this->sortDistrictsFirst($pages, $distss);
+            $pages = $this->handleDistrictList($pl, $num, $distss);
         } else {
-
+            //now go and get pages
+            if ($num > 0) {
+                $pages = $pl->getPage();
+            } else {
+                $pages = $pl->get();
+            }
+            //set all the articles that will display into a master array that is used on the pages
+            //to deduplicate those shown
+            $this->trackDisplayedArticles($pages);
         }
-        //set all the articles that will display into a master array that is used on the pages
-        //to deduplicate those shown
-        $this->trackDisplayedArticles($pages);
         $this->set('pl', $pl);
         return $pages;
     }
@@ -382,25 +369,86 @@ class PronewsListBlockController extends BlockController {
             'secondary' => [articles...]
         ]
     */
-    public function sortDistrictsFirst($pages, $district) {
+    public function sortDistrictsFirst($pages, $district, $districtNum, $totalNum = 0, $pageNum = 1) {
         //for some reason these come surrounded by junk from C5
         $district = trim($district);
 
         $sortedList = array();
+        $sortedList['primary'] = array();
+        $sortedList['secondary'] = array();
+        $primary = 0;
         foreach ($pages as $page) {
             $dateline = (string)$page->getAttribute('dateline');
 
             //business rule: the important thing is to have the articles with the target district showing in the dateline.  There may
             //be many different distrits assigned to the article, but only regard the article as primary if the dateline shows the
             //district
-                if ($dateline == $district) {
+            if ($dateline == $district && $primary <= $districtNum) {
                 $sortedList['primary'][] = $page;
+                $primary++;
             } else {
                 $sortedList['secondary'][] = $page;
             }
+
         }
 
+        // We're happy that the district articles were shoved into the primary spot so they won't get displayed
+        //further down, but we don't want to actually show them unless we're on the first page.
+        if ($pageNum > 1) {
+            $sortedList['primary'] = array();
+        }
+        
+        //if requesting the total number of articles be limited, then trim off the articles off the secondary array
+        //in order to make the correct number.
+        //if requesting a particular page number than use that as the offset to return a particular portion of the
+        //array.
+        if ($totalNum > 0) {
+            $sortedList['secondary'] = array_slice($sortedList['secondary'], ($pageNum - 1) * $totalNum, $totalNum - count($sortedList['primary']));
+        }
         return $sortedList;
+    }
+
+    public function handleDistrictList($pageList, $articlesPerPage, $district) {
+        //this is set the same way on all district index pages
+        $districtArticles = 3;
+        $pageNum = $this->getCurrentPage();
+        if ($pageNum > 0) {
+            //requesting a page number
+            if ($pageNum <= 3) {
+
+                //the pagelist appears to keep track of how many pages were requested.  If we're going to request 3 pages
+                //worth but only display the first page after sorting, then that will mess up the pagination.  Instead we'll
+                //leave the original pagelist intact for pagination purposes, and do our querying and sorting with
+                //a clone
+                $pl = clone $pageList;
+                //sort out a bunch of district articles first
+                $pages = $pl->get(3*$articlesPerPage);
+                $this->trackDisplayedArticles($pages);
+                $pages = $this->sortDistrictsFirst($pages, $district, $districtArticles, $articlesPerPage, $pageNum);
+            } else {
+                //just use the page requested
+                $pages = $pageList->getPage();
+                $this->trackDisplayedArticles($pages);
+                $pages = $this->sortDistrictsFirst($pages, $district, $districtArticles);
+            }
+        } else {
+            //no page number found
+            $pages = $pageList->get();
+            $this->trackDisplayedArticles($pages);
+        }
+        return $pages;
+    }
+
+    private function getCurrentPage() {
+        $parameters = array_keys($_GET);
+        foreach ($parameters as $parameter) {
+            if (substr($parameter, 0, strlen(PAGING_STRING)) == PAGING_STRING) {
+                return (int) $_GET[$parameter];
+            }
+        }
+
+        //if no paging parameter was found, then assume that this is the first page
+        return 1;
     }
 
 }
