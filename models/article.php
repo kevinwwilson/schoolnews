@@ -1,5 +1,5 @@
 <?php
-class article extends Object
+class article extends Object implements JsonSerializable
 {
     public $title;
     public $date;
@@ -14,7 +14,27 @@ class article extends Object
     public $mainImage;
     public $slideShow;
     public $thumbnail;
+    public $content;
 
+    public function jsonSerialize() {
+        return array(
+            'Title' => $this->title,
+            'SecondaryHeadline' => $this->secondaryHeadline,
+            'Status' => $this->status,
+            'District' => $this->district,
+            'Date' => $this->date,
+            'URL' => $this->link,
+            'Author'=> $this->author,
+            'Dateline' => $this->dateline,
+            'LongSummary' => $this->longSummary,
+            'Summary' 	=> $this->summary,
+            'PhotoType' => $this->photoType,
+            'MainImage' => $this->mainImage,
+            'SlideShow' => $this->slideShow,
+            'Thumbnail' => $this->thumbnail,
+            'Content'	=> $this->content
+        );
+    }
     /*
      * Takes a c5 page_list model and returns an array of article models
      */
@@ -49,6 +69,7 @@ class article extends Object
         $this->thumbnail = $this->getThumbnailPath($page);
         $this->mainImage = $this->getMainImage($page);
         $this->slideShow = $this->getSlideImages($page);
+        $this->content = $this->getContent($page);
     }
 
     public function getMainImage($page) {
@@ -104,5 +125,15 @@ class article extends Object
                $fullThumbPath = '';
         }
         return $fullThumbPath;
+    }
+
+    public function getContent($page) {
+        $block = $page->getBlocks('Main');
+        foreach ($block as $bi) {
+            if ($bi->getBlockTypeHandle() == 'content') {
+                $content = $bi->getInstance()->getContent();
+            }
+        }
+        return $content;
     }
 }

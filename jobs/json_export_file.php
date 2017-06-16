@@ -17,7 +17,12 @@ class JsonExportFile extends Job {
 		   Loader::model('article');
 			$newsResults = $this->getAllNews();
 			$newsData = article::buildFromPageList($newsResults);
-			$this->writeDataFile($newsData);
+			// $newsList = array();
+			// foreach ($newsData as $newsArticle) {
+			// 	$newsList[] = $this->parseArticleObject($newsArticle);
+			// }
+			$filename = $this->writeDataFile($newsData);
+			return ('Created file at ' . $filename);
 	   }
 
 	   private function getAllNews() {
@@ -50,50 +55,36 @@ class JsonExportFile extends Job {
 			return $newsResults;
 	   }
 
-	   private function parsePageObject($page) {
-		   $district = $cobj->getCollectionAttributeValue('district');
-
-		   $dis = array();
-
-		   foreach($district as $dist){
-			  $dis[] = $dist->value;
-		   }
-
-		   $disimplode = implode(",",$dis);
-
-		   $date = $cobj->getCollectionDatePublic();
-		   $url = $nh->getLinkToCollection($cobj);
-		   $base = BASE_URL.DIR_REL;
-		   $full_url = $base.''.$url;
-		   $primary_headline = $cobj->getCollectionName();
-		   $summary = $cobj->getCollectionDescription();
-		   $thumbnail = $cobj->getCollectionAttributeValue('thumbnail');
-		   if($thumbnail != ''){
-		   $thumbnail_path = $thumbnail->getRelativePath();
-		   $full_thumb_path = $base.''.$thumbnail_path;
-		   } else {
-
-			  $full_thumb_path = '';
-		   }
-
-			$pageData =
-			array(
-				'District' => $disimplode,
-				'Date' => $date,
-				'URL' => $full_url,
-				'Headline' => $primary_headline,
-				'Summary' => $summary,
-				'Thumbnail' => $full_thumb_path
-			);
-			return $pageData;
-	   }
+	//    private function parseArticleObject($page) {
+	// 		$pageData =
+	// 		array(
+	// 			'Title' => $page->title,
+	// 			'SecondaryHeadline' => $page->secondaryHeadline,
+	// 			'Status' => $page->status,
+	// 			'District' => $page->district,
+	// 			'Date' => $page->date,
+	// 			'URL' => $page->link,
+	// 			'Author'=> $page->author,
+	// 			'Dateline' => $page->dateline,
+	// 			'LongSummary' => $page->longSummary,
+	// 			'Summary' 	=> $page->summary,
+	// 			'PhotoType' => $page->photoType,
+	// 			'MainImage' => $page->mainImage,
+	// 			'SlideShow' => $page->slideShow,
+	// 			'Thumbnail' => $page->thumbnail,
+	// 			'Content'	=> $page->content
+	// 		);
+	// 		return $pageData;
+	//    }
 
 	   private function writeDataFile($data) {
-		   $json = json_encode($newsData);
+		   $json = json_encode($data);
 		   $date = date('Y-m-d');
-		   $filename = fopen(DIR_BASE.'/files/export' . $date .'.json',"w+")or die("can't open file");
+		   $path = DIR_BASE.'/files/export' . $date .'.json';
+		   $filename = fopen($path,"w+")or die("can't open file");
 		   fwrite($filename, $json);
 		   fclose($filename);
+		   return $path;
 	   }
 
 }
