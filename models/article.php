@@ -16,8 +16,9 @@ class article extends Object implements JsonSerializable
     public $photoType;
     public $mainImage;
     public $mainImageUrl;
+    public $mainImageCaption;
     public $slideShow;
-    public $slideShowUrl;
+    public $slideShowInfo;
     public $thumbnail;
     public $tags;
     public $series;
@@ -40,8 +41,9 @@ class article extends Object implements JsonSerializable
             'PhotoType' => $this->photoType,
             'MainImage' => $this->mainImage,
             'MainImageURL' => $this->mainImageUrl,
+            'MainImageCaption' => $this->mainImageCaption,
             'SlideShow' => $this->slideShow,
-            'SlideShowURL' => $this->slideShowUrl,
+            'SlideShowInfo' => $this->slideShowInfo,
             'Thumbnail' => $this->thumbnail,
             'Tags'      => $this->tags,
             'Series'    =>  $this->series,
@@ -85,8 +87,9 @@ class article extends Object implements JsonSerializable
         $this->thumbnail = $this->getThumbnailPath($page);
         $this->mainImage = $this->getMainImage($page);
         $this->mainImageUrl = $this->getMainImageUrl();
+        $this->mainImageCaption = $this->getMainImageCaption($page);
         $this->slideShow = $this->getSlideImages($page);
-        $this->slideShowUrl = $this->getSlideShowUrl();
+        $this->slideShowInfo = $this->getSlideShowInfo($page);
         $this->tags = $this->getTags($page);
         $this->series = $page->getAttribute('series_index_id');
         $this->content = $this->getContent($page);
@@ -108,6 +111,23 @@ class article extends Object implements JsonSerializable
             $image = File::getByID($sliders[0]);
         }
         return $image;
+    }
+
+    public function getMainImageCaption($page) {
+        $photoType = $page->getAttribute('single_multiple_photo_status');
+        if ($photoType == 1) {
+            return $page->getAttribute('photo_caption');
+        } elseif ($photoType == 2) {
+            //this is a slideshow
+            $slideimage = $page->getAttribute('files');
+            $sliderimages = explode('^', $slideimage);
+
+            //Get the first photo in the slideshow
+            $sliders = explode('||', $sliderimages[0]);
+            return htmlspecialchars_decode($sliders[1]);
+        } else {
+            return null;
+        }
     }
 
     public function getSlideImages($page) {
@@ -181,13 +201,38 @@ class article extends Object implements JsonSerializable
         }
     }
 
-    public function getSlideShowUrl() {
+    public function getSlideShow() {
         if (is_array($this->slideShow)) {
             $urls = array();
             foreach ($this->slideShow as $file) {
-                $urls[] = BASE_URL.DIR_REL.''.$file->getRelativePath();
+                $urls[] = array(
+                    'Id' => $file->getFileID(),
+                    'Url' => BASE_URL.DIR_REL.''.$file->getRelativePath()
+                );
             }
             return $urls;
+        } else {
+            return null;
+        }
+    }
+
+    public function getSlideShowInfo($page) {
+        if ($page->getAttribute('single_multiple_photo_status') == 2) {
+            $slideimage = $page->getAttribute('files');
+            $sliderimages = explode('^', $slideimage);
+
+            $fileList = array();
+            foreach ($sliderimages as $simages) {
+                $sliders = explode('||', $simages);
+                $file = File::getByID($sliders[0]);
+                $captionList[] = array(
+                        'Id' => $sliders[0],
+                        'URL' => BASE_URL.DIR_REL.''.$file->getRelativePath(),
+                        'Caption' => htmlspecialchars_decode($sliders[1])
+                );
+            }
+            return $captionList;
+
         } else {
             return null;
         }
