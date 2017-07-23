@@ -1,9 +1,12 @@
 <?php
 class article extends Object implements JsonSerializable
 {
+    public $id;
     public $title;
+    public $slug;
     public $date;
     public $status;
+    public $district;
     public $link;
     public $author;
     public $dateline;
@@ -12,13 +15,19 @@ class article extends Object implements JsonSerializable
     public $secondaryHeadline;
     public $photoType;
     public $mainImage;
+    public $mainImageUrl;
     public $slideShow;
+    public $slideShowUrl;
     public $thumbnail;
+    public $tags;
+    public $series;
     public $content;
 
     public function jsonSerialize() {
         return array(
+            'Id'    => $this->id,
             'Title' => $this->title,
+            'Slug'  => $this->slug,
             'SecondaryHeadline' => $this->secondaryHeadline,
             'Status' => $this->status,
             'District' => $this->district,
@@ -30,8 +39,12 @@ class article extends Object implements JsonSerializable
             'Summary' 	=> $this->summary,
             'PhotoType' => $this->photoType,
             'MainImage' => $this->mainImage,
+            'MainImageURL' => $this->mainImageUrl,
             'SlideShow' => $this->slideShow,
+            'SlideShowURL' => $this->slideShowUrl,
             'Thumbnail' => $this->thumbnail,
+            'Tags'      => $this->tags,
+            'Series'    =>  $this->series,
             'Content'	=> $this->content
         );
     }
@@ -53,10 +66,13 @@ class article extends Object implements JsonSerializable
         $nh = Loader::helper('navigation');
         Loader::model('page_list');
 
+        $this->id = $page->getCollectionID();
         $this->title = $page->getCollectionName();
+        $this->slug = $page->getAttribute('story_slug');
         $this->date = $page->getCollectionDatePublic();
         $this->status = $page->getCollectionAttributeValue('group_status')->getOptions();
         $this->status = $this->status[0]->value;
+        $this->district = $this->getDistricts($page);
         $this->link = BASE_URL.DIR_REL . $nh->getLinkToCollection($page);
         $this->author = $page->getAttribute('author');
         $this->dateline = $page->getAttribute('dateline')->getOptions();
@@ -68,7 +84,11 @@ class article extends Object implements JsonSerializable
         $this->photoType = $page->getAttribute('single_multiple_photo_status');
         $this->thumbnail = $this->getThumbnailPath($page);
         $this->mainImage = $this->getMainImage($page);
+        $this->mainImageUrl = $this->getMainImageUrl();
         $this->slideShow = $this->getSlideImages($page);
+        $this->slideShowUrl = $this->getSlideShowUrl();
+        $this->tags = $this->getTags($page);
+        $this->series = $page->getAttribute('series_index_id');
         $this->content = $this->getContent($page);
     }
 
@@ -136,4 +156,42 @@ class article extends Object implements JsonSerializable
         }
         return $content;
     }
+
+    public function getDistricts($page) {
+        $district = $page->getAttribute('district');
+        foreach ($district as $d) {
+            $districtArr[] = $d->value;
+        }
+        return $districtArr;
+    }
+
+    public function getTags($page) {
+        $tags = $page->getAttribute('news_tag');
+        foreach ($tags as $tag) {
+            $tagList[] = $tag->value;
+        }
+        return $tagList;
+    }
+
+    public function getMainImageUrl() {
+        if (is_object($this->mainImage)) {
+            return BASE_URL.DIR_REL.''.$this->mainImage->getRelativePath();
+        } else {
+            return null;
+        }
+    }
+
+    public function getSlideShowUrl() {
+        if (is_array($this->slideShow)) {
+            $urls = array();
+            foreach ($this->slideShow as $file) {
+                $urls[] = BASE_URL.DIR_REL.''.$file->getRelativePath();
+            }
+            return $urls;
+        } else {
+            return null;
+        }
+    }
+
+
 }
