@@ -94,7 +94,7 @@ class DistrictPagesHelper{
                 'abbrev'=> 'ghps'
                 ),
             'Godfrey Lee Public Schools'        =>array (
-                'title' => 'Godfrey Lee<br/>Public Schools',
+                'title' => 'Godfrey-Lee<br/>Public Schools',
                 'link' => '/districts/godfrey-lee',
                 'image' => 'glps.jpg',
                 'abbrev'=> 'glps'

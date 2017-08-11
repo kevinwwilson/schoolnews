@@ -383,6 +383,13 @@ class PronewsListBlockController extends BlockController {
             //business rule: the important thing is to have the articles with the target district showing in the dateline.  There may
             //be many different distrits assigned to the article, but only regard the article as primary if the dateline shows the
             //district
+
+            //take out hyphens that may be inconsistent
+            $dateline = str_replace('-', '', $dateline);
+            $district = str_replace('-', '', $district);
+            $dateline = str_replace(' ', '', $dateline);
+            $district = str_replace(' ', '', $district);
+            // var_dump('dateline' . $dateline); var_dump('district' . $district);
             if ($dateline == $district && $primary <= $districtNum) {
                 $sortedList['primary'][] = $page;
                 //Update the total number of primary articles found.
