@@ -196,6 +196,30 @@ foreach ($district as $d) {
             AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 181293, [300,250], 'placement_181293_'+opt.place, opt); }, opt: { place: plc181293++, keywords: abkw, domain: 'servedbyadbutler.com' }});
             </script>
         </div>
+        <div class="article-box-ad">
+            <div id="box-ad1">
+                <!-- Article - Bottom Left [javascript] -->
+                <script type="text/javascript">
+                var rnd = window.rnd || Math.floor(Math.random()*10e6);
+                var pid270631 = window.pid270631 || rnd;
+                var plc270631 = window.plc270631 || 0;
+                var abkw = window.abkw || '';
+                var absrc = 'http://ab166541.adbutler-chargino.com/adserve/;ID=166541;size=300x250;setID=270631;type=js;sw='+screen.width+';sh='+screen.height+';spr='+window.devicePixelRatio+';kw='+abkw+';pid='+pid270631+';place='+(plc270631++)+';rnd='+rnd+';click=CLICK_MACRO_PLACEHOLDER';
+                document.write('<scr'+'ipt src="'+absrc+'" type="text/javascript"></scr'+'ipt>');
+                </script>
+            </div>
+            <div id="box-ad2">
+                <!-- Article - Bottom Right [javascript] -->
+                <script type="text/javascript">
+                var rnd = window.rnd || Math.floor(Math.random()*10e6);
+                var pid270632 = window.pid270632 || rnd;
+                var plc270632 = window.plc270632 || 0;
+                var abkw = window.abkw || '';
+                var absrc = 'http://ab166541.adbutler-chargino.com/adserve/;ID=166541;size=300x250;setID=270632;type=js;sw='+screen.width+';sh='+screen.height+';spr='+window.devicePixelRatio+';kw='+abkw+';pid='+pid270632+';place='+(plc270632++)+';rnd='+rnd+';click=CLICK_MACRO_PLACEHOLDER';
+                document.write('<scr'+'ipt src="'+absrc+'" type="text/javascript"></scr'+'ipt>');
+                </script>
+            </div>
+        </div>
     </div>
     </root>
     <div id="social-call" class=" ccm-block-styles">

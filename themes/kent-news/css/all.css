@@ -1117,7 +1117,23 @@ margin-top: -60px;
 #social-media {
 	margin-bottom: 10px;
 	line-height: 9px;
+	float: left;
+	clear: both;
+	width: 100%;
 }
+
+#social-call {
+	float: left;
+}
+
+
+#box-ad1,
+#box-ad2 {
+    float: left;
+	margin-left:25px;
+}
+
+
 
 #newsletter {
 	float: right;
@@ -1747,6 +1763,20 @@ a.series {
 		display: none;
 	}
 
+
+	#box-ad1, #box-ad2 {
+	    margin-left: 5px;
+		margin-top: 5px;
+	}
+
+	.article-box {
+	    padding: 0px;
+	}
+
+
+	#social-call {
+	    clear: both;
+	}
 
 }
 @media only screen and (max-width: 850px){
