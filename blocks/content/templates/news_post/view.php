@@ -198,14 +198,14 @@ foreach ($district as $d) {
         </div>
         <div class="article-box-ad">
             <div id="box-ad1">
-                <!-- Article - Bottom Left [async] -->
-                <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'https://servedbyadbutler.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+                <!-- Article - Bottom Left [javascript] -->
                 <script type="text/javascript">
-                var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
-                var abkw = window.abkw || '';
+                var rnd = window.rnd || Math.floor(Math.random()*10e6);
+                var pid270631 = window.pid270631 || rnd;
                 var plc270631 = window.plc270631 || 0;
-                document.write('<'+'div id="placement_270631_'+plc270631+'"></'+'div>');
-                AdButler.ads.push({handler: function(opt){ AdButler.register(166541, 270631, [300,250], 'placement_270631_'+opt.place, opt); }, opt: { place: plc270631++, keywords: abkw, domain: 'servedbyadbutler.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+                var abkw = window.abkw || '';
+                var absrc = 'https://servedbyadbutler.com/adserve/;ID=166541;size=300x250;setID=270631;type=js;sw='+screen.width+';sh='+screen.height+';spr='+window.devicePixelRatio+';kw='+abkw+';pid='+pid270631+';place='+(plc270631++)+';rnd='+rnd+';click=CLICK_MACRO_PLACEHOLDER';
+                document.write('<scr'+'ipt src="'+absrc+'" type="text/javascript"></scr'+'ipt>');
                 </script>
             </div>
             <div id="box-ad2">
