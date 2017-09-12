@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+side/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -1441,6 +1441,43 @@ a.series {
     padding-left: 0;
     text-indent: 0;
 }
+
+.sidebar-box {
+    margin: 10px 0px 0px 0px;
+}
+
+.sidebar-box .tab {
+
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 7px 3px 2px 3px;
+    color: white;
+    width
+}
+
+.sidebar-box .tab.green {
+    background: #8DB354;
+}
+
+.sidebar-box .tab.purple {
+    background: #928ec2;
+}
+
+.sidebar-box .frame {
+    padding: 5px;
+}
+
+.sidebar-box .frame.green {
+    border: #8DB354 1px solid;
+    border-top: #8DB354 5px solid;
+}
+
+.sidebar-box .frame.purple {
+    border: #928ec2 1px solid;
+    border-top: #928ec2 5px solid;
+}
+
 
 /*highlight-box*/
 #sidebar .highlight-box {
