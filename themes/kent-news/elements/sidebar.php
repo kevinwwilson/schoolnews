@@ -33,22 +33,6 @@
 	                    </div>
                     </div>
 
-					<div class="sidebar-box">
-	                    <div class="tab purple" style="width: 76%;">
-	                        Additional Sponsors
-	                    </div>
-	                    <div class="frame purple">
-	                    	<?php
-								$a = new Area('Side Content');
-								if ($stack) {
-									echo '<section class="info-box">';
-									$a->display($c);
-									echo '</section>';
-								}
-							?>
-	                    </div>
-                    </div>
-
 					<?php
 					$stack = Stack::getByName('Sidebar 3');
 					if ($stack) {
