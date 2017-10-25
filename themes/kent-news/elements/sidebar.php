@@ -1,20 +1,6 @@
 <!-- sidebar -->
-				<aside id="sidebar" class="nocontent">
-					<div class="sidebar-box">
-						<div class="tab green" style="width: 67%;">
-							Latest Headlines
-						</div>
-						<div class="frame purple">
-							<?php
-							$stack = Stack::getByName('Sidebar 1');
-							if ($stack) {
-								echo '<section class="links-box">';
-								$stack->display();
-								echo '</section>';
-							}
-							?>
-						</div>
-					</div>
+<aside id="sidebar" class="nocontent">
+						<?php $this->inc('elements/home-news.php'); ?>
                     <div class="sidebar-box">
 	                    <div class="tab green" style="width: 67%;">
 	                        Featured Columns
