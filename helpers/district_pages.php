@@ -130,7 +130,7 @@ class DistrictPagesHelper{
                 'abbrev'=> 'kisd'
                 ),
             'Kent City Community Schools'       =>array (
-                'title' => 'Kent City<br/>Public Schools',
+                'title' => 'Kent City<br/>Community Schools',
                 'link' => '/districts/kent-city',
                 'image' => 'kccs.jpg',
                 'abbrev'=> 'kccs'
